@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader
-/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader.rule
-/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader-complete.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader
+/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader.rule
+/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader-complete.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule

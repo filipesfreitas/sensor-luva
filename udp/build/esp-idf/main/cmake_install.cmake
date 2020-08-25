@@ -1,4 +1,4 @@
-# Install script for directory: /home/filipe/esp/i2c_esp32/udp/main
+# Install script for directory: /home/filipe/sensor-luva/udp/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
