@@ -24,31 +24,20 @@
 #include <lwip/netdb.h>
 #include "driver/i2c.h"
 
-#define DATA_LENGTH 512                  /*!< Data buffer length of test buffer */
-#define RW_TEST_LENGTH 128               /*!< Data length for r/w test, [0,DATA_LENGTH] */
-#define DELAY_TIME_BETWEEN_ITEMS_MS 1000 /*!< delay time between different test items */
-
-#define I2C_MASTER_SCL_IO 19               /*!< gpio number for I2C master clock */
-#define I2C_MASTER_SDA_IO 18               /*!< gpio number for I2C master data  */
-#define I2C_MASTER_NUM 0 /*!< I2C port number for master dev */
 #define I2C_MASTER_FREQ_HZ 400000        /*!< I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
 
-#define ADXL345_SLAVE_ADDRref  0X53   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos1 0X1D   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos2 0X53   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos3 0X1D   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos4 0X53   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos5 0X1D   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDRpos6 0X53   /*!< slave address for ADXL345 sensor */
-#define WRITE_BIT I2C_MASTER_WRITE              /*!< I2C master write */
-#define READ_BIT I2C_MASTER_READ                /*!< I2C master read */
-#define ACK_CHECK_EN 0x1                        /*!< I2C master will check ack from slave*/
-#define ACK_CHECK_DIS 0x0                       /*!< I2C master will not check ack from slave */
-#define ACK_VAL 0x0                             /*!< I2C ack value */
-#define NACK_VAL 0x1                            /*!< I2C nack value */
-#define LAST_NACK_VAL 0x2
+#define ADXL345_SLAVE_ADDR0   0x53   /*!< slave address for ADXL345 sensor */
+#define ADXL345_SLAVE_ADDR1   0x1d   /*!< slave address for ADXL345 sensor */
+
+#define WRITE_BIT               I2C_MASTER_WRITE /*!< I2C master write */
+#define READ_BIT                I2C_MASTER_READ  /*!< I2C master read */
+#define ACK_CHECK_EN            0x1              /*!< I2C master will check ack from slave*/
+#define ACK_CHECK_DIS           0x0              /*!< I2C master will not check ack from slave */
+#define ACK_VAL                 0x0              /*!< I2C ack value */
+#define NACK_VAL                0x1              /*!< I2C nack value */
+#define LAST_NACK_VAL           0x2
 
 /* Map of device registers*/
 #define THRESH_TAP  0x1D        /*Tap threshold*/
@@ -101,7 +90,7 @@ static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_
   i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
   i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
   i2c_master_stop(cmd);
-  ret = i2c_master_cmd_begin(i2c_num, cmd, 100/ portTICK_RATE_MS);
+  ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
   i2c_cmd_link_delete(cmd);
 
   if (ret != ESP_OK) {
@@ -113,13 +102,11 @@ static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_
   i2c_master_write_byte(cmd, device << 1 | READ_BIT, ACK_CHECK_EN);
   i2c_master_read(cmd, data, data_len, LAST_NACK_VAL);
   i2c_master_stop(cmd);
-  ret = i2c_master_cmd_begin(i2c_num, cmd, 100 / portTICK_RATE_MS);
+  ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
   i2c_cmd_link_delete(cmd);
 
   return ret;
 }
-
-
 
 static esp_err_t i2c_master_write_slave(i2c_port_t i2c_num ,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
@@ -137,14 +124,15 @@ static esp_err_t i2c_master_write_slave(i2c_port_t i2c_num ,uint8_t device ,uint
 }
 
 
-static esp_err_t i2c_master_ADXL345_init(uint8_t device)
+static esp_err_t i2c_master_ADXL345_init(i2c_port_t MASTER_NUMBER,uint8_t device)
 {
   uint8_t cmd_data;
+  ESP_LOGI(TAG,"\n\nDEVICE %02x\n\n",device);
   vTaskDelay(100 / portTICK_RATE_MS);
   cmd_data = 0x0B;    // ±16g, 13-BIT MODE
-  ESP_ERROR_CHECK(i2c_master_write_slave(I2C_MASTER_NUM, device,DATA_FORMAT, &cmd_data, 1));
+  ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,DATA_FORMAT, &cmd_data, 1));
   cmd_data = 0x08;    // START MEASUREMENT
-  ESP_ERROR_CHECK(i2c_master_write_slave(I2C_MASTER_NUM, device,POWER_CTL, &cmd_data, 1));
+  ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,POWER_CTL, &cmd_data, 1));
 
   return ESP_OK;
 }
@@ -152,18 +140,18 @@ static esp_err_t i2c_master_ADXL345_init(uint8_t device)
 /**
  * @brief i2c master initialization
  */
-static esp_err_t i2c_master_init(void)
+static esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl)
 {
-  int i2c_master_port = I2C_MASTER_NUM;
+
   i2c_config_t conf;
   conf.mode = I2C_MODE_MASTER;
-  conf.sda_io_num = I2C_MASTER_SDA_IO;
+  conf.sda_io_num = sda;
   conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-  conf.scl_io_num = I2C_MASTER_SCL_IO;
+  conf.scl_io_num = scl;
   conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
   conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
-  i2c_param_config(i2c_master_port, &conf);
-  return i2c_driver_install(i2c_master_port, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
+  i2c_param_config(MASTER_NUMBER, &conf);
+  return i2c_driver_install(MASTER_NUMBER, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
 }
 
 /**
@@ -175,63 +163,76 @@ static void disp_buf(uint8_t *buf, int len)
   for (i = 0; i < len; i++) {
     printf("%02x ", buf[i]);
   }
-  printf("\n");
 }
 
 static void i2c_test_task(void *arg)
 {
-  int ret;
+  int ret,ret1;
+
   uint32_t task_idx = (uint32_t)arg;
-  uint8_t sensor[6];
+
+  uint8_t sensor[6],sensor2[6];
   uint8_t device = 0x53;
+
+  i2c_port_t master_num;
+
+  int sda;
+  int scl;
+
   int cnt = 0;
-  int16_t buffer[4];
 
-  memset(buffer, 0, 8);
+  int16_t buffer[7];
+
   memset(sensor, 0, 6);
+  memset(sensor2, 0, 6);
+  memset(buffer, 0, 14);
 
-  switch( (int)arg){
-    case 0: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRref)); 
-    break;
+  switch( (int) arg){
+    case 0: 
+    master_num = 0;
+    sda=18;
+    scl=19;
 
-    case 1: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos1));
-    break;
-
-    case 2: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos2));
-    break;
-
-    case 3: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos3));
     break;
 
-    case 4: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos4));
-    break;
-
-    case 5: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos5));
-    break;
-    case 6: ESP_ERROR_CHECK(i2c_master_ADXL345_init(ADXL345_SLAVE_ADDRpos6));
-    break;
+    default: 
+    master_num = 1;
+    sda=04;
+    scl=05;
+    
   }
+  i2c_master_init(master_num,sda,scl);
+  ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0)); 
+  ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1)); 
   
   while (1) {
 
-    ret = i2c_master_read_slave(I2C_MASTER_NUM, device,DATAX1,sensor, 6);
     xSemaphoreTake(print_mux, portMAX_DELAY);
+
+    ret = i2c_master_read_slave(master_num, device,DATAX0,sensor, 6);
+    ret1 = i2c_master_read_slave(master_num, device,DATAX0,sensor2, 6);
+
     if (ret == ESP_ERR_TIMEOUT) {
       ESP_LOGE(TAG, "I2C Timeout");
-    } else if (ret == ESP_OK) {
+    } 
+    else if ((ret == ESP_OK) && (ret1 == ESP_OK)) {
+
       buffer[0] = (int16_t)((sensor[XMSB] << 8) | sensor[XLSB]);
       buffer[1] = (int16_t)((sensor[YMSB] << 8) | sensor[YLSB]);
       buffer[2] = (int16_t)((sensor[ZMSB] << 8) | sensor[ZLSB]);
-      buffer[3] = (int) arg; 
+      buffer[3] = (int16_t)((sensor2[XMSB] << 8) | sensor2[XLSB]);
+      buffer[4] = (int16_t)((sensor2[YMSB] << 8) | sensor2[YLSB]);
+      buffer[5] = (int16_t)((sensor2[ZMSB] << 8) | sensor2[ZLSB]);
+      buffer[6] = master_num;
       xQueueSend(buffer_queue, &buffer, pdMS_TO_TICKS(1));
-      //printf("TASK[%d]  MASTER READ SENSOR( adxl345 )\tdata: ", task_idx);
-      //disp_buf(sensor,6);
+    } 
 
-    } else {
-      ESP_LOGW(TAG, "%s: No ack, sensor not connected...skip...", esp_err_to_name(ret));
+    else {
+      ESP_LOGE(TAG, "No ack, sensor %s not connected...skip...\n", ret == ESP_OK ? 
+        "Posição" : ret1 == ESP_OK ? "Referência" : "None");
     }
+
     xSemaphoreGive(print_mux);
-    vTaskDelay(20/ portTICK_RATE_MS);
   }
   vSemaphoreDelete(print_mux);
   vTaskDelete(NULL);
@@ -305,11 +306,14 @@ static void udp_server_task(void *pvParameters)
     xSemaphoreTake(print_mux, portMAX_DELAY);
     if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
 
-      len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d\r\n",
+      len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d\r\n",
         tx_buffer[0],
         tx_buffer[1],
         tx_buffer[2],
-        tx_buffer[3]);
+        tx_buffer[3],
+        tx_buffer[4],
+        tx_buffer[5],
+        tx_buffer[6]);
 
       int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
       ESP_LOGI(TAG,"%s",tx_buffer_msg);
@@ -344,9 +348,8 @@ vSemaphoreDelete(print_mux);
 
 void app_main(void)
 {
-    print_mux = xSemaphoreCreateMutex();
-    buffer_queue = xQueueCreate(4, 7*sizeof(int16_t));//Cria a queue *buffer* com  slots de 4 Bytes
-    ESP_ERROR_CHECK(i2c_master_init());
+  print_mux = xSemaphoreCreateMutex();
+    buffer_queue = xQueueCreate(4, 7*sizeof(int16_t));//Cria a queue *buffer* com 4 slots de 14 Bytes
     ESP_ERROR_CHECK(nvs_flash_init());
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -358,5 +361,5 @@ void app_main(void)
     ESP_ERROR_CHECK(example_connect());
     xTaskCreate(udp_server_task, "udp_server", 4096, (void*)AF_INET, 5, NULL);
     xTaskCreate(i2c_test_task, "i2c_test_task_0", 1024 * 2, (void *)0, 10, NULL);
-    xTaskCreate(i2c_test_task, "i2c_test_task_1", 1024 * 2, (void *)1, 10, NULL);
+    //xTaskCreate(i2c_test_task, "i2c_test_task_1", 1024 * 2, (void *)1, 10, NULL);
   }

@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/filipe/esp/i2c_esp32/udp/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
-  include("/home/filipe/esp/i2c_esp32/udp/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
+  include("/home/filipe/sensor-luva/udp/build/esp-idf/mbedtls/mbedtls/library/cmake_install.cmake")
+  include("/home/filipe/sensor-luva/udp/build/esp-idf/mbedtls/mbedtls/include/cmake_install.cmake")
 
 endif()
 

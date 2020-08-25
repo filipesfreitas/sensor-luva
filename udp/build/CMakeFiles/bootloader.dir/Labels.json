@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader"
+			"file" : "/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/home/filipe/esp/i2c_esp32/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/home/filipe/sensor-luva/udp/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		}
 	],
 	"target" : 
