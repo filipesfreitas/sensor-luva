@@ -1,0 +1,6 @@
+target remote :3333
+symbol-file /home/filipe/esp/i2c_esp32/udp/build/udp_server.elf
+mon reset halt
+flushregs
+thb app_main
+c
