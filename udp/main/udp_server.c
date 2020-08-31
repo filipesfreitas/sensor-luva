@@ -1,15 +1,16 @@
 /* BSD Socket API Example
 
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
+	 This example code is in the Public Domain (or CC0 licensed, at your option.)
 
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
+	 Unless required by applicable law or agreed to in writing, this
+	 software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+	 CONDITIONS OF ANY KIND, either express or implied.
 */
 #include <string.h>
 #include <sys/param.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/event_groups.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
@@ -77,289 +78,308 @@
 #define ZLSB 4 /* least significant byte of Z' accelleration*/
 #define ZMSB 5 /* most significant byte of Z' accelleration*/
 
-static const char *TAG = "example";
 #define PORT CONFIG_EXAMPLE_PORT
 
-SemaphoreHandle_t print_mux = NULL;
+#define PORT0ADX    ( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
+#define PORT1ADX 	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
+#define UDP  		( 1UL << 2UL )  /* Event bit 2, UDP server */
+#define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more smaples*/
+
+#define ALLSYNCH PORT0ADX | PORT1ADX | UDP /* check all samples were readed*/
+
+
+
+static const char *TAG = "example";
+
+EventGroupHandle_t xEventGroup;
+
 QueueHandle_t buffer_queue; 
+
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
-  int ret;
-  i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-  i2c_master_start(cmd);
-  i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
-  i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
-  i2c_master_stop(cmd);
-  ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
-  i2c_cmd_link_delete(cmd);
+	int ret;
+	i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+	i2c_master_start(cmd);
+	i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
+	i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
+	i2c_master_stop(cmd);
+	ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
+	i2c_cmd_link_delete(cmd);
 
-  if (ret != ESP_OK) {
-    return ret;
-  }
+	if (ret != ESP_OK) {
+		return ret;
+	}
 
-  cmd = i2c_cmd_link_create();
-  i2c_master_start(cmd);
-  i2c_master_write_byte(cmd, device << 1 | READ_BIT, ACK_CHECK_EN);
-  i2c_master_read(cmd, data, data_len, LAST_NACK_VAL);
-  i2c_master_stop(cmd);
-  ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
-  i2c_cmd_link_delete(cmd);
+	cmd = i2c_cmd_link_create();
+	i2c_master_start(cmd);
+	i2c_master_write_byte(cmd, device << 1 | READ_BIT, ACK_CHECK_EN);
+	i2c_master_read(cmd, data, data_len, LAST_NACK_VAL);
+	i2c_master_stop(cmd);
+	ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
+	i2c_cmd_link_delete(cmd);
 
-  return ret;
+	return ret;
 }
 
 static esp_err_t i2c_master_write_slave(i2c_port_t i2c_num ,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
-  int ret;
-  i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-  i2c_master_start(cmd);
-  i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
-  i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
-  i2c_master_write(cmd, data, data_len, ACK_CHECK_EN);
-  i2c_master_stop(cmd);
-  ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
-  i2c_cmd_link_delete(cmd);
+	int ret;
+	i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+	i2c_master_start(cmd);
+	i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
+	i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
+	i2c_master_write(cmd, data, data_len, ACK_CHECK_EN);
+	i2c_master_stop(cmd);
+	ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+	i2c_cmd_link_delete(cmd);
 
-  return ret;
+	return ret;
 }
 
 
 static esp_err_t i2c_master_ADXL345_init(i2c_port_t MASTER_NUMBER,uint8_t device)
 {
-  uint8_t cmd_data;
-  ESP_LOGI(TAG,"\n\nDEVICE %02x\n\n",device);
-  vTaskDelay(100 / portTICK_RATE_MS);
-  cmd_data = 0x0B;    // ±16g, 13-BIT MODE
-  ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,DATA_FORMAT, &cmd_data, 1));
-  cmd_data = 0x08;    // START MEASUREMENT
-  ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,POWER_CTL, &cmd_data, 1));
+	uint8_t cmd_data;
+	vTaskDelay(100 / portTICK_RATE_MS);
+	cmd_data = 0x0B;    // ±16g, 13-BIT MODE
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,DATA_FORMAT, &cmd_data, 1));
+	cmd_data = 0x08;    // START MEASUREMENT
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,POWER_CTL, &cmd_data, 1));
 
-  return ESP_OK;
+	return ESP_OK;
 }
 
-/**
- * @brief i2c master initialization
- */
 static esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl)
 {
 
-  i2c_config_t conf;
-  conf.mode = I2C_MODE_MASTER;
-  conf.sda_io_num = sda;
-  conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-  conf.scl_io_num = scl;
-  conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-  conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
-  i2c_param_config(MASTER_NUMBER, &conf);
-  return i2c_driver_install(MASTER_NUMBER, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
+	i2c_config_t conf;
+	conf.mode = I2C_MODE_MASTER;
+	conf.sda_io_num = sda;
+	conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.scl_io_num = scl;
+	conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
+	i2c_param_config(MASTER_NUMBER, &conf);
+	return i2c_driver_install(MASTER_NUMBER, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
 }
 
-/**
- * @brief test function to show buffer
- */
-static void disp_buf(uint8_t *buf, int len)
+
+static void disp_buf(void * pvParameters)
 {
-  int i;
-  for (i = 0; i < len; i++) {
-    printf("%02x ", buf[i]);
-  }
+	int len_to_send=0;
+	int16_t tx_buffer[7];
+	char tx_buffer_msg[128]={'0'};
+	int i=1;
+	while(1){
+		xEventGroupWaitBits(xEventGroup, PORT0ADX | PORT1ADX, pdFALSE,pdTRUE,(TickType_t)1);
+		i =1;
+		do{
+			if(xQueueReceive(buffer_queue, &tx_buffer, portMAX_DELAY))
+			{
+				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d\r\n",
+					tx_buffer[0],
+					tx_buffer[1],
+					tx_buffer[2],
+					tx_buffer[3],
+					tx_buffer[4],
+					tx_buffer[5],
+					tx_buffer[6]);
+
+				ESP_LOGI(TAG,"%s\n",tx_buffer_msg);
+			}
+
+		}while(i++ == 2);
+		xEventGroupSetBits(xEventGroup,(EventBits_t) pvParameters);
+	}
 }
-
-static void i2c_test_task(void *arg)
+static void i2c_test_task(void *pvParameters)
 {
-  int ret,ret1;
+	int ret,ret1;
 
-  uint32_t task_idx = (uint32_t)arg;
+	uint8_t sensor[6],sensor2[6];
+	uint8_t device = 0x53;
 
-  uint8_t sensor[6],sensor2[6];
-  uint8_t device = 0x53;
+	i2c_port_t master_num;
 
-  i2c_port_t master_num;
+	int sda;
+	int scl;
 
-  int sda;
-  int scl;
+	int16_t buffer[7];
 
-  int cnt = 0;
+	memset(sensor, 0, 6);
+	memset(sensor2, 0, 6);
+	memset(buffer, 0, 14);
 
-  int16_t buffer[7];
+	switch( (int) pvParameters){
+		case PORT0ADX: 
+		master_num = 0;
+		sda=18;
+		scl=19;
+		break;
 
-  memset(sensor, 0, 6);
-  memset(sensor2, 0, 6);
-  memset(buffer, 0, 14);
+		default: 
+		master_num = 1;
+		sda=22;
+		scl=23;
 
-  switch( (int) arg){
-    case 0: 
-    master_num = 0;
-    sda=18;
-    scl=19;
+	}
+	i2c_master_init(master_num,sda,scl);
+	ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0)); 
+	ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1)); 
 
-    break;
+	while (1) {
+		memset(sensor, 0, 6);
+		memset(sensor2, 0, 6);
+		memset(buffer, 0, 14);
+		ret = i2c_master_read_slave(master_num, device,DATAX0,sensor, 6);
+		ret1 = i2c_master_read_slave(master_num, device,DATAX0,sensor2, 6);
 
-    default: 
-    master_num = 1;
-    sda=04;
-    scl=05;
-    
-  }
-  i2c_master_init(master_num,sda,scl);
-  ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0)); 
-  ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1)); 
-  
-  while (1) {
+		if (ret == ESP_ERR_TIMEOUT) {
+			ESP_LOGE(TAG, "I2C Timeout");
+		} 
+		else if ((ret == ESP_OK) && (ret1 == ESP_OK)) {
 
-    xSemaphoreTake(print_mux, portMAX_DELAY);
+			buffer[0] = (int)((sensor[XMSB] << 8) | sensor[XLSB]);
+			buffer[1] = (int)((sensor[YMSB] << 8) | sensor[YLSB]);
+			buffer[2] = (int)((sensor[ZMSB] << 8) | sensor[ZLSB]);
+			buffer[3] = (int)((sensor2[XMSB] << 8) | sensor2[XLSB]);
+			buffer[4] = (int)((sensor2[YMSB] << 8) | sensor2[YLSB]);
+			buffer[5] = (int)((sensor2[ZMSB] << 8) | sensor2[ZLSB]);
+			buffer[6] = (int) pvParameters;
 
-    ret = i2c_master_read_slave(master_num, device,DATAX0,sensor, 6);
-    ret1 = i2c_master_read_slave(master_num, device,DATAX0,sensor2, 6);
+			if ((int) pvParameters == PORT1ADX)
+			{
+				xEventGroupWaitBits(xEventGroup, PORT0ADX , pdFALSE,pdTRUE,(TickType_t)1);
 
-    if (ret == ESP_ERR_TIMEOUT) {
-      ESP_LOGE(TAG, "I2C Timeout");
-    } 
-    else if ((ret == ESP_OK) && (ret1 == ESP_OK)) {
+			}
+			if(xQueueSend(buffer_queue, &buffer, portMAX_DELAY)!=pdPASS){
+				ESP_LOGE(TAG, "failed to post on queue");
+			}
+		} 
 
-      buffer[0] = (int16_t)((sensor[XMSB] << 8) | sensor[XLSB]);
-      buffer[1] = (int16_t)((sensor[YMSB] << 8) | sensor[YLSB]);
-      buffer[2] = (int16_t)((sensor[ZMSB] << 8) | sensor[ZLSB]);
-      buffer[3] = (int16_t)((sensor2[XMSB] << 8) | sensor2[XLSB]);
-      buffer[4] = (int16_t)((sensor2[YMSB] << 8) | sensor2[YLSB]);
-      buffer[5] = (int16_t)((sensor2[ZMSB] << 8) | sensor2[ZLSB]);
-      buffer[6] = master_num;
-      xQueueSend(buffer_queue, &buffer, pdMS_TO_TICKS(1));
-    } 
+		else {
+			ESP_LOGE(TAG, "No ack, sensor %s not connected...skip...\n", ret == ESP_OK ? 
+				"Posição" : ret1 == ESP_OK ? "Referência" : "None");
+		}
+		xEventGroupSync(xEventGroup,(EventBits_t) pvParameters,ALLSYNCH,portMAX_DELAY);
 
-    else {
-      ESP_LOGE(TAG, "No ack, sensor %s not connected...skip...\n", ret == ESP_OK ? 
-        "Posição" : ret1 == ESP_OK ? "Referência" : "None");
-    }
-
-    xSemaphoreGive(print_mux);
-  }
-  vSemaphoreDelete(print_mux);
-  vTaskDelete(NULL);
+	}
+	vTaskDelete(NULL);
 }
 
 static void udp_server_task(void *pvParameters)
 {
 
-  char addr_str[128];
-  int addr_family = (int)pvParameters;
-  int ip_protocol = 0;
-  struct sockaddr_in6 dest_addr;
+	char addr_str[128];
+	int addr_family = (int)pvParameters;
+	int ip_protocol = 0;
+	struct sockaddr_in6 dest_addr;
 
-  char rx_buffer[128]={'0'};
-  char tx_buffer_msg[128]={'0'};
-  int len_to_send=0;
-  int16_t tx_buffer[7];
+	char rx_buffer[128]={'0'};
+	int len_to_send=0;
+	int16_t tx_buffer[7];
+	char tx_buffer_msg[128]={'0'};
+	int i;
 
-  if (addr_family == AF_INET) {
-    struct sockaddr_in *dest_addr_ip4 = (struct sockaddr_in *)&dest_addr;
-    dest_addr_ip4->sin_addr.s_addr = htonl(INADDR_ANY);
-    dest_addr_ip4->sin_family = AF_INET;
-    dest_addr_ip4->sin_port = htons(PORT);
-    ip_protocol = IPPROTO_IP;
-  } else if (addr_family == AF_INET6) {
-    bzero(&dest_addr.sin6_addr.un, sizeof(dest_addr.sin6_addr.un));
-    dest_addr.sin6_family = AF_INET6;
-    dest_addr.sin6_port = htons(PORT);
-    ip_protocol = IPPROTO_IPV6;
-  }
-  while(1){
-    int sock = socket(addr_family, SOCK_DGRAM, ip_protocol);
-    if (sock < 0) {
-      ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
-      break;
-    }
-    ESP_LOGI(TAG, "Socket created");
-
-
-
-    int err = bind(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
-    if (err < 0) {
-      ESP_LOGE(TAG, "Socket unable to bind: errno %d", errno);
-    }
-    ESP_LOGI(TAG, "Socket bound, port %d", PORT);
-
-    ESP_LOGI(TAG, "Waiting for data");
-  struct sockaddr_in6 source_addr; // Large enough for both IPv4 or IPv6
-  socklen_t socklen = sizeof(source_addr);
-  int len = recvfrom(sock, rx_buffer, sizeof(rx_buffer) - 1, 0, (struct sockaddr *)&source_addr, &socklen);
-
-  // Error occurred during receiving
-  if (len < 0) {
-    ESP_LOGE(TAG, "recvfrom failed: errno %d", errno);
-    break;
-  }
-  // Data received
-  else {
-
-  // Get the sender's ip address as string
-    if (source_addr.sin6_family == PF_INET) {
-      inet_ntoa_r(((struct sockaddr_in *)&source_addr)->sin_addr.s_addr, addr_str, sizeof(addr_str) - 1);
-    } else if (source_addr.sin6_family == PF_INET6) {
-      inet6_ntoa_r(source_addr.sin6_addr, addr_str, sizeof(addr_str) - 1);
-    }
-
-  rx_buffer[len] = 0; // Null-terminate whatever we received and treat like a string...
-  ESP_LOGI(TAG, "Received %d bytes from %s:", len, addr_str);
-  ESP_LOGI(TAG, "%s", rx_buffer);
-  while(1){
-    xSemaphoreTake(print_mux, portMAX_DELAY);
-    if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
-
-      len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d\r\n",
-        tx_buffer[0],
-        tx_buffer[1],
-        tx_buffer[2],
-        tx_buffer[3],
-        tx_buffer[4],
-        tx_buffer[5],
-        tx_buffer[6]);
-
-      int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
-      ESP_LOGI(TAG,"%s",tx_buffer_msg);
-      if (err < 0) {
-        ESP_LOGE(TAG, "Error occured during sending: errno %d", errno);
-        break;
-      }
-
-      ESP_LOGI(TAG,"%s",tx_buffer_msg);
-      vTaskDelay(20 / portTICK_RATE_MS); 
-      if (err < 0) {
-        ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
-        break;
-      }
+	if (addr_family == AF_INET) {
+		struct sockaddr_in *dest_addr_ip4 = (struct sockaddr_in *)&dest_addr;
+		dest_addr_ip4->sin_addr.s_addr = htonl(INADDR_ANY);
+		dest_addr_ip4->sin_family = AF_INET;
+		dest_addr_ip4->sin_port = htons(PORT);
+		ip_protocol = IPPROTO_IP;
+	} else if (addr_family == AF_INET6) {
+		bzero(&dest_addr.sin6_addr.un, sizeof(dest_addr.sin6_addr.un));
+		dest_addr.sin6_family = AF_INET6;
+		dest_addr.sin6_port = htons(PORT);
+		ip_protocol = IPPROTO_IPV6;
+	}
+	while(1){
+		int sock = socket(addr_family, SOCK_DGRAM, ip_protocol);
+		if (sock < 0) {
+			ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
+			break;
+		}
+		ESP_LOGI(TAG, "Socket created");
 
 
-    }
-    xSemaphoreGive(print_mux);
-  }
 
+		int err = bind(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
+		if (err < 0) {
+			ESP_LOGE(TAG, "Socket unable to bind: errno %d", errno);
+		}
+		ESP_LOGI(TAG, "Socket bound, port %d", PORT);
+
+		ESP_LOGI(TAG, "Waiting for data");
+	struct sockaddr_in6 source_addr; // Large enough for both IPv4 or IPv6
+	socklen_t socklen = sizeof(source_addr);
+	int len = recvfrom(sock, rx_buffer, sizeof(rx_buffer) - 1, 0, (struct sockaddr *)&source_addr, &socklen);
+
+	// Error occurred during receiving
+	if (len < 0) {
+		ESP_LOGE(TAG, "recvfrom failed: errno %d", errno);
+		break;
+	}
+	// Data received
+	else {
+
+	// Get the sender's ip address as string
+		if (source_addr.sin6_family == PF_INET) {
+			inet_ntoa_r(((struct sockaddr_in *)&source_addr)->sin_addr.s_addr, addr_str, sizeof(addr_str) - 1);
+		} else if (source_addr.sin6_family == PF_INET6) {
+			inet6_ntoa_r(source_addr.sin6_addr, addr_str, sizeof(addr_str) - 1);
+		}
+
+	rx_buffer[len] = 0; // Null-terminate whatever we received and treat like a string...
+	ESP_LOGI(TAG, "Received %d bytes from %s:", len, addr_str);
+	ESP_LOGI(TAG, "%s", rx_buffer);
+
+	while(1){
+		xEventGroupWaitBits(xEventGroup, PORT0ADX | PORT1ADX, pdFALSE,pdTRUE,(TickType_t)1);
+		i =1;
+		do{
+			if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
+				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d\r\n",
+					tx_buffer[0],
+					tx_buffer[1],
+					tx_buffer[2],
+					tx_buffer[3],
+					tx_buffer[4],
+					tx_buffer[5],
+					tx_buffer[6]);
+
+				int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
+				if (err < 0) {
+					ESP_LOGE(TAG, "Error occured during sending: errno %d", errno);
+					break;
+				}
+			}
+		}while(i++ == 2);
+		xEventGroupSetBits(xEventGroup,UDP);
+	}
 }
 
 if (sock != -1) {
-  ESP_LOGE(TAG, "Shutting down socket and restarting...");
-  shutdown(sock, 0);
-  close(sock);
+	ESP_LOGE(TAG, "Shutting down socket and restarting...");
+	shutdown(sock, 0);
+	close(sock);
 }
 }
 vTaskDelete(NULL);  
-vSemaphoreDelete(print_mux);
 } 
 
 void app_main(void)
 {
-  print_mux = xSemaphoreCreateMutex();
-    buffer_queue = xQueueCreate(4, 7*sizeof(int16_t));//Cria a queue *buffer* com 4 slots de 14 Bytes
-    ESP_ERROR_CHECK(nvs_flash_init());
-    ESP_ERROR_CHECK(esp_netif_init());
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
+	xEventGroup = xEventGroupCreate();
 
-    /* This helper function configures Wi-Fi or Ethernet, as selected in menuconfig.
-     * Read "Establishing Wi-Fi or Ethernet Connection" section in
-     * examples/protocols/README.md for more information about this function.
-     */
-    ESP_ERROR_CHECK(example_connect());
-    xTaskCreate(udp_server_task, "udp_server", 4096, (void*)AF_INET, 5, NULL);
-    xTaskCreate(i2c_test_task, "i2c_test_task_0", 1024 * 2, (void *)0, 10, NULL);
-    //xTaskCreate(i2c_test_task, "i2c_test_task_1", 1024 * 2, (void *)1, 10, NULL);
-  }
+	buffer_queue = xQueueCreate(6, 7*sizeof(int16_t));//Cria a queue *buffer* com 4 slots de 14 Bytes
+	ESP_ERROR_CHECK(nvs_flash_init());
+	ESP_ERROR_CHECK(esp_netif_init());
+	ESP_ERROR_CHECK(esp_event_loop_create_default());
+
+	ESP_ERROR_CHECK(example_connect());
+
+	xTaskCreate(udp_server_task, "udp_server"     , 4096, (void*)AF_INET, 1, NULL);
+	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL);
+	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);
+	
+}
