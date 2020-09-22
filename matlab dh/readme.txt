@@ -1,0 +1,1 @@
+O arquivo visualizar_parametros.m contém o necessário para realizar a plotagem. Os arquivos GET_SENSOR_DATA_FROM_FILE.m e find_rept.m organizam os dados na matriz raw_data onde depois são convertidos em ângulo de cada sensor.
