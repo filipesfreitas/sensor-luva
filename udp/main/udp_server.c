@@ -85,7 +85,7 @@
 #define UDP  		( 1UL << 2UL )  /* Event bit 2, UDP server */
 #define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more smaples*/
 
-#define ALLSYNCH PORT0ADX | PORT1ADX | UDP /* check all samples were readed*/
+#define ALLSYNCH  PORT1ADX | UDP /* check all samples were readed*/
 
 
 
@@ -194,10 +194,9 @@ static void disp_buf(void * pvParameters)
 }
 static void i2c_test_task(void *pvParameters)
 {
-	int ret,ret1;
+	int ret=ESP_OK,ret1=ESP_OK;
 
 	uint8_t sensor[6],sensor2[6];
-	uint8_t device = 0x53;
 
 	i2c_port_t master_num;
 
@@ -205,7 +204,7 @@ static void i2c_test_task(void *pvParameters)
 	int scl;
 
 	int16_t buffer[7];
-
+	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 	memset(sensor, 0, 6);
 	memset(sensor2, 0, 6);
 	memset(buffer, 0, 14);
@@ -215,37 +214,53 @@ static void i2c_test_task(void *pvParameters)
 		master_num = 0;
 		sda=18;
 		scl=19;
+		i2c_master_init(master_num,sda,scl);
+		//error_setting[0] =  i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0); 
+		error_setting[1]  = i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1); 
 		break;
 
-		default: 
+		default:
 		master_num = 1;
 		sda=22;
 		scl=23;
+		i2c_master_init(master_num,sda,scl);
+		error_setting[0] =  i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0); 
+		error_setting[1]  = i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1);
+		break;
 
 	}
-	i2c_master_init(master_num,sda,scl);
-	ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0)); 
-	ESP_ERROR_CHECK(i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1)); 
-
+	if(error_setting[0] || error_setting[1] != ESP_OK){
+		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num
+			, error_setting[0] == ESP_OK ? "SENSOR 0X53" : error_setting != ESP_OK ? "SENSOR 0X1D" : "None");
+	}
 	while (1) {
 		memset(sensor, 0, 6);
 		memset(sensor2, 0, 6);
 		memset(buffer, 0, 14);
-		ret = i2c_master_read_slave(master_num, device,DATAX0,sensor, 6);
-		ret1 = i2c_master_read_slave(master_num, device,DATAX0,sensor2, 6);
+		if(master_num==0){
 
-		if (ret == ESP_ERR_TIMEOUT) {
+			ret1 = i2c_master_read_slave(master_num, ADXL345_SLAVE_ADDR1,DATAX0,sensor2, 6);
+
+		}
+		else{
+			ret = i2c_master_read_slave(master_num, ADXL345_SLAVE_ADDR0,DATAX0,sensor, 6);
+			ret1 = i2c_master_read_slave(master_num, ADXL345_SLAVE_ADDR1,DATAX0,sensor2, 6);
+
+		}
+
+
+		if (ret == ESP_ERR_TIMEOUT || ret1 == ESP_ERR_TIMEOUT) {
 			ESP_LOGE(TAG, "I2C Timeout");
 		} 
 		else if ((ret == ESP_OK) && (ret1 == ESP_OK)) {
 
-			buffer[0] = (int)((sensor[XMSB] << 8) | sensor[XLSB]);
-			buffer[1] = (int)((sensor[YMSB] << 8) | sensor[YLSB]);
-			buffer[2] = (int)((sensor[ZMSB] << 8) | sensor[ZLSB]);
-			buffer[3] = (int)((sensor2[XMSB] << 8) | sensor2[XLSB]);
-			buffer[4] = (int)((sensor2[YMSB] << 8) | sensor2[YLSB]);
-			buffer[5] = (int)((sensor2[ZMSB] << 8) | sensor2[ZLSB]);
-			buffer[6] = (int) pvParameters;
+			buffer[0] = (int16_t)((sensor[XMSB] << 8) | sensor[XLSB]);
+			buffer[1] = (int16_t)((sensor[YMSB] << 8) | sensor[YLSB]);
+			buffer[2] = (int16_t)((sensor[ZMSB] << 8) | sensor[ZLSB]);
+			buffer[3] = (int16_t)((sensor2[XMSB] << 8) | sensor2[XLSB]);
+			buffer[4] = (int16_t)((sensor2[YMSB] << 8) | sensor2[YLSB]);
+			buffer[5] = (int16_t)((sensor2[ZMSB] << 8) | sensor2[ZLSB]);
+			buffer[6] = (int16_t) pvParameters;
 
 			if ((int) pvParameters == PORT1ADX)
 			{
@@ -258,8 +273,8 @@ static void i2c_test_task(void *pvParameters)
 		} 
 
 		else {
-			ESP_LOGE(TAG, "No ack, sensor %s not connected...skip...\n", ret == ESP_OK ? 
-				"Posição" : ret1 == ESP_OK ? "Referência" : "None");
+			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num
+				, ret == ESP_OK ? "SENSOR 0X53" : ret1 != ESP_OK ? "SENSOR 0X1D" : "None");
 		}
 		xEventGroupSync(xEventGroup,(EventBits_t) pvParameters,ALLSYNCH,portMAX_DELAY);
 
@@ -269,7 +284,7 @@ static void i2c_test_task(void *pvParameters)
 
 static void udp_server_task(void *pvParameters)
 {
-
+	char error_code_[512];
 	char addr_str[128];
 	int addr_family = (int)pvParameters;
 	int ip_protocol = 0;
@@ -349,11 +364,15 @@ static void udp_server_task(void *pvParameters)
 
 				int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
 				if (err < 0) {
-					ESP_LOGE(TAG, "Error occured during sending: errno %d", errno);
+					ESP_LOGE(TAG, "Error occured during sending: errno %x\t%s", errno,esp_err_to_name_r(errno,error_code_,512));
 					break;
 				}
 			}
 		}while(i++ == 2);
+		if (err<0)
+		{
+			break;
+		}
 		xEventGroupSetBits(xEventGroup,UDP);
 	}
 }
@@ -369,6 +388,7 @@ vTaskDelete(NULL);
 
 void app_main(void)
 {
+
 	xEventGroup = xEventGroupCreate();
 
 	buffer_queue = xQueueCreate(6, 7*sizeof(int16_t));//Cria a queue *buffer* com 4 slots de 14 Bytes
@@ -378,8 +398,8 @@ void app_main(void)
 
 	ESP_ERROR_CHECK(example_connect());
 
-	xTaskCreate(udp_server_task, "udp_server"     , 4096, (void*)AF_INET, 1, NULL);
+	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 1, NULL);
 	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL);
 	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);
-	
+	//xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);
 }
