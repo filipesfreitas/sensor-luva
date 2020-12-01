@@ -1,17 +1,10 @@
-function cord_system(A,sub)
-  t=1;
-  p=A(1:3,4);
+function cord_system(A,p,sub)
+  t=5;
   
   u=A(1:3,1)*t + p;
   v=A(1:3,2)*t + p;
   w=A(1:3,3)*t + p;
   
-hold on;
-  grid on;
-  scatter3(p(1),p(2),p(3),"r","filled");
-  xlabel('x')
-  ylabel('y')
-  zlabel('z')
   x = [p(1);u(1)];
   y = [p(2);u(2)];
   z = [p(3);u(3)];

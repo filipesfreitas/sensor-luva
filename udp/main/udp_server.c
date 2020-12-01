@@ -24,6 +24,9 @@
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
 #include "driver/i2c.h"
+#include "driver/gpio.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
 
 #define I2C_MASTER_FREQ_HZ 400000        /*!< I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
@@ -83,17 +86,57 @@
 #define PORT0ADX    ( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
 #define PORT1ADX 	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
 #define UDP  		( 1UL << 2UL )  /* Event bit 2, UDP server */
-#define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more smaples*/
+#define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more samples*/
+#define ADC1        ( 1UL << 4UL )  /* ADC1 POT READ*/
+#define ADC2        ( 1UL << 5UL )  /* ADC2 POT READ*/
+#define ADC3		( 1UL << 6UL )  /* ADC3 POT READ*/
 
 #define ALLSYNCH  PORT1ADX | UDP /* check all samples were readed*/
-
-
+#define TESTSYNCH ADC1|ADC2|ADC3	
+#define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
+#define NO_OF_SAMPLES   64          //Multisampling
 
 static const char *TAG = "example";
 
 EventGroupHandle_t xEventGroup;
 
 QueueHandle_t buffer_queue; 
+
+static esp_adc_cal_characteristics_t *adc_chars;
+static const adc_channel_t channel4 = ADC_CHANNEL_4;
+static const adc_channel_t channel5 = ADC_CHANNEL_5;
+static const adc_channel_t channel7 = ADC_CHANNEL_7;
+static const adc_atten_t atten = ADC_ATTEN_DB_0;
+static const adc_unit_t unit = ADC_UNIT_1;
+
+static void check_efuse(void)
+{
+    //Check TP is burned into eFuse
+    if (esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_TP) == ESP_OK) {
+        printf("eFuse Two Point: Supported\n");
+    } else {
+        printf("eFuse Two Point: NOT supported\n");
+    }
+
+    //Check Vref is burned into eFuse
+    if (esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_VREF) == ESP_OK) {
+        printf("eFuse Vref: Supported\n");
+    } else {
+        printf("eFuse Vref: NOT supported\n");
+    }
+}
+
+static void print_char_val_type(esp_adc_cal_value_t val_type)
+{
+    if (val_type == ESP_ADC_CAL_VAL_EFUSE_TP) {
+        printf("Characterized using Two Point Value\n");
+    } else if (val_type == ESP_ADC_CAL_VAL_EFUSE_VREF) {
+        printf("Characterized using eFuse Vref\n");
+    } else {
+        printf("Characterized using Default Vref\n");
+    }
+
+}
 
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
@@ -362,7 +405,7 @@ static void udp_server_task(void *pvParameters)
 					tx_buffer[5],
 					tx_buffer[6]);
 
-				int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
+				//int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
 				if (err < 0) {
 					ESP_LOGE(TAG, "Error occured during sending: errno %x\t%s", errno,esp_err_to_name_r(errno,error_code_,512));
 					break;
@@ -386,6 +429,46 @@ if (sock != -1) {
 vTaskDelete(NULL);  
 } 
 
+
+static void pot_measure(void * pvParameters){
+
+
+//Check if Two Point or Vref are burned into eFuse
+    check_efuse();
+    //Configure ADC
+    if (unit == ADC_UNIT_1) {
+        adc1_config_width(ADC_WIDTH_BIT_12);
+        adc1_config_channel_atten(( adc_channel_t )pvParameters, atten);
+    } else {
+        adc2_config_channel_atten((adc2_channel_t)pvParameters, atten);
+    }
+
+    //Characterize ADC
+    adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
+    esp_adc_cal_value_t val_type = esp_adc_cal_characterize(unit, atten, ADC_WIDTH_BIT_12, DEFAULT_VREF, adc_chars);
+    print_char_val_type(val_type);
+    //Continuously sample ADC1
+    while (1) {
+        uint32_t adc_reading = 0;
+        //Multisampling
+        for (int i = 0; i < NO_OF_SAMPLES; i++) {
+            if (unit == ADC_UNIT_1) {
+                adc_reading += adc1_get_raw((adc1_channel_t)pvParameters);
+            } else {
+                int raw;
+                adc2_get_raw((adc2_channel_t)pvParameters, ADC_WIDTH_BIT_12, &raw);
+                adc_reading += raw;
+            }
+        }
+        adc_reading /= NO_OF_SAMPLES;
+
+        //Convert adc_reading to voltage in mV
+        uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+        printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
+				xEventGroupSync(xEventGroup,(EventBits_t) pvParameters,ALLSYNCH,portMAX_DELAY);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
 void app_main(void)
 {
 
@@ -398,8 +481,12 @@ void app_main(void)
 
 	ESP_ERROR_CHECK(example_connect());
 
-	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 1, NULL);
-	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL);
-	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);
-	//xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);
+	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 1, NULL);
+	xTaskCreate(i2c_test_task, "i2c_test_task_0" , 2048, (void *)PORT0ADX, 20, NULL);
+	xTaskCreate(i2c_test_task, "i2c_test_task_1" , 2048, (void *)PORT1ADX, 20, NULL);
+	xTaskCreate(pot_measure  , "pot_measure1"    , 2048, (void *)channel4, 20, NULL);
+	xTaskCreate(pot_measure  , "pot_measure2"    , 2048, (void *)channel5, 20, NULL);
+	xTaskCreate(pot_measure  , "pot_measure3"    , 2048, (void *)channel7, 20, NULL);
+
+	xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);
 }
