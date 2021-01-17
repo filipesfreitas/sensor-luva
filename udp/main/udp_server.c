@@ -25,6 +25,10 @@
 #include <lwip/netdb.h>
 #include "driver/i2c.h"
 
+#include "driver/gpio.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
+
 #define I2C_MASTER_FREQ_HZ 400000        /*!< I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
@@ -83,17 +87,23 @@
 #define PORT0ADX    ( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
 #define PORT1ADX 	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
 #define UDP  		( 1UL << 2UL )  /* Event bit 2, UDP server */
-#define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more smaples*/
+
+#define RESTART 	( 1UL << 3UL )  /* Restart the reading events for more samples*/
+#define ADC1        ( 1UL << 4UL )  /* ADC1 POT READ*/
+#define ADC2        ( 1UL << 5UL )  /* ADC2 POT READ*/
+#define ADC3		( 1UL << 6UL )  /* ADC3 POT READ*/
 
 #define ALLSYNCH  PORT1ADX | UDP /* check all samples were readed*/
-
-
+#define TESTSYNCH ADC1|ADC2|ADC3	
+#define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
+#define NO_OF_SAMPLES   64          //Multisampling
 
 static const char *TAG = "example";
 
 EventGroupHandle_t xEventGroup;
 
 QueueHandle_t buffer_queue; 
+
 
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
@@ -363,6 +373,7 @@ static void udp_server_task(void *pvParameters)
 					tx_buffer[6]);
 
 				int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
+
 				if (err < 0) {
 					ESP_LOGE(TAG, "Error occured during sending: errno %x\t%s", errno,esp_err_to_name_r(errno,error_code_,512));
 					break;
@@ -402,4 +413,5 @@ void app_main(void)
 	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL);
 	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);
 	//xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);
+
 }
