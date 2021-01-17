@@ -1,5 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-522120f922bc4495ab21c674fcc66919b4e0aa5b refs/heads/esp32
-5c2ffb6c963ebd249247520919508291e28f13f0 refs/heads/master
-5c2ffb6c963ebd249247520919508291e28f13f0 refs/remotes/origin/esp32
-187122887b9b11ebdcf5b9854dc058b1bb718092 refs/remotes/origin/master

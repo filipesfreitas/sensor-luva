@@ -6,8 +6,8 @@ rawdata100segundos = rawdata100segundos(ind,:);
 
 
 %% RAW DATA read
-acc0 = rawdata100segundos(3:2:end,1:3); % 
-acc1 = rawdata100segundos(3:2:end,4:6); % 
+acc0 = rawdata100segundos(3:2:end-1,1:3); % 
+acc1 = rawdata100segundos(3:2:end-1,4:6); % 
 acc2 = rawdata100segundos(4:2:end,1:3); % 
 acc3 = rawdata100segundos(4:2:end,4:6); % 
 
