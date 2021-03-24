@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Luva eletrônica: Código-Fonte de example_test.py</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Luva eletrônica
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">example_test.py</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="example__test_8py.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceexample__test.html">    1</a></span>&#160;<span class="comment"># This example code is in the Public Domain (or CC0 licensed, at your option.)</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"># Unless required by applicable law or agreed to in writing, this</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"># software is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"># CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">import</span> os</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">import</span> sys</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">import</span> re</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">import</span> socket</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">import</span> ttfw_idf</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"># -----------  Config  ----------</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespaceexample__test.html#a3b4d8a7c503a979dfa6caa9e671863df">   19</a></span>&#160;PORT = 3333</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespaceexample__test.html#a52a5271753104e3fd7b243b0b8c43774">   20</a></span>&#160;INTERFACE = <span class="stringliteral">&#39;eth0&#39;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># -------------------------------</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">   24</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">udp_client</a>(address, payload):</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span> res <span class="keywordflow">in</span> socket.getaddrinfo(address, PORT, socket.AF_UNSPEC,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                  socket.SOCK_DGRAM, 0, socket.AI_PASSIVE):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        family_addr, socktype, proto, canonname, addr = res</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        sock = socket.socket(family_addr, socket.SOCK_DGRAM)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">except</span> socket.error <span class="keyword">as</span> msg:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        print(<span class="stringliteral">&#39;Could not create socket: &#39;</span> + str(msg[0]) + <span class="stringliteral">&#39;: &#39;</span> + msg[1])</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        sock.sendto(payload, addr)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        reply, addr = sock.recvfrom(128)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> reply:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        print(<span class="stringliteral">&#39;Reply[&#39;</span> + addr[0] + <span class="stringliteral">&#39;:&#39;</span> + str(addr[1]) + <span class="stringliteral">&#39;] - &#39;</span> + str(reply))</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">except</span> socket.error <span class="keyword">as</span> msg:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        print(<span class="stringliteral">&#39;Error Code : &#39;</span> + str(msg[0]) + <span class="stringliteral">&#39; Message: &#39;</span> + msg[1])</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        sock.close()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> reply</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">@ttfw_idf.idf_example_test(env_tag=&quot;Example_WIFI&quot;)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceexample__test.html#a7bd6658642b37525cdc15cae54fc60f3">   47</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceexample__test.html#a7bd6658642b37525cdc15cae54fc60f3">test_examples_protocol_socket</a>(env, extra_data):</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    MESSAGE = <span class="stringliteral">&quot;Data to ESP&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">    steps:</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">      1. join AP</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="stringliteral">      2. have the board connect to the server</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="stringliteral">      3. send and receive data</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    dut1 = env.get_dut(<span class="stringliteral">&quot;udp_server&quot;</span>, <span class="stringliteral">&quot;examples/protocols/sockets/udp_server&quot;</span>, dut_class=ttfw_idf.ESP32DUT)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment"># check and log bin size</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    binary_file = os.path.join(dut1.app.binary_path, <span class="stringliteral">&quot;udp_server.bin&quot;</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    bin_size = os.path.getsize(binary_file)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ttfw_idf.log_performance(<span class="stringliteral">&quot;udp_server_bin_size&quot;</span>, <span class="stringliteral">&quot;{}KB&quot;</span>.format(bin_size // 1024))</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ttfw_idf.check_performance(<span class="stringliteral">&quot;udp_server_bin_size&quot;</span>, bin_size // 1024, dut1.TARGET)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment"># start test</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    dut1.start_app()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ipv4 = dut1.expect(re.compile(<span class="stringliteral">r&quot; IPv4 address: ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)&quot;</span>), timeout=30)[0]</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ipv6_r = <span class="stringliteral">r&#39;:&#39;</span>.join((<span class="stringliteral">r&#39;[0-9a-fA-F]{4}&#39;</span>,) * 8)    <span class="comment"># expect all 8 octets from IPv6 (assumes it&#39;s printed in the long form)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ipv6 = dut1.expect(re.compile(<span class="stringliteral">r&#39; IPv6 address: ({})&#39;</span>.format(ipv6_r)), timeout=30)[0]</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    print(<span class="stringliteral">&quot;Connected with IPv4={} and IPv6={}&quot;</span>.format(ipv4, ipv6))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment"># test IPv4</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    received = <a class="code" href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">udp_client</a>(ipv4, MESSAGE)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> received == MESSAGE:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    dut1.expect(MESSAGE)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment"># test IPv6</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    received = <a class="code" href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">udp_client</a>(<span class="stringliteral">&quot;{}%{}&quot;</span>.format(ipv6, INTERFACE), MESSAGE)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">if</span> <span class="keywordflow">not</span> received == MESSAGE:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    dut1.expect(MESSAGE)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> sys.argv[2:]:    <span class="comment"># if two arguments provided:</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="comment"># Usage: example_test.py &lt;server_address&gt; &lt;message_to_send_to_server&gt;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">udp_client</a>(sys.argv[1], sys.argv[2])</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">else</span>:               <span class="comment"># otherwise run standard example test as in the CI</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="namespaceexample__test.html#a7bd6658642b37525cdc15cae54fc60f3">test_examples_protocol_socket</a>()</div>
+<div class="ttc" id="anamespaceexample__test_html_a7bd6658642b37525cdc15cae54fc60f3"><div class="ttname"><a href="namespaceexample__test.html#a7bd6658642b37525cdc15cae54fc60f3">example_test.test_examples_protocol_socket</a></div><div class="ttdeci">def test_examples_protocol_socket(env, extra_data)</div><div class="ttdef"><b>Definition:</b> <a href="example__test_8py_source.html#l00047">example_test.py:47</a></div></div>
+<div class="ttc" id="anamespaceexample__test_html_ad7c2bf89b0b1f8c37ab41b7f70616d34"><div class="ttname"><a href="namespaceexample__test.html#ad7c2bf89b0b1f8c37ab41b7f70616d34">example_test.udp_client</a></div><div class="ttdeci">def udp_client(address, payload)</div><div class="ttdef"><b>Definition:</b> <a href="example__test_8py_source.html#l00024">example_test.py:24</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

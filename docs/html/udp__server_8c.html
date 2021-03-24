@@ -1,0 +1,1261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Luva eletrônica: Referência do Arquivo main/udp_server.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Luva eletrônica
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_5c982d53a68cdbcd421152b4020263a9.html">main</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo udp_server.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;sys/param.h&gt;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;freertos/event_groups.h&quot;</code><br />
+<code>#include &quot;esp_system.h&quot;</code><br />
+<code>#include &quot;esp_wifi.h&quot;</code><br />
+<code>#include &quot;esp_event.h&quot;</code><br />
+<code>#include &quot;esp_log.h&quot;</code><br />
+<code>#include &quot;nvs_flash.h&quot;</code><br />
+<code>#include &quot;esp_netif.h&quot;</code><br />
+<code>#include &quot;protocol_examples_common.h&quot;</code><br />
+<code>#include &quot;lwip/err.h&quot;</code><br />
+<code>#include &quot;lwip/sockets.h&quot;</code><br />
+<code>#include &quot;lwip/sys.h&quot;</code><br />
+<code>#include &lt;lwip/netdb.h&gt;</code><br />
+<code>#include &quot;driver/i2c.h&quot;</code><br />
+<code>#include &quot;driver/gpio.h&quot;</code><br />
+<code>#include &quot;driver/adc.h&quot;</code><br />
+<code>#include &quot;esp_adc_cal.h&quot;</code><br />
+</div>
+<p><a href="udp__server_8c_source.html">Vá para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a5c22ca4de37a83a59014e48b0a0b043d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a5c22ca4de37a83a59014e48b0a0b043d">I2C_MASTER_FREQ_HZ</a>&#160;&#160;&#160;400000        /*! I2C master clock frequency */</td></tr>
+<tr class="separator:a5c22ca4de37a83a59014e48b0a0b043d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa0e84f340ef5ea9db2d7624fdadaa26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aaa0e84f340ef5ea9db2d7624fdadaa26">I2C_MASTER_TX_BUF_DISABLE</a>&#160;&#160;&#160;0      /*! I2C master doesn't need buffer */</td></tr>
+<tr class="separator:aaa0e84f340ef5ea9db2d7624fdadaa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37a0707200e50e3b3e9ab28b1b8d6777"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a37a0707200e50e3b3e9ab28b1b8d6777">I2C_MASTER_RX_BUF_DISABLE</a>&#160;&#160;&#160;0      /*! I2C master doesn't need buffer */</td></tr>
+<tr class="separator:a37a0707200e50e3b3e9ab28b1b8d6777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b27e330160d5010f6c2b8bc508dd4f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a6b27e330160d5010f6c2b8bc508dd4f0">ADXL345_SLAVE_ADDR0</a>&#160;&#160;&#160;0x53   /*! slave address for ADXL345 sensor */</td></tr>
+<tr class="separator:a6b27e330160d5010f6c2b8bc508dd4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee132d5b9a445b1bc4226816eddf521"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a1ee132d5b9a445b1bc4226816eddf521">ADXL345_SLAVE_ADDR1</a>&#160;&#160;&#160;0x1d   /*! slave address for ADXL345 sensor */</td></tr>
+<tr class="separator:a1ee132d5b9a445b1bc4226816eddf521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fc57d5be9f588839a00c75ef2946e17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a7fc57d5be9f588839a00c75ef2946e17">WRITE_BIT</a>&#160;&#160;&#160;I2C_MASTER_WRITE /*! I2C master write */</td></tr>
+<tr class="separator:a7fc57d5be9f588839a00c75ef2946e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f493ed233e66342493f155ebda5c183"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a2f493ed233e66342493f155ebda5c183">READ_BIT</a>&#160;&#160;&#160;I2C_MASTER_READ  /*! I2C master read */</td></tr>
+<tr class="separator:a2f493ed233e66342493f155ebda5c183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd22b838d2b1f22d367e6cdef04ccc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a7dd22b838d2b1f22d367e6cdef04ccc3">ACK_CHECK_EN</a>&#160;&#160;&#160;0x1              /*! I2C master will check ack from slave*/</td></tr>
+<tr class="separator:a7dd22b838d2b1f22d367e6cdef04ccc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad7ceb373ce664b1c2482a66537e7c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a8ad7ceb373ce664b1c2482a66537e7c0">ACK_CHECK_DIS</a>&#160;&#160;&#160;0x0              /*! I2C master will not check ack from slave */</td></tr>
+<tr class="separator:a8ad7ceb373ce664b1c2482a66537e7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d64a546dacc15052a6c4887f9d0020f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a1d64a546dacc15052a6c4887f9d0020f">ACK_VAL</a>&#160;&#160;&#160;0x0              /*! I2C ack value */</td></tr>
+<tr class="separator:a1d64a546dacc15052a6c4887f9d0020f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae20bf16f65c41237e2d620ef49890781"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ae20bf16f65c41237e2d620ef49890781">NACK_VAL</a>&#160;&#160;&#160;0x1              /*! I2C nack value */</td></tr>
+<tr class="separator:ae20bf16f65c41237e2d620ef49890781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bfabead2a5dc9c2de0710de5e286d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a20bfabead2a5dc9c2de0710de5e286d6">LAST_NACK_VAL</a>&#160;&#160;&#160;0x2</td></tr>
+<tr class="separator:a20bfabead2a5dc9c2de0710de5e286d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8cef9349ca846328f439fcb51993bb5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ad8cef9349ca846328f439fcb51993bb5">THRESH_TAP</a>&#160;&#160;&#160;0x1D        /*!Tap threshold*/</td></tr>
+<tr class="separator:ad8cef9349ca846328f439fcb51993bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed743ef8e7fd8d1bc4f3a456e730c432"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aed743ef8e7fd8d1bc4f3a456e730c432">OFSX</a>&#160;&#160;&#160;0x1E            /*!X-axis offset*/</td></tr>
+<tr class="separator:aed743ef8e7fd8d1bc4f3a456e730c432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8033e657e74ff6ca78685f261033a8c5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a8033e657e74ff6ca78685f261033a8c5">OFSY</a>&#160;&#160;&#160;0x1F            /*!Y-axis offset*/</td></tr>
+<tr class="separator:a8033e657e74ff6ca78685f261033a8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0edf225116b246ec3316391691a2a634"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a0edf225116b246ec3316391691a2a634">OFSZ</a>&#160;&#160;&#160;0x20            /*!Z-axis offset*/</td></tr>
+<tr class="separator:a0edf225116b246ec3316391691a2a634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8ac375e38f541d5731744e12fec07ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#af8ac375e38f541d5731744e12fec07ca">DUR</a>&#160;&#160;&#160;0x21                /*!Tap duration*/</td></tr>
+<tr class="separator:af8ac375e38f541d5731744e12fec07ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe1822eb87872cc70da306fe2d0b681"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#afbe1822eb87872cc70da306fe2d0b681">Latent</a>&#160;&#160;&#160;0x22            /*!Tap latency*/</td></tr>
+<tr class="separator:afbe1822eb87872cc70da306fe2d0b681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f0b3ea7a02ede1c5799a956e008406"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a12f0b3ea7a02ede1c5799a956e008406">Window</a>&#160;&#160;&#160;0x23            /*!Tap window*/</td></tr>
+<tr class="separator:a12f0b3ea7a02ede1c5799a956e008406"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede29895883c40f0be2f4e509019bb35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aede29895883c40f0be2f4e509019bb35">THRESH_ACT</a>&#160;&#160;&#160;0x24        /*!Activity threshold*/</td></tr>
+<tr class="separator:aede29895883c40f0be2f4e509019bb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c6ad41a83f84d0d272f78350b8e144"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a53c6ad41a83f84d0d272f78350b8e144">THRESH_INACT</a>&#160;&#160;&#160;0x25    /*!Inactivity threshold*/</td></tr>
+<tr class="separator:a53c6ad41a83f84d0d272f78350b8e144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc84e6e6917a9bfe611da2914a580842"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#abc84e6e6917a9bfe611da2914a580842">TIME_INACT</a>&#160;&#160;&#160;0x26        /*!Inactivity time*/</td></tr>
+<tr class="separator:abc84e6e6917a9bfe611da2914a580842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc34474d6dd061daa0fa70d946c18ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#acbc34474d6dd061daa0fa70d946c18ff">ACT_INACT_CTL</a>&#160;&#160;&#160;0x27    /*!Axis enable control for activity and inactivity detection*/</td></tr>
+<tr class="separator:acbc34474d6dd061daa0fa70d946c18ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4316f275ad7d11d0ea3778b88be8dea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#af4316f275ad7d11d0ea3778b88be8dea">THRESH_FF</a>&#160;&#160;&#160;0x28        /*!Free-fall threshold*/</td></tr>
+<tr class="separator:af4316f275ad7d11d0ea3778b88be8dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0fea52b674b391e9c7abf2149ace316"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aa0fea52b674b391e9c7abf2149ace316">TIME_FF</a>&#160;&#160;&#160;0x29            /*!Free-fall time*/</td></tr>
+<tr class="separator:aa0fea52b674b391e9c7abf2149ace316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab9e7647afc6e0f7e537b7cb2bdab57b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aab9e7647afc6e0f7e537b7cb2bdab57b">TAP_AXES</a>&#160;&#160;&#160;0x2A        /*!Axis control for single tap/double tap*/</td></tr>
+<tr class="separator:aab9e7647afc6e0f7e537b7cb2bdab57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6c8c7ea3016f3792f26fd77b4bb839"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a0f6c8c7ea3016f3792f26fd77b4bb839">ACT_TAP_STATUS</a>&#160;&#160;&#160;0x2B    /*!Source of single tap/double tap*/</td></tr>
+<tr class="separator:a0f6c8c7ea3016f3792f26fd77b4bb839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58f87a59871d65bd54ed20ff8a57255"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ac58f87a59871d65bd54ed20ff8a57255">BW_RATE</a>&#160;&#160;&#160;0x2C            /*!Data rate and power mode control*/</td></tr>
+<tr class="separator:ac58f87a59871d65bd54ed20ff8a57255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1c4b49cdb2a4fc68c03863dcb5dbb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a3d1c4b49cdb2a4fc68c03863dcb5dbb4">POWER_CTL</a>&#160;&#160;&#160;0x2D        /*!Power-saving features control*/</td></tr>
+<tr class="separator:a3d1c4b49cdb2a4fc68c03863dcb5dbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf7a56466fd6203663685a04448c9185"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#abf7a56466fd6203663685a04448c9185">INT_ENABLE</a>&#160;&#160;&#160;0x2E        /*!Interrupt enable control*/</td></tr>
+<tr class="separator:abf7a56466fd6203663685a04448c9185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ac41df43654a661115295ce2c45dc8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ac3ac41df43654a661115295ce2c45dc8">INT_MAP</a>&#160;&#160;&#160;0x2F            /*!Interrupt mapping control*/</td></tr>
+<tr class="separator:ac3ac41df43654a661115295ce2c45dc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06206757c9548bd8bfe8a318ba4fea62"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a06206757c9548bd8bfe8a318ba4fea62">INT_SOURCE</a>&#160;&#160;&#160;0x30        /*S!ource of interrupts*/</td></tr>
+<tr class="separator:a06206757c9548bd8bfe8a318ba4fea62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cee98082bcdd5f5f2a34ded0663665e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a7cee98082bcdd5f5f2a34ded0663665e">DATA_FORMAT</a>&#160;&#160;&#160;0x31        /*!Data format control*/</td></tr>
+<tr class="separator:a7cee98082bcdd5f5f2a34ded0663665e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ad288fe56c8bac665fb698cb17a5a78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a9ad288fe56c8bac665fb698cb17a5a78">DATAX0</a>&#160;&#160;&#160;0x32            /*!X-Axis Data 0 LSB*/</td></tr>
+<tr class="separator:a9ad288fe56c8bac665fb698cb17a5a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1757e9382b6a644df3584266e9377b53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a1757e9382b6a644df3584266e9377b53">DATAX1</a>&#160;&#160;&#160;0x33            /*!X-Axis Data 1 MSB*/</td></tr>
+<tr class="separator:a1757e9382b6a644df3584266e9377b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cbdc6ef51a274ca806a9f282a4b30c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a8cbdc6ef51a274ca806a9f282a4b30c3">DATAY0</a>&#160;&#160;&#160;0x34            /*!Y-Axis Data 0 LSB*/</td></tr>
+<tr class="separator:a8cbdc6ef51a274ca806a9f282a4b30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f31537eef3e92ba15f7121c0657711"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a65f31537eef3e92ba15f7121c0657711">DATAY1</a>&#160;&#160;&#160;0x35            /*!Y-Axis Data 1 MSB*/</td></tr>
+<tr class="separator:a65f31537eef3e92ba15f7121c0657711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f041adda135207759247d08ebce1b51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a1f041adda135207759247d08ebce1b51">DATAZ0</a>&#160;&#160;&#160;0x36            /*!Z-Axis Data 0 LSB*/</td></tr>
+<tr class="separator:a1f041adda135207759247d08ebce1b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6f4f9eb5ffc369b284750ca7f27022a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ad6f4f9eb5ffc369b284750ca7f27022a">DATAZ1</a>&#160;&#160;&#160;0x37            /*!Z-Axis Data 1 MSB*/</td></tr>
+<tr class="separator:ad6f4f9eb5ffc369b284750ca7f27022a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a493b5218c89ab8d0ccbe78b1ddb7db39"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a493b5218c89ab8d0ccbe78b1ddb7db39">FIFO_CTL</a>&#160;&#160;&#160;0x38        /*!FIFO control*/</td></tr>
+<tr class="separator:a493b5218c89ab8d0ccbe78b1ddb7db39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e5c9878194f462bf7a46ca8a7b8f9d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a9e5c9878194f462bf7a46ca8a7b8f9d2">FIFO_STATUS</a>&#160;&#160;&#160;0x39        /*!FIFO status*/</td></tr>
+<tr class="separator:a9e5c9878194f462bf7a46ca8a7b8f9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a716812251305a456625ae4ac11cd9432"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a716812251305a456625ae4ac11cd9432">XLSB</a>&#160;&#160;&#160;0 /* least significant byte of X' accelleration*/</td></tr>
+<tr class="separator:a716812251305a456625ae4ac11cd9432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a131f9bb0b351d2dd5720996f7c44d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a3a131f9bb0b351d2dd5720996f7c44d2">XMSB</a>&#160;&#160;&#160;1 /* most significant byte of X' accelleration*/</td></tr>
+<tr class="separator:a3a131f9bb0b351d2dd5720996f7c44d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50ded95faa73d9c669e386736a52ba31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a50ded95faa73d9c669e386736a52ba31">YLSB</a>&#160;&#160;&#160;2 /* least significant byte of Y' accelleration*/</td></tr>
+<tr class="separator:a50ded95faa73d9c669e386736a52ba31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa83d0ee1e2e6e7049ff5c1957851a922"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aa83d0ee1e2e6e7049ff5c1957851a922">YMSB</a>&#160;&#160;&#160;3 /* most significant byte of Y' accelleration*/</td></tr>
+<tr class="separator:aa83d0ee1e2e6e7049ff5c1957851a922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f90ce08e6eda368fa3935fb1e9070bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a9f90ce08e6eda368fa3935fb1e9070bc">ZLSB</a>&#160;&#160;&#160;4 /* least significant byte of Z' accelleration*/</td></tr>
+<tr class="separator:a9f90ce08e6eda368fa3935fb1e9070bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab925dc1782468a3afb795aa7aaed00f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ab925dc1782468a3afb795aa7aaed00f8">ZMSB</a>&#160;&#160;&#160;5 /* most significant byte of Z' accelleration*/</td></tr>
+<tr class="separator:ab925dc1782468a3afb795aa7aaed00f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a614217d263be1fb1a5f76e2ff7be19a2">PORT</a>&#160;&#160;&#160;<a class="el" href="config_2sdkconfig_8h.html#a1588c694a97f3ae2440883e7c7b843f3">CONFIG_EXAMPLE_PORT</a></td></tr>
+<tr class="separator:a614217d263be1fb1a5f76e2ff7be19a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9313ab1d8c6d2f935b65e30420f54140"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a9313ab1d8c6d2f935b65e30420f54140">PORT0ADX</a>&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )  /* Event bit 0, read two sensors at the port0 i2c */</td></tr>
+<tr class="separator:a9313ab1d8c6d2f935b65e30420f54140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08069bbf97e87b0a463eccdcf2c81585"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a08069bbf97e87b0a463eccdcf2c81585">PORT1ADX</a>&#160;&#160;&#160;( 1UL &lt;&lt; 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */</td></tr>
+<tr class="separator:a08069bbf97e87b0a463eccdcf2c81585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db55153877cfdc729091d3aecdb3bd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a1db55153877cfdc729091d3aecdb3bd2">UDP</a>&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )  /* Event bit 2, UDP server */</td></tr>
+<tr class="separator:a1db55153877cfdc729091d3aecdb3bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe2df1dab131d83f22efc4dcc9c6374"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#acfe2df1dab131d83f22efc4dcc9c6374">RESTART</a>&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )  /* Restart the reading events for more samples*/</td></tr>
+<tr class="separator:acfe2df1dab131d83f22efc4dcc9c6374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d2d5c526ce5c0a551f533eccbee71a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a90d2d5c526ce5c0a551f533eccbee71a">ADC1</a>&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )  /* ADC1 POT READ*/</td></tr>
+<tr class="separator:a90d2d5c526ce5c0a551f533eccbee71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5503ae96c26b4475226f96715a1bf1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ac5503ae96c26b4475226f96715a1bf1e">ADC2</a>&#160;&#160;&#160;( 1UL &lt;&lt; 5UL )  /* ADC2 POT READ*/</td></tr>
+<tr class="separator:ac5503ae96c26b4475226f96715a1bf1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae917784606daf6b04c9b7b96b40c2f74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ae917784606daf6b04c9b7b96b40c2f74">ADC3</a>&#160;&#160;&#160;( 1UL &lt;&lt; 6UL )  /* ADC3 POT READ*/</td></tr>
+<tr class="separator:ae917784606daf6b04c9b7b96b40c2f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9801ee314a63caa4a7b71a6354014319"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a9801ee314a63caa4a7b71a6354014319">ALLSYNCH</a>&#160;&#160;&#160;<a class="el" href="udp__server_8c.html#a08069bbf97e87b0a463eccdcf2c81585">PORT1ADX</a> | <a class="el" href="udp__server_8c.html#a1db55153877cfdc729091d3aecdb3bd2">UDP</a> /* check all samples were readed*/</td></tr>
+<tr class="separator:a9801ee314a63caa4a7b71a6354014319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea46da922576b35e99e5fa24ba2c515a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#aea46da922576b35e99e5fa24ba2c515a">TESTSYNCH</a>&#160;&#160;&#160;<a class="el" href="udp__server_8c.html#a90d2d5c526ce5c0a551f533eccbee71a">ADC1</a>|<a class="el" href="udp__server_8c.html#ac5503ae96c26b4475226f96715a1bf1e">ADC2</a>|<a class="el" href="udp__server_8c.html#ae917784606daf6b04c9b7b96b40c2f74">ADC3</a></td></tr>
+<tr class="separator:aea46da922576b35e99e5fa24ba2c515a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63baed8df076ce9dddaea1ae8694c1d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a63baed8df076ce9dddaea1ae8694c1d8">DEFAULT_VREF</a>&#160;&#160;&#160;1100</td></tr>
+<tr class="separator:a63baed8df076ce9dddaea1ae8694c1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4189ffd3a90a1d83afbc51359211d55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#ad4189ffd3a90a1d83afbc51359211d55">NO_OF_SAMPLES</a>&#160;&#160;&#160;64</td></tr>
+<tr class="separator:ad4189ffd3a90a1d83afbc51359211d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+<tr class="separator:a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a23235b0baa8a2582eb7db3a681345615"><td class="memItemLeft" align="right" valign="top">EventGroupHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a23235b0baa8a2582eb7db3a681345615">xEventGroup</a></td></tr>
+<tr class="separator:a23235b0baa8a2582eb7db3a681345615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3858d3c78b100cc6cae535119e5dc9"><td class="memItemLeft" align="right" valign="top">QueueHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="udp__server_8c.html#a8a3858d3c78b100cc6cae535119e5dc9">buffer_queue</a></td></tr>
+<tr class="separator:a8a3858d3c78b100cc6cae535119e5dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a8ad7ceb373ce664b1c2482a66537e7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad7ceb373ce664b1c2482a66537e7c0">&#9670;&nbsp;</a></span>ACK_CHECK_DIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACK_CHECK_DIS&#160;&#160;&#160;0x0              /*! I2C master will not check ack from slave */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00044">44</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a7dd22b838d2b1f22d367e6cdef04ccc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd22b838d2b1f22d367e6cdef04ccc3">&#9670;&nbsp;</a></span>ACK_CHECK_EN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACK_CHECK_EN&#160;&#160;&#160;0x1              /*! I2C master will check ack from slave*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00043">43</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a1d64a546dacc15052a6c4887f9d0020f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d64a546dacc15052a6c4887f9d0020f">&#9670;&nbsp;</a></span>ACK_VAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACK_VAL&#160;&#160;&#160;0x0              /*! I2C ack value */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00045">45</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="acbc34474d6dd061daa0fa70d946c18ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbc34474d6dd061daa0fa70d946c18ff">&#9670;&nbsp;</a></span>ACT_INACT_CTL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACT_INACT_CTL&#160;&#160;&#160;0x27    /*!Axis enable control for activity and inactivity detection*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00060">60</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a0f6c8c7ea3016f3792f26fd77b4bb839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6c8c7ea3016f3792f26fd77b4bb839">&#9670;&nbsp;</a></span>ACT_TAP_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACT_TAP_STATUS&#160;&#160;&#160;0x2B    /*!Source of single tap/double tap*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00064">64</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a90d2d5c526ce5c0a551f533eccbee71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d2d5c526ce5c0a551f533eccbee71a">&#9670;&nbsp;</a></span>ADC1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC1&#160;&#160;&#160;( 1UL &lt;&lt; 4UL )  /* ADC1 POT READ*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00094">94</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ac5503ae96c26b4475226f96715a1bf1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5503ae96c26b4475226f96715a1bf1e">&#9670;&nbsp;</a></span>ADC2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC2&#160;&#160;&#160;( 1UL &lt;&lt; 5UL )  /* ADC2 POT READ*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00095">95</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ae917784606daf6b04c9b7b96b40c2f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae917784606daf6b04c9b7b96b40c2f74">&#9670;&nbsp;</a></span>ADC3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC3&#160;&#160;&#160;( 1UL &lt;&lt; 6UL )  /* ADC3 POT READ*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00096">96</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a6b27e330160d5010f6c2b8bc508dd4f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b27e330160d5010f6c2b8bc508dd4f0">&#9670;&nbsp;</a></span>ADXL345_SLAVE_ADDR0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADXL345_SLAVE_ADDR0&#160;&#160;&#160;0x53   /*! slave address for ADXL345 sensor */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00038">38</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a1ee132d5b9a445b1bc4226816eddf521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee132d5b9a445b1bc4226816eddf521">&#9670;&nbsp;</a></span>ADXL345_SLAVE_ADDR1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADXL345_SLAVE_ADDR1&#160;&#160;&#160;0x1d   /*! slave address for ADXL345 sensor */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00039">39</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a9801ee314a63caa4a7b71a6354014319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9801ee314a63caa4a7b71a6354014319">&#9670;&nbsp;</a></span>ALLSYNCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ALLSYNCH&#160;&#160;&#160;<a class="el" href="udp__server_8c.html#a08069bbf97e87b0a463eccdcf2c81585">PORT1ADX</a> | <a class="el" href="udp__server_8c.html#a1db55153877cfdc729091d3aecdb3bd2">UDP</a> /* check all samples were readed*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00098">98</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ac58f87a59871d65bd54ed20ff8a57255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58f87a59871d65bd54ed20ff8a57255">&#9670;&nbsp;</a></span>BW_RATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BW_RATE&#160;&#160;&#160;0x2C            /*!Data rate and power mode control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00065">65</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a7cee98082bcdd5f5f2a34ded0663665e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cee98082bcdd5f5f2a34ded0663665e">&#9670;&nbsp;</a></span>DATA_FORMAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATA_FORMAT&#160;&#160;&#160;0x31        /*!Data format control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00070">70</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a9ad288fe56c8bac665fb698cb17a5a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ad288fe56c8bac665fb698cb17a5a78">&#9670;&nbsp;</a></span>DATAX0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAX0&#160;&#160;&#160;0x32            /*!X-Axis Data 0 LSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00071">71</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a1757e9382b6a644df3584266e9377b53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1757e9382b6a644df3584266e9377b53">&#9670;&nbsp;</a></span>DATAX1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAX1&#160;&#160;&#160;0x33            /*!X-Axis Data 1 MSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00072">72</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a8cbdc6ef51a274ca806a9f282a4b30c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbdc6ef51a274ca806a9f282a4b30c3">&#9670;&nbsp;</a></span>DATAY0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAY0&#160;&#160;&#160;0x34            /*!Y-Axis Data 0 LSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00073">73</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a65f31537eef3e92ba15f7121c0657711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65f31537eef3e92ba15f7121c0657711">&#9670;&nbsp;</a></span>DATAY1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAY1&#160;&#160;&#160;0x35            /*!Y-Axis Data 1 MSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00074">74</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a1f041adda135207759247d08ebce1b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f041adda135207759247d08ebce1b51">&#9670;&nbsp;</a></span>DATAZ0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAZ0&#160;&#160;&#160;0x36            /*!Z-Axis Data 0 LSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00075">75</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ad6f4f9eb5ffc369b284750ca7f27022a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f4f9eb5ffc369b284750ca7f27022a">&#9670;&nbsp;</a></span>DATAZ1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DATAZ1&#160;&#160;&#160;0x37            /*!Z-Axis Data 1 MSB*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00076">76</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a63baed8df076ce9dddaea1ae8694c1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63baed8df076ce9dddaea1ae8694c1d8">&#9670;&nbsp;</a></span>DEFAULT_VREF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_VREF&#160;&#160;&#160;1100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00100">100</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="af8ac375e38f541d5731744e12fec07ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8ac375e38f541d5731744e12fec07ca">&#9670;&nbsp;</a></span>DUR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DUR&#160;&#160;&#160;0x21                /*!Tap duration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00054">54</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a493b5218c89ab8d0ccbe78b1ddb7db39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a493b5218c89ab8d0ccbe78b1ddb7db39">&#9670;&nbsp;</a></span>FIFO_CTL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIFO_CTL&#160;&#160;&#160;0x38        /*!FIFO control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00077">77</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a9e5c9878194f462bf7a46ca8a7b8f9d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e5c9878194f462bf7a46ca8a7b8f9d2">&#9670;&nbsp;</a></span>FIFO_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIFO_STATUS&#160;&#160;&#160;0x39        /*!FIFO status*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00078">78</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a5c22ca4de37a83a59014e48b0a0b043d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c22ca4de37a83a59014e48b0a0b043d">&#9670;&nbsp;</a></span>I2C_MASTER_FREQ_HZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_MASTER_FREQ_HZ&#160;&#160;&#160;400000        /*! I2C master clock frequency */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00034">34</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a37a0707200e50e3b3e9ab28b1b8d6777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a0707200e50e3b3e9ab28b1b8d6777">&#9670;&nbsp;</a></span>I2C_MASTER_RX_BUF_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_MASTER_RX_BUF_DISABLE&#160;&#160;&#160;0      /*! I2C master doesn't need buffer */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00036">36</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aaa0e84f340ef5ea9db2d7624fdadaa26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa0e84f340ef5ea9db2d7624fdadaa26">&#9670;&nbsp;</a></span>I2C_MASTER_TX_BUF_DISABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_MASTER_TX_BUF_DISABLE&#160;&#160;&#160;0      /*! I2C master doesn't need buffer */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00035">35</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="abf7a56466fd6203663685a04448c9185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf7a56466fd6203663685a04448c9185">&#9670;&nbsp;</a></span>INT_ENABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT_ENABLE&#160;&#160;&#160;0x2E        /*!Interrupt enable control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00067">67</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ac3ac41df43654a661115295ce2c45dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ac41df43654a661115295ce2c45dc8">&#9670;&nbsp;</a></span>INT_MAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT_MAP&#160;&#160;&#160;0x2F            /*!Interrupt mapping control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00068">68</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a06206757c9548bd8bfe8a318ba4fea62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06206757c9548bd8bfe8a318ba4fea62">&#9670;&nbsp;</a></span>INT_SOURCE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT_SOURCE&#160;&#160;&#160;0x30        /*S!ource of interrupts*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00069">69</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a20bfabead2a5dc9c2de0710de5e286d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20bfabead2a5dc9c2de0710de5e286d6">&#9670;&nbsp;</a></span>LAST_NACK_VAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LAST_NACK_VAL&#160;&#160;&#160;0x2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00047">47</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="afbe1822eb87872cc70da306fe2d0b681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe1822eb87872cc70da306fe2d0b681">&#9670;&nbsp;</a></span>Latent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Latent&#160;&#160;&#160;0x22            /*!Tap latency*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00055">55</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ae20bf16f65c41237e2d620ef49890781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20bf16f65c41237e2d620ef49890781">&#9670;&nbsp;</a></span>NACK_VAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NACK_VAL&#160;&#160;&#160;0x1              /*! I2C nack value */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00046">46</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ad4189ffd3a90a1d83afbc51359211d55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4189ffd3a90a1d83afbc51359211d55">&#9670;&nbsp;</a></span>NO_OF_SAMPLES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NO_OF_SAMPLES&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00101">101</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aed743ef8e7fd8d1bc4f3a456e730c432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed743ef8e7fd8d1bc4f3a456e730c432">&#9670;&nbsp;</a></span>OFSX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OFSX&#160;&#160;&#160;0x1E            /*!X-axis offset*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00051">51</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a8033e657e74ff6ca78685f261033a8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8033e657e74ff6ca78685f261033a8c5">&#9670;&nbsp;</a></span>OFSY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OFSY&#160;&#160;&#160;0x1F            /*!Y-axis offset*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00052">52</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a0edf225116b246ec3316391691a2a634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0edf225116b246ec3316391691a2a634">&#9670;&nbsp;</a></span>OFSZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OFSZ&#160;&#160;&#160;0x20            /*!Z-axis offset*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00053">53</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a614217d263be1fb1a5f76e2ff7be19a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614217d263be1fb1a5f76e2ff7be19a2">&#9670;&nbsp;</a></span>PORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PORT&#160;&#160;&#160;<a class="el" href="config_2sdkconfig_8h.html#a1588c694a97f3ae2440883e7c7b843f3">CONFIG_EXAMPLE_PORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00087">87</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a9313ab1d8c6d2f935b65e30420f54140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9313ab1d8c6d2f935b65e30420f54140">&#9670;&nbsp;</a></span>PORT0ADX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PORT0ADX&#160;&#160;&#160;( 1UL &lt;&lt; 0UL )  /* Event bit 0, read two sensors at the port0 i2c */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00089">89</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a08069bbf97e87b0a463eccdcf2c81585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08069bbf97e87b0a463eccdcf2c81585">&#9670;&nbsp;</a></span>PORT1ADX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PORT1ADX&#160;&#160;&#160;( 1UL &lt;&lt; 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00090">90</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a3d1c4b49cdb2a4fc68c03863dcb5dbb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1c4b49cdb2a4fc68c03863dcb5dbb4">&#9670;&nbsp;</a></span>POWER_CTL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POWER_CTL&#160;&#160;&#160;0x2D        /*!Power-saving features control*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00066">66</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a2f493ed233e66342493f155ebda5c183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f493ed233e66342493f155ebda5c183">&#9670;&nbsp;</a></span>READ_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define READ_BIT&#160;&#160;&#160;I2C_MASTER_READ  /*! I2C master read */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00042">42</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="acfe2df1dab131d83f22efc4dcc9c6374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe2df1dab131d83f22efc4dcc9c6374">&#9670;&nbsp;</a></span>RESTART</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESTART&#160;&#160;&#160;( 1UL &lt;&lt; 3UL )  /* Restart the reading events for more samples*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00093">93</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aab9e7647afc6e0f7e537b7cb2bdab57b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab9e7647afc6e0f7e537b7cb2bdab57b">&#9670;&nbsp;</a></span>TAP_AXES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAP_AXES&#160;&#160;&#160;0x2A        /*!Axis control for single tap/double tap*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00063">63</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aea46da922576b35e99e5fa24ba2c515a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea46da922576b35e99e5fa24ba2c515a">&#9670;&nbsp;</a></span>TESTSYNCH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TESTSYNCH&#160;&#160;&#160;<a class="el" href="udp__server_8c.html#a90d2d5c526ce5c0a551f533eccbee71a">ADC1</a>|<a class="el" href="udp__server_8c.html#ac5503ae96c26b4475226f96715a1bf1e">ADC2</a>|<a class="el" href="udp__server_8c.html#ae917784606daf6b04c9b7b96b40c2f74">ADC3</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00099">99</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aede29895883c40f0be2f4e509019bb35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede29895883c40f0be2f4e509019bb35">&#9670;&nbsp;</a></span>THRESH_ACT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESH_ACT&#160;&#160;&#160;0x24        /*!Activity threshold*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00057">57</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="af4316f275ad7d11d0ea3778b88be8dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4316f275ad7d11d0ea3778b88be8dea">&#9670;&nbsp;</a></span>THRESH_FF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESH_FF&#160;&#160;&#160;0x28        /*!Free-fall threshold*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00061">61</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a53c6ad41a83f84d0d272f78350b8e144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c6ad41a83f84d0d272f78350b8e144">&#9670;&nbsp;</a></span>THRESH_INACT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESH_INACT&#160;&#160;&#160;0x25    /*!Inactivity threshold*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00058">58</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ad8cef9349ca846328f439fcb51993bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8cef9349ca846328f439fcb51993bb5">&#9670;&nbsp;</a></span>THRESH_TAP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THRESH_TAP&#160;&#160;&#160;0x1D        /*!Tap threshold*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00050">50</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aa0fea52b674b391e9c7abf2149ace316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0fea52b674b391e9c7abf2149ace316">&#9670;&nbsp;</a></span>TIME_FF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIME_FF&#160;&#160;&#160;0x29            /*!Free-fall time*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00062">62</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="abc84e6e6917a9bfe611da2914a580842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc84e6e6917a9bfe611da2914a580842">&#9670;&nbsp;</a></span>TIME_INACT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIME_INACT&#160;&#160;&#160;0x26        /*!Inactivity time*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00059">59</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a1db55153877cfdc729091d3aecdb3bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db55153877cfdc729091d3aecdb3bd2">&#9670;&nbsp;</a></span>UDP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UDP&#160;&#160;&#160;( 1UL &lt;&lt; 2UL )  /* Event bit 2, UDP server */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00091">91</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a12f0b3ea7a02ede1c5799a956e008406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f0b3ea7a02ede1c5799a956e008406">&#9670;&nbsp;</a></span>Window</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Window&#160;&#160;&#160;0x23            /*!Tap window*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00056">56</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a7fc57d5be9f588839a00c75ef2946e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc57d5be9f588839a00c75ef2946e17">&#9670;&nbsp;</a></span>WRITE_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WRITE_BIT&#160;&#160;&#160;I2C_MASTER_WRITE /*! I2C master write */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00041">41</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a716812251305a456625ae4ac11cd9432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a716812251305a456625ae4ac11cd9432">&#9670;&nbsp;</a></span>XLSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XLSB&#160;&#160;&#160;0 /* least significant byte of X' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00080">80</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a3a131f9bb0b351d2dd5720996f7c44d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a131f9bb0b351d2dd5720996f7c44d2">&#9670;&nbsp;</a></span>XMSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XMSB&#160;&#160;&#160;1 /* most significant byte of X' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00081">81</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a50ded95faa73d9c669e386736a52ba31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50ded95faa73d9c669e386736a52ba31">&#9670;&nbsp;</a></span>YLSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define YLSB&#160;&#160;&#160;2 /* least significant byte of Y' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00082">82</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="aa83d0ee1e2e6e7049ff5c1957851a922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa83d0ee1e2e6e7049ff5c1957851a922">&#9670;&nbsp;</a></span>YMSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define YMSB&#160;&#160;&#160;3 /* most significant byte of Y' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00083">83</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a9f90ce08e6eda368fa3935fb1e9070bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f90ce08e6eda368fa3935fb1e9070bc">&#9670;&nbsp;</a></span>ZLSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZLSB&#160;&#160;&#160;4 /* least significant byte of Z' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00084">84</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="ab925dc1782468a3afb795aa7aaed00f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab925dc1782468a3afb795aa7aaed00f8">&#9670;&nbsp;</a></span>ZMSB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZMSB&#160;&#160;&#160;5 /* most significant byte of Z' accelleration*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00085">85</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&nbsp;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Task instance for udp comunication</p>
+<p>Task instance for I2C BUS read.</p>
+<p>Task instance for I2C BUS read.</p>
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00410">410</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+<div class="fragment"><div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;{</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <a class="code" href="udp__server_8c.html#a23235b0baa8a2582eb7db3a681345615">xEventGroup</a> = xEventGroupCreate();</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <a class="code" href="udp__server_8c.html#a8a3858d3c78b100cc6cae535119e5dc9">buffer_queue</a> = xQueueCreate(6, 7*<span class="keyword">sizeof</span>(int16_t));<span class="comment">//Cria a queue *buffer* com 4 slots de 14 Bytes</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    ESP_ERROR_CHECK(nvs_flash_init());</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    ESP_ERROR_CHECK(esp_netif_init());</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    ESP_ERROR_CHECK(esp_event_loop_create_default());</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    ESP_ERROR_CHECK(example_connect());</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    xTaskCreate(udp_server_task, <span class="stringliteral">&quot;udp_server_task&quot;</span>, 4096, (<span class="keywordtype">void</span>*)AF_INET, 1, NULL);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    xTaskCreate(i2c_test_task  , <span class="stringliteral">&quot;i2c_test_task_0&quot;</span>, 2048, (<span class="keywordtype">void</span> *)<a class="code" href="udp__server_8c.html#a9313ab1d8c6d2f935b65e30420f54140">PORT0ADX</a>, 20, NULL); </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    xTaskCreate(i2c_test_task  , <span class="stringliteral">&quot;i2c_test_task_1&quot;</span>, 2048, (<span class="keywordtype">void</span> *)<a class="code" href="udp__server_8c.html#a08069bbf97e87b0a463eccdcf2c81585">PORT1ADX</a>, 20, NULL);</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="comment">//xTaskCreate(disp_buf  , &quot;i2c_test_task_1&quot;, 2048, (void *)UDP, 20, NULL);//!&lt; Task instance for prety print I2C BUS on esp32 monitor on PC.</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;}</div>
+<div class="ttc" id="audp__server_8c_html_a08069bbf97e87b0a463eccdcf2c81585"><div class="ttname"><a href="udp__server_8c.html#a08069bbf97e87b0a463eccdcf2c81585">PORT1ADX</a></div><div class="ttdeci">#define PORT1ADX</div><div class="ttdef"><b>Definition:</b> <a href="udp__server_8c_source.html#l00090">udp_server.c:90</a></div></div>
+<div class="ttc" id="audp__server_8c_html_a23235b0baa8a2582eb7db3a681345615"><div class="ttname"><a href="udp__server_8c.html#a23235b0baa8a2582eb7db3a681345615">xEventGroup</a></div><div class="ttdeci">EventGroupHandle_t xEventGroup</div><div class="ttdef"><b>Definition:</b> <a href="udp__server_8c_source.html#l00105">udp_server.c:105</a></div></div>
+<div class="ttc" id="audp__server_8c_html_a8a3858d3c78b100cc6cae535119e5dc9"><div class="ttname"><a href="udp__server_8c.html#a8a3858d3c78b100cc6cae535119e5dc9">buffer_queue</a></div><div class="ttdeci">QueueHandle_t buffer_queue</div><div class="ttdef"><b>Definition:</b> <a href="udp__server_8c_source.html#l00107">udp_server.c:107</a></div></div>
+<div class="ttc" id="audp__server_8c_html_a9313ab1d8c6d2f935b65e30420f54140"><div class="ttname"><a href="udp__server_8c.html#a9313ab1d8c6d2f935b65e30420f54140">PORT0ADX</a></div><div class="ttdeci">#define PORT0ADX</div><div class="ttdef"><b>Definition:</b> <a href="udp__server_8c_source.html#l00089">udp_server.c:89</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="a8a3858d3c78b100cc6cae535119e5dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3858d3c78b100cc6cae535119e5dc9">&#9670;&nbsp;</a></span>buffer_queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueueHandle_t buffer_queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00107">107</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+<a id="a23235b0baa8a2582eb7db3a681345615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23235b0baa8a2582eb7db3a681345615">&#9670;&nbsp;</a></span>xEventGroup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventGroupHandle_t xEventGroup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="udp__server_8c_source.html#l00105">105</a> do arquivo <a class="el" href="udp__server_8c_source.html">udp_server.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

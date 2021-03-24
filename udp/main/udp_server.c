@@ -29,51 +29,53 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 
-#define I2C_MASTER_FREQ_HZ 400000        /*!< I2C master clock frequency */
-#define I2C_MASTER_TX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
-#define I2C_MASTER_RX_BUF_DISABLE 0                           /*!< I2C master doesn't need buffer */
 
-#define ADXL345_SLAVE_ADDR0   0x53   /*!< slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDR1   0x1d   /*!< slave address for ADXL345 sensor */
 
-#define WRITE_BIT               I2C_MASTER_WRITE /*!< I2C master write */
-#define READ_BIT                I2C_MASTER_READ  /*!< I2C master read */
-#define ACK_CHECK_EN            0x1              /*!< I2C master will check ack from slave*/
-#define ACK_CHECK_DIS           0x0              /*!< I2C master will not check ack from slave */
-#define ACK_VAL                 0x0              /*!< I2C ack value */
-#define NACK_VAL                0x1              /*!< I2C nack value */
+#define I2C_MASTER_FREQ_HZ 400000        /*! I2C master clock frequency */
+#define I2C_MASTER_TX_BUF_DISABLE 0      /*! I2C master doesn't need buffer */
+#define I2C_MASTER_RX_BUF_DISABLE 0      /*! I2C master doesn't need buffer */
+
+#define ADXL345_SLAVE_ADDR0   0x53   /*! slave address for ADXL345 sensor */
+#define ADXL345_SLAVE_ADDR1   0x1d   /*! slave address for ADXL345 sensor */
+
+#define WRITE_BIT               I2C_MASTER_WRITE /*! I2C master write */
+#define READ_BIT                I2C_MASTER_READ  /*! I2C master read */
+#define ACK_CHECK_EN            0x1              /*! I2C master will check ack from slave*/
+#define ACK_CHECK_DIS           0x0              /*! I2C master will not check ack from slave */
+#define ACK_VAL                 0x0              /*! I2C ack value */
+#define NACK_VAL                0x1              /*! I2C nack value */
 #define LAST_NACK_VAL           0x2
 
 /* Map of device registers*/
-#define THRESH_TAP  0x1D        /*Tap threshold*/
-#define OFSX    0x1E            /*X-axis offset*/
-#define OFSY    0x1F            /*Y-axis offset*/
-#define OFSZ    0x20            /*Z-axis offset*/
-#define DUR 0x21                /*Tap duration*/
-#define Latent  0x22            /*Tap latency*/
-#define Window  0x23            /*Tap window*/
-#define THRESH_ACT  0x24        /*Activity threshold*/
-#define THRESH_INACT    0x25    /*Inactivity threshold*/
-#define TIME_INACT  0x26        /*Inactivity time*/
-#define ACT_INACT_CTL   0x27    /*Axis enable control for activity and inactivity detection*/
-#define THRESH_FF   0x28        /*Free-fall threshold*/
-#define TIME_FF 0x29            /*Free-fall time*/
-#define TAP_AXES    0x2A        /*Axis control for single tap/double tap*/
-#define ACT_TAP_STATUS  0x2B    /*Source of single tap/double tap*/
-#define BW_RATE 0x2C            /*Data rate and power mode control*/
-#define POWER_CTL   0x2D        /*Power-saving features control*/
-#define INT_ENABLE  0x2E        /*Interrupt enable control*/
-#define INT_MAP 0x2F            /*Interrupt mapping control*/
-#define INT_SOURCE  0x30        /*Source of interrupts*/
-#define DATA_FORMAT 0x31        /*Data format control*/
-#define DATAX0  0x32            /*X-Axis Data 0 LSB*/
-#define DATAX1  0x33            /*X-Axis Data 1 MSB*/
-#define DATAY0  0x34            /*Y-Axis Data 0 LSB*/
-#define DATAY1  0x35            /*Y-Axis Data 1 MSB*/
-#define DATAZ0  0x36            /*Z-Axis Data 0 LSB*/
-#define DATAZ1  0x37            /*Z-Axis Data 1 MSB*/
-#define FIFO_CTL    0x38        /*FIFO control*/
-#define FIFO_STATUS 0x39        /*FIFO status*/
+#define THRESH_TAP  0x1D        /*!Tap threshold*/
+#define OFSX    0x1E            /*!X-axis offset*/
+#define OFSY    0x1F            /*!Y-axis offset*/
+#define OFSZ    0x20            /*!Z-axis offset*/
+#define DUR 0x21                /*!Tap duration*/
+#define Latent  0x22            /*!Tap latency*/
+#define Window  0x23            /*!Tap window*/
+#define THRESH_ACT  0x24        /*!Activity threshold*/
+#define THRESH_INACT    0x25    /*!Inactivity threshold*/
+#define TIME_INACT  0x26        /*!Inactivity time*/
+#define ACT_INACT_CTL   0x27    /*!Axis enable control for activity and inactivity detection*/
+#define THRESH_FF   0x28        /*!Free-fall threshold*/
+#define TIME_FF 0x29            /*!Free-fall time*/
+#define TAP_AXES    0x2A        /*!Axis control for single tap/double tap*/
+#define ACT_TAP_STATUS  0x2B    /*!Source of single tap/double tap*/
+#define BW_RATE 0x2C            /*!Data rate and power mode control*/
+#define POWER_CTL   0x2D        /*!Power-saving features control*/
+#define INT_ENABLE  0x2E        /*!Interrupt enable control*/
+#define INT_MAP 0x2F            /*!Interrupt mapping control*/
+#define INT_SOURCE  0x30        /*S!ource of interrupts*/
+#define DATA_FORMAT 0x31        /*!Data format control*/
+#define DATAX0  0x32            /*!X-Axis Data 0 LSB*/
+#define DATAX1  0x33            /*!X-Axis Data 1 MSB*/
+#define DATAY0  0x34            /*!Y-Axis Data 0 LSB*/
+#define DATAY1  0x35            /*!Y-Axis Data 1 MSB*/
+#define DATAZ0  0x36            /*!Z-Axis Data 0 LSB*/
+#define DATAZ1  0x37            /*!Z-Axis Data 1 MSB*/
+#define FIFO_CTL    0x38        /*!FIFO control*/
+#define FIFO_STATUS 0x39        /*!FIFO status*/
 
 #define XLSB 0 /* least significant byte of X' accelleration*/
 #define XMSB 1 /* most significant byte of X' accelleration*/
@@ -107,6 +109,9 @@ QueueHandle_t buffer_queue;
 
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
 {
+	/* Master read from slave on I2C BUS.
+	@param
+	*/
 	int ret;
 	i2c_cmd_handle_t cmd = i2c_cmd_link_create();
 	i2c_master_start(cmd);
@@ -292,6 +297,11 @@ static void i2c_test_task(void *pvParameters)
 	vTaskDelete(NULL);
 }
 
+/**
+* Read from Queue the data and send to Client.
+* 
+* 
+*/
 static void udp_server_task(void *pvParameters)
 {
 	char error_code_[512];
@@ -409,9 +419,9 @@ void app_main(void)
 
 	ESP_ERROR_CHECK(example_connect());
 
-	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 1, NULL);
-	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL);
-	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);
-	//xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);
+	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 1, NULL);//!Task instance for udp comunication
+	xTaskCreate(i2c_test_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
+	xTaskCreate(i2c_test_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL);//!Task instance for I2C BUS read.
+	//xTaskCreate(disp_buf  , "i2c_test_task_1", 2048, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
 
 }

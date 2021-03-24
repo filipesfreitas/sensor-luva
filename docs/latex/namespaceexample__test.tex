@@ -1,0 +1,128 @@
+\hypertarget{namespaceexample__test}{}\doxysection{Refência do Namespace example\+\_\+test}
+\label{namespaceexample__test}\index{example\_test@{example\_test}}
+\doxysubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}{udp\+\_\+client}} (address, payload)
+\item 
+def \mbox{\hyperlink{namespaceexample__test_a7bd6658642b37525cdc15cae54fc60f3}{test\+\_\+examples\+\_\+protocol\+\_\+socket}} (env, extra\+\_\+data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceexample__test_a3b4d8a7c503a979dfa6caa9e671863df}{PORT}} = 3333
+\item 
+string \mbox{\hyperlink{namespaceexample__test_a52a5271753104e3fd7b243b0b8c43774}{INTERFACE}} = \textquotesingle{}eth0\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Funções}
+\mbox{\Hypertarget{namespaceexample__test_a7bd6658642b37525cdc15cae54fc60f3}\label{namespaceexample__test_a7bd6658642b37525cdc15cae54fc60f3}} 
+\index{example\_test@{example\_test}!test\_examples\_protocol\_socket@{test\_examples\_protocol\_socket}}
+\index{test\_examples\_protocol\_socket@{test\_examples\_protocol\_socket}!example\_test@{example\_test}}
+\doxysubsubsection{\texorpdfstring{test\_examples\_protocol\_socket()}{test\_examples\_protocol\_socket()}}
+{\footnotesize\ttfamily def example\+\_\+test.\+test\+\_\+examples\+\_\+protocol\+\_\+socket (\begin{DoxyParamCaption}\item[{}]{env,  }\item[{}]{extra\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Definição na linha 47 do arquivo example\+\_\+test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceexample__test_a7bd6658642b37525cdc15cae54fc60f3}{test\_examples\_protocol\_socket}}(env, extra\_data):}
+\DoxyCodeLine{48     MESSAGE = \textcolor{stringliteral}{"{}Data to ESP"{}}}
+\DoxyCodeLine{49     \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{50 \textcolor{stringliteral}{    steps:}}
+\DoxyCodeLine{51 \textcolor{stringliteral}{      1. join AP}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{      2. have the board connect to the server}}
+\DoxyCodeLine{53 \textcolor{stringliteral}{      3. send and receive data}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{    "{}"{}"{}}}
+\DoxyCodeLine{55     dut1 = env.get\_dut(\textcolor{stringliteral}{"{}udp\_server"{}}, \textcolor{stringliteral}{"{}examples/protocols/sockets/udp\_server"{}}, dut\_class=ttfw\_idf.ESP32DUT)}
+\DoxyCodeLine{56     \textcolor{comment}{\# check and log bin size}}
+\DoxyCodeLine{57     binary\_file = os.path.join(dut1.app.binary\_path, \textcolor{stringliteral}{"{}udp\_server.bin"{}})}
+\DoxyCodeLine{58     bin\_size = os.path.getsize(binary\_file)}
+\DoxyCodeLine{59     ttfw\_idf.log\_performance(\textcolor{stringliteral}{"{}udp\_server\_bin\_size"{}}, \textcolor{stringliteral}{"{}\{\}KB"{}}.format(bin\_size // 1024))}
+\DoxyCodeLine{60     ttfw\_idf.check\_performance(\textcolor{stringliteral}{"{}udp\_server\_bin\_size"{}}, bin\_size // 1024, dut1.TARGET)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{\# start test}}
+\DoxyCodeLine{63     dut1.start\_app()}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     ipv4 = dut1.expect(re.compile(\textcolor{stringliteral}{r"{} IPv4 address: ([0-\/9]+\(\backslash\).[0-\/9]+\(\backslash\).[0-\/9]+\(\backslash\).[0-\/9]+)"{}}), timeout=30)[0]}
+\DoxyCodeLine{66     ipv6\_r = \textcolor{stringliteral}{r':'}.join((\textcolor{stringliteral}{r'[0-\/9a-\/fA-\/F]\{4\}'},) * 8)    \textcolor{comment}{\# expect all 8 octets from IPv6 (assumes it's printed in the long form)}}
+\DoxyCodeLine{67     ipv6 = dut1.expect(re.compile(\textcolor{stringliteral}{r' IPv6 address: (\{\})'}.format(ipv6\_r)), timeout=30)[0]}
+\DoxyCodeLine{68     print(\textcolor{stringliteral}{"{}Connected with IPv4=\{\} and IPv6=\{\}"{}}.format(ipv4, ipv6))}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{comment}{\# test IPv4}}
+\DoxyCodeLine{71     received = \mbox{\hyperlink{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}{udp\_client}}(ipv4, MESSAGE)}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} received == MESSAGE:}
+\DoxyCodeLine{73         \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{74     dut1.expect(MESSAGE)}
+\DoxyCodeLine{75     \textcolor{comment}{\# test IPv6}}
+\DoxyCodeLine{76     received = \mbox{\hyperlink{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}{udp\_client}}(\textcolor{stringliteral}{"{}\{\}\%\{\}"{}}.format(ipv6, INTERFACE), MESSAGE)}
+\DoxyCodeLine{77     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} received == MESSAGE:}
+\DoxyCodeLine{78         \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{79     dut1.expect(MESSAGE)}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}\label{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}} 
+\index{example\_test@{example\_test}!udp\_client@{udp\_client}}
+\index{udp\_client@{udp\_client}!example\_test@{example\_test}}
+\doxysubsubsection{\texorpdfstring{udp\_client()}{udp\_client()}}
+{\footnotesize\ttfamily def example\+\_\+test.\+udp\+\_\+client (\begin{DoxyParamCaption}\item[{}]{address,  }\item[{}]{payload }\end{DoxyParamCaption})}
+
+
+
+Definição na linha 24 do arquivo example\+\_\+test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespaceexample__test_ad7c2bf89b0b1f8c37ab41b7f70616d34}{udp\_client}}(address, payload):}
+\DoxyCodeLine{25     \textcolor{keywordflow}{for} res \textcolor{keywordflow}{in} socket.getaddrinfo(address, PORT, socket.AF\_UNSPEC,}
+\DoxyCodeLine{26                                   socket.SOCK\_DGRAM, 0, socket.AI\_PASSIVE):}
+\DoxyCodeLine{27         family\_addr, socktype, proto, canonname, addr = res}
+\DoxyCodeLine{28     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{29         sock = socket.socket(family\_addr, socket.SOCK\_DGRAM)}
+\DoxyCodeLine{30     \textcolor{keywordflow}{except} socket.error \textcolor{keyword}{as} msg:}
+\DoxyCodeLine{31         print(\textcolor{stringliteral}{'Could not create socket: '} + str(msg[0]) + \textcolor{stringliteral}{': '} + msg[1])}
+\DoxyCodeLine{32         \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{34         sock.sendto(payload, addr)}
+\DoxyCodeLine{35         reply, addr = sock.recvfrom(128)}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} reply:}
+\DoxyCodeLine{37             \textcolor{keywordflow}{return}}
+\DoxyCodeLine{38         print(\textcolor{stringliteral}{'Reply['} + addr[0] + \textcolor{stringliteral}{':'} + str(addr[1]) + \textcolor{stringliteral}{'] -\/ '} + str(reply))}
+\DoxyCodeLine{39     \textcolor{keywordflow}{except} socket.error \textcolor{keyword}{as} msg:}
+\DoxyCodeLine{40         print(\textcolor{stringliteral}{'Error Code : '} + str(msg[0]) + \textcolor{stringliteral}{' Message: '} + msg[1])}
+\DoxyCodeLine{41         sock.close()}
+\DoxyCodeLine{42         \textcolor{keywordflow}{raise}}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} reply}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{@ttfw\_idf.idf\_example\_test(env\_tag="{}Example\_WIFI"{})}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variáveis}
+\mbox{\Hypertarget{namespaceexample__test_a52a5271753104e3fd7b243b0b8c43774}\label{namespaceexample__test_a52a5271753104e3fd7b243b0b8c43774}} 
+\index{example\_test@{example\_test}!INTERFACE@{INTERFACE}}
+\index{INTERFACE@{INTERFACE}!example\_test@{example\_test}}
+\doxysubsubsection{\texorpdfstring{INTERFACE}{INTERFACE}}
+{\footnotesize\ttfamily string example\+\_\+test.\+INTERFACE = \textquotesingle{}eth0\textquotesingle{}}
+
+
+
+Definição na linha 20 do arquivo example\+\_\+test.\+py.
+
+\mbox{\Hypertarget{namespaceexample__test_a3b4d8a7c503a979dfa6caa9e671863df}\label{namespaceexample__test_a3b4d8a7c503a979dfa6caa9e671863df}} 
+\index{example\_test@{example\_test}!PORT@{PORT}}
+\index{PORT@{PORT}!example\_test@{example\_test}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily int example\+\_\+test.\+PORT = 3333}
+
+
+
+Definição na linha 19 do arquivo example\+\_\+test.\+py.
+
