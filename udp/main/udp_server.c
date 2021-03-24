@@ -1,11 +1,3 @@
-/* BSD Socket API Example
-
-	 This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-	 Unless required by applicable law or agreed to in writing, this
-	 software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-	 CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include <string.h>
 #include <sys/param.h>
 #include "freertos/FreeRTOS.h"
@@ -29,53 +21,51 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 
+#define I2C_MASTER_FREQ_HZ 400000        /** I2C master clock frequency */
+#define I2C_MASTER_TX_BUF_DISABLE 0      /** I2C master doesn't need buffer */
+#define I2C_MASTER_RX_BUF_DISABLE 0      /** I2C master doesn't need buffer */
 
+#define ADXL345_SLAVE_ADDR0   0x53   /** slave address for ADXL345 sensor */
+#define ADXL345_SLAVE_ADDR1   0x1d   /** slave address for ADXL345 sensor */
 
-#define I2C_MASTER_FREQ_HZ 400000        /*! I2C master clock frequency */
-#define I2C_MASTER_TX_BUF_DISABLE 0      /*! I2C master doesn't need buffer */
-#define I2C_MASTER_RX_BUF_DISABLE 0      /*! I2C master doesn't need buffer */
-
-#define ADXL345_SLAVE_ADDR0   0x53   /*! slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDR1   0x1d   /*! slave address for ADXL345 sensor */
-
-#define WRITE_BIT               I2C_MASTER_WRITE /*! I2C master write */
-#define READ_BIT                I2C_MASTER_READ  /*! I2C master read */
-#define ACK_CHECK_EN            0x1              /*! I2C master will check ack from slave*/
-#define ACK_CHECK_DIS           0x0              /*! I2C master will not check ack from slave */
-#define ACK_VAL                 0x0              /*! I2C ack value */
-#define NACK_VAL                0x1              /*! I2C nack value */
+#define WRITE_BIT               I2C_MASTER_WRITE /** I2C master write */
+#define READ_BIT                I2C_MASTER_READ  /** I2C master read */
+#define ACK_CHECK_EN            0x1              /** I2C master will check ack from slave*/
+#define ACK_CHECK_DIS           0x0              /** I2C master will not check ack from slave */
+#define ACK_VAL                 0x0              /** I2C ack value */
+#define NACK_VAL                0x1              /** I2C nack value */
 #define LAST_NACK_VAL           0x2
 
 /* Map of device registers*/
-#define THRESH_TAP  0x1D        /*!Tap threshold*/
-#define OFSX    0x1E            /*!X-axis offset*/
-#define OFSY    0x1F            /*!Y-axis offset*/
-#define OFSZ    0x20            /*!Z-axis offset*/
-#define DUR 0x21                /*!Tap duration*/
-#define Latent  0x22            /*!Tap latency*/
-#define Window  0x23            /*!Tap window*/
-#define THRESH_ACT  0x24        /*!Activity threshold*/
-#define THRESH_INACT    0x25    /*!Inactivity threshold*/
-#define TIME_INACT  0x26        /*!Inactivity time*/
-#define ACT_INACT_CTL   0x27    /*!Axis enable control for activity and inactivity detection*/
-#define THRESH_FF   0x28        /*!Free-fall threshold*/
-#define TIME_FF 0x29            /*!Free-fall time*/
-#define TAP_AXES    0x2A        /*!Axis control for single tap/double tap*/
-#define ACT_TAP_STATUS  0x2B    /*!Source of single tap/double tap*/
-#define BW_RATE 0x2C            /*!Data rate and power mode control*/
-#define POWER_CTL   0x2D        /*!Power-saving features control*/
-#define INT_ENABLE  0x2E        /*!Interrupt enable control*/
-#define INT_MAP 0x2F            /*!Interrupt mapping control*/
-#define INT_SOURCE  0x30        /*S!ource of interrupts*/
-#define DATA_FORMAT 0x31        /*!Data format control*/
-#define DATAX0  0x32            /*!X-Axis Data 0 LSB*/
-#define DATAX1  0x33            /*!X-Axis Data 1 MSB*/
-#define DATAY0  0x34            /*!Y-Axis Data 0 LSB*/
-#define DATAY1  0x35            /*!Y-Axis Data 1 MSB*/
-#define DATAZ0  0x36            /*!Z-Axis Data 0 LSB*/
-#define DATAZ1  0x37            /*!Z-Axis Data 1 MSB*/
-#define FIFO_CTL    0x38        /*!FIFO control*/
-#define FIFO_STATUS 0x39        /*!FIFO status*/
+#define THRESH_TAP  0x1D        /** Tap threshold*/
+#define OFSX    0x1E            /** X-axis offset*/
+#define OFSY    0x1F            /** Y-axis offset*/
+#define OFSZ    0x20            /** Z-axis offset*/
+#define DUR 0x21                /** Tap duration*/
+#define Latent  0x22            /** Tap latency*/
+#define Window  0x23            /** Tap window*/
+#define THRESH_ACT  0x24        /** Activity threshold*/
+#define THRESH_INACT    0x25    /** Inactivity threshold*/
+#define TIME_INACT  0x26        /** Inactivity time*/
+#define ACT_INACT_CTL   0x27    /** Axis enable control for activity and inactivity detection*/
+#define THRESH_FF   0x28        /** Free-fall threshold*/
+#define TIME_FF 0x29            /** Free-fall time*/
+#define TAP_AXES    0x2A        /** Axis control for single tap/double tap*/
+#define ACT_TAP_STATUS  0x2B    /** Source of single tap/double tap*/
+#define BW_RATE 0x2C            /** Data rate and power mode control*/
+#define POWER_CTL   0x2D        /** Power-saving features control*/
+#define INT_ENABLE  0x2E        /** Interrupt enable control*/
+#define INT_MAP 0x2F            /** Interrupt mapping control*/
+#define INT_SOURCE  0x30        /** Source of interrupts*/
+#define DATA_FORMAT 0x31        /** Data format control*/
+#define DATAX0  0x32            /** X-Axis Data 0 LSB*/
+#define DATAX1  0x33            /** X-Axis Data 1 MSB*/
+#define DATAY0  0x34            /** Y-Axis Data 0 LSB*/
+#define DATAY1  0x35            /** Y-Axis Data 1 MSB*/
+#define DATAZ0  0x36            /** Z-Axis Data 0 LSB*/
+#define DATAZ1  0x37            /** Z-Axis Data 1 MSB*/
+#define FIFO_CTL    0x38        /** FIFO control*/
+#define FIFO_STATUS 0x39        /** FIFO status*/
 
 #define XLSB 0 /* least significant byte of X' accelleration*/
 #define XMSB 1 /* most significant byte of X' accelleration*/
@@ -83,6 +73,14 @@
 #define YMSB 3 /* most significant byte of Y' accelleration*/
 #define ZLSB 4 /* least significant byte of Z' accelleration*/
 #define ZMSB 5 /* most significant byte of Z' accelleration*/
+
+#define MPU_ADDRESS
+#define MPU_reg1
+#define MPU_reg2
+#define MPU_reg3
+#define MPU_reg4
+#define MPU_reg5
+#define MPU_reg6
 
 #define PORT CONFIG_EXAMPLE_PORT
 
@@ -152,7 +150,7 @@ static esp_err_t i2c_master_write_slave(i2c_port_t i2c_num ,uint8_t device ,uint
 }
 
 
-static esp_err_t i2c_master_ADXL345_init(i2c_port_t MASTER_NUMBER,uint8_t device)
+static esp_err_t i2c_master_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 {
 	uint8_t cmd_data;
 	vTaskDelay(100 / portTICK_RATE_MS);
@@ -230,8 +228,8 @@ static void i2c_test_task(void *pvParameters)
 		sda=18;
 		scl=19;
 		i2c_master_init(master_num,sda,scl);
-		//error_setting[0] =  i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0); 
-		error_setting[1]  = i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1); 
+		//error_setting[0] =  i2c_master_imu_setup(master_num,ADXL345_SLAVE_ADDR0); 
+		error_setting[1]  = i2c_master_imu_setup(master_num,ADXL345_SLAVE_ADDR1); 
 		break;
 
 		default:
@@ -239,8 +237,8 @@ static void i2c_test_task(void *pvParameters)
 		sda=22;
 		scl=23;
 		i2c_master_init(master_num,sda,scl);
-		error_setting[0] =  i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR0); 
-		error_setting[1]  = i2c_master_ADXL345_init(master_num,ADXL345_SLAVE_ADDR1);
+		error_setting[0] =  i2c_master_imu_setup(master_num,ADXL345_SLAVE_ADDR0); 
+		error_setting[1]  = i2c_master_imu_setup(master_num,ADXL345_SLAVE_ADDR1);
 		break;
 
 	}
