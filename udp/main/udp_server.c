@@ -21,51 +21,39 @@
 #include <string.h>
 #include <sys/param.h>
 
+#define PORT CONFIG_EXAMPLE_PORT
+
 #define I2C_MASTER_FREQ_HZ 400000        /* I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
+#define SDA1 18
+#define SCL1 19
+#define SDA2 22 
+#define SCL2 23
+#define WRITE_BIT               I2C_MASTER_WRITE /*!< I2C master write */
+#define READ_BIT                I2C_MASTER_READ  /*!< I2C master read */
+#define ACK_CHECK_EN            0x1              /*!< I2C master will check ack from slave*/
+#define ACK_CHECK_DIS           0x0              /*!< I2C master will not check ack from slave */
+#define ACK_VAL                 0x0              /*!< I2C ack value */
+#define NACK_VAL                0x1              /*!< I2C nack value */
+#define LAST_NACK_VAL           0x2
 
-#define ADXL345_SLAVE_ADDR0   0x53   /* slave address for ADXL345 sensor */
-#define ADXL345_SLAVE_ADDR1   0x1d   /* slave address for ADXL345 sensor */
-
-#define WRITE_BIT               I2C_MASTER_WRITE /* I2C master write */
-#define READ_BIT                I2C_MASTER_READ  /* I2C master read */
-#define ACK_CHECK_EN            0x1              /* I2C master will check ack from slave*/
-#define ACK_CHECK_DIS           0x0              /* I2C master will not check ack from slave */
-#define ACK_VAL                 0x0              /* I2C ack value */
-#define NACK_VAL                0x1              /* I2C nack value */
-#define LAST_NACK_VAL           0x2 			 /* I2C nack value */
-
-#define ACCEL_CONFIG_  0x1C
-#define GYRO_CONFIG_   0x1B
-#define ACCEL_CONFIG2_ 0x1D
-#define CLKSEL_PLL_ 	 0x01
-#define I2C_MST_CTRL_  0x24
-#define I2C_MST_CLK_   0x0D
-#define PWR_MGMNT_1_   0x6B
-#define H_RESET_ 			 0x80
-
-#define first_byte  0x3B  /* X-Axis ACCEL 0 LSB*/
-
-#define XLSB 0 /* least significant byte of X' accelleration*/
-#define XMSB 1 /* most significant byte of X' accelleration*/
-#define YLSB 2 /* least significant byte of Y' accelleration*/ 
-#define YMSB 3 /* most significant byte of Y' accelleration*/
-#define ZLSB 4 /* least significant byte of Z' accelleration*/
-#define ZMSB 5 /* most significant byte of Z' accelleration*/
-
-#define MPU_ADDRESS_ref 0x68
-#define MPU_ADDRESS_pos 0x69 
-
-#define PORT CONFIG_EXAMPLE_PORT
+#define SLAVE1_ADD 0x68
+#define SLAVE2_ADD 0x69
+#define CTRL1_XL 0x10
+#define CTRL2_G  0x11
+#define CTRL9_XL 0X18
+#define CTRL10_C 0X19
+#define CTRL6_G 0X15
+#define CTRL10_G 0X
+#define ENABLE_ACC_GIRO 0x38
+#define CONFIG 0x60
+#define START_READ_ADD 0x20
 
 #define PORT0ADX  ( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
 #define PORT1ADX 	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
 #define UDP  			( 1UL << 2UL )  /* Event bit 2, UDP server */
-
-#define ADC1      ( 1UL << 3UL )  /* ADC1 Event bit 3*/
-
-#define ALLSYNCH  PORT1ADX | UDP/* check all samples were readed*/
+#define ALLSYNCH   PORT0ADX | UDP /* check all samples were readed*/
 #define SYNCHDATA PORT1ADX 
 
 #define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
@@ -78,7 +66,7 @@ EventGroupHandle_t xEventGroup;
 QueueHandle_t buffer_queue; 
 
 static esp_adc_cal_characteristics_t *adc_chars;
-static const adc_channel_t channel = ADC_CHANNEL_0;     //GPIO34 if ADC1, GPIO14 if ADC2
+static const adc_channel_t channel = ADC_CHANNEL_0;     //GPIO 36
 static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
 
@@ -132,26 +120,15 @@ static esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	uint8_t cmd_data;
 	vTaskDelay(100 / portTICK_RATE_MS);
 
-	cmd_data = CLKSEL_PLL_;    // gyroscope clock selector
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,PWR_MGMNT_1_, &cmd_data, 1));
-	cmd_data = 0x00;    // gyroscope clock selector
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,PWR_MGMNT_1_, &cmd_data, 1));
-	
+	cmd_data = CONFIG;    // Acc and Gyro 416Hz
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CTRL1_XL, &cmd_data, 1));
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CTRL2_G, &cmd_data, 1));
 
-	cmd_data = I2C_MST_CLK_;// Master 400khz
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,I2C_MST_CTRL_, &cmd_data, 1));
-	
-	/*cmd_data = 0X06;    // ACCEL RANGE
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG_, &cmd_data, 1));
-	cmd_data = 0X06;    // GYRO RANGE
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG_, &cmd_data, 1));
 
-*/
-	/*cmd_data = 0x0B;    // ±16g, 13-BIT MODE
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,DATA_FORMAT, &cmd_data, 1));
-	cmd_data = 0x08;    // START MEASUREMENT
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,POWER_CTL, &cmd_data, 1));
-*/
+	cmd_data = ENABLE_ACC_GIRO;    // ENABLE ACCEL AND GYRO
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CTRL9_XL, &cmd_data, 1));
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CTRL10_C, &cmd_data, 1));
+
 
 	return ESP_OK;
 }
@@ -175,22 +152,30 @@ static void disp_buf(void * pvParameters)
 {
 	int len_to_send=0;
 	int16_t tx_buffer[7];
-	char tx_buffer_msg[128]={'0'};
+	char tx_buffer_msg[256]={'0'};
 	int i=1;
 	while(1){
-		xEventGroupWaitBits(xEventGroup, PORT0ADX | PORT1ADX, pdFALSE,pdTRUE,(TickType_t)1);
+		xEventGroupWaitBits(xEventGroup, PORT0ADX, pdFALSE,pdTRUE,(TickType_t)1);
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, portMAX_DELAY))
 			{
-				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d\r\n",
+				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\r\n",
 					tx_buffer[0],
 					tx_buffer[1],
 					tx_buffer[2],
 					tx_buffer[3],
 					tx_buffer[4],
 					tx_buffer[5],
-					tx_buffer[6]);
+					tx_buffer[6],
+					tx_buffer[7],
+					tx_buffer[8],
+					tx_buffer[9],
+					tx_buffer[10],
+					tx_buffer[11],
+					tx_buffer[12],
+					tx_buffer[13],
+					tx_buffer[14]);
 
 				ESP_LOGI(TAG,"%s\n",tx_buffer_msg);
 			}
@@ -249,103 +234,68 @@ int16_t adc_read(){
 
 		//Convert adc_reading to voltage in mV
 		int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-		return voltage;
-	
+		return voltage;	
 }
+
 static void i2c_task(void *pvParameters)
 {
-	int ret=ESP_OK,ret1=ESP_OK;
-
-	uint8_t sensor[14],sensor2[14];
-
-	i2c_port_t master_num;
-
-	int sda;
-	int scl;
-
+	int ret, ret1;
 	int16_t buffer[15];
+	uint8_t sensor[14];
+	uint8_t sensor2[14];
+
+	i2c_port_t master_num=0;
 	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 
 	memset(sensor,0,14);
 	memset(sensor2,0,14);
 	memset(buffer,0,30);
 
-	switch( (int) pvParameters){
-		case PORT0ADX: 
-		master_num = 0;
-		sda=22;
-		scl=23;
-		i2c_master_init(master_num,sda,scl);
-		//error_setting[0] =  i2c_master_imu_setup(master_num,ADXL345_SLAVE_ADDR0); 
-		error_setting[1]  = i2c_imu_setup(master_num,ADXL345_SLAVE_ADDR1); 
-		break;
+	i2c_master_init(master_num,SDA1,SCL1);
 
-		default:
-		master_num = 1;
-		sda=18;
-		scl=19;
-		i2c_master_init(master_num,sda,scl);
-		error_setting[0] =  i2c_imu_setup(master_num,MPU_ADDRESS_ref); 
-		error_setting[1]  = i2c_imu_setup(master_num,MPU_ADDRESS_pos);
-		break;
+	error_setting[0] =  i2c_imu_setup(master_num,SLAVE1_ADD); 
+	error_setting[1]  = i2c_imu_setup(master_num,SLAVE2_ADD); 
 
-	}
 	if(error_setting[0] || error_setting[1] != ESP_OK){
-		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num
-			, error_setting[0] == ESP_OK ? "SENSOR 0X53" : error_setting[1] != ESP_OK ? "SENSOR 0X1D" : "None");
+		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num,
+		error_setting[0] == ESP_OK ? "SENSOR 0x68" :
+		error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 	}
 	while (1) {
-		memset(sensor,0,14);
-		memset(sensor2,0,14);
-		memset(buffer,0,30);
-		if(master_num==0){
 
-			ret1 = i2c_master_read_slave(master_num, MPU_ADDRESS_ref,first_byte,sensor2, 14);
-
-		}
-		else{
-			ret = i2c_master_read_slave(master_num, MPU_ADDRESS_ref,first_byte,sensor, 14);
-			ret1 = i2c_master_read_slave(master_num, MPU_ADDRESS_pos,first_byte,sensor2, 14);
-
-		}
-
-
+		ret = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
+		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 		if (ret == ESP_ERR_TIMEOUT || ret1 == ESP_ERR_TIMEOUT) {
 			ESP_LOGE(TAG, "I2C Timeout");
 		} 
-		else if ((ret == ESP_OK) && (ret1 == ESP_OK)) {
+		else if (ret == ESP_OK && ret1 == ESP_OK) {
+			/* Ref*/
+			buffer[0]  = (int16_t)((sensor[1]  << 8)   | sensor[0]);	    /* TEMP	  */
+			buffer[1]  = (int16_t)((sensor[3]  << 8)   | sensor[2]);		  /* GIRO X */
+			buffer[2]  = (int16_t)((sensor[5]  << 8)   | sensor[4]);		  /* GIRO Y */
+			buffer[3]  = (int16_t)((sensor[7]  << 8)   | sensor[6]);		  /* GIRO Z */
+			buffer[4]  = (int16_t)((sensor[9]  << 8)   | sensor[8]);		  /* ACCEL X*/
+			buffer[5]  = (int16_t)((sensor[11] << 8)   | sensor[10]);	    /* ACCEL Y*/
+			buffer[6]  = (int16_t)((sensor[13] << 8)   | sensor[12]);	    /* ACCEL Z*/
 
-			buffer[0] = (int16_t)((sensor[0] ) | sensor[1]);		/* ACCEL X*/
-			buffer[1] = (int16_t)((sensor[2] ) | sensor[3]);		/* ACCEL Y*/
-			buffer[2] = (int16_t)((sensor[4] ) | sensor[5]);		/* ACCEL Z*/
-			buffer[3] = (int16_t)((sensor[6] ) | sensor[7]);		/* TEMP	  */
-			buffer[4] = (int16_t)((sensor[8] ) | sensor[9]);		/* GIRO X */
-			buffer[5] = (int16_t)((sensor[10]) | sensor[11]);		/* GIRO Y */
-			buffer[6] = (int16_t)((sensor[12]) | sensor[13]);		/* GIRO Z */
-
-			buffer[7]  = (int16_t)((sensor2[0] ) | sensor2[1]);	/* ACCEL X*/
-			buffer[8]  = (int16_t)((sensor2[2] ) | sensor2[3]);	/* ACCEL Y*/
-			buffer[9]  = (int16_t)((sensor2[4] ) | sensor2[5]);	/* ACCEL Z*/
-			buffer[10] = (int16_t)((sensor2[6] ) | sensor2[7]);	/* TEMP	  */
-			buffer[11] = (int16_t)((sensor2[8] ) | sensor2[9]);	/* GIRO X */
-			buffer[12] = (int16_t)((sensor2[10]) | sensor2[11]);/* GIRO Y */
-			buffer[13] = (int16_t)((sensor2[12]) | sensor2[13]);/* GIRO Z */
+			buffer[7]  = (int16_t)((sensor2[1]  << 8)  | sensor2[0]);		  /* TEMP	  */
+			buffer[8]  = (int16_t)((sensor2[3]  << 8)  | sensor2[2]);		  /* GIRO X */
+			buffer[9]  = (int16_t)((sensor2[5]  << 8)  | sensor2[4]);		  /* GIRO Y */
+			buffer[10] = (int16_t)((sensor2[7]  << 8)  | sensor2[6]);		  /* GIRO Z */
+			buffer[11] = (int16_t)((sensor2[9]  << 8)  | sensor2[8]);		  /* ACCEL X*/
+			buffer[12] = (int16_t)((sensor2[11] << 8)  | sensor2[10]);	  /* ACCEL Y*/
+			buffer[13] = (int16_t)((sensor2[13] << 8)  | sensor2[12]);	  /* ACCEL Z*/
+			/* Angulo através do potenciômetro*/
 			buffer[14] = adc_read();
-			if ((int) pvParameters == PORT1ADX)
-			{
-				xEventGroupWaitBits(xEventGroup, ADC1 , pdFALSE,pdTRUE,(TickType_t)1);
-			}
-			if(xQueueSend(buffer_queue, &buffer, portMAX_DELAY)!=pdPASS){
+
+			if(xQueueSend(buffer_queue, buffer, portMAX_DELAY)!=pdPASS){
 				ESP_LOGE(TAG, "failed to post on queue");
 			}
 		} 
-
-		else {
-			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num
-				, ret == ESP_OK ? "SENSOR 0X53" : ret1 != ESP_OK ? "SENSOR 0X1D" : "None");
-		}
-		xEventGroupSync(xEventGroup,(EventBits_t) pvParameters,ALLSYNCH,portMAX_DELAY);
-
+		xEventGroupSync(xEventGroup,PORT0ADX,ALLSYNCH,portMAX_DELAY);
+		memset(sensor,0,14);
+		memset(sensor2,0,14);
+		memset(buffer,0,30);
 	}
 	vTaskDelete(NULL);
 }
@@ -476,7 +426,6 @@ void app_main(void)
 	ESP_ERROR_CHECK(example_connect());
 
 	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, NULL);//!Task instance for udp comunication
-	//xTaskCreate(i2c_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
-	xTaskCreate(i2c_task  , "i2c_task_1", 2048, (void *)PORT1ADX, 10, NULL);//!Task instance for I2C BUS read.
+	xTaskCreate(i2c_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
 	//xTaskCreate(disp_buf  , "disp_buf", 2048, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
 }
