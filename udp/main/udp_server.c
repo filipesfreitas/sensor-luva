@@ -26,10 +26,10 @@
 #define I2C_MASTER_FREQ_HZ 400000        /* I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
-#define SDA1 18
-#define SCL1 19
-#define SDA2 22 
-#define SCL2 23
+#define SDA1 23
+#define SCL1 22
+#define SDA2 21 
+#define SCL2 19
 #define WRITE_BIT               I2C_MASTER_WRITE /*!< I2C master write */
 #define READ_BIT                I2C_MASTER_READ  /*!< I2C master read */
 #define ACK_CHECK_EN            0x1              /*!< I2C master will check ack from slave*/
@@ -56,16 +56,18 @@
 #define PORT0ADX  	( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
 #define PORT1ADX  	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
 #define UDP  	  		( 1UL << 2UL )  /* Event bit 2, UDP server */
-#define DISPBUFFER 	( 1UL << 3UL )
-#define ALLSYNCH  PORT0ADX | DISPBUFFER /* check all samples were readed*/
+#define DISPBUFFER 	( 1UL << 3UL )  /* Display buffer for channel reading*/
+#define MUX         ( 1UL << 4UL )
+#define ALLSYNCH  PORT0ADX  | PORT1ADX | DISPBUFFER | MUX /* check all samples were readed*/
 
 	/* ADC configuration*/
 #define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
 #define NO_OF_SAMPLES   64          //Multisampling
 
+
 	/*GPIO MUX SELECTION*/
-#define pinA 25
-#define pinB 26
+#define pinA 5
+#define pinB 17
 #define GPIO_OUTPUT_PIN_SEL  ((1ULL<<pinA) | (1ULL<<pinB))
 
 
@@ -77,12 +79,9 @@ EventGroupHandle_t xEventGroup;
 
 /* Queue instntiation*/
 QueueHandle_t buffer_queue; 
-
-/* ADC variables config*/
-static esp_adc_cal_characteristics_t *adc_chars;
-static const adc_channel_t channel = ADC_CHANNEL_0;     //ADC channel config on 36
 static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
+static esp_adc_cal_characteristics_t *adc_chars;
 
 /* Master rad on I2C bus*/
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
@@ -205,7 +204,7 @@ static void disp_buf(void * pvParameters)
 			}
 
 		}while(i++ == 2);
-		xEventGroupSetBits(xEventGroup,(EventBits_t) pvParameters);
+		xEventGroupSetBits(xEventGroup,DISPBUFFER);
 	}
 }
 
@@ -239,29 +238,40 @@ static void print_char_val_type(esp_adc_cal_value_t val_type)
     }
 }
 
-/* read analog signal on pin*/
-int16_t adc_read(){
+void adc_config(){
+	/* ADC variables config*/
+	static adc_channel_t channel = ADC_CHANNEL_0;     //ADC channel config on 36
+
 	//Check if Two Point or Vref are burned into eFuse
 	check_efuse();
 	//Configure ADC
+
   adc1_config_width(ADC_WIDTH_BIT_12);
-  adc1_config_channel_atten(channel, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_0, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_3, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_6, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_4, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_7, atten);		
 
   adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
   esp_adc_cal_value_t val_type = esp_adc_cal_characterize(unit, atten, ADC_WIDTH_BIT_12, DEFAULT_VREF, adc_chars);
   print_char_val_type(val_type);
+}
+
+
+int16_t adc_read(static adc_channel_t channel){
+
 	//Continuously sample ADC1
+	uint32_t adc_reading = 0;
+	//Multisampling
+	for (int i = 0; i < NO_OF_SAMPLES; i++) {
+		adc_reading += adc1_get_raw((adc1_channel_t)channel);
+	}
+	adc_reading /= NO_OF_SAMPLES;
 
-		uint32_t adc_reading = 0;
-		//Multisampling
-		for (int i = 0; i < NO_OF_SAMPLES; i++) {
-			adc_reading += adc1_get_raw((adc1_channel_t)channel);
-		}
-		adc_reading /= NO_OF_SAMPLES;
-
-		//Convert adc_reading to voltage in mV
-		int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-		return voltage;	
+	//Convert adc_reading to voltage in mV
+	int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+	return voltage;	
 }
 
 void mux_selector_config(){
@@ -289,21 +299,23 @@ static void i2c_task(void *pvParameters)
 	uint8_t sensor[14];
 	uint8_t sensor2[14];
 
-	/* Mux CONFIG*/
+		/* Mux CONFIG*/
 	uint8_t addr=0; /* aux variable for counting*/
   mux_selector_config();
   gpio_set_level(pinA, 0);/* Mux initial state*/
   gpio_set_level(pinB, 0);
 
-	i2c_port_t master_num=0;
+	i2c_port_t master_num=(int) pvParameters;
+
 	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
+
+	i2c_master_init(master_num,SDA1,SCL1);
 
 	memset(sensor,0,14);
 	memset(sensor2,0,14);
 	memset(buffer,0,30);
 
-	i2c_master_init(master_num,SDA1,SCL1);
-	error_setting[0] =  i2c_imu_setup(master_num,SLAVE1_ADD); 
+	error_setting[0]  = i2c_imu_setup(master_num,SLAVE1_ADD); 
 	error_setting[1]  = i2c_imu_setup(master_num,SLAVE2_ADD); 
 
 	if(error_setting[0] || error_setting[1] != ESP_OK){
@@ -314,11 +326,10 @@ static void i2c_task(void *pvParameters)
 	while (1) {
 		
 		if(addr == 1) addr = 0; 		/* Check if addr overflow*/
-
-    gpio_set_level(pinA, (addr & 2) >> 1);
-    gpio_set_level(pinB, addr & 1);
-
-		ret = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
+  	gpio_set_level(pinA, (addr & 2) >> 1);
+  	gpio_set_level(pinB, addr & 1);
+	
+		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
 		if (ret == ESP_ERR_TIMEOUT || ret1 == ESP_ERR_TIMEOUT) {
@@ -342,16 +353,16 @@ static void i2c_task(void *pvParameters)
 			buffer[12]  = (int16_t)((sensor[10] << 8)  | sensor[11]);	    /* GIRO Y  */
 			buffer[13]  = (int16_t)((sensor[12] << 8)  | sensor[13]);	    /* GIRO Z  */
 			/* Angulo através do potenciômetro*/
-			buffer[14] = adc_read();
+			buffer[14] = adc_read(addr);
 			if(xQueueSend(buffer_queue, &buffer, portMAX_DELAY)!=pdPASS){
 				ESP_LOGE(TAG, "failed to post on queue");
 			}
-		} 
-		xEventGroupSync(xEventGroup,PORT0ADX,ALLSYNCH,portMAX_DELAY);
+		}
+		addr ++; 
+		xEventGroupSync(xEventGroup,PORT0ADX,DISPBUFFER,portMAX_DELAY);
 		memset(sensor,0,14);
 		memset(sensor2,0,14);
 		memset(buffer,0,30);
-		addr ++;
 	}
 	vTaskDelete(NULL);
 }
@@ -384,9 +395,6 @@ static void udp_server_task(void *pvParameters)
 			break;
 		}
 		ESP_LOGI(TAG, "Socket created");
-
-
-
 		int err = bind(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
 		if (err < 0) {
 			ESP_LOGE(TAG, "Socket unable to bind: errno %d", errno);
@@ -418,7 +426,7 @@ static void udp_server_task(void *pvParameters)
 	ESP_LOGI(TAG, "%s", rx_buffer);
 
 	while(1){
-		xEventGroupWaitBits(xEventGroup, PORT0ADX | PORT1ADX, pdFALSE,pdTRUE,(TickType_t)1);
+		xEventGroupWaitBits(xEventGroup, PORT0ADX , pdFALSE,pdTRUE,(TickType_t)1);
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
@@ -479,8 +487,10 @@ void app_main(void)
 
 	ESP_ERROR_CHECK(example_connect());
   gpio_set_level(pinA, 0);
-  gpio_set_level(pinB, 0);		
+  gpio_set_level(pinB, 0);	
+  adc_config();	
 	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, NULL);//!Task instance for udp comunication
 	xTaskCreate(i2c_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
-	xTaskCreate(disp_buf  , "disp_buf", 2048, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
+	//xTaskCreate(i2c_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL); //!Task instance for I2C BUS read.
+	xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
 }
