@@ -16,14 +16,19 @@
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
 #include "nvs_flash.h"
-#include "position_process.h"
 #include <string.h>
 #include <sys/param.h>
-
+#include <math.h>
+#include <unistd.h>
+#include <esp_system.h>
+#include <time.h>
+#include <sys/time.h>
+#include "esp_timer.h"
+#include <position_process.h>
 #define PORT CONFIG_EXAMPLE_PORT
 
 /* Configuration of I2C*/
-#define I2C_MASTER_FREQ_HZ 400000        /* I2C master clock frequency */
+#define I2C_MASTER_FREQ_HZ 1000000        /* I2C master clock frequency */
 #define I2C_MASTER_TX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0      /* I2C master doesn't need buffer */
 #define SDA1 23
@@ -47,12 +52,14 @@
 #define ACCEL_CONFIG 0X1C
 #define CONFIG_device 0x1A
 #define ENABLE_ACC_GIRO 0x38
-#define GYRO_CONFIG 0x1bB
+#define GYRO_CONFIG 0x1B
 #define PWR_MGMT_1 0x6B	
 #define SMPLRT_DIV 0x19
 #define START_READ_ADD 0x3B
 
-	/* Event group bit set*/
+
+
+/* Event group bit set*/
 #define PORT0ADX  	( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
 #define PORT1ADX  	( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
 #define UDP  	  		( 1UL << 2UL )  /* Event bit 2, UDP server */
@@ -60,15 +67,19 @@
 #define MUX         ( 1UL << 4UL )
 #define ALLSYNCH  PORT0ADX  | PORT1ADX | DISPBUFFER | MUX /* check all samples were readed*/
 
-	/* ADC configuration*/
+/* ADC configuration*/
 #define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
 #define NO_OF_SAMPLES   64          //Multisampling
 
 
-	/*GPIO MUX SELECTION*/
+/*GPIO MUX SELECTION*/
 #define pinA 5
 #define pinB 17
 #define GPIO_OUTPUT_PIN_SEL  ((1ULL<<pinA) | (1ULL<<pinB))
+
+#define gyro_factor 16.4
+#define acc_factor 2048
+#define degre_conv 180/M_PI
 
 
 /* Log details*/
@@ -82,6 +93,14 @@ QueueHandle_t buffer_queue;
 static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
 static esp_adc_cal_characteristics_t *adc_chars;
+/*
+int64_t time_elaps;
+
+time_elaps = esp_timer_get_time();
+ESP_LOGE(TAG, "time elapsed:%lld", time_elaps-esp_timer_get_time());
+*/
+
+
 
 /* Master rad on I2C bus*/
 static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len)
@@ -135,15 +154,14 @@ static esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	uint8_t cmd_data;
 	vTaskDelay(100 / portTICK_RATE_MS);
 
-
 	/* ODR config and DLPF*/
-
+	printf("\vdevice:%d \v ",device);
 	cmd_data = 0X00;    // DEVICE CONFIG:  accel bw =  260 Hz delay =0; gyro bw=256Hz delay 0.98ms -> Fs = 8kHz.
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CONFIG_device, &cmd_data, 1));
-	cmd_data = 0x19;    // ACCEL CONFIG: 
+	cmd_data = 0x19;    // ACCEL CONFIG: 16 g
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
-	cmd_data = 0x19;  	// GYRO CONFIG: 
-	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
+	cmd_data = 0x19;  	// GYRO CONFIG: 2000 º/S
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG, &cmd_data, 1));
 	cmd_data = 0x0;    // SMPLRT_DIV : Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));
 
@@ -162,9 +180,9 @@ static esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl)
 	i2c_config_t conf;
 	conf.mode = I2C_MODE_MASTER;
 	conf.sda_io_num = sda;
-	conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.sda_pullup_en = GPIO_PULLUP_DISABLE;
 	conf.scl_io_num = scl;
-	conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
+	conf.scl_pullup_en = GPIO_PULLUP_DISABLE;
 	conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
 	i2c_param_config(MASTER_NUMBER, &conf);
 	return i2c_driver_install(MASTER_NUMBER, conf.mode, I2C_MASTER_RX_BUF_DISABLE, I2C_MASTER_TX_BUF_DISABLE, 0);
@@ -177,30 +195,28 @@ static void disp_buf(void * pvParameters)
 	int16_t tx_buffer[7];
 	char tx_buffer_msg[256]={'0'};
 	int i=1;
+	float orientation [10];
 	while(1){
 		xEventGroupWaitBits(xEventGroup, PORT0ADX, pdFALSE,pdTRUE,(TickType_t)1);
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, portMAX_DELAY))
 			{
-				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\r\n",
-					tx_buffer[0],
-					tx_buffer[1],
-					tx_buffer[2],
-					tx_buffer[3],
-					tx_buffer[4],
-					tx_buffer[5],
-					tx_buffer[6],
-					tx_buffer[7],
-					tx_buffer[8],
-					tx_buffer[9],
-					tx_buffer[10],
-					tx_buffer[11],
-					tx_buffer[12],
-					tx_buffer[13],
+				orientation_estimation(tx_buffer,orientation);
+				len_to_send = sprintf(tx_buffer_msg,"%f;%f;%f;%f;%f;%f;%f;%f;%f;%f;%d\r\n",
+					orientation[0],
+					orientation[1],
+					orientation[2],
+					orientation[3],
+					orientation[4],
+					orientation[5],
+					orientation[6],
+					orientation[7],
+					orientation[8],
+					orientation[9],
 					tx_buffer[14]);
 
-				ESP_LOGI(TAG,"%s\n",tx_buffer_msg);
+				//ESP_LOGI(TAG,"%s",tx_buffer_msg);
 			}
 
 		}while(i++ == 2);
@@ -239,8 +255,6 @@ static void print_char_val_type(esp_adc_cal_value_t val_type)
 }
 
 void adc_config(){
-	/* ADC variables config*/
-	static adc_channel_t channel = ADC_CHANNEL_0;     //ADC channel config on 36
 
 	//Check if Two Point or Vref are burned into eFuse
 	check_efuse();
@@ -248,9 +262,9 @@ void adc_config(){
 
   adc1_config_width(ADC_WIDTH_BIT_12);
   adc1_config_channel_atten(ADC_CHANNEL_0, atten);		
-  adc1_config_channel_atten(ADC_CHANNEL_3, atten);		
+  adc1_config_channel_atten(ADC_CHANNEL_3, atten);	
+  adc1_config_channel_atten(ADC_CHANNEL_4, atten);			
   adc1_config_channel_atten(ADC_CHANNEL_6, atten);		
-  adc1_config_channel_atten(ADC_CHANNEL_4, atten);		
   adc1_config_channel_atten(ADC_CHANNEL_7, atten);		
 
   adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
@@ -258,20 +272,32 @@ void adc_config(){
   print_char_val_type(val_type);
 }
 
-
-int16_t adc_read(static adc_channel_t channel){
-
-	//Continuously sample ADC1
+int16_t adc_read(int addr){
 	uint32_t adc_reading = 0;
-	//Multisampling
-	for (int i = 0; i < NO_OF_SAMPLES; i++) {
-		adc_reading += adc1_get_raw((adc1_channel_t)channel);
+	static adc_channel_t channel;
+	switch(addr){
+		case 0:
+		 channel = ADC_CHANNEL_0; 
+		break;
+		case 1:
+		 channel = ADC_CHANNEL_3;
+		break;
+		case 2:
+		 channel = ADC_CHANNEL_4;
+		break;
+		case 3:
+		 channel = ADC_CHANNEL_6;
+		break;
+		case 4:
+		 channel = ADC_CHANNEL_7;
+		break;
 	}
-	adc_reading /= NO_OF_SAMPLES;
 
-	//Convert adc_reading to voltage in mV
-	int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-	return voltage;	
+		adc_reading += adc1_get_raw((adc1_channel_t)channel);
+	
+		//Convert adc_reading to voltage in mV
+		int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+		return voltage;	
 }
 
 void mux_selector_config(){
@@ -299,15 +325,14 @@ static void i2c_task(void *pvParameters)
 	uint8_t sensor[14];
 	uint8_t sensor2[14];
 
-		/* Mux CONFIG*/
+	i2c_port_t master_num=(int) pvParameters;
+	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
+
+	/* Mux CONFIG*/
 	uint8_t addr=0; /* aux variable for counting*/
   mux_selector_config();
   gpio_set_level(pinA, 0);/* Mux initial state*/
   gpio_set_level(pinB, 0);
-
-	i2c_port_t master_num=(int) pvParameters;
-
-	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 
 	i2c_master_init(master_num,SDA1,SCL1);
 
@@ -324,11 +349,11 @@ static void i2c_task(void *pvParameters)
 		error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 	}
 	while (1) {
-		
 		if(addr == 1) addr = 0; 		/* Check if addr overflow*/
   	gpio_set_level(pinA, (addr & 2) >> 1);
   	gpio_set_level(pinB, addr & 1);
-	
+		
+
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
@@ -337,32 +362,35 @@ static void i2c_task(void *pvParameters)
 		} 
 		else if (ret == ESP_OK && ret1 == ESP_OK) {
 			/* Ref*/
-			buffer[0]  = (int16_t)((sensor[0]  << 8)   | sensor[1]);	    /* ACCEL X */
-			buffer[1]  = (int16_t)((sensor[2]  << 8)   | sensor[3]);		  /* ACCEL X */
-			buffer[2]  = (int16_t)((sensor[4]  << 8)   | sensor[5]);		  /* ACCEL Y */
-			buffer[3]  = (int16_t)((sensor[6]  << 8)   | sensor[7]);		  /* TEMP    */
-			buffer[4]  = (int16_t)((sensor[8]  << 8)   | sensor[9]);		  /* GIRO X  */
-			buffer[5]  = (int16_t)((sensor[10] << 8)   | sensor[11]);	    /* GIRO Y  */
-			buffer[6]  = (int16_t)((sensor[12] << 8)   | sensor[13]);	    /* GIRO Z  */
-
-			buffer[7]  = (int16_t)((sensor[0]  << 8)   | sensor[1]);	    /* ACCEL X */
-			buffer[8]  = (int16_t)((sensor[2]  << 8)   | sensor[3]);		  /* ACCEL Y */
-			buffer[9]  = (int16_t)((sensor[4]  << 8)   | sensor[5]);		  /* ACCEL Z */
-			buffer[10]  = (int16_t)((sensor[6]  << 8)  | sensor[7]);		  /* TEMP 	 */
-			buffer[11]  = (int16_t)((sensor[8]  << 8)  | sensor[9]);		  /* GIRO X  */
-			buffer[12]  = (int16_t)((sensor[10] << 8)  | sensor[11]);	    /* GIRO Y  */
-			buffer[13]  = (int16_t)((sensor[12] << 8)  | sensor[13]);	    /* GIRO Z  */
+			buffer[0]  = addr;
+			buffer[1]  = master_num;
+			buffer[2]  = (int16_t)((sensor[0]  << 8)  | sensor[1]);	    /* ACCEL X */
+			buffer[3]  = (int16_t)((sensor[2]  << 8)  | sensor[3]);		  /* ACCEL y */
+			buffer[4]  = (int16_t)((sensor[4]  << 8)  | sensor[5]);		  /* ACCEL z */
+			buffer[5]  = (int16_t)((sensor[8]  << 8)  | sensor[9]);		  /* GIRO X  */
+			buffer[6]  = (int16_t)((sensor[10] << 8)  | sensor[11]);	  /* GIRO Y  */
+			buffer[7]  = (int16_t)((sensor[12] << 8)  | sensor[13]);	  /* GIRO Z  */
+			buffer[8]  = (int16_t)((sensor2[0]  << 8)  | sensor2[1]);	    /* ACCEL X */
+			buffer[9]  = (int16_t)((sensor2[2]  << 8)  | sensor2[3]);		  /* ACCEL Y */
+			buffer[10] = (int16_t)((sensor2[4]  << 8)  | sensor2[5]);		  /* ACCEL Z */
+			buffer[11] = (int16_t)((sensor2[8]  << 8)  | sensor2[9]);		  /* GIRO X  */
+			buffer[12] = (int16_t)((sensor2[10] << 8)  | sensor2[11]);	  /* GIRO Y  */
+			buffer[13] = (int16_t)((sensor2[12] << 8)  | sensor2[13]);	  /* GIRO Z  */
+			
 			/* Angulo através do potenciômetro*/
 			buffer[14] = adc_read(addr);
+
+
 			if(xQueueSend(buffer_queue, &buffer, portMAX_DELAY)!=pdPASS){
 				ESP_LOGE(TAG, "failed to post on queue");
 			}
 		}
-		addr ++; 
-		xEventGroupSync(xEventGroup,PORT0ADX,DISPBUFFER,portMAX_DELAY);
 		memset(sensor,0,14);
 		memset(sensor2,0,14);
 		memset(buffer,0,30);
+		addr ++; 
+		xEventGroupSync(xEventGroup,PORT0ADX,DISPBUFFER,portMAX_DELAY);
+
 	}
 	vTaskDelete(NULL);
 }
@@ -370,22 +398,25 @@ static void i2c_task(void *pvParameters)
 /* Read from Queue the data and send to Client.*/
 static void udp_server_task(void *pvParameters)
 {
-	char error_code_[512];
 	char addr_str[128];
-	int addr_family = (int)pvParameters;
-	int ip_protocol = 0;
-	struct sockaddr_in6 dest_addr;
-
+	char error_code_[512];
 	char rx_buffer[128]={'0'};
+	char tx_buffer_msg[256]={'0'};
+
+	float orientation[10];
+
+	int addr_family = (int)pvParameters;
+	int i;
+	int ip_protocol = 0;
 	int len_to_send=0;
 	int16_t tx_buffer[15];
-	char tx_buffer_msg[256]={'0'};
-	int i;
 
+	struct sockaddr_in6 dest_addr;
 	struct sockaddr_in *dest_addr_ip4 = (struct sockaddr_in *)&dest_addr;
 	dest_addr_ip4->sin_addr.s_addr = htonl(INADDR_ANY);
 	dest_addr_ip4->sin_family = AF_INET;
 	dest_addr_ip4->sin_port = htons(PORT);
+
 	ip_protocol = IPPROTO_IP;
 
 	while(1){
@@ -430,21 +461,18 @@ static void udp_server_task(void *pvParameters)
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
-				len_to_send = sprintf(tx_buffer_msg,"%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d;%d\r\n",
-					tx_buffer[0],
-					tx_buffer[1],
-					tx_buffer[2],
-					tx_buffer[3],
-					tx_buffer[4],
-					tx_buffer[5],
-					tx_buffer[6],
-					tx_buffer[7],
-					tx_buffer[8],
-					tx_buffer[9],
-					tx_buffer[10],
-					tx_buffer[11],
-					tx_buffer[12],
-					tx_buffer[13],
+				orientation_estimation(tx_buffer,orientation);
+				len_to_send = sprintf(tx_buffer_msg,"%f;%f;%f;%f;%f;%f;%f;%f;%f;%f;%d\r\n",
+					orientation[0],
+					orientation[1],
+					orientation[2],
+					orientation[3],
+					orientation[4],
+					orientation[5],
+					orientation[6],
+					orientation[7],
+					orientation[8],
+					orientation[9],
 					tx_buffer[14]);
 
 				int err = sendto(sock, tx_buffer_msg, len_to_send, 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
@@ -472,8 +500,6 @@ static void udp_server_task(void *pvParameters)
 	vTaskDelete(NULL);  
 } 
 
-
-
 /* Main function*/
 void app_main(void)
 {
@@ -481,14 +507,20 @@ void app_main(void)
 	xEventGroup = xEventGroupCreate();
 
 	buffer_queue = xQueueCreate(6, 15*sizeof(int16_t));//Cria a queue *buffer* com 6 slots de 28 bytes
+	
 	ESP_ERROR_CHECK(nvs_flash_init());
 	ESP_ERROR_CHECK(esp_netif_init());
 	ESP_ERROR_CHECK(esp_event_loop_create_default());
 
 	ESP_ERROR_CHECK(example_connect());
+
   gpio_set_level(pinA, 0);
   gpio_set_level(pinB, 0);	
   adc_config();	
+
+  /*SET UP MCUS*/
+
+
 	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, NULL);//!Task instance for udp comunication
 	xTaskCreate(i2c_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
 	//xTaskCreate(i2c_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL); //!Task instance for I2C BUS read.
