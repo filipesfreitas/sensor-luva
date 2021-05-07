@@ -25,6 +25,7 @@
 #include <sys/time.h>
 #include "esp_timer.h"
 #include <position_process.h>
+
 #define PORT CONFIG_EXAMPLE_PORT
 
 /* Configuration of I2C*/
@@ -56,8 +57,6 @@
 #define PWR_MGMT_1 0x6B	
 #define SMPLRT_DIV 0x19
 #define START_READ_ADD 0x3B
-
-
 
 /* Event group bit set*/
 #define PORT0ADX  	( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
@@ -94,10 +93,6 @@ static const adc_atten_t atten = ADC_ATTEN_DB_11;
 static const adc_unit_t unit = ADC_UNIT_1;
 static esp_adc_cal_characteristics_t *adc_chars;
 /*
-int64_t time_elaps;
-
-time_elaps = esp_timer_get_time();
-ESP_LOGE(TAG, "time elapsed:%lld", time_elaps-esp_timer_get_time());
 */
 
 
@@ -107,13 +102,15 @@ static esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_
 {
 	/* Master read from slave on I2C BUS.
 	@param
-	*/
+	*/						
+
 	int ret;
 	i2c_cmd_handle_t cmd = i2c_cmd_link_create();
 	i2c_master_start(cmd);
 	i2c_master_write_byte(cmd, device << 1 | WRITE_BIT, ACK_CHECK_EN);
 	i2c_master_write_byte(cmd, reg_address, ACK_CHECK_EN);
 	i2c_master_stop(cmd);
+
 	ret = i2c_master_cmd_begin(i2c_num, cmd, 10 / portTICK_RATE_MS);
 	i2c_cmd_link_delete(cmd);
 
@@ -191,19 +188,24 @@ static esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl)
 /* Helper for printing data sended through wifi*/
 static void disp_buf(void * pvParameters)
 {
+
+	int64_t time_elaps = esp_timer_get_time();
+
 	volatile int len_to_send=0;
 	int16_t tx_buffer[7];
 	char tx_buffer_msg[256]={'0'};
 	int i=1;
 	float orientation [10];
 	while(1){
-		xEventGroupWaitBits(xEventGroup, PORT0ADX, pdFALSE,pdTRUE,(TickType_t)1);
+		xEventGroupWaitBits(xEventGroup,  PORT1ADX, pdFALSE,pdTRUE,(TickType_t)1);
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, portMAX_DELAY))
 			{
-				orientation_estimation(tx_buffer,orientation);
-				len_to_send = sprintf(tx_buffer_msg,"%f;%f;%f;%f;%f;%f;%f;%f;%f;%f;%d\r\n",
+				orientation_estimation(tx_buffer,orientation,time_elaps);
+				len_to_send = sprintf(tx_buffer_msg,"%d,%d,%f;%f;%f;%f;%f;%f;%f;%f;%f;%f;%d\r\n",
+					tx_buffer[0],
+					tx_buffer[1],
 					orientation[0],
 					orientation[1],
 					orientation[2],
@@ -216,7 +218,7 @@ static void disp_buf(void * pvParameters)
 					orientation[9],
 					tx_buffer[14]);
 
-				//ESP_LOGI(TAG,"%s",tx_buffer_msg);
+				ESP_LOGI(TAG,"%s",tx_buffer_msg);
 			}
 
 		}while(i++ == 2);
@@ -316,8 +318,8 @@ void mux_selector_config(){
   gpio_config(&io_conf);
 }
 
-/* Task for reading I2C data*/
-static void i2c_task(void *pvParameters)
+/* Task for reading I2C data on master 0*/
+static void i2c_task0(void *pvParameters)
 {
 	/* IMU CONFIG*/
 	int ret, ret1;
@@ -345,7 +347,7 @@ static void i2c_task(void *pvParameters)
 
 	if(error_setting[0] || error_setting[1] != ESP_OK){
 		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num,
-		error_setting[0] == ESP_OK ? "SENSOR 0x68" :
+		error_setting[0] != ESP_OK ? "SENSOR 0x68" :
 		error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 	}
 	while (1) {
@@ -353,7 +355,6 @@ static void i2c_task(void *pvParameters)
   	gpio_set_level(pinA, (addr & 2) >> 1);
   	gpio_set_level(pinB, addr & 1);
 		
-
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
@@ -370,12 +371,12 @@ static void i2c_task(void *pvParameters)
 			buffer[5]  = (int16_t)((sensor[8]  << 8)  | sensor[9]);		  /* GIRO X  */
 			buffer[6]  = (int16_t)((sensor[10] << 8)  | sensor[11]);	  /* GIRO Y  */
 			buffer[7]  = (int16_t)((sensor[12] << 8)  | sensor[13]);	  /* GIRO Z  */
-			buffer[8]  = (int16_t)((sensor2[0]  << 8)  | sensor2[1]);	    /* ACCEL X */
-			buffer[9]  = (int16_t)((sensor2[2]  << 8)  | sensor2[3]);		  /* ACCEL Y */
-			buffer[10] = (int16_t)((sensor2[4]  << 8)  | sensor2[5]);		  /* ACCEL Z */
-			buffer[11] = (int16_t)((sensor2[8]  << 8)  | sensor2[9]);		  /* GIRO X  */
-			buffer[12] = (int16_t)((sensor2[10] << 8)  | sensor2[11]);	  /* GIRO Y  */
-			buffer[13] = (int16_t)((sensor2[12] << 8)  | sensor2[13]);	  /* GIRO Z  */
+			buffer[8]  = (int16_t)((sensor2[0]  << 8)  | sensor2[1]);	  /* ACCEL X */
+			buffer[9]  = (int16_t)((sensor2[2]  << 8)  | sensor2[3]);		/* ACCEL Y */
+			buffer[10] = (int16_t)((sensor2[4]  << 8)  | sensor2[5]);		/* ACCEL Z */
+			buffer[11] = (int16_t)((sensor2[8]  << 8)  | sensor2[9]);		/* GIRO X  */
+			buffer[12] = (int16_t)((sensor2[10] << 8)  | sensor2[11]);	/* GIRO Y  */
+			buffer[13] = (int16_t)((sensor2[12] << 8)  | sensor2[13]);	/* GIRO Z  */
 			
 			/* Angulo através do potenciômetro*/
 			buffer[14] = adc_read(addr);
@@ -390,6 +391,69 @@ static void i2c_task(void *pvParameters)
 		memset(buffer,0,30);
 		addr ++; 
 		xEventGroupSync(xEventGroup,PORT0ADX,DISPBUFFER,portMAX_DELAY);
+
+	}
+	vTaskDelete(NULL);
+}
+
+/* Task for reading I2C data on master 1*/
+static void i2c_task1(void *pvParameters)
+{
+	/* IMU CONFIG*/
+	int ret;
+	int16_t buffer[15];
+	uint8_t sensor[14];
+
+	i2c_port_t master_num=(int) pvParameters;
+	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
+
+	/* Mux CONFIG*/
+	uint8_t addr=1; /* aux variable for counting*/
+  mux_selector_config();
+	gpio_set_level(pinA, 0);
+	gpio_set_level(pinB, 1);
+
+	i2c_master_init(master_num,SDA2,SCL2);
+
+	memset(sensor,0,14);
+	memset(buffer,0,30);
+
+	error_setting[0]  = i2c_imu_setup(master_num,SLAVE1_ADD); 
+	ESP_LOGE(TAG, "READ SUCCES");
+
+	if(error_setting[0] != ESP_OK){
+		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",master_num,
+		error_setting[0] == ESP_OK ? "SENSOR 0x68" : "None");
+	}
+
+	while (1) {
+
+		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
+
+		if (ret == ESP_ERR_TIMEOUT ) {
+			ESP_LOGE(TAG, "I2C Timeout");
+		} 
+		else if (ret == ESP_OK ) {
+			/* Ref*/
+			buffer[0]  = 1;
+			buffer[1]  = 1;
+			buffer[2]  = (int16_t)((sensor[0]  << 8)  | sensor[1]);	    /* ACCEL X */
+			buffer[3]  = (int16_t)((sensor[2]  << 8)  | sensor[3]);		  /* ACCEL y */
+			buffer[4]  = (int16_t)((sensor[4]  << 8)  | sensor[5]);		  /* ACCEL z */
+			buffer[5]  = (int16_t)((sensor[8]  << 8)  | sensor[9]);		  /* GIRO X  */
+			buffer[6]  = (int16_t)((sensor[10] << 8)  | sensor[11]);	  /* GIRO Y  */
+			buffer[7]  = (int16_t)((sensor[12] << 8)  | sensor[13]);	  /* GIRO Z  */
+			
+			/* Angulo através do potenciômetro*/
+			buffer[14] = adc_read(addr);
+
+			if(xQueueSend(buffer_queue, &buffer, portMAX_DELAY)!=pdPASS){
+				ESP_LOGE(TAG, "failed to post on queue");
+			}
+		}
+		memset(sensor,0,14);
+		memset(buffer,0,30);
+		xEventGroupSync(xEventGroup,PORT1ADX,DISPBUFFER,portMAX_DELAY);
 
 	}
 	vTaskDelete(NULL);
@@ -410,6 +474,7 @@ static void udp_server_task(void *pvParameters)
 	int ip_protocol = 0;
 	int len_to_send=0;
 	int16_t tx_buffer[15];
+	int64_t time_elaps = esp_timer_get_time();
 
 	struct sockaddr_in6 dest_addr;
 	struct sockaddr_in *dest_addr_ip4 = (struct sockaddr_in *)&dest_addr;
@@ -461,7 +526,7 @@ static void udp_server_task(void *pvParameters)
 		i =1;
 		do{
 			if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
-				orientation_estimation(tx_buffer,orientation);
+				orientation_estimation(tx_buffer,orientation,time_elaps);
 				len_to_send = sprintf(tx_buffer_msg,"%f;%f;%f;%f;%f;%f;%f;%f;%f;%f;%d\r\n",
 					orientation[0],
 					orientation[1],
@@ -518,11 +583,8 @@ void app_main(void)
   gpio_set_level(pinB, 0);	
   adc_config();	
 
-  /*SET UP MCUS*/
-
-
 	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, NULL);//!Task instance for udp comunication
-	xTaskCreate(i2c_task  , "i2c_test_task_0", 2048, (void *)PORT0ADX, 20, NULL); //!Task instance for I2C BUS read.
-	//xTaskCreate(i2c_task  , "i2c_test_task_1", 2048, (void *)PORT1ADX, 20, NULL); //!Task instance for I2C BUS read.
+	xTaskCreate(i2c_task0 , "i2c_test_task_0", 2048, (void *)0, 20, NULL); //!Task instance for I2C BUS read.
+	//xTaskCreate(i2c_task1 , "i2c_test_task_1", 2048, (void *)1, 20, NULL); //!Task instance for I2C BUS read.
 	xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
 }
