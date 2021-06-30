@@ -5,7 +5,7 @@ void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,in
 	const float alpha = time_constant/(time_constant+period);
 
 	/* PHI	*/
-	glove->fingers[i].medial.phi = acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+
+	glove->fingers[i].medial.phi =acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+
 		pow(proximal.accelz,2))))*(1-alpha) + 
 		(glove->fingers[i].proximal.phi + proximal.gyrox * period ) * alpha ;
 
@@ -27,21 +27,20 @@ void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,in
 
 	glove->fingers[i].proximal.theta = glove -> fingers[i].proximal.theta - glove -> frame_reference.theta ;
 	glove->fingers[i].medial.theta   = glove -> fingers[i].medial.theta - glove -> fingers[i].proximal.theta - glove -> frame_reference.theta;
-
 }
 void reference_frame_orientation(raw_data reference,Glove* glove){
 
 	const float alpha = time_constant/(time_constant+period);
 
 	/* PHI	*/
-	glove->frame_reference.phi = acos(reference.accelz/(sqrt(pow(reference.accelx,2)+
+	glove->frame_reference.phi = acos(-reference.accelz/(sqrt(pow(reference.accelx,2)+
 		pow(reference.accely,2)+pow(reference.accelz,2))))*(1-alpha) + 
-		(glove->frame_reference.phi + reference.gyrox * period ) * alpha * degre_conv;
+		(glove->frame_reference.phi + (-reference.gyrox) * period ) * alpha;
 
 	/* THETA */
 	if (reference.accely==0) glove->frame_reference.theta = 0;
-	else glove->frame_reference.theta = atan(reference.accelx/reference.accely)*(1-alpha) + 
-			 alpha * (glove->frame_reference.theta + reference.gyroz * period);
+	else glove->frame_reference.theta = atan(-reference.accelx/reference.accely)*(1-alpha) + 
+			 alpha * (glove->frame_reference.theta + (-reference.gyroz) * period);
 }
 
 void calibration(Glove* glove){
@@ -215,7 +214,6 @@ void buffer_arrange(Glove* glove, char message[])
 }
 
 void raw_data_zero(raw_data* member){
-	
 		member->accelx=0;
 		member->accely=0;
 		member->accelz=0;
@@ -244,5 +242,4 @@ void buffer_raw_data(raw_data* member1,raw_data* member2){
 		member2->gyroy,
 		member2->gyroz);
 		ESP_LOGI(TAG,"%s",message);
-
 }

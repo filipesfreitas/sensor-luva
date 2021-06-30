@@ -1,3 +1,4 @@
+/** @file */ 
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_wifi.h"
@@ -34,7 +35,7 @@
 #define UDP  	  		( 1UL << 2UL )  /* Event bit 2, UDP server */
 #define DISPBUFFER 	( 1UL << 3UL )  /* Display buffer for channel reading*/
 #define SYNC        ( 1UL << 4UL )  /* Flag Sync, change the channel of the mux*/
-#define PRINT 		PORT0ADX  
+#define PRINT 			PORT0ADX | PORT1ADX 
 #define ALLSYNCH  DISPBUFFER | PRINT | SYNC /* check all samples were readed*/
 
 /* Event group instantiation*/
@@ -46,6 +47,11 @@ QueueHandle_t buffer_queue;
 /*Glove instance*/
 Glove* glove;
 
+/**
+ * @brief      Display the buffer of the package when the device is in debugger mode.
+ *
+ * @param      pvParameters  Parameter for the task.
+ */
 static void disp_buf(void * pvParameters)
 {
 
@@ -57,7 +63,11 @@ static void disp_buf(void * pvParameters)
 	}
 }
 
-/* Task for reading I2C data on master 0*/
+/**
+ * @brief      Task to read the values given by the IMUs and call the orientation estimate function to update the values of the hand posture stored in glove structure.
+ *
+ * @param      pvParameters  Number given to the task.
+ */
 static void i2c_task0(void *pvParameters)
 {
 	/* IMU CONFIG*/
@@ -215,8 +225,9 @@ static void udp_server_task(void *pvParameters)
 	ESP_LOGI(TAG, "%s", rx_buffer);
 
 	while(1){
+		xEventGroupSync(xEventGroup,DISPBUFFER,PRINT,portMAX_DELAY);
 
-		xEventGroupWaitBits(xEventGroup, ALLSYNCH , pdFALSE,pdTRUE,(TickType_t)1);
+		//xEventGroupWaitBits(xEventGroup, ALLSYNCH , pdFALSE,pdTRUE,(TickType_t)1);
 		
 		if(xQueueReceive(buffer_queue, &tx_buffer, pdMS_TO_TICKS(10))==true){
 
@@ -227,7 +238,7 @@ static void udp_server_task(void *pvParameters)
 		{
 			break;
 		}
-		xEventGroupSetBits(xEventGroup,UDP);
+		//xEventGroupSetBits(xEventGroup,UDP);
 	}
 	}
 
