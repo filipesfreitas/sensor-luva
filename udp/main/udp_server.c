@@ -131,6 +131,11 @@ static void i2c_task0(void *pvParameters)
 	vTaskDelete(NULL);
 }
 
+/**
+ * @brief      Take raw samples from the reference frame device.
+ *
+ * @param      pvParameters  Task parameters.
+ */
 static void i2c_task_reference_frame(void *pvParameters)
 {
 	
@@ -255,7 +260,7 @@ vTaskDelete(NULL);
 static void sync_task(void *pvParameters)
 {
 	uint8_t addr=1; /* aux variable for counting*/
- 	const TickType_t xDelay = 50 / portTICK_PERIOD_MS;/*delay de 50 ms*/
+ 	const TickType_t xDelay = period / portTICK_PERIOD_MS;/*delay defined by period ms*/
 
 	/* Mux CONFIG*/
   mux_selector_config();
