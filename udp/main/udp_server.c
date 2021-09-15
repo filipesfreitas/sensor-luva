@@ -59,7 +59,7 @@ static void disp_buf(void * pvParameters)
 	while(1){
 		xEventGroupSync(xEventGroup,DISPBUFFER,PRINT,portMAX_DELAY);
 		buffer_arrange(glove, tx_buffer_msg);
-		ESP_LOGI(TAG,"%s",tx_buffer_msg);
+		printf("\n%s",tx_buffer_msg);
 	}
 }
 
@@ -174,8 +174,7 @@ static void i2c_task_reference_frame(void *pvParameters)
 	}
 }
 /* Read from Queue the data and send to Client.*/
-static void udp_server_task(void *pvParameters)
-{
+static void udp_server_task(void *pvParameters){
 	char addr_str[128];
 	char rx_buffer[128]={'0'};
 	char tx_buffer_msg[256]={'0'};
@@ -247,14 +246,15 @@ static void udp_server_task(void *pvParameters)
 	}
 	}
 
-if (sock != -1) {
-	ESP_LOGE(TAG, "Shutting down socket and restarting...");
-	shutdown(sock, 0);
-	close(sock);
-}
-}
-vTaskDelete(NULL);  
-}} 
+	if (sock != -1) {
+		ESP_LOGE(TAG, "Shutting down socket and restarting...");
+		shutdown(sock, 0);
+		close(sock);
+	}
+	}
+	}
+	vTaskDelete(NULL);  
+} 
 
 /**/
 static void sync_task(void *pvParameters)

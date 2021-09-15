@@ -14,6 +14,8 @@
 #define pinA 5
 #define pinB 17
 #define GPIO_OUTPUT_PIN_SEL  ((1ULL<<pinA) | (1ULL<<pinB))
+#define sampleSize 10
+#define weight 0.25
 
 static adc_channel_t channel = ADC_CHANNEL_0;
 static const adc_atten_t atten = ADC_ATTEN_DB_11;

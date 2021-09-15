@@ -27,7 +27,6 @@
 	/* STRAT-UP sequence setup*/
 #define ACCEL_CONFIG 0X1C
 #define CONFIG_device 0x1A
-#define ENABLE_ACC_GIRO 0x38
 #define GYRO_CONFIG 0x1B
 #define PWR_MGMT_1 0x6B	
 #define SMPLRT_DIV 0x19
@@ -36,6 +35,7 @@
 #define NUMBER_CHANNELS 1
 #define MASTER_0 0
 #define MASTER_1 1
+
 
 /* Master rad on I2C bus*/
 esp_err_t i2c_master_read_slave(i2c_port_t i2c_num,uint8_t device ,uint8_t reg_address, uint8_t *data, size_t data_len);
@@ -49,7 +49,10 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device);
 /* Initialize master hardware and config. for comunnication*/
 esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl);
 
+esp_err_t i2c_imu_setup_reference(i2c_port_t MASTER_NUMBER,uint8_t device);
+
 /*initialization of the IMU sensors on each channel*/
 void initialization();
+
 
 #endif

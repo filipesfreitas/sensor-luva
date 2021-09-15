@@ -1,36 +1,33 @@
 #include <position_process.h>
 
+const static float alpha = time_constant/(time_constant+period);
+
 void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,int i) {
-	
-	const float alpha = time_constant/(time_constant+period);
 
 	/* PHI	*/
 	glove->fingers[i].medial.phi =acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+
-		pow(proximal.accelz,2))))*(1-alpha) + 
-		(glove->fingers[i].proximal.phi + proximal.gyrox * period ) * alpha ;
+		pow(proximal.accelz,2))))*(1-alpha) + (glove->fingers[i].proximal.phi + proximal.gyrox * period ) * alpha ;
 
 	glove->fingers[i].proximal.phi = acos(metacarpo.accelz/(sqrt(pow(metacarpo.accelx,2)+pow(metacarpo.accely,2)+
-		pow(metacarpo.accelz,2))))*(1-alpha) +
-		(glove->fingers[i].medial.phi + metacarpo.gyrox * period ) * alpha ;
+		pow(metacarpo.accelz,2))))*(1-alpha) + (glove->fingers[i].medial.phi + metacarpo.gyrox * period ) * alpha ;
 	
 	/* THETA */
-	if (metacarpo.accely==0) glove->fingers[i].proximal.theta = 0;
-	else glove->fingers[i].proximal.theta = atan(metacarpo.accelx/metacarpo.accely)*(1-alpha) + 
+	if (metacarpo.accelx==0) glove->fingers[i].proximal.theta = 0;
+	else glove->fingers[i].proximal.theta = atan(metacarpo.accely/-metacarpo.accelx)*(1-alpha) + 
 			 alpha * (glove->fingers[i].proximal.theta + metacarpo.gyroz * period);
 
-	if (proximal.accely==0)	glove->fingers[i].medial.theta = 0;
-	else glove->fingers[i].medial.theta = atan(proximal.accelx/proximal.accely)*(1-alpha) +
+	if (proximal.accelx==0)	glove->fingers[i].medial.theta = 0;
+	else glove->fingers[i].medial.theta = atan(proximal.accely/-proximal.accelx)*(1-alpha) +
 			 alpha * (glove->fingers[i].medial.theta + proximal.gyroz * period);
 
-	glove->fingers[i].proximal.phi = glove->fingers[i].proximal.phi - glove -> frame_reference.phi;
-	glove->fingers[i].medial.phi   = glove->fingers[i].medial.phi - glove->fingers[i].proximal.phi - glove -> frame_reference.phi    ;
+	//glove->fingers[i].proximal.phi = glove->fingers[i].proximal.phi - glove -> frame_reference.phi;
+	//glove->fingers[i].medial.phi   = glove->fingers[i].medial.phi - glove->fingers[i].proximal.phi - glove -> frame_reference.phi    ;
 
-	glove->fingers[i].proximal.theta = glove -> fingers[i].proximal.theta - glove -> frame_reference.theta ;
-	glove->fingers[i].medial.theta   = glove -> fingers[i].medial.theta - glove -> fingers[i].proximal.theta - glove -> frame_reference.theta;
+//	glove->fingers[i].proximal.theta = glove -> fingers[i].proximal.theta - glove -> frame_reference.theta ;
+//	glove->fingers[i].medial.theta   = glove -> fingers[i].medial.theta - glove -> fingers[i].proximal.theta - glove -> frame_reference.theta;
 }
-void reference_frame_orientation(raw_data reference,Glove* glove){
 
-	const float alpha = time_constant/(time_constant+period);
+void reference_frame_orientation(raw_data reference,Glove* glove){
 
 	/* PHI	*/
 	glove->frame_reference.phi = acos(-reference.accelz/(sqrt(pow(reference.accelx,2)+
@@ -96,8 +93,7 @@ void calibration(Glove* glove){
 		}
 }
 
-void initialization(Glove* glove)
-{
+void initialization(Glove* glove){
 
 	uint8_t addr=1; 
 	/* aux variable for counting*/
@@ -181,8 +177,7 @@ void initialization(Glove* glove)
 	*/
 }
 
-void buffer_arrange(Glove* glove, char message[])
-{
+void buffer_arrange(Glove* glove, char message[]){
 
 	sprintf(message,"%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f"
 		"|%.2f|%.2f|%.2f|%d\n",

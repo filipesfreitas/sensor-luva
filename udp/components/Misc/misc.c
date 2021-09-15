@@ -66,11 +66,16 @@ int16_t adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
 		 channel = ADC_CHANNEL_7;
 		break;
 	}
+    for (int i = 0 ;i<sampleSize,i++){
 
-		adc_reading += adc1_get_raw((adc1_channel_t)channel);
-	
+		adc_reading += adc1_get_raw((adc1_channel_t)channel)*pow((1-weight),sampleSize-i);
+
+    }
+        adc_reading = adc_reading*weight;
 		//Convert adc_reading to voltage in mV
 		int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+
+    
 		return voltage;	
 }
 

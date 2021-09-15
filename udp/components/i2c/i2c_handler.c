@@ -60,11 +60,32 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	ESP_LOGI(TAG,"\vSetting up sensor %d on master %d",device,MASTER_NUMBER);
 
 	/* ODR config and DLPF*/
-	cmd_data = 0X04;    // DEVICE CONFIG:  accel bw =  21 Hz delay =0; gyro bw=20 delay 0.98ms -> Fs = 8kHz.
+	cmd_data = 0X00;    // DEVICE CONFIG:  accel bw =  260 Hz delay =0; gyro bw=256 delay 0.98ms -> Fs = 8kHz.
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CONFIG_device, &cmd_data, 1));
-	cmd_data = 0x19;    // ACCEL CONFIG: 16 g
+	cmd_data = 0x18;    // ACCEL CONFIG: 16 g
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
-	cmd_data = 0x19;  	// GYRO CONFIG: 2000 º/S
+	cmd_data = 0x18;  	// GYRO CONFIG: 2000 º/S
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG, &cmd_data, 1));
+	cmd_data = 0x0;    // SMPLRT_DIV : Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));
+
+	/* Power Mode */
+	cmd_data = 0x00;    // POWER 1
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,PWR_MGMT_1, &cmd_data, 1));
+	return ESP_OK;
+}
+
+esp_err_t i2c_imu_setup_reference(i2c_port_t MASTER_NUMBER,uint8_t device){
+	uint8_t cmd_data;
+	vTaskDelay(100 / portTICK_RATE_MS);
+	ESP_LOGI(TAG,"\vSetting up sensor %d on master %d",device,MASTER_NUMBER);
+
+	/* ODR config and DLPF*/
+	cmd_data = 0X00;    // DEVICE CONFIG:  accel bw =  260 Hz delay =0; gyro bw=256 delay 0.98ms -> Fs = 8kHz.
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CONFIG_device, &cmd_data, 1));
+	cmd_data = 0x18;    // ACCEL CONFIG: 16 g
+	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
+	cmd_data = 0x18;  	// GYRO CONFIG: 2000 º/S
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG, &cmd_data, 1));
 	cmd_data = 0x0;    // SMPLRT_DIV : Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));
@@ -76,7 +97,6 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 
 	return ESP_OK;
 }
-
 /* Initialize master hardware and config. for comunnication*/
 esp_err_t i2c_master_init(i2c_port_t MASTER_NUMBER, int sda, int scl)
 {

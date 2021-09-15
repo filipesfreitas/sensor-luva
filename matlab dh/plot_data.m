@@ -61,9 +61,7 @@ set(0,'defaultLegendLocation','southeast');
 set(0,'defaultLegendBox','on');
 set(0,'defaultLegendOrientation','vertical');
 
-
-
-import_test20;
+import_500ms;
 
 medial_theta = raw_data.VarName6;
 medial_phi = raw_data.VarName7;
