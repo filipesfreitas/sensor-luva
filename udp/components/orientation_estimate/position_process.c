@@ -20,11 +20,11 @@ void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,in
 	else glove->fingers[i].medial.theta = atan(proximal.accely/-proximal.accelx)*(1-alpha) +
 			 alpha * (glove->fingers[i].medial.theta + proximal.gyroz * period);
 
-	//glove->fingers[i].proximal.phi = glove->fingers[i].proximal.phi - glove -> frame_reference.phi;
-	//glove->fingers[i].medial.phi   = glove->fingers[i].medial.phi - glove->fingers[i].proximal.phi - glove -> frame_reference.phi    ;
+	glove->fingers[i].proximal.phi = glove->fingers[i].proximal.phi - glove -> frame_reference.phi;
+	glove->fingers[i].medial.phi   = glove->fingers[i].medial.phi - glove->fingers[i].proximal.phi - glove -> frame_reference.phi    ;
 
-//	glove->fingers[i].proximal.theta = glove -> fingers[i].proximal.theta - glove -> frame_reference.theta ;
-//	glove->fingers[i].medial.theta   = glove -> fingers[i].medial.theta - glove -> fingers[i].proximal.theta - glove -> frame_reference.theta;
+	glove->fingers[i].proximal.theta = glove -> fingers[i].proximal.theta - glove -> frame_reference.theta ;
+	glove->fingers[i].medial.theta   = glove -> fingers[i].medial.theta - glove -> fingers[i].proximal.theta - glove -> frame_reference.theta;
 }
 
 void reference_frame_orientation(raw_data reference,Glove* glove){

@@ -5,6 +5,7 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include <stdio.h>
+#include <math.h>
 
 /* ADC configuration*/
 #define DEFAULT_VREF  1100 // Use adc2_vref_to_gpio() to obtain a better estimate
