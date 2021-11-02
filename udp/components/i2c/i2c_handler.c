@@ -70,7 +70,7 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));
 
 	/* Power Mode */
-	cmd_data = 0x00;    // POWER 1
+	cmd_data = 0x02;    // POWER 1
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,PWR_MGMT_1, &cmd_data, 1));
 	return ESP_OK;
 }

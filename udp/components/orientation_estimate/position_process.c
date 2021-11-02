@@ -5,20 +5,30 @@ const static float alpha = time_constant/(time_constant+period);
 void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,int i) {
 
 	/* PHI	*/
-	glove->fingers[i].medial.phi =acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+
-		pow(proximal.accelz,2))))*(1-alpha) + (glove->fingers[i].proximal.phi + proximal.gyrox * period ) * alpha ;
+	if (proximal.accelx + proximal.accely + proximal.accelz == 0) {
 
-	glove->fingers[i].proximal.phi = acos(metacarpo.accelz/(sqrt(pow(metacarpo.accelx,2)+pow(metacarpo.accely,2)+
-		pow(metacarpo.accelz,2))))*(1-alpha) + (glove->fingers[i].medial.phi + metacarpo.gyrox * period ) * alpha ;
-	
+	}
+	else {
+		glove->fingers[i].medial.phi =acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+
+			pow(proximal.accelz,2))))*(1-alpha) + (glove->fingers[i].proximal.phi + proximal.gyrox * period ) * alpha ;
+	}
+
+	if (metacarpo.accelx + metacarpo.accely + metacarpo.accelz == 0){
+
+	}
+	else {
+		glove->fingers[i].proximal.phi = acos(metacarpo.accelz/(sqrt(pow(metacarpo.accelx,2)+pow(metacarpo.accely,2)+
+			pow(metacarpo.accelz,2))))*(1-alpha) + (glove->fingers[i].medial.phi + metacarpo.gyrox * period ) * alpha ;
+	}
+
 	/* THETA */
 	if (metacarpo.accelx==0) glove->fingers[i].proximal.theta = 0;
 	else glove->fingers[i].proximal.theta = atan(metacarpo.accely/-metacarpo.accelx)*(1-alpha) + 
-			 alpha * (glove->fingers[i].proximal.theta + metacarpo.gyroz * period);
+		alpha * (glove->fingers[i].proximal.theta + metacarpo.gyroz * period);
 
 	if (proximal.accelx==0)	glove->fingers[i].medial.theta = 0;
 	else glove->fingers[i].medial.theta = atan(proximal.accely/-proximal.accelx)*(1-alpha) +
-			 alpha * (glove->fingers[i].medial.theta + proximal.gyroz * period);
+		alpha * (glove->fingers[i].medial.theta + proximal.gyroz * period);
 
 	glove->fingers[i].proximal.phi = glove->fingers[i].proximal.phi - glove -> frame_reference.phi;
 	glove->fingers[i].medial.phi   = glove->fingers[i].medial.phi - glove->fingers[i].proximal.phi - glove -> frame_reference.phi    ;
@@ -32,12 +42,12 @@ void reference_frame_orientation(raw_data reference,Glove* glove){
 	/* PHI	*/
 	glove->frame_reference.phi = acos(-reference.accelz/(sqrt(pow(reference.accelx,2)+
 		pow(reference.accely,2)+pow(reference.accelz,2))))*(1-alpha) + 
-		(glove->frame_reference.phi + (-reference.gyrox) * period ) * alpha;
+	(glove->frame_reference.phi + (-reference.gyrox) * period ) * alpha;
 
 	/* THETA */
 	if (reference.accely==0) glove->frame_reference.theta = 0;
 	else glove->frame_reference.theta = atan(-reference.accelx/reference.accely)*(1-alpha) + 
-			 alpha * (glove->frame_reference.theta + (-reference.gyroz) * period);
+		alpha * (glove->frame_reference.theta + (-reference.gyroz) * period);
 }
 
 void calibration(Glove* glove){
@@ -52,9 +62,9 @@ void calibration(Glove* glove){
 	memset(buffer,0,14);
 
 	/* Mux CONFIG*/
-  mux_selector_config();
+	mux_selector_config();
   gpio_set_level(pinA, 0);/* Mux initial state*/
-  gpio_set_level(pinB, 1);
+	gpio_set_level(pinB, 1);
 
 	while (aux < 2 ) {
 
@@ -88,9 +98,9 @@ void calibration(Glove* glove){
 
 			if (buffer[4]==0) glove->fingers[aux].medial.theta = 0;
 			else glove->fingers[aux].medial.theta = atan(buffer[3]/buffer[4]);
-			}
-			aux++;
 		}
+		aux++;
+	}
 }
 
 void initialization(Glove* glove){
@@ -100,11 +110,11 @@ void initialization(Glove* glove){
 	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 
 	/* Mux CONFIG*/
-  mux_selector_config();
+	mux_selector_config();
 
   /* Mux initial state*/
-  gpio_set_level(pinA, 0);
-  gpio_set_level(pinB, 1);
+	gpio_set_level(pinA, 0);
+	gpio_set_level(pinB, 1);
 
 	glove->fingers[0].medial.theta=0;
 	glove->fingers[0].medial.phi=0;
@@ -131,27 +141,27 @@ void initialization(Glove* glove){
 	glove->frame_reference.theta=0;
 	glove->frame_reference.phi=0;
 	glove->fingers[4].pressure=0;
-	
+
 	while(addr < 2){
 		gpio_set_level(pinA, (addr & 2) >> 1);
-  	gpio_set_level(pinB, addr & 1);
+		gpio_set_level(pinB, addr & 1);
 		error_setting[0]  = i2c_imu_setup(0,SLAVE1_ADD); 
 		error_setting[1]  = i2c_imu_setup(0,SLAVE2_ADD); 
 
 		if(error_setting[0] || error_setting[1] != ESP_OK){
 			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",0,
-			error_setting[0] != ESP_OK ? "SENSOR 0x68" :
-			error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
+				error_setting[0] != ESP_OK ? "SENSOR 0x68" :
+				error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 		}
 		error_setting[0]  = i2c_imu_setup(1,SLAVE1_ADD); 
 		//error_setting[1]  = i2c_imu_setup(1,SLAVE2_ADD); 
 
 		if(error_setting[0] || error_setting[1] != ESP_OK){
 			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",1,
-			error_setting[0] != ESP_OK ? "SENSOR 0x68" :
-			error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
+				error_setting[0] != ESP_OK ? "SENSOR 0x68" :
+				error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 		} 	
-  	addr ++;
+		addr ++;
 
 	}
 	/*
@@ -181,40 +191,40 @@ void buffer_arrange(Glove* glove, char message[]){
 
 	sprintf(message,"%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f"
 		"|%.2f|%.2f|%.2f|%d\n",
-	glove->fingers[0].medial.theta*degre_conv,
-	glove->fingers[0].medial.phi*degre_conv,
-	glove->fingers[0].proximal.theta*degre_conv,
-	glove->fingers[0].proximal.phi*degre_conv,
-	glove->fingers[0].pressure,
-	glove->fingers[1].medial.theta*degre_conv,
-	glove->fingers[1].medial.phi*degre_conv,
-	glove->fingers[1].proximal.theta*degre_conv,
-	glove->fingers[1].proximal.phi*degre_conv,
-	glove->fingers[1].pressure,
-	glove->fingers[2].medial.theta*degre_conv,
-	glove->fingers[2].medial.phi*degre_conv,
-	glove->fingers[2].proximal.theta*degre_conv,
-	glove->fingers[2].proximal.phi*degre_conv,
-	glove->fingers[2].pressure,
-	glove->fingers[3].medial.theta*degre_conv,
-	glove->fingers[3].medial.phi*degre_conv,
-	glove->fingers[3].proximal.theta*degre_conv,
-	glove->fingers[3].proximal.phi*degre_conv,
-	glove->fingers[3].pressure,
-	glove->fingers[4].proximal.theta*degre_conv,
-	glove->fingers[4].proximal.phi*degre_conv,
-	glove->frame_reference.theta*degre_conv,
-	glove->frame_reference.phi*degre_conv,
-	glove->fingers[4].pressure);
+		glove->fingers[0].medial.theta*degre_conv,
+		glove->fingers[0].medial.phi*degre_conv,
+		glove->fingers[0].proximal.theta*degre_conv,
+		glove->fingers[0].proximal.phi*degre_conv,
+		glove->fingers[0].pressure,
+		glove->fingers[1].medial.theta*degre_conv,
+		glove->fingers[1].medial.phi*degre_conv,
+		glove->fingers[1].proximal.theta*degre_conv,
+		glove->fingers[1].proximal.phi*degre_conv,
+		glove->fingers[1].pressure,
+		glove->fingers[2].medial.theta*degre_conv,
+		glove->fingers[2].medial.phi*degre_conv,
+		glove->fingers[2].proximal.theta*degre_conv,
+		glove->fingers[2].proximal.phi*degre_conv,
+		glove->fingers[2].pressure,
+		glove->fingers[3].medial.theta*degre_conv,
+		glove->fingers[3].medial.phi*degre_conv,
+		glove->fingers[3].proximal.theta*degre_conv,
+		glove->fingers[3].proximal.phi*degre_conv,
+		glove->fingers[3].pressure,
+		glove->fingers[4].proximal.theta*degre_conv,
+		glove->fingers[4].proximal.phi*degre_conv,
+		glove->frame_reference.theta*degre_conv,
+		glove->frame_reference.phi*degre_conv,
+		glove->fingers[4].pressure);
 }
 
 void raw_data_zero(raw_data* member){
-		member->accelx=0;
-		member->accely=0;
-		member->accelz=0;
-		member->gyrox=0;
-		member->gyroy=0;
-		member->gyroz=0;
+	member->accelx=0;
+	member->accely=0;
+	member->accelz=0;
+	member->gyrox=0;
+	member->gyroy=0;
+	member->gyroz=0;
 }
 
 void buffer_raw_data(raw_data* member1,raw_data* member2){
@@ -236,5 +246,5 @@ void buffer_raw_data(raw_data* member1,raw_data* member2){
 		member2->gyrox,
 		member2->gyroy,
 		member2->gyroz);
-		ESP_LOGI(TAG,"%s",message);
+	ESP_LOGI(TAG,"%s",message);
 }

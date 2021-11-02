@@ -16,7 +16,7 @@ static const char *TAG = "TAG_ESP";
 #define gyro_factor 16.4
 #define acc_factor 2048
 #define degre_conv 1//180/M_PI
-#define time_constant 25e-3
+#define time_constant 1000e-3
 #define period 50E-3
 #define R 4700 	/* Resistance of voltage divider on ohms */
 #define Vinput 3300 /* Input voltage in mV */
