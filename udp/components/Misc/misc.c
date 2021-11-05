@@ -66,9 +66,9 @@ int16_t adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
 		 channel = ADC_CHANNEL_7;
 		break;
 	}
-    for (int i = sampleSize-1 ;i>=0;i--){
+    for (int i = 0 ;i>sampleSize;i++){
 
-		adc_reading += adc1_get_raw((adc1_channel_t)channel)*pow((1-weight),sampleSize);
+		adc_reading += adc1_get_raw((adc1_channel_t)channel)*pow((1-weight),i);
 
     }
         adc_reading = adc_reading*weight;
