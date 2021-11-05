@@ -20,6 +20,7 @@ static const char *TAG = "TAG_ESP";
 #define period 50E-3
 #define R 4700 	/* Resistance of voltage divider on ohms */
 #define Vinput 3300 /* Input voltage in mV */
+#define channels 2
 
 typedef struct 
 {

@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1ESPCoreDumpSegment" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::ESPCoreDumpSegment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">esptool.ImageSegment</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpSegment_1ab5ddd3b792ae0cf979e66b62b7e7debd" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpSegment::PF_X</definition>
+        <argsstring></argsstring>
+        <name>PF_X</name>
+        <initializer>=  0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="251" column="1" bodyfile="espcoredump.py" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpSegment_1a40d389f282bed14e1af53cbe4c132b3f" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpSegment::PF_W</definition>
+        <argsstring></argsstring>
+        <name>PF_W</name>
+        <initializer>=  0x2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="252" column="1" bodyfile="espcoredump.py" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpSegment_1a22792776a248bd509fc2e9f0f7f36490" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpSegment::PF_R</definition>
+        <argsstring></argsstring>
+        <name>PF_R</name>
+        <initializer>=  0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="253" column="1" bodyfile="espcoredump.py" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpSegment_1ab6ff8d5d50be8674c35286cf7e171df8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpSegment::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="259" column="1" bodyfile="espcoredump.py" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpSegment_1ac028685dbebf68ec5fe86c0401b6945e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpSegment::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="260" column="1" bodyfile="espcoredump.py" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpSegment_1af9bfc445786addfd4a6f4351fb755243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpSegment.__init__</definition>
+        <argsstring>(self, addr, data, type, flags)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>addr</type>
+          <defname>addr</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>type</type>
+          <defname>type</defname>
+        </param>
+        <param>
+          <type>flags</type>
+          <defname>flags</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for program segment
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="255" column="1" bodyfile="espcoredump.py" bodystart="255" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpSegment_1a2168dcb72b751038c868ba8ef42e57c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpSegment.__repr__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__repr__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns string representation of program segment
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="262" column="1" bodyfile="espcoredump.py" bodystart="262" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpSegment_1a941adec7e2b0b409921e414074ecfee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpSegment.attr_str</definition>
+        <argsstring>(self)</argsstring>
+        <name>attr_str</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns string representation of program segment attributes
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="267" column="1" bodyfile="espcoredump.py" bodystart="267" bodyend="285"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim> Wrapper class for a program segment in core ELF file, has a segment
+    type and flags as well as the common properties of an ImageSegment.
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpSegment</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpSegment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>esptool::ImageSegment</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpSegment</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpSegment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>esptool::ImageSegment</label>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="246" column="1" bodyfile="espcoredump.py" bodystart="246" bodyend="286"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1af9bfc445786addfd4a6f4351fb755243" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1a2168dcb72b751038c868ba8ef42e57c3" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>__repr__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1a941adec7e2b0b409921e414074ecfee3" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>attr_str</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1ab6ff8d5d50be8674c35286cf7e171df8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>flags</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1a22792776a248bd509fc2e9f0f7f36490" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>PF_R</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1a40d389f282bed14e1af53cbe4c132b3f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>PF_W</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1ab5ddd3b792ae0cf979e66b62b7e7debd" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>PF_X</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpSegment_1ac028685dbebf68ec5fe86c0401b6945e" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpSegment</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

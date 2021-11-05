@@ -105,16 +105,12 @@ void calibration(Glove* glove){
 
 void initialization(Glove* glove){
 
-	uint8_t addr=1; 
+	uint8_t addr=0; 
 	/* aux variable for counting*/
 	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 
 	/* Mux CONFIG*/
 	mux_selector_config();
-
-  /* Mux initial state*/
-	gpio_set_level(pinA, 0);
-	gpio_set_level(pinB, 1);
 
 	glove->fingers[0].medial.theta=0;
 	glove->fingers[0].medial.phi=0;
@@ -142,7 +138,7 @@ void initialization(Glove* glove){
 	glove->frame_reference.phi=0;
 	glove->fingers[4].pressure=0;
 
-	while(addr < 2){
+	while(addr < channels){
 		gpio_set_level(pinA, (addr & 2) >> 1);
 		gpio_set_level(pinB, addr & 1);
 		error_setting[0]  = i2c_imu_setup(0,SLAVE1_ADD); 

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_2de628a9e91f79eaf8942ed24a1d0617" kind="dir">
+    <compoundname>build/bootloader/CMakeFiles/3.13.4</compoundname>
+    <innerdir refid="dir_20c17ed2237edd0c2c8c6d2e79457e3b">build/bootloader/CMakeFiles/3.13.4/CompilerIdC</innerdir>
+    <innerdir refid="dir_47d1a509cc4ec63b01fb08ed38fc6583">build/bootloader/CMakeFiles/3.13.4/CompilerIdCXX</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="build/bootloader/CMakeFiles/3.13.4/"/>
+  </compounddef>
+</doxygen>

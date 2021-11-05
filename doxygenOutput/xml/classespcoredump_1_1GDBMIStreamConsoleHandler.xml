@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1GDBMIStreamConsoleHandler" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::GDBMIStreamConsoleHandler</compoundname>
+    <basecompoundref refid="classespcoredump_1_1GDBMIOutStreamHandler" prot="public" virt="non-virtual">espcoredump.GDBMIOutStreamHandler</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1GDBMIStreamConsoleHandler_1a9c801bb173ae9a3da7fc3d602dc858bc" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string espcoredump.GDBMIStreamConsoleHandler::TAG</definition>
+        <argsstring></argsstring>
+        <name>TAG</name>
+        <initializer>=  &apos;~&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1338" column="1" bodyfile="espcoredump.py" bodystart="1338" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>GDB/MI console stream handler class
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>espcoredump.GDBMIOutStreamHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutStreamHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.GDBMIStreamConsoleHandler</label>
+        <link refid="classespcoredump_1_1GDBMIStreamConsoleHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>object</label>
+      </node>
+      <node id="3">
+        <label>espcoredump.GDBMIOutRecordHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutRecordHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>espcoredump.GDBMIOutStreamHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutStreamHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.GDBMIStreamConsoleHandler</label>
+        <link refid="classespcoredump_1_1GDBMIStreamConsoleHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>object</label>
+      </node>
+      <node id="3">
+        <label>espcoredump.GDBMIOutRecordHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutRecordHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="1335" column="1" bodyfile="espcoredump.py" bodystart="1335" bodyend="1341"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1GDBMIOutStreamHandler_1a44c89385ce920defba5e846a98151dda" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIStreamConsoleHandler</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1GDBMIOutStreamHandler_1a6ed73145bc76452943d4d6983cf770d3" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIStreamConsoleHandler</scope><name>execute</name></member>
+      <member refid="classespcoredump_1_1GDBMIOutStreamHandler_1af1b57fceda75d6bdd5185bdb9cfe8145" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIStreamConsoleHandler</scope><name>func</name></member>
+      <member refid="classespcoredump_1_1GDBMIStreamConsoleHandler_1a9c801bb173ae9a3da7fc3d602dc858bc" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIStreamConsoleHandler</scope><name>TAG</name></member>
+      <member refid="classespcoredump_1_1GDBMIOutRecordHandler_1a7a7a9de11e959716af4502f29c65323e" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIStreamConsoleHandler</scope><name>verbose</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

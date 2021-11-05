@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1ESPCoreDumpFlashLoader" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::ESPCoreDumpFlashLoader</compoundname>
+    <basecompoundref refid="classespcoredump_1_1ESPCoreDumpLoader" prot="public" virt="non-virtual">espcoredump.ESPCoreDumpLoader</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a095220957ed745f1bfc0762a24628fdd" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string espcoredump.ESPCoreDumpFlashLoader::ESP32_COREDUMP_FLASH_LEN_FMT</definition>
+        <argsstring></argsstring>
+        <name>ESP32_COREDUMP_FLASH_LEN_FMT</name>
+        <initializer>=  &apos;&lt;L&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="953" column="1" bodyfile="espcoredump.py" bodystart="953" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a356b4d121f72298b1689566ea104d0a7" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::ESP32_COREDUMP_FLASH_LEN_SZ</definition>
+        <argsstring></argsstring>
+        <name>ESP32_COREDUMP_FLASH_LEN_SZ</name>
+        <initializer>=  struct.calcsize(ESP32_COREDUMP_FLASH_LEN_FMT)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="954" column="1" bodyfile="espcoredump.py" bodystart="954" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a605f7542c04da944dbe637f3c9483d3a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpFlashLoader::ESP32_COREDUMP_PART_TABLE_OFF</definition>
+        <argsstring></argsstring>
+        <name>ESP32_COREDUMP_PART_TABLE_OFF</name>
+        <initializer>=  0x8000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="955" column="1" bodyfile="espcoredump.py" bodystart="955" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1afc18b5e5167e689b78ae1e96a5338115" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="961" column="1" bodyfile="espcoredump.py" bodystart="961" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a3bbecf6726e09f229f62a6f1a0326c82" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::baud</definition>
+        <argsstring></argsstring>
+        <name>baud</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="962" column="1" bodyfile="espcoredump.py" bodystart="962" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a104c6d6b4f6cd8bf41e4406f98c7e6ca" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::chip</definition>
+        <argsstring></argsstring>
+        <name>chip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="963" column="1" bodyfile="espcoredump.py" bodystart="963" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1ab660fb4b23e681765681b0250dbf4db6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::dump_sz</definition>
+        <argsstring></argsstring>
+        <name>dump_sz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="964" column="1" bodyfile="espcoredump.py" bodystart="964" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a5dbc997d7e75259e59756eaa948c1929" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::fcore</definition>
+        <argsstring></argsstring>
+        <name>fcore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="965" column="1" bodyfile="espcoredump.py" bodystart="965" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a0b545d30e61030dfce02b62c9d723180" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::fcore_name</definition>
+        <argsstring></argsstring>
+        <name>fcore_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1011" column="1" bodyfile="espcoredump.py" bodystart="1011" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a28ef5ab41387ace9f9c00746ddec3595" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFlashLoader::checksum_len</definition>
+        <argsstring></argsstring>
+        <name>checksum_len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1117" column="1" bodyfile="espcoredump.py" bodystart="1117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1ab4f15a0231682e183c34d11131d6a59b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.__init__</definition>
+        <argsstring>(self, off, tool_path=None, chip=&apos;esp32&apos;, port=None, baud=None)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>off</type>
+          <defname>off</defname>
+        </param>
+        <param>
+          <type>tool_path</type>
+          <defname>tool_path</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>chip</type>
+          <defname>chip</defname>
+          <defval>&apos;esp32&apos;</defval>
+        </param>
+        <param>
+          <type>port</type>
+          <defname>port</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>baud</type>
+          <defname>baud</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for core dump flash loader
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="957" column="1" bodyfile="espcoredump.py" bodystart="957" bodyend="966"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a14591cf9ce708c432f7c239370573a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.get_tool_path</definition>
+        <argsstring>(self, use_esptool=None)</argsstring>
+        <name>get_tool_path</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>use_esptool</type>
+          <defname>use_esptool</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Get tool path
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="967" column="1" bodyfile="espcoredump.py" bodystart="967" bodyend="975"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1ac826f0b02133ae741a17e06736115255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.get_core_dump_partition_info</definition>
+        <argsstring>(self, part_off=None, tool_path=None)</argsstring>
+        <name>get_core_dump_partition_info</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>part_off</type>
+          <defname>part_off</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>tool_path</type>
+          <defname>tool_path</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Get core dump partition info using parttool
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="976" column="1" bodyfile="espcoredump.py" bodystart="976" bodyend="1003"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a618a7d5d7a5baa15a25ba29971c270f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.invoke_parttool</definition>
+        <argsstring>(self, tool_path=None)</argsstring>
+        <name>invoke_parttool</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>tool_path</type>
+          <defname>tool_path</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Loads core dump from flash using parttool
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1004" column="1" bodyfile="espcoredump.py" bodystart="1004" bodyend="1036"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a4846df7c9b229b1781c6885525d0327f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.invoke_esptool</definition>
+        <argsstring>(self, tool_path=None, off=None)</argsstring>
+        <name>invoke_esptool</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>tool_path</type>
+          <defname>tool_path</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>off</type>
+          <defname>off</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Loads core dump from flash using elftool
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1037" column="1" bodyfile="espcoredump.py" bodystart="1037" bodyend="1080"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a10b562b5ae6a7e7b2da58f3ce2745f99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader.create_corefile</definition>
+        <argsstring>(self, core_fname=None, exe_name=None, rom_elf=None)</argsstring>
+        <name>create_corefile</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>core_fname</type>
+          <defname>core_fname</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>exe_name</type>
+          <defname>exe_name</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>rom_elf</type>
+          <defname>rom_elf</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Checks flash coredump data integrity and creates ELF file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1113" column="1" bodyfile="espcoredump.py" bodystart="1113" bodyend="1138"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1a4788a0409160b3f4a5c3dff895daa6b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader._load_coredump</definition>
+        <argsstring>(self, off=None)</argsstring>
+        <name>_load_coredump</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>off</type>
+          <defname>off</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Loads core dump from flash using parttool or elftool (if offset is set)
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1081" column="1" bodyfile="espcoredump.py" bodystart="1081" bodyend="1105"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFlashLoader_1afbf21da0586c9e418ec7873c9bcb5a84" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFlashLoader._read_core_dump_length</definition>
+        <argsstring>(self, f)</argsstring>
+        <name>_read_core_dump_length</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads core dump length
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1106" column="1" bodyfile="espcoredump.py" bodystart="1106" bodyend="1112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Core dump flash loader class
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>espcoredump.ESPCoreDumpLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpLoader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpFlashLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpFlashLoader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>espcoredump.ESPCoreDumpLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpLoader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpFlashLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpFlashLoader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="950" column="1" bodyfile="espcoredump.py" bodystart="950" bodyend="1139"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1ab4f15a0231682e183c34d11131d6a59b" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a0bc5bd2a670eaebd0e1e48387d672fa9" prot="public" virt="non-virtual" ambiguityscope="espcoredump::ESPCoreDumpLoader."><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a08c4d26f0680f051fa4c9e9b41423191" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>_extract_bin_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a536e5e7ca863d8dbc6a7a4a465064ac3" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>_extract_elf_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a65bbc5b449ecd26a55c854df72e36186" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>_get_registers_from_stack</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a4788a0409160b3f4a5c3dff895daa6b0" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>_load_coredump</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1afbf21da0586c9e418ec7873c9bcb5a84" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>_read_core_dump_length</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a2178c23df91d8eb2d469af9cd583644e" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>addr_is_fake</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a3bbecf6726e09f229f62a6f1a0326c82" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>baud</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a28ef5ab41387ace9f9c00746ddec3595" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>checksum_len</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a104c6d6b4f6cd8bf41e4406f98c7e6ca" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>chip</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a7e2fc97010dcceb5bf20e462c2c2174f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>cleanup</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a10b562b5ae6a7e7b2da58f3ce2745f99" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>create_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1afca16b7ad4d1431b9467403991a48a10" prot="public" virt="non-virtual" ambiguityscope="espcoredump::ESPCoreDumpLoader."><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>create_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1ab660fb4b23e681765681b0250dbf4db6" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>dump_sz</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aee95517b4860c117ad4a249332225e6f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_BIN_V1_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a662c3f998b690c6d182e14a80d700d6c" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_BIN_V1_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ae64ce8d5d520cb13984814e2d9484de5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_CRC_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aa51808a5f0809bac4da3144f53426269" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_CRC_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a095220957ed745f1bfc0762a24628fdd" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_FLASH_LEN_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a356b4d121f72298b1689566ea104d0a7" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_FLASH_LEN_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ad27f1645c797b5456163cc2dd3021cdb" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a9e31b52b940437262bf2aed5c6ff0f31" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a7e91e226676898d4b11e91f3bcc90d05" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_MEM_SEG_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ab8664943e2dee6a89b9a433dc97e6fdf" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_MEM_SEG_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1adeac2f151db69cdb453f51923d0c3038" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_NOTE_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a861179ec63f1dfa06302284960aaec62" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_NOTE_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a605f7542c04da944dbe637f3c9483d3a" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_PART_TABLE_OFF</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a38e01a285657c15b677bd99e1e9cbe7d" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_SHA256_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a0e45d82c0f357bfc5d497d3b86629abd" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_SHA256_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a973f347dc9f8f9568f4080689aecfd52" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_TSK_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a714e385c76b1c30c452167d352c1938d" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_TSK_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a614b9892ad058e67dfe536f58b0a48e5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_VERSION_BIN_V1</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a160ca3e3f1c01a45d5c74e759a111544" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_VERSION_BIN_V2</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ae16fc3f143565d47ab88c16c847b0927" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_VERSION_ELF_CRC32</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a5111917e2e17fbd5a710cc81b98f3ce8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP32_COREDUMP_VERSION_ELF_SHA256</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a6c66d7cb71293dab408e01bb8e38d329" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP_CORE_DUMP_CHIP_ESP32</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1acca128403cd63b60cf7a9516833705a5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP_CORE_DUMP_EXTRA_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a4ebad28ebde9a848c52235e001796220" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP_CORE_DUMP_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1adad49d65e756130cf401dbf341fa6bb8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP_CORE_DUMP_TASK_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aa9354b0382f97d419bf75049108a8d11" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>ESP_COREDUMP_CURR_TASK_MARKER</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a5dbc997d7e75259e59756eaa948c1929" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>fcore</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a0b545d30e61030dfce02b62c9d723180" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>fcore_name</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1ac826f0b02133ae741a17e06736115255" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>get_core_dump_partition_info</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a14591cf9ce708c432f7c239370573a97" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>get_tool_path</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a6cd0e37b51d91af81a0e99e38d1cf268" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>hdr</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a4846df7c9b229b1781c6885525d0327f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>invoke_esptool</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1a618a7d5d7a5baa15a25ba29971c270f3" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>invoke_parttool</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFlashLoader_1afc18b5e5167e689b78ae1e96a5338115" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>port</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a1bca0f2bcf203dc9b6707ed2054f3920" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>read_data</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a94c03e2dd86a5d13f8698d2290abee4f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>remove_tmp_file</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a4fba2fe6ef576478482de8d1fff74978" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>stack_is_sane</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a9eb99313732885107fa9ca12bbae172a" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFlashLoader</scope><name>tcb_is_sane</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

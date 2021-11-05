@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1BinStruct" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::BinStruct</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+    <derivedcompoundref refid="classespcoredump_1_1Elf32FileHeader" prot="public" virt="non-virtual">espcoredump.Elf32FileHeader</derivedcompoundref>
+    <derivedcompoundref refid="classespcoredump_1_1Elf32ProgramHeader" prot="public" virt="non-virtual">espcoredump.Elf32ProgramHeader</derivedcompoundref>
+    <derivedcompoundref refid="classespcoredump_1_1EspCoreDumpTaskStatus" prot="public" virt="non-virtual">espcoredump.EspCoreDumpTaskStatus</derivedcompoundref>
+    <derivedcompoundref refid="classespcoredump_1_1XtensaPrStatus" prot="public" virt="non-virtual">espcoredump.XtensaPrStatus</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1BinStruct_1abeec852ef4d40adcb4439a35475d43dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.BinStruct.__init__</definition>
+        <argsstring>(self, buf=None)</argsstring>
+        <name>__init__</name>
+        <reimplementedby refid="classespcoredump_1_1Elf32FileHeader_1a33ecb6098e6d541fee71c78c29c4fe42">__init__</reimplementedby>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>buf</type>
+          <defname>buf</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Base constructor for binary structure objects
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="117" column="1" bodyfile="espcoredump.py" bodystart="117" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1BinStruct_1afdb828b90757437b3768ff8bedab6193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.BinStruct.sizeof</definition>
+        <argsstring>(self)</argsstring>
+        <name>sizeof</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns the size of the structure represented by specific subclass
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="125" column="1" bodyfile="espcoredump.py" bodystart="125" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1BinStruct_1a93f45e22e0b6034df1025a4998cacc00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.BinStruct.dump</definition>
+        <argsstring>(self)</argsstring>
+        <name>dump</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns binary representation of structure
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="130" column="1" bodyfile="espcoredump.py" bodystart="130" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Binary structure representation
+
+   Subclasses must specify actual structure layout using &apos;fields&apos; and &apos;format&apos; members.
+   For example, the following subclass represents structure with two fields:
+   f1 of size 2 bytes and 4 bytes f2. Little endian.
+    class SomeStruct(BinStruct):
+        fields = (&quot;f1&quot;,
+                  &quot;f2&quot;)
+        format = &quot;&lt;HL&quot;
+
+    Then subclass can be used to initialize fields of underlaying structure and convert it to binary representation:
+    f = open(&apos;some_struct.bin&apos;, &apos;wb&apos;)
+    s = SomeStruct()
+    s.f1 = 1
+    s.f2 = 10
+    f.write(s.dump())
+    f.close()
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>espcoredump.Elf32FileHeader</label>
+        <link refid="classespcoredump_1_1Elf32FileHeader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>espcoredump.XtensaPrStatus</label>
+        <link refid="classespcoredump_1_1XtensaPrStatus"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>espcoredump.EspCoreDumpTaskStatus</label>
+        <link refid="classespcoredump_1_1EspCoreDumpTaskStatus"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="4">
+        <label>espcoredump.Elf32ProgramHeader</label>
+        <link refid="classespcoredump_1_1Elf32ProgramHeader"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.BinStruct</label>
+        <link refid="classespcoredump_1_1BinStruct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.BinStruct</label>
+        <link refid="classespcoredump_1_1BinStruct"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="97" column="1" bodyfile="espcoredump.py" bodystart="97" bodyend="137"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1BinStruct_1abeec852ef4d40adcb4439a35475d43dd" prot="public" virt="non-virtual"><scope>espcoredump::BinStruct</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1BinStruct_1a93f45e22e0b6034df1025a4998cacc00" prot="public" virt="non-virtual"><scope>espcoredump::BinStruct</scope><name>dump</name></member>
+      <member refid="classespcoredump_1_1BinStruct_1afdb828b90757437b3768ff8bedab6193" prot="public" virt="non-virtual"><scope>espcoredump::BinStruct</scope><name>sizeof</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

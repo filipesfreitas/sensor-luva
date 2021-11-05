@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="i2c__handler_8h" kind="file" language="C++">
+    <compoundname>i2c_handler.h</compoundname>
+    <includes local="yes">driver/i2c.h</includes>
+    <includedby refid="i2c__handler_8c" local="no">components/i2c/i2c_handler.c</includedby>
+    <includedby refid="position__process_8h" local="no">components/orientation_estimate/include/position_process.h</includedby>
+    <includedby refid="udp__server_8c" local="no">main/udp_server.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>components/i2c/include/i2c_handler.h</label>
+        <link refid="i2c__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>driver/i2c.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>components/i2c/i2c_handler.c</label>
+        <link refid="i2c__handler_8c_source"/>
+      </node>
+      <node id="1">
+        <label>components/i2c/include/i2c_handler.h</label>
+        <link refid="i2c__handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>main/udp_server.c</label>
+        <link refid="udp__server_8c"/>
+      </node>
+      <node id="3">
+        <label>components/orientation_estimate/include/position_process.h</label>
+        <link refid="position__process_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>components/orientation_estimate/position_process.c</label>
+        <link refid="position__process_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="i2c__handler_8h_1a5c22ca4de37a83a59014e48b0a0b043d" prot="public" static="no">
+        <name>I2C_MASTER_FREQ_HZ</name>
+        <initializer>100000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C master clock frequency </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="7" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1aaa0e84f340ef5ea9db2d7624fdadaa26" prot="public" static="no">
+        <name>I2C_MASTER_TX_BUF_DISABLE</name>
+        <initializer>0      /** I2C master doesn&apos;t need buffer */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="8" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a37a0707200e50e3b3e9ab28b1b8d6777" prot="public" static="no">
+        <name>I2C_MASTER_RX_BUF_DISABLE</name>
+        <initializer>0      /** I2C master doesn&apos;t need buffer */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="9" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1aec9b870ff8ddddee3afd035b84d5e365" prot="public" static="no">
+        <name>SDA1</name>
+        <initializer>23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="10" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a579780c4b53c3918a1427d24bec984d0" prot="public" static="no">
+        <name>SCL1</name>
+        <initializer>22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="11" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a02c7209e41a40542f1caff8b7284dbda" prot="public" static="no">
+        <name>SDA2</name>
+        <initializer>21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="12" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a4b0f8998cb81b2f495ebc3dda9ab1226" prot="public" static="no">
+        <name>SCL2</name>
+        <initializer>19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="13" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a7fc57d5be9f588839a00c75ef2946e17" prot="public" static="no">
+        <name>WRITE_BIT</name>
+        <initializer>I2C_MASTER_WRITE /** I2C master write */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="14" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a2f493ed233e66342493f155ebda5c183" prot="public" static="no">
+        <name>READ_BIT</name>
+        <initializer>I2C_MASTER_READ  /** I2C master read */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="15" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a7dd22b838d2b1f22d367e6cdef04ccc3" prot="public" static="no">
+        <name>ACK_CHECK_EN</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C master will check ack from slave </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="16" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a8ad7ceb373ce664b1c2482a66537e7c0" prot="public" static="no">
+        <name>ACK_CHECK_DIS</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C master will not check ack from slave </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="17" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a1d64a546dacc15052a6c4887f9d0020f" prot="public" static="no">
+        <name>ACK_VAL</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C ack value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="18" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1ae20bf16f65c41237e2d620ef49890781" prot="public" static="no">
+        <name>NACK_VAL</name>
+        <initializer>0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>I2C nack value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="19" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a20bfabead2a5dc9c2de0710de5e286d6" prot="public" static="no">
+        <name>LAST_NACK_VAL</name>
+        <initializer>0x2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="20" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a009b3cc0da1531d70d1e17588e16645d" prot="public" static="no">
+        <name>SLAVE1_ADD</name>
+        <initializer>0x68</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="24" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1adbc4d3af416488b6c4ad95cf1c1d6842" prot="public" static="no">
+        <name>SLAVE2_ADD</name>
+        <initializer>0x69</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="25" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1ab7336e26f8947086e41a375f1e1e74d4" prot="public" static="no">
+        <name>ACCEL_CONFIG</name>
+        <initializer>0X1C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="28" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1af2e1a6c564a180de21a921758bdafb65" prot="public" static="no">
+        <name>CONFIG_device</name>
+        <initializer>0x1A</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="29" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1ac57e8c3192c859321b447c07089f20f0" prot="public" static="no">
+        <name>GYRO_CONFIG</name>
+        <initializer>0x1B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="30" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a96169eb207e721c1546cea9ffd8a35e4" prot="public" static="no">
+        <name>PWR_MGMT_1</name>
+        <initializer>0x6B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="31" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1a7119c37e38b6736096ea1565459043ba" prot="public" static="no">
+        <name>SMPLRT_DIV</name>
+        <initializer>0x19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="32" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1abfb7cc765bd79981f1bf93a892b17928" prot="public" static="no">
+        <name>START_READ_ADD</name>
+        <initializer>0x3B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="33" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1ab2b86515ab2835049716e54eee6bba47" prot="public" static="no">
+        <name>NUMBER_CHANNELS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="35" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1ac954937dfffa3d2d9f1a4329849f6269" prot="public" static="no">
+        <name>MASTER_0</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="36" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="i2c__handler_8h_1aef8eed68182d7c966352f05ddb02830e" prot="public" static="no">
+        <name>MASTER_1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="37" column="9" bodyfile="components/i2c/include/i2c_handler.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="i2c__handler_8h_1af2551f23e9fd29ff14d37c134f88511b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_read_slave</definition>
+        <argsstring>(i2c_port_t i2c_num, uint8_t device, uint8_t reg_address, uint8_t *data, size_t data_len)</argsstring>
+        <name>i2c_master_read_slave</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>i2c_num</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="41" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="8" bodyend="37" declfile="components/i2c/include/i2c_handler.h" declline="41" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8h_1af20b0f940194b109f4f14d68e7907e66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_write_slave</definition>
+        <argsstring>(i2c_port_t i2c_num, uint8_t device, uint8_t reg_address, uint8_t *data, size_t data_len)</argsstring>
+        <name>i2c_master_write_slave</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>i2c_num</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="44" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="40" bodyend="53" declfile="components/i2c/include/i2c_handler.h" declline="44" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8h_1ac92dc97abfda2d0e81ad38b4874c2846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_imu_setup</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, uint8_t device)</argsstring>
+        <name>i2c_imu_setup</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="47" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="56" bodyend="76" declfile="components/i2c/include/i2c_handler.h" declline="47" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8h_1a0ae3c2f87e4f2fce9dc9170890971240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_init</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, int sda, int scl)</argsstring>
+        <name>i2c_master_init</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>scl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="50" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="101" bodyend="113" declfile="components/i2c/include/i2c_handler.h" declline="50" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8h_1a5f86e178334e98a8907bf2afb68bcf97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_imu_setup_reference</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, uint8_t device)</argsstring>
+        <name>i2c_imu_setup_reference</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="52" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="78" bodyend="99" declfile="components/i2c/include/i2c_handler.h" declline="52" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8h_1a64bdd9967c83240dde0fc2fef8696dbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialization</definition>
+        <argsstring>()</argsstring>
+        <name>initialization</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/include/i2c_handler.h" line="55" column="6" declfile="components/i2c/include/i2c_handler.h" declline="55" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;driver/i2c.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>I2C_HANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_HANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Configuration<sp/>of<sp/>I2C*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_MASTER_FREQ_HZ<sp/>100000<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_MASTER_TX_BUF_DISABLE<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>I2C_MASTER_RX_BUF_DISABLE<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SDA1<sp/>23</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCL1<sp/>22</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SDA2<sp/>21<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCL2<sp/>19</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WRITE_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>I2C_MASTER_WRITE<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>READ_BIT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>I2C_MASTER_READ<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACK_CHECK_EN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACK_CHECK_DIS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACK_VAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NACK_VAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LAST_NACK_VAL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Sensor<sp/>especifications*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*Default<sp/>address*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SLAVE1_ADD<sp/>0x68</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SLAVE2_ADD<sp/>0x69</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>STRAT-UP<sp/>sequence<sp/>setup*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCEL_CONFIG<sp/>0X1C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_device<sp/>0x1A</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GYRO_CONFIG<sp/>0x1B</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PWR_MGMT_1<sp/>0x6B<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SMPLRT_DIV<sp/>0x19</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>START_READ_ADD<sp/>0x3B</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUMBER_CHANNELS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MASTER_0<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MASTER_1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Master<sp/>rad<sp/>on<sp/>I2C<sp/>bus*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">esp_err_t<sp/>i2c_master_read_slave(i2c_port_t<sp/>i2c_num,uint8_t<sp/>device<sp/>,uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_len);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*Master<sp/>write<sp/>on<sp/>I2C<sp/>bus*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">esp_err_t<sp/>i2c_master_write_slave(i2c_port_t<sp/>i2c_num<sp/>,uint8_t<sp/>device<sp/>,uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_len);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Set<sp/>of<sp/>registers<sp/>to<sp/>set<sp/>after<sp/>IMU<sp/>has<sp/>started<sp/>up*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">esp_err_t<sp/>i2c_imu_setup(i2c_port_t<sp/>MASTER_NUMBER,uint8_t<sp/>device);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialize<sp/>master<sp/>hardware<sp/>and<sp/>config.<sp/>for<sp/>comunnication*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">esp_err_t<sp/>i2c_master_init(i2c_port_t<sp/>MASTER_NUMBER,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sda,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scl);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">esp_err_t<sp/>i2c_imu_setup_reference(i2c_port_t<sp/>MASTER_NUMBER,uint8_t<sp/>device);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">/*initialization<sp/>of<sp/>the<sp/>IMU<sp/>sensors<sp/>on<sp/>each<sp/>channel*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialization();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="components/i2c/include/i2c_handler.h"/>
+  </compounddef>
+</doxygen>

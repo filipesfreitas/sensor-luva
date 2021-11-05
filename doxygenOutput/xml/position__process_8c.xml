@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="position__process_8c" kind="file" language="C++">
+    <compoundname>position_process.c</compoundname>
+    <includes refid="position__process_8h" local="no">position_process.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="10">
+        <label>esp_adc_cal.h</label>
+      </node>
+      <node id="12">
+        <label>i2c_handler.h</label>
+        <link refid="i2c__handler_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>esp_timer.h</label>
+      </node>
+      <node id="9">
+        <label>driver/adc.h</label>
+      </node>
+      <node id="7">
+        <label>misc.h</label>
+        <link refid="misc_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>string.h</label>
+      </node>
+      <node id="14">
+        <label>esp_log.h</label>
+      </node>
+      <node id="2">
+        <label>position_process.h</label>
+        <link refid="position__process_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>components/orientation_estimate/position_process.c</label>
+        <link refid="position__process_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>math.h</label>
+      </node>
+      <node id="13">
+        <label>driver/i2c.h</label>
+      </node>
+      <node id="11">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="position__process_8c_1a3161c2c93c655dd30953372064ec627b" prot="public" static="yes" mutable="no">
+        <type>const float</type>
+        <definition>const float alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <initializer>= time_constant/(time_constant+period)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="3" column="20" bodyfile="components/orientation_estimate/position_process.c" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="position__process_8c_1acda15d446a599356007066413e27f051" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void orientation_estimation</definition>
+        <argsstring>(raw_data metacarpo, raw_data proximal, Glove *glove, int i)</argsstring>
+        <name>orientation_estimation</name>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref></type>
+          <declname>metacarpo</declname>
+        </param>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref></type>
+          <declname>proximal</declname>
+        </param>
+        <param>
+          <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+          <declname>glove</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Update the orientation of the position of a given finger. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">metacarpo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matacarpal falange raw data, i.e acceleration and gyroscope data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">proximal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>proximal falange raw data, i.e acceleration and gyroscope data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>glove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure representing the hand posture captured by the glove device. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>finger indication for update orientation. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="5" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="5" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1ac78209ab9e3232f2a0860a79ebfc04fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void reference_frame_orientation</definition>
+        <argsstring>(raw_data reference, Glove *glove)</argsstring>
+        <name>reference_frame_orientation</name>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref></type>
+          <declname>reference</declname>
+        </param>
+        <param>
+          <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+          <declname>glove</declname>
+        </param>
+        <briefdescription>
+<para>Update of the orientation of the reference frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">reference</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw data contaning acceleration and gyroscope input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>glove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure representing the hand posture captured by the glove device. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="40" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="40" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1aca8abd474b22fa63e8808076931ee809" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void calibration</definition>
+        <argsstring>(Glove *glove)</argsstring>
+        <name>calibration</name>
+        <param>
+          <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+          <declname>glove</declname>
+        </param>
+        <briefdescription>
+<para>Calibration funtion, take mesure of aceleration of every device connected and estimate a angle for future reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>glove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure representing the hand posture captured by the glove device. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="53" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="53" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1a34824cb185632ac88f193405cde5251e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialization</definition>
+        <argsstring>(Glove *glove)</argsstring>
+        <name>initialization</name>
+        <param>
+          <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+          <declname>glove</declname>
+        </param>
+        <briefdescription>
+<para>Call i2c_imu_setup for initialize every device connected, i.e IMU, for turning them up and do configure the parameters of internal filters bandwidth, powerup type and etc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>glove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure representing the hand posture captured by the glove device. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="106" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="106" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1aecd91e341a0c9ea3591b798f9c2a414f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void buffer_arrange</definition>
+        <argsstring>(Glove *glove, char message[])</argsstring>
+        <name>buffer_arrange</name>
+        <param>
+          <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+          <declname>glove</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>message</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Buffer char[] type for configure the shape of the packge to be displayed or send to device connected throug WiFi. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>glove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structure representing the hand posture captured by the glove device. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Char* type parameter buffer for storing hand position. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="186" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="186" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1a57f21ef5abe15c1d80faca9cf49314e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void raw_data_zero</definition>
+        <argsstring>(raw_data *member)</argsstring>
+        <name>raw_data_zero</name>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref> *</type>
+          <declname>member</declname>
+        </param>
+        <briefdescription>
+<para>Zero input for every member of member. <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>member</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Structured to be initialized, values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="217" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="217" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="position__process_8c_1a6ef7d11478166df28df758bff232854e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void buffer_raw_data</definition>
+        <argsstring>(raw_data *member1, raw_data *member2)</argsstring>
+        <name>buffer_raw_data</name>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref> *</type>
+          <declname>test1</declname>
+          <defname>member1</defname>
+        </param>
+        <param>
+          <type><ref refid="structraw__data" kindref="compound">raw_data</ref> *</type>
+          <declname>test2</declname>
+          <defname>member2</defname>
+        </param>
+        <briefdescription>
+<para>Debugger fucntion that put on stdout, on monitor when the device is connected to a computer, for visualization of raw data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>test1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw data of first device attached. <linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>test2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Raw data of first device attached. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/position_process.c" line="226" column="6" bodyfile="components/orientation_estimate/position_process.c" bodystart="226" bodyend="246"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;position_process.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>alpha<sp/>=<sp/>time_constant/(time_constant+period);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>orientation_estimation(<ref refid="structraw__data" kindref="compound">raw_data</ref><sp/>metacarpo,<ref refid="structraw__data" kindref="compound">raw_data</ref><sp/>proximal,<ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>PHI<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(proximal.accelx<sp/>+<sp/>proximal.accely<sp/>+<sp/>proximal.accelz<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[i].medial.phi<sp/>=acos(proximal.accelz/(sqrt(pow(proximal.accelx,2)+pow(proximal.accely,2)+</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pow(proximal.accelz,2))))*(1-alpha)<sp/>+<sp/>(glove-&gt;fingers[i].proximal.phi<sp/>+<sp/>proximal.gyrox<sp/>*<sp/>period<sp/>)<sp/>*<sp/>alpha<sp/>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metacarpo.accelx<sp/>+<sp/>metacarpo.accely<sp/>+<sp/>metacarpo.accelz<sp/>==<sp/>0){</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[i].proximal.phi<sp/>=<sp/>acos(metacarpo.accelz/(sqrt(pow(metacarpo.accelx,2)+pow(metacarpo.accely,2)+</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pow(metacarpo.accelz,2))))*(1-alpha)<sp/>+<sp/>(glove-&gt;fingers[i].medial.phi<sp/>+<sp/>metacarpo.gyrox<sp/>*<sp/>period<sp/>)<sp/>*<sp/>alpha<sp/>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>THETA<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(metacarpo.accelx==0)<sp/>glove-&gt;fingers[i].proximal.theta<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>glove-&gt;fingers[i].proximal.theta<sp/>=<sp/>atan(metacarpo.accely/-metacarpo.accelx)*(1-alpha)<sp/>+<sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>alpha<sp/>*<sp/>(glove-&gt;fingers[i].proximal.theta<sp/>+<sp/>metacarpo.gyroz<sp/>*<sp/>period);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(proximal.accelx==0)<sp/>glove-&gt;fingers[i].medial.theta<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>glove-&gt;fingers[i].medial.theta<sp/>=<sp/>atan(proximal.accely/-proximal.accelx)*(1-alpha)<sp/>+</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>alpha<sp/>*<sp/>(glove-&gt;fingers[i].medial.theta<sp/>+<sp/>proximal.gyroz<sp/>*<sp/>period);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[i].proximal.phi<sp/>=<sp/>glove-&gt;fingers[i].proximal.phi<sp/>-<sp/>glove<sp/>-&gt;<sp/>frame_reference.phi;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[i].medial.phi<sp/><sp/><sp/>=<sp/>glove-&gt;fingers[i].medial.phi<sp/>-<sp/>glove-&gt;fingers[i].proximal.phi<sp/>-<sp/>glove<sp/>-&gt;<sp/>frame_reference.phi<sp/><sp/><sp/><sp/>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[i].proximal.theta<sp/>=<sp/>glove<sp/>-&gt;<sp/>fingers[i].proximal.theta<sp/>-<sp/>glove<sp/>-&gt;<sp/>frame_reference.theta<sp/>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[i].medial.theta<sp/><sp/><sp/>=<sp/>glove<sp/>-&gt;<sp/>fingers[i].medial.theta<sp/>-<sp/>glove<sp/>-&gt;<sp/>fingers[i].proximal.theta<sp/>-<sp/>glove<sp/>-&gt;<sp/>frame_reference.theta;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reference_frame_orientation(<ref refid="structraw__data" kindref="compound">raw_data</ref><sp/>reference,<ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove){</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>PHI<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>glove-&gt;frame_reference.phi<sp/>=<sp/>acos(-reference.accelz/(sqrt(pow(reference.accelx,2)+</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>pow(reference.accely,2)+pow(reference.accelz,2))))*(1-alpha)<sp/>+<sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>(glove-&gt;frame_reference.phi<sp/>+<sp/>(-reference.gyrox)<sp/>*<sp/>period<sp/>)<sp/>*<sp/>alpha;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>THETA<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(reference.accely==0)<sp/>glove-&gt;frame_reference.theta<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>glove-&gt;frame_reference.theta<sp/>=<sp/>atan(-reference.accelx/reference.accely)*(1-alpha)<sp/>+<sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>alpha<sp/>*<sp/>(glove-&gt;frame_reference.theta<sp/>+<sp/>(-reference.gyroz)<sp/>*<sp/>period);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>calibration(<ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>aux<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret,<sp/>ret1;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>int16_t<sp/>buffer[7];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sensor[14];</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sensor2[14];</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>memset(sensor,0,14);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>memset(sensor2,0,14);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>memset(buffer,0,14);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mux<sp/>CONFIG*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>mux_selector_config();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>gpio_set_level(pinA,<sp/>0);</highlight><highlight class="comment">/*<sp/>Mux<sp/>initial<sp/>state*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>gpio_set_level(pinB,<sp/>1);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(aux<sp/>&lt;<sp/>2<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/><sp/>=<sp/>i2c_master_read_slave(0,<sp/>SLAVE1_ADD,START_READ_ADD,sensor,<sp/>14);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>ret1<sp/>=<sp/>i2c_master_read_slave(0,<sp/>SLAVE2_ADD,START_READ_ADD,sensor2,<sp/>14);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>ESP_ERR_TIMEOUT<sp/>||<sp/>ret1<sp/>==<sp/>ESP_ERR_TIMEOUT)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;I2C<sp/>Timeout&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>ESP_OK<sp/>&amp;&amp;<sp/>ret1<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Ref*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[0]<sp/>=<sp/>(int16_t)((sensor[0]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[1]);<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>X<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[1]<sp/>=<sp/>(int16_t)((sensor[2]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[3]);<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[2]<sp/>=<sp/>(int16_t)((sensor[4]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[5]);<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>z<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[3]<sp/>=<sp/>(int16_t)((sensor2[0]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[1]);<sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>X<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[4]<sp/>=<sp/>(int16_t)((sensor2[2]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[3]);<sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>Y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[5]<sp/>=<sp/>(int16_t)((sensor2[4]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[5]);<sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>Z<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pressão<sp/>através<sp/>do<sp/>potenciômetro*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[6]<sp/>=<sp/>adc_read(aux,adc_chars);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer[6]<sp/>=<sp/>buffer[6]/(Vinput<sp/>-<sp/>buffer[6])*R;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>PHI<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>glove-&gt;fingers[aux].proximal.phi<sp/>=<sp/>acos(buffer[2]/(sqrt(pow(buffer[0],2)+pow(buffer[1],2)+pow(buffer[2],2))));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>glove-&gt;fingers[aux].medial.phi<sp/>=<sp/>acos(buffer[5]/(sqrt(pow(buffer[3],2)+pow(buffer[4],2)+pow(buffer[5],2))));</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>THETA<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(buffer[1]==0)<sp/>glove-&gt;fingers[aux].proximal.theta<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>glove-&gt;fingers[aux].proximal.theta<sp/>=<sp/>atan(buffer[0]/buffer[1]);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(buffer[4]==0)<sp/>glove-&gt;fingers[aux].medial.theta<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>glove-&gt;fingers[aux].medial.theta<sp/>=<sp/>atan(buffer[3]/buffer[4]);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>aux++;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialization(<ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove){</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>uint8_t<sp/>addr=0;<sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>aux<sp/>variable<sp/>for<sp/>counting*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>esp_err_t<sp/>error_setting[2]={ESP_OK,ESP_OK};<sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Mux<sp/>CONFIG*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>mux_selector_config();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[0].medial.theta=0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[0].medial.phi=0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[0].proximal.theta=0;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[0].proximal.phi=0;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[0].pressure=0;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[1].medial.theta=0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[1].medial.phi=0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[1].proximal.theta=0;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[1].proximal.phi=0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[1].pressure=0;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[2].medial.theta=0;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[2].medial.phi=0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[2].proximal.theta=0;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[2].proximal.phi=0;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[2].pressure=0;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[3].medial.theta=0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[3].medial.phi=0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[3].proximal.theta=0;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[3].proximal.phi=0;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[3].pressure=0;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[4].proximal.theta=0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[4].proximal.phi=0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>glove-&gt;frame_reference.theta=0;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>glove-&gt;frame_reference.phi=0;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>glove-&gt;fingers[4].pressure=0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(addr<sp/>&lt;<sp/>channels){</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>gpio_set_level(pinA,<sp/>(addr<sp/>&amp;<sp/>2)<sp/>&gt;&gt;<sp/>1);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>gpio_set_level(pinB,<sp/>addr<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>error_setting[0]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE1_ADD);<sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>error_setting[1]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE2_ADD);<sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(error_setting[0]<sp/>||<sp/>error_setting[1]<sp/>!=<sp/>ESP_OK){</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>at<sp/>master<sp/>nº:<sp/>%d\tNo<sp/>ack,<sp/>sensor<sp/>%s<sp/>not<sp/>connected...skip...\n&quot;</highlight><highlight class="normal">,0,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error_setting[0]<sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x68&quot;</highlight><highlight class="normal"><sp/>:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error_setting[1]<sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x69&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;None&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>error_setting[0]<sp/><sp/>=<sp/>i2c_imu_setup(1,SLAVE1_ADD);<sp/></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//error_setting[1]<sp/><sp/>=<sp/>i2c_imu_setup(1,SLAVE2_ADD);<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(error_setting[0]<sp/>||<sp/>error_setting[1]<sp/>!=<sp/>ESP_OK){</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Problem<sp/>at<sp/>master<sp/>nº:<sp/>%d\tNo<sp/>ack,<sp/>sensor<sp/>%s<sp/>not<sp/>connected...skip...\n&quot;</highlight><highlight class="normal">,1,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error_setting[0]<sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x68&quot;</highlight><highlight class="normal"><sp/>:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>error_setting[1]<sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x69&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;None&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>addr<sp/>++;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/>error_setting[0]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE1_ADD);<sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/>error_setting[1]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE2_ADD);<sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="comment"></highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/>if(error_setting[0]<sp/>||<sp/>error_setting[1]<sp/>!=<sp/>ESP_OK){</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/>&quot;Problem<sp/>at<sp/>master<sp/>nº:<sp/>%d\tNo<sp/>ack,<sp/>sensor<sp/>%s<sp/>not<sp/>connected...skip...\n&quot;,0,</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/>error_setting[0]<sp/>!=<sp/>ESP_OK<sp/>?<sp/>&quot;SENSOR<sp/>0x68&quot;<sp/>:</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/>error_setting[1]<sp/>!=<sp/>ESP_OK<sp/>?<sp/>&quot;SENSOR<sp/>0x69&quot;<sp/>:<sp/>&quot;None&quot;);</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/></highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/>gpio_set_level(pinA,<sp/>1);</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/>gpio_set_level(pinB,<sp/>0);</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/>error_setting[0]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE1_ADD);<sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/>error_setting[1]<sp/><sp/>=<sp/>i2c_imu_setup(0,SLAVE2_ADD);<sp/></highlight></codeline>
+<codeline lineno="177"><highlight class="comment"></highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/><sp/>if(error_setting[0]<sp/>||<sp/>error_setting[1]<sp/>!=<sp/>ESP_OK){</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/>&quot;Problem<sp/>at<sp/>master<sp/>nº:<sp/>%d\tNo<sp/>ack,<sp/>sensor<sp/>%s<sp/>not<sp/>connected...skip...\n&quot;,master_num,</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/>error_setting[0]<sp/>!=<sp/>ESP_OK<sp/>?<sp/>&quot;SENSOR<sp/>0x68&quot;<sp/>:</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/>error_setting[1]<sp/>!=<sp/>ESP_OK<sp/>?<sp/>&quot;SENSOR<sp/>0x69&quot;<sp/>:<sp/>&quot;None&quot;);</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buffer_arrange(<ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>message[]){</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>sprintf(message,</highlight><highlight class="stringliteral">&quot;%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f|%.2f|%.2f|%.2f|%d|%.2f&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;|%.2f|%.2f|%.2f|%d\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[0].medial.theta*degre_conv,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[0].medial.phi*degre_conv,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[0].proximal.theta*degre_conv,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[0].proximal.phi*degre_conv,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[0].pressure,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[1].medial.theta*degre_conv,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[1].medial.phi*degre_conv,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[1].proximal.theta*degre_conv,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[1].proximal.phi*degre_conv,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[1].pressure,</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[2].medial.theta*degre_conv,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[2].medial.phi*degre_conv,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[2].proximal.theta*degre_conv,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[2].proximal.phi*degre_conv,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[2].pressure,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[3].medial.theta*degre_conv,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[3].medial.phi*degre_conv,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[3].proximal.theta*degre_conv,</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[3].proximal.phi*degre_conv,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[3].pressure,</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[4].proximal.theta*degre_conv,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[4].proximal.phi*degre_conv,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;frame_reference.theta*degre_conv,</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;frame_reference.phi*degre_conv,</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>glove-&gt;fingers[4].pressure);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>raw_data_zero(<ref refid="structraw__data" kindref="compound">raw_data</ref>*<sp/>member){</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/>member-&gt;accelx=0;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>member-&gt;accely=0;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>member-&gt;accelz=0;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>member-&gt;gyrox=0;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>member-&gt;gyroy=0;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>member-&gt;gyroz=0;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buffer_raw_data(<ref refid="structraw__data" kindref="compound">raw_data</ref>*<sp/>member1,<ref refid="structraw__data" kindref="compound">raw_data</ref>*<sp/>member2){</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>message[256];</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>sprintf(message,</highlight><highlight class="stringliteral">&quot;%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d|%d\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;master_num,</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;finger,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;accelx,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;accely,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;accelz,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;gyrox,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;gyroy,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>member1-&gt;gyroz,</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;master_num,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;finger,</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;accelx,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;accely,</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;accelz,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;gyrox,</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;gyroy,</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>member2-&gt;gyroz);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/>ESP_LOGI(TAG,</highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,message);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="components/orientation_estimate/position_process.c"/>
+  </compounddef>
+</doxygen>

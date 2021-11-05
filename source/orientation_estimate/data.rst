@@ -2,7 +2,6 @@ Data structures
 ===============
 
 
-
 .. function:: orientation_estimation
 
 

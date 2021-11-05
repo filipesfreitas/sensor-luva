@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_5c5514c919b92b4c1be0b6185a23d8a2" kind="dir">
+    <compoundname>components/softap/include</compoundname>
+    <innerfile refid="softap_8h">softap.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="components/softap/include/"/>
+  </compounddef>
+</doxygen>

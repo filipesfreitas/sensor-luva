@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1ESPCoreDumpError" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::ESPCoreDumpError</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">RuntimeError</basecompoundref>
+    <derivedcompoundref refid="classespcoredump_1_1ESPCoreDumpLoaderError" prot="public" virt="non-virtual">espcoredump.ESPCoreDumpLoaderError</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpError_1a5f1f7f6a541297845a1ba24b0760bddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpError.__init__</definition>
+        <argsstring>(self, message)</argsstring>
+        <name>__init__</name>
+        <reimplementedby refid="classespcoredump_1_1ESPCoreDumpLoaderError_1a53c6232ce8058801913e843cc44a1fa5">__init__</reimplementedby>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>message</type>
+          <defname>message</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for core dump error
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="91" column="1" bodyfile="espcoredump.py" bodystart="91" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Core dump runtime error class
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>espcoredump.ESPCoreDumpLoaderError</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpLoaderError"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RuntimeError</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpError</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RuntimeError</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpError</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpError"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="88" column="1" bodyfile="espcoredump.py" bodystart="88" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1ESPCoreDumpError_1a5f1f7f6a541297845a1ba24b0760bddf" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpError</scope><name>__init__</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

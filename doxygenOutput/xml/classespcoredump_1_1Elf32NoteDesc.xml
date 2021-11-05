@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1Elf32NoteDesc" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::Elf32NoteDesc</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1Elf32NoteDesc_1a85e8ea0083f0029b4eaca1b5aaf3ddfe" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.Elf32NoteDesc::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="187" column="1" bodyfile="espcoredump.py" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1Elf32NoteDesc_1aed80af2d429ef460ea47d73e4e9bc6e7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.Elf32NoteDesc::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="188" column="1" bodyfile="espcoredump.py" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1Elf32NoteDesc_1afa7d221d6651db49f91915160ddba46f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.Elf32NoteDesc::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="189" column="1" bodyfile="espcoredump.py" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1Elf32NoteDesc_1ac2a6009ee1b2d7bfdf6d25cdeda2e273" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.Elf32NoteDesc.__init__</definition>
+        <argsstring>(self, name, type, desc)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+        </param>
+        <param>
+          <type>type</type>
+          <defname>type</defname>
+        </param>
+        <param>
+          <type>desc</type>
+          <defname>desc</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for ELF32 note descriptor
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="184" column="1" bodyfile="espcoredump.py" bodystart="184" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1Elf32NoteDesc_1a672df2fabed926f96bc0b1690450cef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.Elf32NoteDesc.dump</definition>
+        <argsstring>(self)</argsstring>
+        <name>dump</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Returns binary representation of ELF32 note descriptor
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="191" column="1" bodyfile="espcoredump.py" bodystart="191" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1Elf32NoteDesc_1a5fc28c4a9ed715b2dec34a752b37dc83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.Elf32NoteDesc.read</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>read</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads ELF32 note descriptor
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="201" column="1" bodyfile="espcoredump.py" bodystart="201" bodyend="212"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>ELF32 note descriptor
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.Elf32NoteDesc</label>
+        <link refid="classespcoredump_1_1Elf32NoteDesc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.Elf32NoteDesc</label>
+        <link refid="classespcoredump_1_1Elf32NoteDesc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="181" column="1" bodyfile="espcoredump.py" bodystart="181" bodyend="213"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1ac2a6009ee1b2d7bfdf6d25cdeda2e273" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1afa7d221d6651db49f91915160ddba46f" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>desc</name></member>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1a672df2fabed926f96bc0b1690450cef8" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>dump</name></member>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1a85e8ea0083f0029b4eaca1b5aaf3ddfe" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>name</name></member>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1a5fc28c4a9ed715b2dec34a752b37dc83" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>read</name></member>
+      <member refid="classespcoredump_1_1Elf32NoteDesc_1aed80af2d429ef460ea47d73e4e9bc6e7" prot="public" virt="non-virtual"><scope>espcoredump::Elf32NoteDesc</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

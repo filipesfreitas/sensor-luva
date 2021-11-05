@@ -1,0 +1,865 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1ESPCoreDumpElfFile" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::ESPCoreDumpElfFile</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">esptool.ELFFile</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a992c711510a21e3274ccfc28211682e5" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EXCCAUSE_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EXCCAUSE_IDX</name>
+        <initializer>=  0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="329" column="1" bodyfile="espcoredump.py" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a859c51bf16a8ed8a2ae2f02e6fca4b33" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EXCVADDR_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EXCVADDR_IDX</name>
+        <initializer>=  1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="330" column="1" bodyfile="espcoredump.py" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1aa9baa10d3287a3ef14e2cc9d8fa3491b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS2_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS2_IDX</name>
+        <initializer>=  2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="331" column="1" bodyfile="espcoredump.py" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a41224f60a757792833da551140f069f8" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS3_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS3_IDX</name>
+        <initializer>=  3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="332" column="1" bodyfile="espcoredump.py" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a26d945819e57d1cfe74c048d0b22fb69" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS4_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS4_IDX</name>
+        <initializer>=  4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="333" column="1" bodyfile="espcoredump.py" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a2f98ee6af25b1111065497f7f02ee3cf" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS5_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS5_IDX</name>
+        <initializer>=  5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="334" column="1" bodyfile="espcoredump.py" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a34044207b2e18bd5d79aed576b959b11" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS6_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS6_IDX</name>
+        <initializer>=  6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="335" column="1" bodyfile="espcoredump.py" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a393617859acf4c3c0f97c07d44ba59ce" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPS7_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPS7_IDX</name>
+        <initializer>=  7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="336" column="1" bodyfile="espcoredump.py" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1af59341bfe00b9be9a8cfdd7cec6333c7" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC1_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC1_IDX</name>
+        <initializer>=  8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="337" column="1" bodyfile="espcoredump.py" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a570ca82e2f140e205ce8e6ac6eb5da43" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC2_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC2_IDX</name>
+        <initializer>=  9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="338" column="1" bodyfile="espcoredump.py" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a19bb717d77ff24678fedd59c1b01de89" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC3_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC3_IDX</name>
+        <initializer>=  10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="339" column="1" bodyfile="espcoredump.py" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1aa08329f3907f31d30ba974f3a5497610" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC4_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC4_IDX</name>
+        <initializer>=  11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="340" column="1" bodyfile="espcoredump.py" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a634f08bb8f41b84dfe86128c41823102" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC5_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC5_IDX</name>
+        <initializer>=  12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="341" column="1" bodyfile="espcoredump.py" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a7dca40b3397a914d689a27404814f510" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC6_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC6_IDX</name>
+        <initializer>=  13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="342" column="1" bodyfile="espcoredump.py" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1ac4a858a9d9947e4035e0efb3cee3551a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::REG_EPC7_IDX</definition>
+        <argsstring></argsstring>
+        <name>REG_EPC7_IDX</name>
+        <initializer>=  14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="343" column="1" bodyfile="espcoredump.py" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1aced184cc67bc6f6d92666d2ef12761e2" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::ET_NONE</definition>
+        <argsstring></argsstring>
+        <name>ET_NONE</name>
+        <initializer>=  0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="345" column="1" bodyfile="espcoredump.py" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1abc86c99d9fec7ecc0dccc6bb3b643750" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::ET_REL</definition>
+        <argsstring></argsstring>
+        <name>ET_REL</name>
+        <initializer>=  0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="346" column="1" bodyfile="espcoredump.py" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a779a2553693366bf4482e8c63d6a2b4b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::ET_EXEC</definition>
+        <argsstring></argsstring>
+        <name>ET_EXEC</name>
+        <initializer>=  0x2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="347" column="1" bodyfile="espcoredump.py" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a7c9a0f2b8004d8e73aee9d86029ce6e1" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::ET_DYN</definition>
+        <argsstring></argsstring>
+        <name>ET_DYN</name>
+        <initializer>=  0x3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="348" column="1" bodyfile="espcoredump.py" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1ae54940d6d35b5ec392b7c65badd10775" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::ET_CORE</definition>
+        <argsstring></argsstring>
+        <name>ET_CORE</name>
+        <initializer>=  0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="349" column="1" bodyfile="espcoredump.py" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a7a9a2db94e6fac1ec9ec33e05d708e38" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::EV_NONE</definition>
+        <argsstring></argsstring>
+        <name>EV_NONE</name>
+        <initializer>=  0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="351" column="1" bodyfile="espcoredump.py" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a0078d41739e03dd9422671a36e6f0440" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::EV_CURRENT</definition>
+        <argsstring></argsstring>
+        <name>EV_CURRENT</name>
+        <initializer>=  0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="352" column="1" bodyfile="espcoredump.py" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a6db4b3a54348c6bc0976b86e5ed81ac6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::EM_NONE</definition>
+        <argsstring></argsstring>
+        <name>EM_NONE</name>
+        <initializer>=  0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="354" column="1" bodyfile="espcoredump.py" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a1979fce1080d5a403b769dfa2f0d8cc3" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::EM_XTENSA</definition>
+        <argsstring></argsstring>
+        <name>EM_XTENSA</name>
+        <initializer>=  0x5E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="355" column="1" bodyfile="espcoredump.py" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1abfbec1862d56d4df68973e79f3038d66" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::SEC_TYPE_PROGBITS</definition>
+        <argsstring></argsstring>
+        <name>SEC_TYPE_PROGBITS</name>
+        <initializer>=  0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="357" column="1" bodyfile="espcoredump.py" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a2425cf2ce82a7d1be5dad26b753a9765" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::SEC_TYPE_STRTAB</definition>
+        <argsstring></argsstring>
+        <name>SEC_TYPE_STRTAB</name>
+        <initializer>=  0x03</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="358" column="1" bodyfile="espcoredump.py" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a22bfefe321b8a50cfe09df65eb9d245b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::SHN_UNDEF</definition>
+        <argsstring></argsstring>
+        <name>SHN_UNDEF</name>
+        <initializer>=  0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="360" column="1" bodyfile="espcoredump.py" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a27b4e5998038373606c326eaa2ea0ed2" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_NULL</definition>
+        <argsstring></argsstring>
+        <name>PT_NULL</name>
+        <initializer>=  0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="362" column="1" bodyfile="espcoredump.py" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a81509a37707f99569618a2e54ee9d88a" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_LOAD</definition>
+        <argsstring></argsstring>
+        <name>PT_LOAD</name>
+        <initializer>=  0x1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="363" column="1" bodyfile="espcoredump.py" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1ae1b5cce1ce17bbcbecd45d57e3a5a261" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_DYNAMIC</definition>
+        <argsstring></argsstring>
+        <name>PT_DYNAMIC</name>
+        <initializer>=  0x2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="364" column="1" bodyfile="espcoredump.py" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1add2d08db206b58136a5f59497e7dba64" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_INTERP</definition>
+        <argsstring></argsstring>
+        <name>PT_INTERP</name>
+        <initializer>=  0x3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="365" column="1" bodyfile="espcoredump.py" bodystart="365" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a04c52f7356ddbd17a6a1611bcd08f22b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_NOTE</definition>
+        <argsstring></argsstring>
+        <name>PT_NOTE</name>
+        <initializer>=  0x4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="366" column="1" bodyfile="espcoredump.py" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1aceabc0167b536300a38bebc3bc0777f6" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_SHLIB</definition>
+        <argsstring></argsstring>
+        <name>PT_SHLIB</name>
+        <initializer>=  0x5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="367" column="1" bodyfile="espcoredump.py" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a1c59745b0f290dd071cb6fdb3636560e" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int espcoredump.ESPCoreDumpElfFile::PT_PHDR</definition>
+        <argsstring></argsstring>
+        <name>PT_PHDR</name>
+        <initializer>=  0x6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="368" column="1" bodyfile="espcoredump.py" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1aeffce9b0f10900fd014e1ef74e77d5c8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpElfFile::sections</definition>
+        <argsstring></argsstring>
+        <name>sections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="376" column="1" bodyfile="espcoredump.py" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a49cbb513665162f3efb5976304f30e28" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpElfFile::program_segments</definition>
+        <argsstring></argsstring>
+        <name>program_segments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="377" column="1" bodyfile="espcoredump.py" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1ad3554bf2ffa3edec53437c47788a4214" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpElfFile::aux_segments</definition>
+        <argsstring></argsstring>
+        <name>aux_segments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="378" column="1" bodyfile="espcoredump.py" bodystart="378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1a20acb034e75e140db38f66864934ae64" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpElfFile::e_type</definition>
+        <argsstring></argsstring>
+        <name>e_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="379" column="1" bodyfile="espcoredump.py" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpElfFile_1ae509b7519d3fd5edb42cc92960999bc8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpElfFile::e_machine</definition>
+        <argsstring></argsstring>
+        <name>e_machine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="380" column="1" bodyfile="espcoredump.py" bodystart="380" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1aeda256e3a1a9d706d71ee65f1518960e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile.__init__</definition>
+        <argsstring>(self, name=None)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for core dump ELF file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="370" column="1" bodyfile="espcoredump.py" bodystart="370" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1a8a855af40d0ed039fd0fa3e4c92c0605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile.add_program_segment</definition>
+        <argsstring>(self, addr, data, type, flags)</argsstring>
+        <name>add_program_segment</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>addr</type>
+          <defname>addr</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>type</type>
+          <defname>type</defname>
+        </param>
+        <param>
+          <type>flags</type>
+          <defname>flags</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Adds new program segment
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="482" column="1" bodyfile="espcoredump.py" bodystart="482" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1a33f00974faa775490cc44529f3856283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile.add_aux_segment</definition>
+        <argsstring>(self, data, type, flags)</argsstring>
+        <name>add_aux_segment</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>type</type>
+          <defname>type</defname>
+        </param>
+        <param>
+          <type>flags</type>
+          <defname>flags</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Adds new note segment
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="500" column="1" bodyfile="espcoredump.py" bodystart="500" bodyend="504"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1a141dc9f9f37f7a30996a3242d9995b34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile.write_program_headers</definition>
+        <argsstring>(self, f, off, segs)</argsstring>
+        <name>write_program_headers</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <param>
+          <type>off</type>
+          <defname>off</defname>
+        </param>
+        <param>
+          <type>segs</type>
+          <defname>segs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="505" column="1" bodyfile="espcoredump.py" bodystart="505" bodyend="519"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1abb77b6d529bd43348b0dd946fdf78d4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile.dump</definition>
+        <argsstring>(self, f)</argsstring>
+        <name>dump</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Write core dump contents to file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="520" column="1" bodyfile="espcoredump.py" bodystart="520" bodyend="550"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1a6818d2533f2253a86b1fa28dcbbe9407" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile._read_elf_file</definition>
+        <argsstring>(self, f)</argsstring>
+        <name>_read_elf_file</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads core dump from ELF file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="382" column="1" bodyfile="espcoredump.py" bodystart="382" bodyend="409"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1a934cc2b6827923f67ac83ed08dcfc71c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile._read_sections</definition>
+        <argsstring>(self, f, section_header_offs, shstrndx)</argsstring>
+        <name>_read_sections</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <param>
+          <type>section_header_offs</type>
+          <defname>section_header_offs</defname>
+        </param>
+        <param>
+          <type>shstrndx</type>
+          <defname>shstrndx</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads core dump sections from ELF file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="410" column="1" bodyfile="espcoredump.py" bodystart="410" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpElfFile_1abc76c91f70ba776474863b6ac8174da5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpElfFile._read_program_segments</definition>
+        <argsstring>(self, f, seg_table_offs, entsz, num)</argsstring>
+        <name>_read_program_segments</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>f</type>
+          <defname>f</defname>
+        </param>
+        <param>
+          <type>seg_table_offs</type>
+          <defname>seg_table_offs</defname>
+        </param>
+        <param>
+          <type>entsz</type>
+          <defname>entsz</defname>
+        </param>
+        <param>
+          <type>num</type>
+          <defname>num</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Reads core dump program segments from ELF file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="453" column="1" bodyfile="espcoredump.py" bodystart="453" bodyend="481"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim> Wrapper class for core dump ELF file
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>esptool::ELFFile</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpElfFile</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpElfFile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>esptool::ELFFile</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpElfFile</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpElfFile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="325" column="1" bodyfile="espcoredump.py" bodystart="325" bodyend="551"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aeda256e3a1a9d706d71ee65f1518960e" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a6818d2533f2253a86b1fa28dcbbe9407" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>_read_elf_file</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1abc76c91f70ba776474863b6ac8174da5" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>_read_program_segments</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a934cc2b6827923f67ac83ed08dcfc71c" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>_read_sections</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a33f00974faa775490cc44529f3856283" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>add_aux_segment</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a8a855af40d0ed039fd0fa3e4c92c0605" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>add_program_segment</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1ad3554bf2ffa3edec53437c47788a4214" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>aux_segments</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1abb77b6d529bd43348b0dd946fdf78d4d" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>dump</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1ae509b7519d3fd5edb42cc92960999bc8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>e_machine</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a20acb034e75e140db38f66864934ae64" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>e_type</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a6db4b3a54348c6bc0976b86e5ed81ac6" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>EM_NONE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a1979fce1080d5a403b769dfa2f0d8cc3" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>EM_XTENSA</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1ae54940d6d35b5ec392b7c65badd10775" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>ET_CORE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a7c9a0f2b8004d8e73aee9d86029ce6e1" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>ET_DYN</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a779a2553693366bf4482e8c63d6a2b4b" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>ET_EXEC</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aced184cc67bc6f6d92666d2ef12761e2" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>ET_NONE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1abc86c99d9fec7ecc0dccc6bb3b643750" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>ET_REL</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a0078d41739e03dd9422671a36e6f0440" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>EV_CURRENT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a7a9a2db94e6fac1ec9ec33e05d708e38" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>EV_NONE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a49cbb513665162f3efb5976304f30e28" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>program_segments</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1ae1b5cce1ce17bbcbecd45d57e3a5a261" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_DYNAMIC</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1add2d08db206b58136a5f59497e7dba64" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_INTERP</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a81509a37707f99569618a2e54ee9d88a" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_LOAD</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a04c52f7356ddbd17a6a1611bcd08f22b" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_NOTE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a27b4e5998038373606c326eaa2ea0ed2" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_NULL</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a1c59745b0f290dd071cb6fdb3636560e" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_PHDR</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aceabc0167b536300a38bebc3bc0777f6" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>PT_SHLIB</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1af59341bfe00b9be9a8cfdd7cec6333c7" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC1_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a570ca82e2f140e205ce8e6ac6eb5da43" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC2_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a19bb717d77ff24678fedd59c1b01de89" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC3_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aa08329f3907f31d30ba974f3a5497610" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC4_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a634f08bb8f41b84dfe86128c41823102" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC5_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a7dca40b3397a914d689a27404814f510" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC6_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1ac4a858a9d9947e4035e0efb3cee3551a" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPC7_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aa9baa10d3287a3ef14e2cc9d8fa3491b" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS2_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a41224f60a757792833da551140f069f8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS3_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a26d945819e57d1cfe74c048d0b22fb69" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS4_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a2f98ee6af25b1111065497f7f02ee3cf" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS5_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a34044207b2e18bd5d79aed576b959b11" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS6_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a393617859acf4c3c0f97c07d44ba59ce" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EPS7_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a992c711510a21e3274ccfc28211682e5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EXCCAUSE_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a859c51bf16a8ed8a2ae2f02e6fca4b33" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>REG_EXCVADDR_IDX</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1abfbec1862d56d4df68973e79f3038d66" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>SEC_TYPE_PROGBITS</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a2425cf2ce82a7d1be5dad26b753a9765" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>SEC_TYPE_STRTAB</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1aeffce9b0f10900fd014e1ef74e77d5c8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>sections</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a22bfefe321b8a50cfe09df65eb9d245b" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>SHN_UNDEF</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpElfFile_1a141dc9f9f37f7a30996a3242d9995b34" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpElfFile</scope><name>write_program_headers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

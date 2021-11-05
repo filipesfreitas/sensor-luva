@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1GDBMIThreadListIdsHandler" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::GDBMIThreadListIdsHandler</compoundname>
+    <basecompoundref refid="classespcoredump_1_1GDBMIResultHandler" prot="public" virt="non-virtual">espcoredump.GDBMIResultHandler</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1GDBMIThreadListIdsHandler_1affd5de78888d4065e12bcf4d2b574025" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.GDBMIThreadListIdsHandler::threads</definition>
+        <argsstring></argsstring>
+        <name>threads</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1232" column="1" bodyfile="espcoredump.py" bodystart="1232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1GDBMIThreadListIdsHandler_1a3d376d8a0ff36ee9f557bf24ebb998ea" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.GDBMIThreadListIdsHandler::current_thread</definition>
+        <argsstring></argsstring>
+        <name>current_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1233" column="1" bodyfile="espcoredump.py" bodystart="1233" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1GDBMIThreadListIdsHandler_1abb4c457390809db4964972c637fd93bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.GDBMIThreadListIdsHandler.__init__</definition>
+        <argsstring>(self, verbose=False)</argsstring>
+        <name>__init__</name>
+        <reimplements refid="classespcoredump_1_1GDBMIResultHandler_1a1940366d0ec9f26ef18dce076ca151a6">__init__</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>verbose</type>
+          <defname>verbose</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for GDB/MI result handler
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1228" column="1" bodyfile="espcoredump.py" bodystart="1228" bodyend="1234"/>
+      </memberdef>
+      <memberdef kind="function" id="classespcoredump_1_1GDBMIThreadListIdsHandler_1a604b59771813c628fdee6554612028bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.GDBMIThreadListIdsHandler.execute</definition>
+        <argsstring>(self, ln)</argsstring>
+        <name>execute</name>
+        <reimplements refid="classespcoredump_1_1GDBMIResultHandler_1a9ccd0e3d0f928af570c19ea4da82ee81">execute</reimplements>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>ln</type>
+          <defname>ln</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Executes GDB/MI thread-list-ids handler function
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="1235" column="1" bodyfile="espcoredump.py" bodystart="1235" bodyend="1250"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>GDB/MI thread-list-ids handler class
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>object</label>
+      </node>
+      <node id="2">
+        <label>espcoredump.GDBMIResultHandler</label>
+        <link refid="classespcoredump_1_1GDBMIResultHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>espcoredump.GDBMIOutRecordHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutRecordHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.GDBMIThreadListIdsHandler</label>
+        <link refid="classespcoredump_1_1GDBMIThreadListIdsHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>object</label>
+      </node>
+      <node id="2">
+        <label>espcoredump.GDBMIResultHandler</label>
+        <link refid="classespcoredump_1_1GDBMIResultHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>espcoredump.GDBMIOutRecordHandler</label>
+        <link refid="classespcoredump_1_1GDBMIOutRecordHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>espcoredump.GDBMIThreadListIdsHandler</label>
+        <link refid="classespcoredump_1_1GDBMIThreadListIdsHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="1225" column="1" bodyfile="espcoredump.py" bodystart="1225" bodyend="1251"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1GDBMIThreadListIdsHandler_1abb4c457390809db4964972c637fd93bf" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1GDBMIOutRecordHandler_1a41423e62daa17212332fbea8f4a8d2a2" prot="public" virt="non-virtual" ambiguityscope="espcoredump::GDBMIOutRecordHandler."><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1afbea928be1f96b76e7cbbc9d955bb1d9" prot="private" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>_parse_rc</name></member>
+      <member refid="classespcoredump_1_1GDBMIThreadListIdsHandler_1a3d376d8a0ff36ee9f557bf24ebb998ea" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>current_thread</name></member>
+      <member refid="classespcoredump_1_1GDBMIThreadListIdsHandler_1a604b59771813c628fdee6554612028bb" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>execute</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1a9851074ae23bbc5d65c4a265fd080078" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>RC_CONNECTED</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1aa854253d43a2799b73c01c967150ae63" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>RC_DONE</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1a6ff57d5e023fd96a708fa1bab4818c58" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>RC_ERROR</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1aa0ee00ae9c95124c53c9960faf9e6b84" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>RC_EXIT</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1ac696d22fdc29d9a7e4ba6c48f9a2bb68" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>RC_RUNNING</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1a9c362af9be44ec0231d42b1de020f180" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>result_class</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1afaf27befe052ba372762b8ca32c2f71e" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>result_str</name></member>
+      <member refid="classespcoredump_1_1GDBMIResultHandler_1a2f516d60d6e44e32e78241cc8f232963" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>TAG</name></member>
+      <member refid="classespcoredump_1_1GDBMIThreadListIdsHandler_1affd5de78888d4065e12bcf4d2b574025" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>threads</name></member>
+      <member refid="classespcoredump_1_1GDBMIOutRecordHandler_1a7a7a9de11e959716af4502f29c65323e" prot="public" virt="non-virtual"><scope>espcoredump::GDBMIThreadListIdsHandler</scope><name>verbose</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

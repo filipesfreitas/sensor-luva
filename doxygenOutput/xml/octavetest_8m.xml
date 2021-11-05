@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="octavetest_8m" kind="file" language="Objective-C">
+    <compoundname>octavetest.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="octavetest_8m_1a05a671c66aefea124cc08b76ea6d30bb" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>test</definition>
+        <argsstring></argsstring>
+        <name>test</name>
+        <initializer>= csvread(&apos;fixa.txt&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="1" column="1" bodyfile="octavetest.m" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="octavetest_8m_1a16e9b1e742830ddd8363bc54fd5f9beb" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>sensor1</definition>
+        <argsstring></argsstring>
+        <name>sensor1</name>
+        <initializer>= test(1:end,3:8)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="2" column="1" bodyfile="octavetest.m" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="octavetest_8m_1aacfdf9cb1e330bba9fc6e3bda5251035" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>sensor2</definition>
+        <argsstring></argsstring>
+        <name>sensor2</name>
+        <initializer>= test(1:end,11:end)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="3" column="1" bodyfile="octavetest.m" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="octavetest_8m_1a2cf96fa7be4da51b322bb84a54d95f79" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>theta1</definition>
+        <argsstring></argsstring>
+        <name>theta1</name>
+        <initializer>= acos(sensor1(:,3)/sqrt(sensor1(:,1).^2+sensor1(:,2).^2+sensor1(:,3).^2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="4" column="1" bodyfile="octavetest.m" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="octavetest_8m_1a58ab1fd68e97078232808206b850161b" prot="public" static="no" mutable="no">
+        <type>hold</type>
+        <definition>hold on</definition>
+        <argsstring></argsstring>
+        <name>on</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="5" column="6" bodyfile="octavetest.m" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="octavetest_8m_1a947bf99e40272f01b78e2c9b2c35f9a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>plot</definition>
+        <argsstring>(theta1)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>theta1</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="6" column="1" declfile="octavetest.m" declline="6" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="octavetest_8m_1a0b2db0d0b860861b450dd58011c30758" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>plot</definition>
+        <argsstring>(sensor2(:, 1))</argsstring>
+        <name>plot</name>
+        <param>
+          <type>sensor2(:, 1)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="octavetest.m" line="7" column="1" declfile="octavetest.m" declline="7" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">test<sp/>=<sp/>csvread(</highlight><highlight class="stringliteral">&apos;fixa.txt&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">sensor1<sp/>=<sp/>test(1:end,3:8);</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">sensor2<sp/>=<sp/>test(1:end,11:end);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">theta1<sp/>=<sp/>acos(sensor1(:,3)/sqrt(sensor1(:,1).^2+sensor1(:,2).^2+sensor1(:,3).^2));</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">hold<sp/>on;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">plot(theta1);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">plot(sensor2(:,1));</highlight></codeline>
+    </programlisting>
+    <location file="octavetest.m"/>
+  </compounddef>
+</doxygen>

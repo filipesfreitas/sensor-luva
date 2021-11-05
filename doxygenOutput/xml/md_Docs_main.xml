@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="md_Docs_main" kind="page">
+    <compoundname>md_Docs_main</compoundname>
+    <title>main</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Esta divisão do trabalho vem da forma como foi concebido o projeto, dividindo oproblema em tarefas. Cada tarefa representa um aspecto do projeto: comunicação entremicrocontrolador e plataforma externa, controle da multiplexação dos canais e leitura dosregistradores de cada canal.A sincronização destas tarefas é feita através de eventos em grupo ouEventGroup,noFREE RTOS bitsde eventos são utilizados para indicar a ocorrência de um evento,é possível bloquear uma tarefa pela espera de um evento ou conjunto de eventos por umterpo pré determinado. Foram definidos 5 eventos que determinam as tarefas executadasno momento pelo dispositivo </para>
+    </detaileddescription>
+    <location file="Docs/main.md"/>
+  </compounddef>
+</doxygen>

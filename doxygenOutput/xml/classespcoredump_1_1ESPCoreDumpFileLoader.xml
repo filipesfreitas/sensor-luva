@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1ESPCoreDumpFileLoader" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::ESPCoreDumpFileLoader</compoundname>
+    <basecompoundref refid="classespcoredump_1_1ESPCoreDumpLoader" prot="public" virt="non-virtual">espcoredump.ESPCoreDumpLoader</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFileLoader_1a6040030d75ad2ac95ee6028ae7ebc9c3" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFileLoader::fcore</definition>
+        <argsstring></argsstring>
+        <name>fcore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="919" column="1" bodyfile="espcoredump.py" bodystart="919" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1ESPCoreDumpFileLoader_1acf868d3c1f714d850813455e4dd79de4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>espcoredump.ESPCoreDumpFileLoader::fcore_name</definition>
+        <argsstring></argsstring>
+        <name>fcore_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="925" column="1" bodyfile="espcoredump.py" bodystart="925" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFileLoader_1a31c4b012d1ae6130ab4ee0a74ea37916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFileLoader.__init__</definition>
+        <argsstring>(self, path, b64=False)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <param>
+          <type>b64</type>
+          <defname>b64</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Constructor for core dump file loader
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="915" column="1" bodyfile="espcoredump.py" bodystart="915" bodyend="920"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classespcoredump_1_1ESPCoreDumpFileLoader_1ac326980cfedd2e1a68dee5ac293355ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def espcoredump.ESPCoreDumpFileLoader._load_coredump</definition>
+        <argsstring>(self, path, b64)</argsstring>
+        <name>_load_coredump</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <param>
+          <type>b64</type>
+          <defname>b64</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Loads core dump from (raw binary or base64-encoded) file
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="921" column="1" bodyfile="espcoredump.py" bodystart="921" bodyend="949"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Core dump file loader class
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>espcoredump.ESPCoreDumpLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpLoader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpFileLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpFileLoader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>espcoredump.ESPCoreDumpLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpLoader"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>espcoredump.ESPCoreDumpFileLoader</label>
+        <link refid="classespcoredump_1_1ESPCoreDumpFileLoader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="912" column="1" bodyfile="espcoredump.py" bodystart="912" bodyend="950"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1ESPCoreDumpFileLoader_1a31c4b012d1ae6130ab4ee0a74ea37916" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a0bc5bd2a670eaebd0e1e48387d672fa9" prot="public" virt="non-virtual" ambiguityscope="espcoredump::ESPCoreDumpLoader."><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a08c4d26f0680f051fa4c9e9b41423191" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>_extract_bin_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a536e5e7ca863d8dbc6a7a4a465064ac3" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>_extract_elf_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a65bbc5b449ecd26a55c854df72e36186" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>_get_registers_from_stack</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFileLoader_1ac326980cfedd2e1a68dee5ac293355ca" prot="private" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>_load_coredump</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a2178c23df91d8eb2d469af9cd583644e" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>addr_is_fake</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a7e2fc97010dcceb5bf20e462c2c2174f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>cleanup</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1afca16b7ad4d1431b9467403991a48a10" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>create_corefile</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aee95517b4860c117ad4a249332225e6f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_BIN_V1_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a662c3f998b690c6d182e14a80d700d6c" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_BIN_V1_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ae64ce8d5d520cb13984814e2d9484de5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_CRC_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aa51808a5f0809bac4da3144f53426269" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_CRC_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ad27f1645c797b5456163cc2dd3021cdb" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a9e31b52b940437262bf2aed5c6ff0f31" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a7e91e226676898d4b11e91f3bcc90d05" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_MEM_SEG_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ab8664943e2dee6a89b9a433dc97e6fdf" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_MEM_SEG_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1adeac2f151db69cdb453f51923d0c3038" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_NOTE_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a861179ec63f1dfa06302284960aaec62" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_NOTE_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a38e01a285657c15b677bd99e1e9cbe7d" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_SHA256_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a0e45d82c0f357bfc5d497d3b86629abd" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_SHA256_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a973f347dc9f8f9568f4080689aecfd52" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_TSK_HDR_FMT</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a714e385c76b1c30c452167d352c1938d" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_TSK_HDR_SZ</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a614b9892ad058e67dfe536f58b0a48e5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_VERSION_BIN_V1</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a160ca3e3f1c01a45d5c74e759a111544" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_VERSION_BIN_V2</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1ae16fc3f143565d47ab88c16c847b0927" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_VERSION_ELF_CRC32</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a5111917e2e17fbd5a710cc81b98f3ce8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP32_COREDUMP_VERSION_ELF_SHA256</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a6c66d7cb71293dab408e01bb8e38d329" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP_CORE_DUMP_CHIP_ESP32</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1acca128403cd63b60cf7a9516833705a5" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP_CORE_DUMP_EXTRA_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a4ebad28ebde9a848c52235e001796220" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP_CORE_DUMP_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1adad49d65e756130cf401dbf341fa6bb8" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP_CORE_DUMP_TASK_INFO_TYPE</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1aa9354b0382f97d419bf75049108a8d11" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>ESP_COREDUMP_CURR_TASK_MARKER</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFileLoader_1a6040030d75ad2ac95ee6028ae7ebc9c3" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>fcore</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpFileLoader_1acf868d3c1f714d850813455e4dd79de4" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>fcore_name</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a6cd0e37b51d91af81a0e99e38d1cf268" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>hdr</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a1bca0f2bcf203dc9b6707ed2054f3920" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>read_data</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a94c03e2dd86a5d13f8698d2290abee4f" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>remove_tmp_file</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a4fba2fe6ef576478482de8d1fff74978" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>stack_is_sane</name></member>
+      <member refid="classespcoredump_1_1ESPCoreDumpLoader_1a9eb99313732885107fa9ca12bbae172a" prot="public" virt="non-virtual"><scope>espcoredump::ESPCoreDumpFileLoader</scope><name>tcb_is_sane</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

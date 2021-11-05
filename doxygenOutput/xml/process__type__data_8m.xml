@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="process__type__data_8m" kind="file" language="Objective-C">
+    <compoundname>process_type_data.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="process__type__data_8m_1a4603254d9990f7140c024d51302d1a8f" prot="public" static="no" mutable="no">
+        <type>clear</type>
+        <definition>clear all</definition>
+        <argsstring></argsstring>
+        <name>all</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="1" column="7" bodyfile="process_type_data.m" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1a3f3d3b13a15c726d6aa03db3dd0d6377" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>clc</definition>
+        <argsstring></argsstring>
+        <name>clc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="2" column="1" bodyfile="process_type_data.m" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1a58ab1fd68e97078232808206b850161b" prot="public" static="no" mutable="no">
+        <type>hold</type>
+        <definition>hold on</definition>
+        <argsstring></argsstring>
+        <name>on</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="3" column="6" bodyfile="process_type_data.m" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1a1c63e66c94a8d22300990887e84ad6fc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>imu</definition>
+        <argsstring></argsstring>
+        <name>imu</name>
+        <initializer>= importdata(&apos;teste_medio&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="5" column="1" bodyfile="process_type_data.m" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1a04a8a2bbfa9c15500892b8e5033d625b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>window</definition>
+        <argsstring></argsstring>
+        <name>window</name>
+        <initializer>=100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="10" column="1" bodyfile="process_type_data.m" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1ad080000332893e19cac48f8ea3c58647" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>gyro</definition>
+        <argsstring></argsstring>
+        <name>gyro</name>
+        <initializer>= movmean(imu(:,5),window)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="11" column="1" bodyfile="process_type_data.m" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="process__type__data_8m_1a8a0335bc711a9756931dc959b2a50122" prot="public" static="no" mutable="no">
+        <type>grid on hold</type>
+        <definition>grid on hold off</definition>
+        <argsstring></argsstring>
+        <name>off</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="17" column="6" bodyfile="process_type_data.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="process__type__data_8m_1aedef1b2908bb4cd4d92496f3ecdae09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>plot</definition>
+        <argsstring>(x, gyro)</argsstring>
+        <name>plot</name>
+        <param>
+          <type>x</type>
+        </param>
+        <param>
+          <type>gyro</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="12" column="1" declfile="process_type_data.m" declline="12" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="process__type__data_8m_1a10612eb2b490865e72657e9a42d10d4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>angulo em x a partir da aceleração</type>
+        <definition>angulo em x a partir da aceleração plot</definition>
+        <argsstring>(x, imu(:, 15))</argsstring>
+        <name>plot</name>
+        <param>
+          <type>x</type>
+        </param>
+        <param>
+          <type>imu(:, 15)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="13" column="1" declfile="process_type_data.m" declline="13" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="process__type__data_8m_1ae7840c9b2131d77e97d92a120c194c24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>legend</definition>
+        <argsstring>(&apos;Gyroscopio raw&apos;, &apos;potenciômetro&apos;)</argsstring>
+        <name>legend</name>
+        <param>
+          <type>&apos;Gyroscopio raw&apos;</type>
+        </param>
+        <param>
+          <type>&apos;potenciômetro&apos;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="process_type_data.m" line="15" column="1" declfile="process_type_data.m" declline="15" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">clear<sp/>all;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">clc;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">hold<sp/>on;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">imu<sp/>=<sp/>importdata(</highlight><highlight class="stringliteral">&apos;teste_medio&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%%%<sp/>packet<sp/>-&gt;<sp/>ACC<sp/>X,<sp/>ACCEL<sp/>Y,<sp/>ACC<sp/>Z,<sp/>TEMP,<sp/>GYR<sp/>X,<sp/>GIR<sp/>Y,<sp/>GIR<sp/>Z<sp/>AND<sp/>POT.</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>POT<sp/>142<sp/>-&gt;<sp/>≃<sp/>1,6<sp/>V</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">x<sp/>=<sp/>1:1:length(imu);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">window=100;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">gyro<sp/>=<sp/>movmean(imu(:,5),window);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">plot(x,gyro);<sp/>%<sp/>angulo<sp/>em<sp/>x<sp/>a<sp/>partir<sp/>da<sp/>aceleração</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">plot(x,imu(:,15));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">legend(</highlight><highlight class="stringliteral">&apos;Gyroscopio<sp/>raw&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;potenciômetro&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">grid<sp/>on</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">hold<sp/>off;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="process_type_data.m"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="misc_8h" kind="file" language="C++">
+    <compoundname>misc.h</compoundname>
+    <includes local="yes">driver/gpio.h</includes>
+    <includes local="yes">driver/adc.h</includes>
+    <includes local="yes">esp_adc_cal.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">math.h</includes>
+    <includedby refid="i2c__handler_8c" local="no">components/i2c/i2c_handler.c</includedby>
+    <includedby refid="misc_8c" local="no">components/Misc/misc.c</includedby>
+    <includedby refid="position__process_8h" local="no">components/orientation_estimate/include/position_process.h</includedby>
+    <includedby refid="udp__server_8c" local="no">main/udp_server.c</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="4">
+        <label>esp_adc_cal.h</label>
+      </node>
+      <node id="3">
+        <label>driver/adc.h</label>
+      </node>
+      <node id="1">
+        <label>components/Misc/include/misc.h</label>
+        <link refid="misc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>math.h</label>
+      </node>
+      <node id="5">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>components/Misc/misc.c</label>
+        <link refid="misc_8c_source"/>
+      </node>
+      <node id="2">
+        <label>components/i2c/i2c_handler.c</label>
+        <link refid="i2c__handler_8c_source"/>
+      </node>
+      <node id="1">
+        <label>components/Misc/include/misc.h</label>
+        <link refid="misc_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main/udp_server.c</label>
+        <link refid="udp__server_8c"/>
+      </node>
+      <node id="4">
+        <label>components/orientation_estimate/include/position_process.h</label>
+        <link refid="position__process_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>components/orientation_estimate/position_process.c</label>
+        <link refid="position__process_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="misc_8h_1a63baed8df076ce9dddaea1ae8694c1d8" prot="public" static="no">
+        <name>DEFAULT_VREF</name>
+        <initializer>1100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="11" column="9" bodyfile="components/Misc/include/misc.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1ad4189ffd3a90a1d83afbc51359211d55" prot="public" static="no">
+        <name>NO_OF_SAMPLES</name>
+        <initializer>64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="12" column="9" bodyfile="components/Misc/include/misc.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1ad005f9194441ca3ba5b68eacabd733ae" prot="public" static="no">
+        <name>pinA</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="15" column="9" bodyfile="components/Misc/include/misc.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1a2833c6494aa8319121243a5b863f2ec3" prot="public" static="no">
+        <name>pinB</name>
+        <initializer>17</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="16" column="9" bodyfile="components/Misc/include/misc.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1a5c4c5254e51413a4277d98b77f4c60c7" prot="public" static="no">
+        <name>GPIO_OUTPUT_PIN_SEL</name>
+        <initializer>((1ULL&lt;&lt;pinA) | (1ULL&lt;&lt;pinB))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="17" column="9" bodyfile="components/Misc/include/misc.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1acce2c817a017b241e598140fc2140c44" prot="public" static="no">
+        <name>sampleSize</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="18" column="9" bodyfile="components/Misc/include/misc.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="misc_8h_1aa9729b9af09826debfd9aa4e44005087" prot="public" static="no">
+        <name>weight</name>
+        <initializer>0.25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="19" column="9" bodyfile="components/Misc/include/misc.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="misc_8h_1a9f52e116d2aa4a5dc186c01ae435241b" prot="public" static="yes" mutable="no">
+        <type>adc_channel_t</type>
+        <definition>adc_channel_t channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <initializer>= ADC_CHANNEL_0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="21" column="22" bodyfile="components/Misc/include/misc.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="misc_8h_1a2b904cf029961588778ee03c7c96dd4b" prot="public" static="yes" mutable="no">
+        <type>const adc_atten_t</type>
+        <definition>const adc_atten_t atten</definition>
+        <argsstring></argsstring>
+        <name>atten</name>
+        <initializer>= ADC_ATTEN_DB_11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="22" column="26" bodyfile="components/Misc/include/misc.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="misc_8h_1a25d1dc091dcab31de5b18c9ba924348b" prot="public" static="yes" mutable="no">
+        <type>const adc_unit_t</type>
+        <definition>const adc_unit_t unit</definition>
+        <argsstring></argsstring>
+        <name>unit</name>
+        <initializer>= ADC_UNIT_1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="23" column="25" bodyfile="components/Misc/include/misc.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="misc_8h_1a5294b94874c3779955bef57e9e157369" prot="public" static="no" mutable="no">
+        <type>esp_adc_cal_characteristics_t *</type>
+        <definition>esp_adc_cal_characteristics_t* adc_chars</definition>
+        <argsstring></argsstring>
+        <name>adc_chars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="24" column="31" bodyfile="components/Misc/include/misc.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="misc_8h_1ab96afaddf263615145180abad0530fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int16_t</type>
+        <definition>int16_t adc_read</definition>
+        <argsstring>(int addr, esp_adc_cal_characteristics_t *adc_chars)</argsstring>
+        <name>adc_read</name>
+        <param>
+          <type>int</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>esp_adc_cal_characteristics_t *</type>
+          <declname>adc_chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="26" column="9" bodyfile="components/Misc/misc.c" bodystart="50" bodyend="80" declfile="components/Misc/include/misc.h" declline="26" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8h_1adeb89b28e03300d1bb4c0e62ce4889ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mux_selector_config</definition>
+        <argsstring>()</argsstring>
+        <name>mux_selector_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="27" column="6" bodyfile="components/Misc/misc.c" bodystart="82" bodyend="96" declfile="components/Misc/include/misc.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8h_1a72e978258f999c12c65075da36a63175" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adc_config</definition>
+        <argsstring>()</argsstring>
+        <name>adc_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="28" column="6" bodyfile="components/Misc/misc.c" bodystart="33" bodyend="48" declfile="components/Misc/include/misc.h" declline="28" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8h_1af85584ec8c514506b08c28ab4626fe06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_char_val_type</definition>
+        <argsstring>(esp_adc_cal_value_t val_type)</argsstring>
+        <name>print_char_val_type</name>
+        <param>
+          <type>esp_adc_cal_value_t</type>
+          <declname>val_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="29" column="6" bodyfile="components/Misc/misc.c" bodystart="22" bodyend="31" declfile="components/Misc/include/misc.h" declline="29" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8h_1ae6538c5b8119c06031c516b44009e82b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void check_efuse</definition>
+        <argsstring>(void)</argsstring>
+        <name>check_efuse</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/include/misc.h" line="30" column="6" bodyfile="components/Misc/misc.c" bodystart="4" bodyend="19" declfile="components/Misc/include/misc.h" declline="30" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MISC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MISC_H<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/adc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_adc_cal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>ADC<sp/>configuration*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_VREF<sp/><sp/>1100<sp/></highlight><highlight class="comment">//<sp/>Use<sp/>adc2_vref_to_gpio()<sp/>to<sp/>obtain<sp/>a<sp/>better<sp/>estimate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NO_OF_SAMPLES<sp/><sp/><sp/>64<sp/></highlight><highlight class="comment">//<sp/>Multisampling</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/*GPIO<sp/>MUX<sp/>SELECTION*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>pinA<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>pinB<sp/>17</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPIO_OUTPUT_PIN_SEL<sp/><sp/>((1ULL&lt;&lt;pinA)<sp/>|<sp/>(1ULL&lt;&lt;pinB))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>sampleSize<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>weight<sp/>0.25</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>adc_channel_t<sp/>channel<sp/>=<sp/>ADC_CHANNEL_0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>adc_atten_t<sp/>atten<sp/>=<sp/>ADC_ATTEN_DB_11;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>adc_unit_t<sp/>unit<sp/>=<sp/>ADC_UNIT_1;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">esp_adc_cal_characteristics_t<sp/>*adc_chars;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">int16_t<sp/>adc_read(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,esp_adc_cal_characteristics_t<sp/>*adc_chars);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mux_selector_config();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>adc_config();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print_char_val_type(esp_adc_cal_value_t<sp/>val_type);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check_efuse(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="components/Misc/include/misc.h"/>
+  </compounddef>
+</doxygen>

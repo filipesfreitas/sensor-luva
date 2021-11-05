@@ -1,17 +1,19 @@
 /** @file */ 
+#include "freertos/FreeRTOS.h"
+#include "freertos/event_groups.h"
+#include "freertos/task.h"
+
+#include "protocol_examples_common.h"
+#include "esp_wifi.h"
 #include "esp_event.h"
 #include "esp_log.h"
-#include "esp_wifi.h"
-#include "freertos/event_groups.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include "nvs_flash.h"
 #include "esp_netif.h"
-#include "protocol_examples_common.h"
+
 #include "lwip/err.h"
-#include <lwip/netdb.h>
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
-#include "nvs_flash.h"
+#include <lwip/netdb.h>
 #include <string.h>
 #include <sys/param.h>
 #include <math.h>
@@ -26,6 +28,7 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include <i2c_handler.h>
+#include <softap.h>
 
 #define PORT CONFIG_EXAMPLE_PORT
 
@@ -39,7 +42,9 @@
 #define STARTAQ				( 1UL << 6UL )
 #define PRINTAQ				(1UL << 7UL)
 #define RESTARTAQ			UDP|PRINTAQ
-#define channels 2
+
+static TaskHandle_t xTaskUDP = NULL, xTaskREF = NULL,xTaskI2C0 = NULL,xTaskSYNCH = NULL,xTaskDISP=NULL;
+
 /* Event group instantiation*/
 EventGroupHandle_t xEventGroup;
 
@@ -49,7 +54,8 @@ QueueHandle_t buffer_queue;
 /*Glove instance*/
 Glove* glove;
 
- 	const TickType_t xDelay = 1500 / portTICK_PERIOD_MS;/*delay defined by period ms*/
+const TickType_t xDelay = 50 / portTICK_PERIOD_MS;/*delay defined by period ms*/
+
 
 /**
  * @brief      Display the buffer of the package when the device is in debugger mode.
@@ -61,7 +67,7 @@ static void disp_buf(void * pvParameters)
 
 	char tx_buffer_msg[256]={'0'};
 	while(1){
-		buffer_arrange(glove, tx_buffer_msg);
+		//buffer_arrange(glove, tx_buffer_msg);
 		printf("\n%s",tx_buffer_msg);
 		xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
 
@@ -76,7 +82,7 @@ static void disp_buf(void * pvParameters)
 static void i2c_task0(void *pvParameters)
 {
 	/* IMU CONFIG*/
-	int finger=1;
+	int finger=0;
 	int ret, ret1;
 	raw_data metacarpo, proximal;
 	uint8_t sensor[14];
@@ -92,7 +98,7 @@ static void i2c_task0(void *pvParameters)
 
 	while (1) {	
 
-		if (finger > 1) finger = 1;
+		if (finger > channels) finger = 0;
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
@@ -123,6 +129,9 @@ static void i2c_task0(void *pvParameters)
 			glove -> fingers[finger].pressure = buffer/(Vinput - buffer)*R;
 			orientation_estimation(metacarpo,proximal,glove,finger);
 		}
+		else{
+
+		}
 		memset(sensor,0,14);
 		memset(sensor2,0,14);
 		raw_data_zero(&metacarpo);
@@ -150,39 +159,32 @@ static void i2c_task_reference_frame(void *pvParameters)
 
 	memset(sensor,0,14);
 	raw_data_zero(&ref);
-	int time;
 
 	while (1) {	
 
-		time = esp_timer_get_time();
+		ulTaskNotifyTake( pdTRUE,portMAX_DELAY ); /* Wait i2c chanel on REFERENCE FRAME. */
+		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 
-
-		if (channels==1)
-		{
-			ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
-
-			if (ret == ESP_ERR_TIMEOUT) {
-				ESP_LOGE(TAG, "I2C Timeout");
-			} 
-			else if (ret == ESP_OK) {
+		if (ret == ESP_ERR_TIMEOUT) {
+			ESP_LOGE(TAG, "I2C Timeout");
+		} 
+		else if (ret == ESP_OK) {
 			/* Ref*/
-				ref.master_num  = master_num;
-				ref.finger  = 0;
-			ref.accelx  = (int16_t)((sensor[0]   << 8)  | sensor[1]); /* ACCEL X */
-			ref.accely  = (int16_t)((sensor[2]   << 8)  | sensor[3]); /* ACCEL y */
+			ref.master_num  = master_num;
+			ref.finger  = 0;
+			ref.accelx  = -(int16_t)((sensor[2]   << 8)  | sensor[3]); /* ACCEL y converter for IMU orientation of the channels*/
+			ref.accely  = (int16_t)((sensor[0]   << 8)  | sensor[1]); /* ACCEL X converter for IMU orientation of the channels*/
 			ref.accelz  = (int16_t)((sensor[4]   << 8)  | sensor[5]); /* ACCEL z */
-			ref.gyrox   = (int16_t)((sensor[8]   << 8)  | sensor[9]); /* GIRO X  */
-			ref.gyroy   = (int16_t)((sensor[10]  << 8)  | sensor[11]);/* GIRO Y  */
+			ref.gyrox   = -(int16_t)((sensor[10]  << 8)  | sensor[11]);/* GIRO Y  */
+			ref.gyroy   = (int16_t)((sensor[8]   << 8)  | sensor[9]); /* GIRO X  */
 			ref.gyroz   = (int16_t)((sensor[12]  << 8)  | sensor[13]);/* GIRO Z  */
-
-				reference_frame_orientation(ref,glove);
-			}
-			memset(sensor,0,14);
-			raw_data_zero(&ref);
+			reference_frame_orientation(ref,glove);
 		}
-		printf("%lld\n", esp_timer_get_time()-time);
+		memset(sensor,0,14);
+		raw_data_zero(&ref);
 
 		xEventGroupSync(xEventGroup,PORT1ADX,SYNCHRONIZED,xDelay);
+
 	}
 }
 /* Read from Queue the data and send to Client.*/
@@ -202,8 +204,9 @@ static void udp_server_task(void *pvParameters){
 	dest_addr_ip4->sin_port = htons(PORT);
 
 	ip_protocol = IPPROTO_IP;
-
+	xEventGroupWaitBits(xEventGroup,STARTAQ,pdFALSE,pdTRUE,pdMS_TO_TICKS(1500));
 	while(1){
+
 		int sock = socket(addr_family, SOCK_DGRAM, ip_protocol);
 		if (sock < 0) {
 			ESP_LOGE(TAG, "Unable to create socket: errno %d", errno);
@@ -274,15 +277,18 @@ static void sync_task(void *pvParameters)
 	while(1){
 		while(addr < channels) { 		/* Check if addr overflow*/
 
+		if (addr == 1)
+		{
+			
+			xTaskNotifyGive( 	xTaskREF );
+		}
 		gpio_set_level(pinA, (addr & 2) >> 1);
 		gpio_set_level(pinB, addr & 1);
 		addr ++;
 		xEventGroupSync(xEventGroup,SYNCHRONIZED,DISPBUFFER,xDelay);
-
 	}
 	addr = 0;
 	xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
-	vTaskDelay(xDelay);
 }
 vTaskDelete(NULL);  
 }
@@ -295,12 +301,10 @@ void app_main(void)
 	buffer_queue = xQueueCreate(6, sizeof(Glove));//Create buffer queue with 6 slots of glove structure
 	glove = (Glove *)malloc(sizeof(Glove));
 	
-	/*
 	ESP_ERROR_CHECK(nvs_flash_init());
 	ESP_ERROR_CHECK(esp_netif_init());
 	ESP_ERROR_CHECK(esp_event_loop_create_default());
-	ESP_ERROR_CHECK(example_connect());
-	*/
+  ESP_ERROR_CHECK(example_connect());
 	adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
 
 	i2c_master_init(MASTER_0,SDA1,SCL1);
@@ -310,9 +314,10 @@ void app_main(void)
 	calibration(glove);
 	adc_config();	
 	
-	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, NULL);//!Task instance for udp comunication
-	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, NULL); //!Task instance for I2C BUS read.
-	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, NULL); //!Task instance for I2C BUS read.
-	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 2048, (void *)1, 20, NULL); //!Task instance for I2C BUS read.
-	xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, NULL);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
+	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
+	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 4096, (void *)1, 20, &xTaskREF); //!Task instance for I2C BUS read.
+	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, &xTaskSYNCH); //!Task instance for I2C BUS read.
+	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, &xTaskI2C0); //!Task instance for I2C BUS read.
+	xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, &xTaskDISP);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
+
 }

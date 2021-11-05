@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classespcoredump_1_1Elf32ProgramHeader" kind="class" language="Python" prot="public">
+    <compoundname>espcoredump::Elf32ProgramHeader</compoundname>
+    <basecompoundref refid="classespcoredump_1_1BinStruct" prot="public" virt="non-virtual">espcoredump.BinStruct</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classespcoredump_1_1Elf32ProgramHeader_1aa8f26d2aaff2b10c0792711cee8ea722" prot="public" static="yes" mutable="no">
+        <type>tuple</type>
+        <definition>tuple espcoredump.Elf32ProgramHeader::fields</definition>
+        <argsstring></argsstring>
+        <name>fields</name>
+        <initializer>=  (&quot;p_type&quot;,
+              &quot;p_offset&quot;,
+              &quot;p_vaddr&quot;,
+              &quot;p_paddr&quot;,
+              &quot;p_filesz&quot;,
+              &quot;p_memsz&quot;,
+              &quot;p_flags&quot;,
+              &quot;p_align&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="170" column="1" bodyfile="espcoredump.py" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classespcoredump_1_1Elf32ProgramHeader_1a5adbfe856e8279b90e4fb96db1f33b79" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string espcoredump.Elf32ProgramHeader::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <initializer>=  &quot;&lt;LLLLLLLL&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="espcoredump.py" line="178" column="1" bodyfile="espcoredump.py" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>ELF32 program header
+</verbatim> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>espcoredump.Elf32ProgramHeader</label>
+        <link refid="classespcoredump_1_1Elf32ProgramHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+      <node id="2">
+        <label>espcoredump.BinStruct</label>
+        <link refid="classespcoredump_1_1BinStruct"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>espcoredump.Elf32ProgramHeader</label>
+        <link refid="classespcoredump_1_1Elf32ProgramHeader"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>object</label>
+      </node>
+      <node id="2">
+        <label>espcoredump.BinStruct</label>
+        <link refid="classespcoredump_1_1BinStruct"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="espcoredump.py" line="167" column="1" bodyfile="espcoredump.py" bodystart="167" bodyend="181"/>
+    <listofallmembers>
+      <member refid="classespcoredump_1_1BinStruct_1abeec852ef4d40adcb4439a35475d43dd" prot="public" virt="non-virtual"><scope>espcoredump::Elf32ProgramHeader</scope><name>__init__</name></member>
+      <member refid="classespcoredump_1_1BinStruct_1a93f45e22e0b6034df1025a4998cacc00" prot="public" virt="non-virtual"><scope>espcoredump::Elf32ProgramHeader</scope><name>dump</name></member>
+      <member refid="classespcoredump_1_1Elf32ProgramHeader_1aa8f26d2aaff2b10c0792711cee8ea722" prot="public" virt="non-virtual"><scope>espcoredump::Elf32ProgramHeader</scope><name>fields</name></member>
+      <member refid="classespcoredump_1_1Elf32ProgramHeader_1a5adbfe856e8279b90e4fb96db1f33b79" prot="public" virt="non-virtual"><scope>espcoredump::Elf32ProgramHeader</scope><name>format</name></member>
+      <member refid="classespcoredump_1_1BinStruct_1afdb828b90757437b3768ff8bedab6193" prot="public" virt="non-virtual"><scope>espcoredump::Elf32ProgramHeader</scope><name>sizeof</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
