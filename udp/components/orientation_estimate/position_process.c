@@ -149,27 +149,28 @@ void initialization(Glove* glove){
 				error_setting[0] != ESP_OK ? "SENSOR 0x68" :
 				error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 		}
-		error_setting[0]  = i2c_imu_setup(1,SLAVE1_ADD); 
+		//error_setting[0]  = i2c_imu_setup(1,SLAVE1_ADD); 
 		//error_setting[1]  = i2c_imu_setup(1,SLAVE2_ADD); 
 
-		if(error_setting[0] || error_setting[1] != ESP_OK){
+		/*if(error_setting[0] || error_setting[1] != ESP_OK){
 			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",1,
 				error_setting[0] != ESP_OK ? "SENSOR 0x68" :
 				error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
-		} 	
+		}*/ 	
 		addr ++;
 
 	}
-	/*
-	error_setting[0]  = i2c_imu_setup(0,SLAVE1_ADD); 
-	error_setting[1]  = i2c_imu_setup(0,SLAVE2_ADD); 
+	
+	gpio_set_level(pinA, 0);
+	gpio_set_level(pinB, 1);
+	error_setting[0]  = i2c_imu_setup(1,SLAVE1_ADD); 
 
 	if(error_setting[0] || error_setting[1] != ESP_OK){
 		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",0,
 		error_setting[0] != ESP_OK ? "SENSOR 0x68" :
 		error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
 	}
-	
+	/*
 	gpio_set_level(pinA, 1);
 	gpio_set_level(pinB, 0);
 	error_setting[0]  = i2c_imu_setup(0,SLAVE1_ADD); 

@@ -67,7 +67,7 @@ static void disp_buf(void * pvParameters)
 
 	char tx_buffer_msg[256]={'0'};
 	while(1){
-		//buffer_arrange(glove, tx_buffer_msg);
+		buffer_arrange(glove, tx_buffer_msg);
 		printf("\n%s",tx_buffer_msg);
 		xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
 
@@ -77,7 +77,7 @@ static void disp_buf(void * pvParameters)
 /**
  * @brief      Task to read the values given by the IMUs and call the orientation estimate function to update the values of the hand posture stored in glove structure.
  *
- * @param      pvParameters  Number given to the task.
+ * @param      pvParameters  Number given to the task for i2c master number.
  */
 static void i2c_task0(void *pvParameters)
 {
@@ -98,7 +98,7 @@ static void i2c_task0(void *pvParameters)
 
 	while (1) {	
 
-		if (finger > channels) finger = 0;
+		if (finger >= channels) finger = 0;
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
@@ -277,15 +277,13 @@ static void sync_task(void *pvParameters)
 	while(1){
 		while(addr < channels) { 		/* Check if addr overflow*/
 
-		if (addr == 1)
-		{
-			
-			xTaskNotifyGive( 	xTaskREF );
-		}
+		if (addr == 1) xTaskNotifyGive( 	xTaskREF );
+
 		gpio_set_level(pinA, (addr & 2) >> 1);
 		gpio_set_level(pinB, addr & 1);
-		addr ++;
 		xEventGroupSync(xEventGroup,SYNCHRONIZED,DISPBUFFER,xDelay);
+		addr ++;
+
 	}
 	addr = 0;
 	xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
@@ -300,11 +298,11 @@ void app_main(void)
 
 	buffer_queue = xQueueCreate(6, sizeof(Glove));//Create buffer queue with 6 slots of glove structure
 	glove = (Glove *)malloc(sizeof(Glove));
-	
+	/*
 	ESP_ERROR_CHECK(nvs_flash_init());
 	ESP_ERROR_CHECK(esp_netif_init());
 	ESP_ERROR_CHECK(esp_event_loop_create_default());
-  ESP_ERROR_CHECK(example_connect());
+  ESP_ERROR_CHECK(example_connect());*/
 	adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
 
 	i2c_master_init(MASTER_0,SDA1,SCL1);
@@ -314,7 +312,7 @@ void app_main(void)
 	calibration(glove);
 	adc_config();	
 	
-	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
+	//xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
 	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 4096, (void *)1, 20, &xTaskREF); //!Task instance for I2C BUS read.
 	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, &xTaskSYNCH); //!Task instance for I2C BUS read.
 	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, &xTaskI2C0); //!Task instance for I2C BUS read.
