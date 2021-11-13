@@ -16,21 +16,22 @@ static const char *TAG = "TAG_ESP";
 #define gyro_factor 16.4
 #define acc_factor 2048
 #define degre_conv 180/M_PI
-#define time_constant 1
-#define period 50E-3
+#define radconv M_PI/180
+#define time_constant .1
+#define period 70E-3
 #define R 4700 	/* Resistance of voltage divider on ohms */
 #define Vinput 3300 /* Input voltage in mV */
 #define channels 1
-#define sensitivitygyro 16.4
+#define gyrosens radconv/16.4
 typedef struct 
 {
-		int16_t accelx;
-		int16_t accely;
-		int16_t accelz;
+		int accelx;
+		int accely;
+		int accelz;
 
-		int16_t gyrox;
-		int16_t gyroy;
-		int16_t gyroz;
+		int gyrox;
+		int gyroy;
+		int gyroz;
 	
 		int master_num;
 		int finger;
@@ -43,10 +44,9 @@ typedef struct {
 
 typedef struct {
 	orientation proximal;
-	orientation medial;
 	orientation distal;
-	orientation metacarpophalangeal;
-	int16_t pressure;
+	orientation metacarpo;
+	float pressure;
 }finger;
 
 typedef struct {
@@ -102,4 +102,15 @@ void raw_data_zero(raw_data* member);
  * @param      test2  Raw data of first device attached.
  */
 void buffer_raw_data(raw_data* test1,raw_data* test2);
+/**
+ * @brief      Take glove structure and realize fram trasnformation for the reference frame!
+ *  
+ * @param      glove  The glove structure.
+ * @param[in]  i      finger index.
+ */
+/**
+ * @brief      setup sensors
+ */
+void setup_sensors();
+
 #endif

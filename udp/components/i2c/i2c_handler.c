@@ -64,7 +64,7 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CONFIG_device, &cmd_data, 1));
 	cmd_data = 0x18;    // ACCEL CONFIG: 16 g
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
-	cmd_data = 0x18;  	// GYRO CONFIG: 2000 º/S
+	cmd_data = 0x00;  	// GYRO CONFIG: 2000 º/S
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG, &cmd_data, 1));
 	cmd_data = 0x0;    // SMPLRT_DIV : Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));

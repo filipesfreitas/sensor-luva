@@ -47,36 +47,43 @@ void adc_config(){
   print_char_val_type(val_type);
 }
 
-int16_t adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
+double adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
 	uint32_t adc_reading = 0;
-	switch(addr){
-		case 0:
-		 channel = ADC_CHANNEL_0; 
-		break;
-		case 1:
-		 channel = ADC_CHANNEL_3;
-		break;
-		case 2:
-		 channel = ADC_CHANNEL_4;
-		break;
-		case 3:
-		 channel = ADC_CHANNEL_6;
-		break;
-		case 4:
-		 channel = ADC_CHANNEL_7;
-		break;
-	}
-    for (int i = sampleSize-1 ;i>=0;i--){
+    float force=0;
+    switch(addr){
+      case 0:
+      channel = ADC_CHANNEL_0; 
+      break;
+      case 1:
+      channel = ADC_CHANNEL_3;
+      break;
+      case 2:
+      channel = ADC_CHANNEL_4;
+      break;
+      case 3:
+      channel = ADC_CHANNEL_6;
+      break;
+      case 4:
+      channel = ADC_CHANNEL_7;
+      break;
+  }
+  /*for (int i = sampleSize-1 ;i>=0;i--){
 
-		adc_reading += adc1_get_raw((adc1_channel_t)channel)*pow((1-weight),i);
+      adc_reading += adc1_get_raw((adc1_channel_t)channel)*pow((1-weight),i);
 
-    }
-        adc_reading = adc_reading*weight;
+  }
+  adc_reading = adc_reading*weight;*/
+  adc_reading = adc1_get_raw((adc1_channel_t)channel);
+  //printf("read adc: %d\t",adc_reading );
+
 		//Convert adc_reading to voltage in mV
-		int16_t voltage = (int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
+  double voltage = 3300-((int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars)-142);
+  //printf("voltage: %f\t",voltage );
 
-    
-		return voltage;	
+  force = 0.00006*voltage*voltage+0.2555*voltage+17.04;
+  //printf("force: %f\n",force );
+
+  return force;	
 }
 
 void mux_selector_config(){
