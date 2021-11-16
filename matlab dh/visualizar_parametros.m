@@ -34,11 +34,8 @@ A34 = A23 * D_H_par( theta_02_filt(i)/2,alpha(4),d(4),a(4)); % matriz de transfo
  clf
  fig.OuterPosition=[0 0 1 1];
  subplot(121),hold on
- %plot(phi_acc1(start:i)*180/pi);
- %plot(phi_acc2(start:i)*180/pi);
- %plot(phi_acc3(start:i)*180/pi);
- plot(theta_01_filt(start:i)*180/pi);
- plot(theta_02_filt(start:i)*180/pi);
+ plot(theta_01_filt(start:i));
+ plot(theta_02_filt(start:i));
   legend('Ângulo phi referência','Ângulo phi articulação MCF','Ângulo phi articulação IFP','Ângulo theta articulação IFP', 'Ângulo theta articulação IFD','Orientation','vertical')
   xlabel('Amostra '),ylabel('Ângulo (°)')
 axis([0 inf,-270 500])
