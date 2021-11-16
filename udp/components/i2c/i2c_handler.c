@@ -62,9 +62,9 @@ esp_err_t i2c_imu_setup(i2c_port_t MASTER_NUMBER,uint8_t device)
 	/* ODR config and DLPF*/
 	cmd_data = 0X00;    // DEVICE CONFIG:  accel bw =  260 Hz delay =0; gyro bw=256 delay 0.98ms -> Fs = 8kHz.
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,CONFIG_device, &cmd_data, 1));
-	cmd_data = 0x18;    // ACCEL CONFIG: 16 g
+	cmd_data = 0x18;    // ACCEL CONFIG:  g/s
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,ACCEL_CONFIG, &cmd_data, 1));
-	cmd_data = 0x00;  	// GYRO CONFIG: 2000 º/S
+	cmd_data = 0x00;  	// GYRO CONFIG:  º/s
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,GYRO_CONFIG, &cmd_data, 1));
 	cmd_data = 0x0;    // SMPLRT_DIV : Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
 	ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER, device,SMPLRT_DIV, &cmd_data, 1));

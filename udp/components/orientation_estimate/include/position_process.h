@@ -55,6 +55,15 @@ typedef struct {
 }Glove;
 
 /**
+ * @brief      fix orientation angle consedering the limitations of using inverse trigonometrics fuction.
+ *
+ * @param[in]  raw    The raw data of the IMU, it is used to determine the quadrant in the unitary circle that the IMU was.
+ * @param[in]  angle  The estimative of the angle produced by the system.
+ *
+ * @return     the correction of the angle rotated 90 degres.
+ */
+float fix_orientation(raw_data raw,float angle);
+/**
  * @brief      Update the orientation of the position of a given finger.
  *
  * @param[in]  metacarpo  matacarpal falange raw data, i.e acceleration and gyroscope data.

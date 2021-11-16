@@ -49,13 +49,11 @@ xTaskDISP=NULL;
 /* Event group instantiation*/
 EventGroupHandle_t xEventGroup;
 
-/* Queue instntiation*/
-QueueHandle_t buffer_queue; 
-
 /*Glove instance*/
 Glove* glove;
 
-const TickType_t xDelay = 70/ portTICK_PERIOD_MS;/*delay defined by period ms*/
+const TickType_t xDelay = 500/ portTICK_PERIOD_MS;/*delay defined by period ms*/
+const TickType_t sample_time = 50/ portTICK_PERIOD_MS;/*delay defined by period ms*/
 
 
 /**
@@ -68,7 +66,7 @@ static void disp_buf(void * pvParameters)
 	char tx_buffer_msg[1024]={'0'};
 	while(1){
 		buffer_arrange(glove,tx_buffer_msg);
-		printf("%s\n",tx_buffer_msg);
+		//printf("%s\n",tx_buffer_msg);
 		xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
 	}
 }
@@ -121,6 +119,7 @@ static void i2c_task0(void *pvParameters)
 			proximal.gyrox		= (int16_t)((sensor2[8]  << 8) | sensor2[9])/gyro_factor;	/* GIRO X  */
 			proximal.gyroy		= (int16_t)((sensor2[10] << 8) | sensor2[11])/gyro_factor;/* GIRO Y  */
 			proximal.gyroz		= (int16_t)((sensor2[12] << 8) | sensor2[13])/gyro_factor;/* GIRO Z  */
+
 			/* Pressão através do potenciômetro*/
 			buffer = adc_read(finger,adc_chars);
 			glove -> fingers[finger].pressure = buffer;
@@ -133,7 +132,7 @@ static void i2c_task0(void *pvParameters)
 }
 
 /**
- * @brief      Take raw samples from the reference frame device.
+ * @brief      Take raw samples from the reference frame device and call for orientation estimatr function
  *
  * @param      pvParameters  Task parameters.
  */
@@ -172,17 +171,19 @@ static void i2c_task_reference_frame(void *pvParameters)
 	}
 }
 
-
+/**
+ * @brief      UDP task, handlle the connection and send gloves information to a client connected
+ *
+ * @param      pvParameters  The pv parameters
+ */
 static void udp_server_task(void *pvParameters)
 {
 	char rx_buffer[128];
 	char tx_buffer[256];
-
 	char addr_str[128];
 	int addr_family;
 	int ip_protocol;
-
-	memset(tx_buffer,'0',256);
+	memset(tx_buffer,'0',256*sizeof(char));
 	while(1){
 		struct sockaddr_in dest_addr;
 		dest_addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -209,7 +210,6 @@ static void udp_server_task(void *pvParameters)
 			socklen_t socklen = sizeof(source_addr);
 			int len = recvfrom(sock, rx_buffer, sizeof(rx_buffer) - 1, 0, (struct sockaddr *)&source_addr, &socklen);
 
-            // Error occurred during receiving
 			if (len < 0) {
 				ESP_LOGE(TAG, "recvfrom failed: errno %d", errno);
 				break;
@@ -220,17 +220,19 @@ static void udp_server_task(void *pvParameters)
 				} else if (source_addr.ss_family == PF_INET6) {
 					inet6_ntoa_r(((struct sockaddr_in6 *)&source_addr)->sin6_addr, addr_str, sizeof(addr_str) - 1);
 				}
-
 				rx_buffer[len] = 0; 
 				ESP_LOGI(TAG, "Received %d bytes from %s:", len, addr_str);
 				ESP_LOGI(TAG, "%s", rx_buffer);
-				buffer_arrange(glove,tx_buffer);
 				while(1){
+					xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
+					buffer_arrange(glove,tx_buffer);
 					int err = sendto(sock, tx_buffer, sizeof(tx_buffer), 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
 					if (err < 0) {
 						ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
 						break;
 					}
+					int len = recvfrom(sock, rx_buffer, sizeof(rx_buffer) - 1, MSG_DONTWAIT, (struct sockaddr *)&source_addr, &socklen);
+
 				}
 				
 			}
@@ -246,7 +248,11 @@ static void udp_server_task(void *pvParameters)
 	vTaskDelete(NULL);
 
 } 
-
+/**
+ * @brief      Set up multiplexer and create a event to the task read a channel
+ *
+ * @param      pvParameters  The pv parameters
+ */
 static void sync_task(void *pvParameters)
 {
 	uint8_t addr[3]={1,0,2}; 
@@ -262,6 +268,8 @@ static void sync_task(void *pvParameters)
 			gpio_set_level(pinB, addr[i] & 1);
 			xEventGroupSync(xEventGroup,(long unsigned int)1<<i,SYNCHRONIZED,xDelay);    
 		}
+		
+		vTaskDelay(sample_time);
 		xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
 	}
 	vTaskDelete(NULL);  
@@ -270,8 +278,6 @@ static void sync_task(void *pvParameters)
 void app_main(void)
 {
 	xEventGroup = xEventGroupCreate();
-
-	buffer_queue = xQueueCreate(6, sizeof(Glove));//Create buffer queue with 6 slots of glove structure
 	glove = (Glove *)malloc(sizeof(Glove));
 	
 	ESP_ERROR_CHECK(nvs_flash_init());
@@ -289,7 +295,7 @@ void app_main(void)
 	calibration(glove);
 	adc_config();	
 
-	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
+	xTaskCreate(udp_server_task, "udp_server_task", 16384, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
 	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 4096, (void *)1, 10, &xTaskREF); //!Task instance for I2C BUS read.
 	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, &xTaskI2C0); //!Task instance for I2C BUS read.
 	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, &xTaskSYNCH); //!Task instance for I2C BUS read.
