@@ -51,20 +51,20 @@ double adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
 	uint32_t adc_reading = 0;
 	float force=0;
 	switch(addr){
-		case 0:
+		case 0:/* D1*/
 		channel = ADC_CHANNEL_0; 
 		break;
-		case 1:
-		channel = ADC_CHANNEL_3;
-		break;
-		case 2:
-		channel = ADC_CHANNEL_4;
-		break;
-		case 3:
+		case 1:/* D3*/
 		channel = ADC_CHANNEL_6;
 		break;
-		case 4:
+		case 2:/* D2*/
+		channel = ADC_CHANNEL_3;
+		break;
+		case 3:/* D4*/
 		channel = ADC_CHANNEL_7;
+		break;
+		case 4:/* D5*/
+		channel = ADC_CHANNEL_4;
 		break;
 	}
 	adc_reading = adc1_get_raw((adc1_channel_t)channel);
