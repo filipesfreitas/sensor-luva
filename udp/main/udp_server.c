@@ -26,7 +26,6 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include <i2c_handler.h>
-#include <softap.h>
 
 #define PORT CONFIG_EXAMPLE_PORT
 /* Event group bit set*/
@@ -43,6 +42,7 @@
 static TaskHandle_t xTaskUDP = NULL,
 xTaskREF = NULL,
 xTaskI2C0 = NULL,
+xTaskI2C1 = NULL,
 xTaskSYNCH = NULL,
 xTaskDISP=NULL;
 
@@ -65,8 +65,8 @@ static void disp_buf(void * pvParameters)
 {	
 	char tx_buffer_msg[1024]={'0'};
 	while(1){
-		buffer_arrange(glove,tx_buffer_msg);
-		//printf("%s\n",tx_buffer_msg);
+		/*buffer_arrange(glove,tx_buffer_msg);
+		printf("%s\n",tx_buffer_msg);*/
 		xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
 	}
 }
@@ -79,14 +79,12 @@ static void disp_buf(void * pvParameters)
 static void i2c_task0(void *pvParameters)
 {
 	/* IMU CONFIG*/
-	int finger=0;
+	int finger = 0;
 	int ret, ret1;
-	int count =1;
 	raw_data metacarpo, proximal;
 	uint8_t sensor[14];
 	uint8_t sensor2[14];
 
-	float buffer;
 	i2c_port_t master_num=(int) pvParameters;
 
 	memset(sensor,0,14);
@@ -101,7 +99,7 @@ static void i2c_task0(void *pvParameters)
 		ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
 
 		if (ret != ESP_OK || ret1 != ESP_OK) {
-			ESP_LOGW(TAG,"\vProblem at master nº: %d\tSensor %s timed out...skip...\v",master_num,
+			ESP_LOGW(TAG,"\vProblem at master nº: %d finger %d\tSensor %s timed out...skip...\v",master_num,finger,
 				ret  != ESP_OK ? "SENSOR 0x68" :
 				ret1 != ESP_OK ? "SENSOR 0x69" : "None");
 		} 
@@ -121,12 +119,18 @@ static void i2c_task0(void *pvParameters)
 			proximal.gyroz		= (int16_t)((sensor2[12] << 8) | sensor2[13])/gyro_factor;/* GIRO Z  */
 
 			/* Pressão através do potenciômetro*/
-			buffer = adc_read(finger,adc_chars);
-			glove -> fingers[finger].pressure = buffer;
+			
+			glove -> fingers[finger].pressure = adc_read(finger,adc_chars);
 			orientation_estimation(metacarpo,proximal,glove,finger);
 		}
 		xEventGroupSetBits(xEventGroup,SYNCHRONIZED);
-
+		if (finger == 0)
+		{
+			finger = 0;
+		}
+		else{
+			finger++;
+		}
 	}
 	vTaskDelete(NULL);
 }
@@ -138,37 +142,121 @@ static void i2c_task0(void *pvParameters)
  */
 static void i2c_task_reference_frame(void *pvParameters)
 {
-
-	int ret;
-	raw_data ref,r;
-	uint8_t sensor[14];
+	int finger = 4;
+	int ret,ret1;
+	raw_data ref,raw2;
+	float buffer;
+	uint8_t sensor[14],sensor2[14];
 
 	i2c_port_t master_num = (int) pvParameters;
 	memset(sensor,0,14);
+	memset(sensor2,0,14);
 	raw_data_zero(&ref);
-	raw_data_zero(&r);
+	raw_data_zero(&raw2);
+
 	xEventGroupWaitBits(xEventGroup,STARTAQ,pdFALSE,pdTRUE,portMAX_DELAY);
+
 	while (1) {	
 		xEventGroupWaitBits(xEventGroup,PORT0ADX,pdTRUE,pdTRUE,xDelay);
+		if(finger == 3){/* Not the reference frame*/
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
-		if (ret != ESP_OK) {
-			ESP_LOGE(TAG, "I2C ERROR");									
+		ret1  = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);	
+		if (ret != ESP_OK || ret1 != ESP_OK) {
+			ESP_LOGW(TAG,"\vProblem at master nº: %d on finger %d\tSensor %s timed out...skip...\v",master_num,finger,
+				ret  != ESP_OK ? "SENSOR 0x68" :
+				ret1 != ESP_OK ? "SENSOR 0x69" : "None");								
 		} 
 		else {
-			//ESP_LOGW(TAG, "I2C1");	
+				//ESP_LOGW(TAG, "I2C1");	
 			ref.master_num  = master_num;
 			ref.finger  = 0;
-			ref.accelx  = 	(int16_t)((sensor[2]   << 8)  | sensor[3])	+114;
-			ref.accely  = 	(int16_t)((sensor[0]   << 8)  | sensor[1])	-4; 
-			ref.accelz  = 	(int16_t)((sensor[4]   << 8)  | sensor[5])	+121; 
-			ref.gyrox   = 	(int16_t)((sensor[10]  << 8)  | sensor[11]	 )	/gyro_factor;
-			ref.gyroy   = (	(int16_t)((sensor[8]   << 8)  | sensor[9])+1 )	/gyro_factor; 
-			ref.gyroz   = (	(int16_t)((sensor[12]  << 8)  | sensor[13])+1)	/gyro_factor;
-			reference_frame_orientation(ref,glove);
+			ref.accelx  = (int16_t)((sensor[2]   << 8)  | sensor[3]) +114;
+			ref.accely  = (int16_t)((sensor[0]   << 8)  | sensor[1]) -4; 
+			ref.accelz  = (int16_t)((sensor[4]   << 8)  | sensor[5]) +121; 
+			ref.gyrox   = (int16_t)((sensor[10]  << 8)  | sensor[11]	 ) /gyro_factor;
+			ref.gyroy  	= ((int16_t)((sensor[8]  << 8)  | sensor[9])  +1) /gyro_factor; 
+			ref.gyroz		= ((int16_t)((sensor[12] << 8)  | sensor[13]) +1) /gyro_factor;
+			raw2.accelx = (int16_t)((sensor[2]   << 8)  | sensor[3]) +114;
+			raw2.accely = (int16_t)((sensor[0]   << 8)  | sensor[1]) -4; 
+			raw2.accelz = (int16_t)((sensor[4]   << 8)  | sensor[5]) +121; 
+			raw2.gyrox  = (int16_t)((sensor[10]  << 8)  | sensor[11]	 )  /gyro_factor;
+			raw2.gyroy  = ((int16_t)((sensor[8]  << 8)  | sensor[9])  +1)  /gyro_factor; 
+			raw2.gyroz  = ((int16_t)((sensor[12] << 8)  | sensor[13]) +1)  /gyro_factor;
+
+			orientation_estimation(ref,raw2,glove,finger);
+				/* Pressão através do potenciômetro*/
+			
+			glove -> fingers[finger].pressure = adc_read(finger,adc_chars);
+			finger = 4;
+		}		
+	}
+	else if(finger == 4){
+		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
+			//ret1 = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);
+		if (ret != ESP_OK) {
+			ESP_LOGW(TAG,"\vProblem at master nº: %d on finger %d\tSensor %s timed out...skip...\v",master_num,finger,
+				ret  != ESP_OK ? "SENSOR 0x68" :
+				ret1 != ESP_OK ? "SENSOR 0x69" : "None");					} 
+			else {
+			/* With the reference frame*/
+				//ESP_LOGW(TAG, "I2C1");	
+				ref.master_num  = master_num;
+				ref.finger  = 0;
+				ref.accelx  = (int16_t)((sensor[2]   << 8)  | sensor[3]) +114;
+				ref.accely  = (int16_t)((sensor[0]   << 8)  | sensor[1]) -4; 
+				ref.accelz  = (int16_t)((sensor[4]   << 8)  | sensor[5]) +121; 
+				ref.gyrox   = (int16_t)((sensor[10]  << 8)  | sensor[11]	 ) /gyro_factor;
+				ref.gyroy  	= ((int16_t)((sensor[8]  << 8)  | sensor[9])  +1) /gyro_factor; 
+				ref.gyroz		= ((int16_t)((sensor[12] << 8)  | sensor[13]) +1) /gyro_factor;
+				/*raw2.accelx = (int16_t)((sensor[2]   << 8)  | sensor[3]) +114;
+				raw2.accely = (int16_t)((sensor[0]   << 8)  | sensor[1]) -4; 
+				raw2.accelz = (int16_t)((sensor[4]   << 8)  | sensor[5]) +121; 
+				raw2.gyrox  = (int16_t)((sensor[10]  << 8)  | sensor[11]	 )  /gyro_factor;
+				raw2.gyroy  = ((int16_t)((sensor[8]  << 8)  | sensor[9])  +1)  /gyro_factor; 
+				raw2.gyroz  = ((int16_t)((sensor[12] << 8)  | sensor[13]) +1)  /gyro_factor;
+				orientation_estimation_one_imu(raw2,glove,finger);*/
+				reference_frame_orientation(ref,glove);
+				/* Pressão através do potenciômetro*/
+				
+				glove -> fingers[finger].pressure = adc_read(finger,adc_chars);
+				//finger --;
+			}
 		}
 		xEventGroupSetBits(xEventGroup,SYNCHRONIZED);
-
 	}
+}
+
+/**
+ * @brief      Set up multiplexer and create a event to the task read a channel
+ *
+ * @param      pvParameters  The pv parameters
+ */
+static void sync_task(void *pvParameters)
+{
+	uint8_t addr[3]={1,1,2}; 
+	mux_selector_config();
+	vTaskDelay(pdMS_TO_TICKS(1000));
+	xEventGroupSetBits(xEventGroup,STARTAQ);
+
+	while(1){
+
+		for (int i = 0; i < 2; ++i)
+		{
+			gpio_set_level(pinA,(addr[i]&2) >> 1);
+			gpio_set_level(pinB, addr[i] & 1);
+			printf("ADC0:\t%f\nADC1:\t%f\nADC2:\t%f\nADC3:\t%f\nADC4:\t%f\n", 
+			adc_read(0,adc_chars),
+			adc_read(1,adc_chars),
+			adc_read(2,adc_chars),
+			adc_read(3,adc_chars),
+			adc_read(4,adc_chars));
+			xEventGroupSync(xEventGroup,(long unsigned int)1<<i,SYNCHRONIZED,xDelay);    
+		}
+		
+		vTaskDelay(sample_time);
+		xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
+	}
+	vTaskDelete(NULL);  
 }
 
 /**
@@ -179,11 +267,12 @@ static void i2c_task_reference_frame(void *pvParameters)
 static void udp_server_task(void *pvParameters)
 {
 	char rx_buffer[128];
-	char tx_buffer[256];
+	char tx_buffer[512];
 	char addr_str[128];
 	int addr_family;
 	int ip_protocol;
-	memset(tx_buffer,'0',256*sizeof(char));
+
+	memset(tx_buffer,0,512);
 	while(1){
 		struct sockaddr_in dest_addr;
 		dest_addr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -248,32 +337,7 @@ static void udp_server_task(void *pvParameters)
 	vTaskDelete(NULL);
 
 } 
-/**
- * @brief      Set up multiplexer and create a event to the task read a channel
- *
- * @param      pvParameters  The pv parameters
- */
-static void sync_task(void *pvParameters)
-{
-	uint8_t addr[3]={1,0,2}; 
-	mux_selector_config();
-	vTaskDelay(pdMS_TO_TICKS(1000));
-	xEventGroupSetBits(xEventGroup,STARTAQ);
 
-	while(1){
-
-		for (int i = 0; i < 2; ++i)
-		{
-			gpio_set_level(pinA,(addr[i]&2) >> 1);
-			gpio_set_level(pinB, addr[i] & 1);
-			xEventGroupSync(xEventGroup,(long unsigned int)1<<i,SYNCHRONIZED,xDelay);    
-		}
-		
-		vTaskDelay(sample_time);
-		xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
-	}
-	vTaskDelete(NULL);  
-}
 
 void app_main(void)
 {
@@ -295,7 +359,7 @@ void app_main(void)
 	calibration(glove);
 	adc_config();	
 
-	xTaskCreate(udp_server_task, "udp_server_task", 16384, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
+	xTaskCreate(udp_server_task, "udp_server_task", 4096, (void*)AF_INET, 5, &xTaskUDP);//!Task instance for udp comunication
 	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 4096, (void *)1, 10, &xTaskREF); //!Task instance for I2C BUS read.
 	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, &xTaskI2C0); //!Task instance for I2C BUS read.
 	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, &xTaskSYNCH); //!Task instance for I2C BUS read.
