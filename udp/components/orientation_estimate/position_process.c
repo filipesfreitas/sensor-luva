@@ -3,7 +3,6 @@
 const static float alpha = time_constant/(time_constant+period);
 
 void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,int i) {
-	float correction=0;
 	/* PHI	*/
 	if (proximal.accelx + proximal.accely + proximal.accelz == 0) {
 
@@ -29,6 +28,22 @@ void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,in
 	if (proximal.accelx==0)	glove->fingers[i].proximal.theta = 0;
 	else glove->fingers[i].proximal.theta = atan(proximal.accely/proximal.accelx)*degre_conv*(1-alpha) +
 		alpha * (glove->fingers[i].proximal.theta + proximal.gyroz * period);
+}
+
+void orientation_estimation_one_imu(raw_data metacarpo,Glove* glove,int i) {
+
+	if (metacarpo.accelx + metacarpo.accely + metacarpo.accelz == 0){
+
+	}
+	else {
+		glove->fingers[i].metacarpo.phi =
+		acos(metacarpo.accelz/sqrt(metacarpo.accelx*metacarpo.accelx + metacarpo.accely*metacarpo.accely+metacarpo.accelz*metacarpo.accelz))*degre_conv*(1-alpha) +
+		(glove->fingers[i].metacarpo.phi + metacarpo.gyroy * period ) * alpha;
+	}
+	/* THETA */
+	if (metacarpo.accelx==0) glove->fingers[i].metacarpo.theta = 0;
+	else glove->fingers[i].metacarpo.theta = atan(metacarpo.accely/metacarpo.accelx)*degre_conv*(1-alpha) + 
+		alpha * (glove->fingers[i].metacarpo.theta + metacarpo.gyroz * period);
 }
 float fix_orientation(raw_data raw,float angle){
 	if (raw.accelz>=0 && raw.accelx>=0 	) angle *= -1;
@@ -77,7 +92,7 @@ void reference_frame_orientation(raw_data reference,Glove* glove){
 }
 
 void calibration(Glove* glove){
-	int addr = 0;
+	int addr = 1;
 	int ret, ret1;
 	int16_t buffer[7];
 	uint8_t sensor[14];
@@ -158,7 +173,7 @@ void initialization(Glove* glove){
 
 }
 void setup_sensors(){
-	uint8_t addr=0; 
+	uint8_t addr=1; 
 	/* aux variable for counting*/
 	esp_err_t error_setting[2]={ESP_OK,ESP_OK}; 
 
@@ -196,7 +211,7 @@ void setup_sensors(){
 
 void buffer_arrange(Glove* glove, char message[]){
 
-	sprintf(message,"%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+	int length_message = sprintf(message,"%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
 		glove->fingers[0].metacarpo.theta	,
 		glove->fingers[0].metacarpo.phi	- glove->frame_reference.phi,
 		glove->fingers[0].proximal.theta	,
@@ -222,7 +237,9 @@ void buffer_arrange(Glove* glove, char message[]){
 		glove->frame_reference.theta,
 		glove->frame_reference.phi,
 		glove->fingers[4].pressure);
+
 }
+
 
 void raw_data_zero(raw_data* member){
 	member->accelx=0;

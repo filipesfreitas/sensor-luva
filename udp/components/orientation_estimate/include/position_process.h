@@ -21,7 +21,7 @@ static const char *TAG = "TAG_ESP";
 #define period 70E-3
 #define R 4700 	/* Resistance of voltage divider on ohms */
 #define Vinput 3300 /* Input voltage in mV */
-#define channels 1
+#define channels 2
 #define gyrosens radconv/16.4
 typedef struct 
 {
@@ -72,6 +72,15 @@ float fix_orientation(raw_data raw,float angle);
  * @param[in]  i          finger indication for update orientation.
  */
 void orientation_estimation(raw_data metacarpo,raw_data proximal,Glove* glove,int i);
+
+/**
+ * @brief      Compute the orientation of a IMU in  given finger
+ *
+ * @param[in]  metacarpo  The metacarpo IMU raw data
+ * @param      glove      The glove structure
+ * @param[in]  i          finger index
+ */
+void orientation_estimation_one_imu(raw_data metacarpo,Glove* glove,int i);
 /**
  * @brief      Update of the orientation of the reference frame.
  *
