@@ -1,5 +1,8 @@
 #include <misc.h>
 
+const float b_const = 1/0.006381;
+const float a_const = 2623;
+
 /* Check calibration data table on ESP32*/
 void check_efuse(void)
 {
@@ -69,9 +72,9 @@ double adc_read(int addr,esp_adc_cal_characteristics_t *adc_chars){
 	}
 	adc_reading = adc1_get_raw((adc1_channel_t)channel);
   //Convert adc_reading to voltage in mV
-	double voltage = ((int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars)-142);
-	force = 0.00006*voltage*voltage+0.2555*voltage+17.04;
-	return voltage;	
+	double voltage = ((int16_t) esp_adc_cal_raw_to_voltage(adc_reading, adc_chars));
+	force = log(a_const/voltage)*b_const;
+	return force;	
 }
 
 void mux_selector_config(){

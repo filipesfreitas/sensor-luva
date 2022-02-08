@@ -79,7 +79,7 @@ static void disp_buf(void * pvParameters)
 static void i2c_task0(void *pvParameters)
 {
 	/* IMU CONFIG*/
-	int finger = 0;
+	int finger = 1;
 	int ret, ret1;
 	raw_data metacarpo, proximal;
 	uint8_t sensor[14];
@@ -124,9 +124,9 @@ static void i2c_task0(void *pvParameters)
 			orientation_estimation(metacarpo,proximal,glove,finger);
 		}
 		xEventGroupSetBits(xEventGroup,SYNCHRONIZED);
-		if (finger == 0)
+		if (finger == 1)
 		{
-			finger = 0;
+			finger = 1;
 		}
 		else{
 			finger++;
@@ -244,12 +244,6 @@ static void sync_task(void *pvParameters)
 		{
 			gpio_set_level(pinA,(addr[i]&2) >> 1);
 			gpio_set_level(pinB, addr[i] & 1);
-			printf("ADC0:\t%f\nADC1:\t%f\nADC2:\t%f\nADC3:\t%f\nADC4:\t%f\n", 
-			adc_read(0,adc_chars),
-			adc_read(1,adc_chars),
-			adc_read(2,adc_chars),
-			adc_read(3,adc_chars),
-			adc_read(4,adc_chars));
 			xEventGroupSync(xEventGroup,(long unsigned int)1<<i,SYNCHRONIZED,xDelay);    
 		}
 		
@@ -363,6 +357,6 @@ void app_main(void)
 	xTaskCreate(i2c_task_reference_frame , "i2c_task_reference_frame", 4096, (void *)1, 10, &xTaskREF); //!Task instance for I2C BUS read.
 	xTaskCreate(i2c_task0 , "i2c_test_task_0", 4096, (void *)0, 20, &xTaskI2C0); //!Task instance for I2C BUS read.
 	xTaskCreate(sync_task , "sync_task", 2048, (void *)0, 20, &xTaskSYNCH); //!Task instance for I2C BUS read.
-	xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, &xTaskDISP);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
+	//xTaskCreate(disp_buf  , "disp_buf", 4096, (void *)UDP, 20, &xTaskDISP);//!< Task instance for prety print I2C BUS on esp32 monitor on PC.
 
 }
