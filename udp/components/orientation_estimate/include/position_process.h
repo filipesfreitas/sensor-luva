@@ -105,8 +105,9 @@ void initialization(Glove* glove);
  *
  * @param      glove    Structure representing the hand posture captured by the glove device.
  * @param      message  Char* type parameter buffer for storing hand position.
+ * @return     number of bytes written
  */
-void buffer_arrange(Glove* glove, char message[]);
+int buffer_arrange(Glove* glove, char message[]);
 /**
  * @brief      Zero input for every member of member.	
  *

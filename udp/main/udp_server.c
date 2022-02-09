@@ -29,15 +29,14 @@
 
 #define PORT CONFIG_EXAMPLE_PORT
 /* Event group bit set*/
-#define PORT0ADX  		( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
-#define PORT1ADX  		( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
-#define UDP  	  			( 1UL << 2UL )  /* Event bit 2, UDP server */
-#define DISPBUFFER 		PORT0ADX|PORT1ADX  /* Display buffer for channel reading*/
-#define SYNCHRONIZED 	( 1UL << 4UL )  /* Flag Sync, change the channel of the mux*/
-#define STOPAQ 				( 1UL << 5UL )
-#define STARTAQ				( 1UL << 6UL )
-#define PRINTAQ				(1UL << 7UL)
-#define RESTARTAQ			UDP
+#define PORT0ADX  						( 1UL << 0UL )  /* Event bit 0, read two sensors at the port0 i2c */
+#define PORT1ADX  						( 1UL << 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */
+#define RESTARTAQ  	  				( 1UL << 2UL )  /* Event bit 2, Restart aquisition */
+#define PORT0ADX_SYNCHRONIZED ( 1UL << 4UL)		/* PORTADX0 read the sensors*/
+#define PORT1ADX_SYNCHRONIZED ( 1UL << 5UL )  /* PORTADX1 read the sensors */
+#define SYNCHRONIZED  				PORT0ADX_SYNCHRONIZED|PORT1ADX_SYNCHRONIZED /* Master's ESP32 read the sensors data of 2 channels at the same time*/
+#define STOPAQ 								( 1UL << 6UL )  /* Wait for sending data out to client UDP*/
+#define STARTAQ								( 1UL << 7UL )  /* Start aquisition of all channels*/
 
 static TaskHandle_t xTaskUDP = NULL,
 xTaskREF = NULL,
@@ -52,9 +51,8 @@ EventGroupHandle_t xEventGroup;
 /*Glove instance*/
 Glove* glove;
 
-const TickType_t xDelay = 500/ portTICK_PERIOD_MS;/*delay defined by period ms*/
-const TickType_t sample_time = 50/ portTICK_PERIOD_MS;/*delay defined by period ms*/
-
+const TickType_t xDelay = 25/ portTICK_PERIOD_MS;/*delay defined by period ms*/
+const TickType_t sample_time = 25/ portTICK_PERIOD_MS;/*delay defined by period ms*/
 
 /**
  * @brief      Display the buffer of the package when the device is in debugger mode.
@@ -65,8 +63,8 @@ static void disp_buf(void * pvParameters)
 {	
 	char tx_buffer_msg[1024]={'0'};
 	while(1){
-		/*buffer_arrange(glove,tx_buffer_msg);
-		printf("%s\n",tx_buffer_msg);*/
+		buffer_arrange(glove,tx_buffer_msg);
+		printf("%s\n",tx_buffer_msg);
 		xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
 	}
 }
@@ -104,6 +102,7 @@ static void i2c_task0(void *pvParameters)
 				ret1 != ESP_OK ? "SENSOR 0x69" : "None");
 		} 
 		else if (ret == ESP_OK && ret1 == ESP_OK) {
+
 			//ESP_LOGW(TAG, "I2C0");	
 			metacarpo.accelx	= (int16_t)((sensor[0]   << 8) | sensor[1])-83;	/* ACCEL X */
 			metacarpo.accely	= (int16_t)((sensor[2]   << 8) | sensor[3])-33;	/* ACCEL y */
@@ -123,7 +122,7 @@ static void i2c_task0(void *pvParameters)
 			glove -> fingers[finger].pressure = adc_read(finger,adc_chars);
 			orientation_estimation(metacarpo,proximal,glove,finger);
 		}
-		xEventGroupSetBits(xEventGroup,SYNCHRONIZED);
+		xEventGroupSetBits(xEventGroup,PORT0ADX_SYNCHRONIZED);
 		if (finger == 1)
 		{
 			finger = 1;
@@ -145,7 +144,6 @@ static void i2c_task_reference_frame(void *pvParameters)
 	int finger = 4;
 	int ret,ret1;
 	raw_data ref,raw2;
-	float buffer;
 	uint8_t sensor[14],sensor2[14];
 
 	i2c_port_t master_num = (int) pvParameters;
@@ -158,6 +156,8 @@ static void i2c_task_reference_frame(void *pvParameters)
 
 	while (1) {	
 		xEventGroupWaitBits(xEventGroup,PORT0ADX,pdTRUE,pdTRUE,xDelay);
+
+
 		if(finger == 3){/* Not the reference frame*/
 		ret  = i2c_master_read_slave(master_num, SLAVE1_ADD,START_READ_ADD,sensor, 14);
 		ret1  = i2c_master_read_slave(master_num, SLAVE2_ADD,START_READ_ADD,sensor2, 14);	
@@ -188,6 +188,7 @@ static void i2c_task_reference_frame(void *pvParameters)
 			
 			glove -> fingers[finger].pressure = adc_read(finger,adc_chars);
 			finger = 4;
+
 		}		
 	}
 	else if(finger == 4){
@@ -222,7 +223,7 @@ static void i2c_task_reference_frame(void *pvParameters)
 				//finger --;
 			}
 		}
-		xEventGroupSetBits(xEventGroup,SYNCHRONIZED);
+		xEventGroupSetBits(xEventGroup,PORT1ADX_SYNCHRONIZED);
 	}
 }
 
@@ -246,8 +247,7 @@ static void sync_task(void *pvParameters)
 			gpio_set_level(pinB, addr[i] & 1);
 			xEventGroupSync(xEventGroup,(long unsigned int)1<<i,SYNCHRONIZED,xDelay);    
 		}
-		
-		vTaskDelay(sample_time);
+		vTaskDelay(xDelay);
 		xEventGroupSync(xEventGroup, STOPAQ,RESTARTAQ ,xDelay);
 	}
 	vTaskDelete(NULL);  
@@ -265,7 +265,7 @@ static void udp_server_task(void *pvParameters)
 	char addr_str[128];
 	int addr_family;
 	int ip_protocol;
-
+	int err;
 	memset(tx_buffer,0,512);
 	while(1){
 		struct sockaddr_in dest_addr;
@@ -308,12 +308,12 @@ static void udp_server_task(void *pvParameters)
 				ESP_LOGI(TAG, "%s", rx_buffer);
 				while(1){
 					xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);
-					buffer_arrange(glove,tx_buffer);
-					int err = sendto(sock, tx_buffer, sizeof(tx_buffer), 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
+					err = sendto(sock,tx_buffer,buffer_arrange(glove,tx_buffer), 0, (struct sockaddr *)&source_addr, sizeof(source_addr));
 					if (err < 0) {
 						ESP_LOGE(TAG, "Error occurred during sending: errno %d", errno);
 						break;
-					}
+					} 
+
 					int len = recvfrom(sock, rx_buffer, sizeof(rx_buffer) - 1, MSG_DONTWAIT, (struct sockaddr *)&source_addr, &socklen);
 
 				}

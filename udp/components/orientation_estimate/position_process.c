@@ -165,8 +165,8 @@ void initialization(Glove* glove){
 	glove->fingers[3].proximal.theta=0;
 	glove->fingers[3].proximal.phi=0;
 	glove->fingers[3].pressure=0;
-	glove->fingers[4].proximal.theta=0;
-	glove->fingers[4].proximal.phi=0;
+	glove->fingers[4].metacarpo.theta=0;
+	glove->fingers[4].metacarpo.phi=0;
 	glove->frame_reference.theta=0;
 	glove->frame_reference.phi=0;
 	glove->fingers[4].pressure=0;
@@ -187,9 +187,9 @@ void setup_sensors(){
 	error_setting[0]  = i2c_imu_setup(1,SLAVE1_ADD); 
 
 	if(error_setting[0] || error_setting[1] != ESP_OK){
-		ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",0,
-			error_setting[0] != ESP_OK ? "SENSOR 0x68" :
-			error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
+			ESP_LOGE(TAG,"\vProblem at master nº: %d on finger %d\tSensor %s timed out...skip...\v",0,addr,
+				error_setting[0]  != ESP_OK ? "SENSOR 0x68" :
+				error_setting[1]!= ESP_OK ? "SENSOR 0x69" : "None");	
 	}	
 
 	while(addr < channels){
@@ -199,9 +199,9 @@ void setup_sensors(){
 		error_setting[1]  = i2c_imu_setup(0,SLAVE2_ADD); 
 
 		if(error_setting[0] || error_setting[1] != ESP_OK){
-			ESP_LOGE(TAG, "Problem at master nº: %d\tNo ack, sensor %s not connected...skip...\n",0,
-				error_setting[0] != ESP_OK ? "SENSOR 0x68" :
-				error_setting[1] != ESP_OK ? "SENSOR 0x69" : "None");
+			ESP_LOGE(TAG,"\vProblem at master nº: %d on finger %d\tSensor %s timed out...skip...\v",0,addr,
+				error_setting  != ESP_OK ? "SENSOR 0x68" :
+				error_setting != ESP_OK ? "SENSOR 0x69" : "None");	
 		}		
 		addr ++;
 
@@ -209,13 +209,13 @@ void setup_sensors(){
 	}
 }
 
-void buffer_arrange(Glove* glove, char message[]){
+int buffer_arrange(Glove* glove, char message[]){
 
-	int length_message = sprintf(message,"%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\n",
+	int length_message = sprintf(message,"%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%.2f\r\n",
 		glove->fingers[0].metacarpo.theta	,
 		glove->fingers[0].metacarpo.phi	- glove->frame_reference.phi,
 		glove->fingers[0].proximal.theta	,
-		glove->fingers[0].proximal.phi -glove->fingers[0].metacarpo.phi -	glove->frame_reference.phi+6,
+		glove->fingers[0].proximal.phi -glove->fingers[0].metacarpo.phi -	glove->frame_reference.phi,
 		glove->fingers[0].pressure,
 		glove->fingers[1].metacarpo.theta,
 		glove->fingers[1].metacarpo.phi -	glove->frame_reference.phi,
@@ -232,12 +232,12 @@ void buffer_arrange(Glove* glove, char message[]){
 		glove->fingers[3].proximal.theta,
 		glove->fingers[3].proximal.phi-glove->fingers[3].metacarpo.phi -	glove->frame_reference.phi,
 		glove->fingers[3].pressure,
-		glove->fingers[4].proximal.theta,
-		glove->fingers[4].proximal.phi-glove->fingers[4].metacarpo.phi -	glove->frame_reference.phi,
+		glove->fingers[4].metacarpo.theta,
+		glove->fingers[4].metacarpo.phi -	glove->frame_reference.phi,
 		glove->frame_reference.theta,
 		glove->frame_reference.phi,
 		glove->fingers[4].pressure);
-
+	return length_message;
 }
 
 
