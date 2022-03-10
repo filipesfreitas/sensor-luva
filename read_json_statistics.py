@@ -6,7 +6,7 @@ deslocamento = 10
 tam_janela = 10
 media_movel = np.array([])
 data_array = np.array([])
-with open('packet_measure.json') as file:
+with open('luvacompleta.json') as file:
 	data = json.load(file)
 	
 	for i in range(0,int(len(data)/tam_janela)):
