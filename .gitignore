@@ -2,4 +2,7 @@
 
 udp/build
 packet_measure.json
-
+../docs/
+/build/*
+/source/*
+doxygenOutput/
