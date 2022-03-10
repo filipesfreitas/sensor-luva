@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.2" xml:lang="en-US">
+  <compound refid="structfinger" kind="struct"><name>finger</name>
+    <member refid="structfinger_1af846836d150bc254830a3234b97e44be" kind="variable"><name>proximal</name></member>
+    <member refid="structfinger_1ac95eb908875002e2640f754b41eeba59" kind="variable"><name>distal</name></member>
+    <member refid="structfinger_1a4107fc30b4eddf43b687c4a741fad1cd" kind="variable"><name>metacarpo</name></member>
+    <member refid="structfinger_1a682c147a7c5ea03c79ce6866e72dc2e4" kind="variable"><name>pressure</name></member>
+  </compound>
+  <compound refid="structGlove" kind="struct"><name>Glove</name>
+    <member refid="structGlove_1a9690a63e6a39f6221bde232f2d4104db" kind="variable"><name>fingers</name></member>
+    <member refid="structGlove_1a4f6943a7f134c17b1a15cabc81c99709" kind="variable"><name>frame_reference</name></member>
+  </compound>
+  <compound refid="structorientation" kind="struct"><name>orientation</name>
+    <member refid="structorientation_1a270ab7fcce8bb6ba0d605b879fca7542" kind="variable"><name>phi</name></member>
+    <member refid="structorientation_1a4083bdbc55ed899e2d0d2ba758f88203" kind="variable"><name>theta</name></member>
+  </compound>
+  <compound refid="structraw__data" kind="struct"><name>raw_data</name>
+    <member refid="structraw__data_1a3ae132fc69f47e5e39d96daa414387f8" kind="variable"><name>accelx</name></member>
+    <member refid="structraw__data_1ac3c238f763ff15cd76fa2a39f4ba4abc" kind="variable"><name>accely</name></member>
+    <member refid="structraw__data_1a6ab8dbd8121711f29d03fd036193cec4" kind="variable"><name>accelz</name></member>
+    <member refid="structraw__data_1a78d6a87f40e49b554de2a5c1944a49c4" kind="variable"><name>gyrox</name></member>
+    <member refid="structraw__data_1acb53a8d0e01a24ff5dffa09d7484cc34" kind="variable"><name>gyroy</name></member>
+    <member refid="structraw__data_1ab43e6f74cc85df3987b576d6ac20ffb0" kind="variable"><name>gyroz</name></member>
+    <member refid="structraw__data_1a380bd78bdeccf709050492f509f412c5" kind="variable"><name>master_num</name></member>
+    <member refid="structraw__data_1ab4b2bb7619ed30e8cb22c58ad7f0d8f7" kind="variable"><name>finger</name></member>
+  </compound>
+  <compound refid="namespacepython__client__test" kind="namespace"><name>python_client_test</name>
+    <member refid="python__client__test_8py_1afc84593348d0abab95807cbae373c56e" kind="variable"><name>logger</name></member>
+    <member refid="python__client__test_8py_1a2ae25106c3bbb0b7f0e587f59e50c11c" kind="variable"><name>msgFromClient</name></member>
+    <member refid="python__client__test_8py_1a5e7774aa8a8831634af5c673ab343617" kind="variable"><name>bytesToSend</name></member>
+    <member refid="python__client__test_8py_1a726839e22a6418da82d8d33ab46902a1" kind="variable"><name>serverAddressPort</name></member>
+    <member refid="python__client__test_8py_1a66d93e43c7a18902687e7f409c057e04" kind="variable"><name>bufferSize</name></member>
+    <member refid="python__client__test_8py_1aae2689e78ea909239c2e088ceb97190e" kind="variable"><name>today</name></member>
+    <member refid="python__client__test_8py_1afdeba8681732870ee10fba8c837de285" kind="variable"><name>d1</name></member>
+    <member refid="python__client__test_8py_1adb0c3ced7cf351f830d975fff15d36ae" kind="variable"><name>UDPClientSocket</name></member>
+    <member refid="python__client__test_8py_1af99d87ad9c6e10827c8b51b36cd52eba" kind="variable"><name>msgFromServer</name></member>
+    <member refid="python__client__test_8py_1ac97180e97449d3932f8588d482ac5c50" kind="function"><name>is_socket_closed</name></member>
+  </compound>
+  <compound refid="i2c__handler_8c" kind="file"><name>i2c_handler.c</name>
+    <member refid="i2c__handler_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="i2c__handler_8c_1af2551f23e9fd29ff14d37c134f88511b" kind="function"><name>i2c_master_read_slave</name></member>
+    <member refid="i2c__handler_8c_1af20b0f940194b109f4f14d68e7907e66" kind="function"><name>i2c_master_write_slave</name></member>
+    <member refid="i2c__handler_8c_1ac92dc97abfda2d0e81ad38b4874c2846" kind="function"><name>i2c_imu_setup</name></member>
+    <member refid="i2c__handler_8c_1a5f86e178334e98a8907bf2afb68bcf97" kind="function"><name>i2c_imu_setup_reference</name></member>
+    <member refid="i2c__handler_8c_1a0ae3c2f87e4f2fce9dc9170890971240" kind="function"><name>i2c_master_init</name></member>
+  </compound>
+  <compound refid="i2c__handler_8h" kind="file"><name>i2c_handler.h</name>
+    <member refid="i2c__handler_8h_1a5c22ca4de37a83a59014e48b0a0b043d" kind="define"><name>I2C_MASTER_FREQ_HZ</name></member>
+    <member refid="i2c__handler_8h_1aaa0e84f340ef5ea9db2d7624fdadaa26" kind="define"><name>I2C_MASTER_TX_BUF_DISABLE</name></member>
+    <member refid="i2c__handler_8h_1a37a0707200e50e3b3e9ab28b1b8d6777" kind="define"><name>I2C_MASTER_RX_BUF_DISABLE</name></member>
+    <member refid="i2c__handler_8h_1aec9b870ff8ddddee3afd035b84d5e365" kind="define"><name>SDA1</name></member>
+    <member refid="i2c__handler_8h_1a579780c4b53c3918a1427d24bec984d0" kind="define"><name>SCL1</name></member>
+    <member refid="i2c__handler_8h_1a02c7209e41a40542f1caff8b7284dbda" kind="define"><name>SDA2</name></member>
+    <member refid="i2c__handler_8h_1a4b0f8998cb81b2f495ebc3dda9ab1226" kind="define"><name>SCL2</name></member>
+    <member refid="i2c__handler_8h_1a7fc57d5be9f588839a00c75ef2946e17" kind="define"><name>WRITE_BIT</name></member>
+    <member refid="i2c__handler_8h_1a2f493ed233e66342493f155ebda5c183" kind="define"><name>READ_BIT</name></member>
+    <member refid="i2c__handler_8h_1a7dd22b838d2b1f22d367e6cdef04ccc3" kind="define"><name>ACK_CHECK_EN</name></member>
+    <member refid="i2c__handler_8h_1a8ad7ceb373ce664b1c2482a66537e7c0" kind="define"><name>ACK_CHECK_DIS</name></member>
+    <member refid="i2c__handler_8h_1a1d64a546dacc15052a6c4887f9d0020f" kind="define"><name>ACK_VAL</name></member>
+    <member refid="i2c__handler_8h_1ae20bf16f65c41237e2d620ef49890781" kind="define"><name>NACK_VAL</name></member>
+    <member refid="i2c__handler_8h_1a20bfabead2a5dc9c2de0710de5e286d6" kind="define"><name>LAST_NACK_VAL</name></member>
+    <member refid="i2c__handler_8h_1a009b3cc0da1531d70d1e17588e16645d" kind="define"><name>SLAVE1_ADD</name></member>
+    <member refid="i2c__handler_8h_1adbc4d3af416488b6c4ad95cf1c1d6842" kind="define"><name>SLAVE2_ADD</name></member>
+    <member refid="i2c__handler_8h_1ab7336e26f8947086e41a375f1e1e74d4" kind="define"><name>ACCEL_CONFIG</name></member>
+    <member refid="i2c__handler_8h_1af2e1a6c564a180de21a921758bdafb65" kind="define"><name>CONFIG_device</name></member>
+    <member refid="i2c__handler_8h_1ac57e8c3192c859321b447c07089f20f0" kind="define"><name>GYRO_CONFIG</name></member>
+    <member refid="i2c__handler_8h_1a96169eb207e721c1546cea9ffd8a35e4" kind="define"><name>PWR_MGMT_1</name></member>
+    <member refid="i2c__handler_8h_1a7119c37e38b6736096ea1565459043ba" kind="define"><name>SMPLRT_DIV</name></member>
+    <member refid="i2c__handler_8h_1abfb7cc765bd79981f1bf93a892b17928" kind="define"><name>START_READ_ADD</name></member>
+    <member refid="i2c__handler_8h_1ab2b86515ab2835049716e54eee6bba47" kind="define"><name>NUMBER_CHANNELS</name></member>
+    <member refid="i2c__handler_8h_1ac954937dfffa3d2d9f1a4329849f6269" kind="define"><name>MASTER_0</name></member>
+    <member refid="i2c__handler_8h_1aef8eed68182d7c966352f05ddb02830e" kind="define"><name>MASTER_1</name></member>
+    <member refid="i2c__handler_8h_1af2551f23e9fd29ff14d37c134f88511b" kind="function"><name>i2c_master_read_slave</name></member>
+    <member refid="i2c__handler_8h_1af20b0f940194b109f4f14d68e7907e66" kind="function"><name>i2c_master_write_slave</name></member>
+    <member refid="i2c__handler_8h_1ac92dc97abfda2d0e81ad38b4874c2846" kind="function"><name>i2c_imu_setup</name></member>
+    <member refid="i2c__handler_8h_1a0ae3c2f87e4f2fce9dc9170890971240" kind="function"><name>i2c_master_init</name></member>
+    <member refid="i2c__handler_8h_1a5f86e178334e98a8907bf2afb68bcf97" kind="function"><name>i2c_imu_setup_reference</name></member>
+    <member refid="i2c__handler_8h_1a64bdd9967c83240dde0fc2fef8696dbb" kind="function"><name>initialization</name></member>
+  </compound>
+  <compound refid="misc_8h" kind="file"><name>misc.h</name>
+    <member refid="misc_8h_1a63baed8df076ce9dddaea1ae8694c1d8" kind="define"><name>DEFAULT_VREF</name></member>
+    <member refid="misc_8h_1ad4189ffd3a90a1d83afbc51359211d55" kind="define"><name>NO_OF_SAMPLES</name></member>
+    <member refid="misc_8h_1acce2c817a017b241e598140fc2140c44" kind="define"><name>sampleSize</name></member>
+    <member refid="misc_8h_1aa9729b9af09826debfd9aa4e44005087" kind="define"><name>weight</name></member>
+    <member refid="misc_8h_1ad005f9194441ca3ba5b68eacabd733ae" kind="define"><name>pinA</name></member>
+    <member refid="misc_8h_1a2833c6494aa8319121243a5b863f2ec3" kind="define"><name>pinB</name></member>
+    <member refid="misc_8h_1a5c4c5254e51413a4277d98b77f4c60c7" kind="define"><name>GPIO_OUTPUT_PIN_SEL</name></member>
+    <member refid="misc_8h_1a9f52e116d2aa4a5dc186c01ae435241b" kind="variable"><name>channel</name></member>
+    <member refid="misc_8h_1a2b904cf029961588778ee03c7c96dd4b" kind="variable"><name>atten</name></member>
+    <member refid="misc_8h_1a25d1dc091dcab31de5b18c9ba924348b" kind="variable"><name>unit</name></member>
+    <member refid="misc_8h_1a5294b94874c3779955bef57e9e157369" kind="variable"><name>adc_chars</name></member>
+    <member refid="misc_8h_1a71bdfdd60cb9fbf04c94d4526e70ab14" kind="function"><name>adc_read</name></member>
+    <member refid="misc_8h_1adeb89b28e03300d1bb4c0e62ce4889ec" kind="function"><name>mux_selector_config</name></member>
+    <member refid="misc_8h_1a72e978258f999c12c65075da36a63175" kind="function"><name>adc_config</name></member>
+    <member refid="misc_8h_1af85584ec8c514506b08c28ab4626fe06" kind="function"><name>print_char_val_type</name></member>
+    <member refid="misc_8h_1ae6538c5b8119c06031c516b44009e82b" kind="function"><name>check_efuse</name></member>
+  </compound>
+  <compound refid="misc_8c" kind="file"><name>misc.c</name>
+    <member refid="misc_8c_1ae6538c5b8119c06031c516b44009e82b" kind="function"><name>check_efuse</name></member>
+    <member refid="misc_8c_1af85584ec8c514506b08c28ab4626fe06" kind="function"><name>print_char_val_type</name></member>
+    <member refid="misc_8c_1a72e978258f999c12c65075da36a63175" kind="function"><name>adc_config</name></member>
+    <member refid="misc_8c_1a71bdfdd60cb9fbf04c94d4526e70ab14" kind="function"><name>adc_read</name></member>
+    <member refid="misc_8c_1adeb89b28e03300d1bb4c0e62ce4889ec" kind="function"><name>mux_selector_config</name></member>
+  </compound>
+  <compound refid="position__process_8h" kind="file"><name>position_process.h</name>
+    <member refid="position__process_8h_1aa144b5fe119e10d0393dc5230e14be29" kind="define"><name>gyro_factor</name></member>
+    <member refid="position__process_8h_1afb9d224c8372369eb72bffd188780a9b" kind="define"><name>acc_factor</name></member>
+    <member refid="position__process_8h_1a0697890f049fc0cb9cd441e833fcc693" kind="define"><name>degre_conv</name></member>
+    <member refid="position__process_8h_1a7b807f2b3e079148afb047e7dc447483" kind="define"><name>radconv</name></member>
+    <member refid="position__process_8h_1a16035715cb41fe974850c6ea798e18dd" kind="define"><name>time_constant</name></member>
+    <member refid="position__process_8h_1a3fd19f50aa536679812917ad5a4c7870" kind="define"><name>period</name></member>
+    <member refid="position__process_8h_1a5c71a5e59a53413cd6c270266d63b031" kind="define"><name>R</name></member>
+    <member refid="position__process_8h_1a6eb1d4fd9cb488b6dfe2c6baef719238" kind="define"><name>Vinput</name></member>
+    <member refid="position__process_8h_1abefd02dbf31793e3bfa4f14af9bcfbe9" kind="define"><name>channels</name></member>
+    <member refid="position__process_8h_1a1cc6be0a7427e2d19fc9fd0cd186b117" kind="define"><name>gyrosens</name></member>
+    <member refid="position__process_8h_1a5a85b9c772bbeb480b209a3e6ea92b4c" kind="variable"><name>TAG</name></member>
+    <member refid="position__process_8h_1a5d19a398b651c5afcbe87d8e2f7b2757" kind="function"><name>fix_orientation</name></member>
+    <member refid="position__process_8h_1acda15d446a599356007066413e27f051" kind="function"><name>orientation_estimation</name></member>
+    <member refid="position__process_8h_1ac78209ab9e3232f2a0860a79ebfc04fc" kind="function"><name>reference_frame_orientation</name></member>
+    <member refid="position__process_8h_1aca8abd474b22fa63e8808076931ee809" kind="function"><name>calibration</name></member>
+    <member refid="position__process_8h_1a34824cb185632ac88f193405cde5251e" kind="function"><name>initialization</name></member>
+    <member refid="position__process_8h_1aecd91e341a0c9ea3591b798f9c2a414f" kind="function"><name>buffer_arrange</name></member>
+    <member refid="position__process_8h_1a57f21ef5abe15c1d80faca9cf49314e2" kind="function"><name>raw_data_zero</name></member>
+    <member refid="position__process_8h_1aeae13e0108d5a46b0840b388a93ec24b" kind="function"><name>buffer_raw_data</name></member>
+    <member refid="position__process_8h_1a1e2d2fe8cafd25f4e0ecb0c75b2b7d3d" kind="function"><name>setup_sensors</name></member>
+  </compound>
+  <compound refid="position__process_8c" kind="file"><name>position_process.c</name>
+    <member refid="position__process_8c_1a3161c2c93c655dd30953372064ec627b" kind="variable"><name>alpha</name></member>
+    <member refid="position__process_8c_1acda15d446a599356007066413e27f051" kind="function"><name>orientation_estimation</name></member>
+    <member refid="position__process_8c_1a5d19a398b651c5afcbe87d8e2f7b2757" kind="function"><name>fix_orientation</name></member>
+    <member refid="position__process_8c_1a6ef7d11478166df28df758bff232854e" kind="function"><name>buffer_raw_data</name></member>
+    <member refid="position__process_8c_1ac78209ab9e3232f2a0860a79ebfc04fc" kind="function"><name>reference_frame_orientation</name></member>
+    <member refid="position__process_8c_1aca8abd474b22fa63e8808076931ee809" kind="function"><name>calibration</name></member>
+    <member refid="position__process_8c_1a34824cb185632ac88f193405cde5251e" kind="function"><name>initialization</name></member>
+    <member refid="position__process_8c_1a1e2d2fe8cafd25f4e0ecb0c75b2b7d3d" kind="function"><name>setup_sensors</name></member>
+    <member refid="position__process_8c_1aecd91e341a0c9ea3591b798f9c2a414f" kind="function"><name>buffer_arrange</name></member>
+    <member refid="position__process_8c_1a57f21ef5abe15c1d80faca9cf49314e2" kind="function"><name>raw_data_zero</name></member>
+  </compound>
+  <compound refid="softap_8h" kind="file"><name>softap.h</name>
+    <member refid="softap_8h_1a4fb60228f865afd7f59ecff4a658a9a6" kind="define"><name>EXAMPLE_ESP_WIFI_SSID</name></member>
+    <member refid="softap_8h_1ad6d09dc1b370b2971ca6849a248c0a2d" kind="define"><name>EXAMPLE_ESP_WIFI_PASS</name></member>
+    <member refid="softap_8h_1ac9a241fecd2104c056764fb425a9466c" kind="define"><name>EXAMPLE_ESP_WIFI_CHANNEL</name></member>
+    <member refid="softap_8h_1a531a5f52342686f7bf976f8c3db1acea" kind="define"><name>EXAMPLE_MAX_STA_CONN</name></member>
+    <member refid="softap_8h_1a5d25eb60ada999fe3022b7a8b1721c27" kind="variable"><name>TAGSOFTAP</name></member>
+    <member refid="softap_8h_1ac31e38637f7a5e5c8ce4d033b0955fec" kind="function"><name>wifi_event_handler</name></member>
+    <member refid="softap_8h_1a4a2bc421f17a5713e35165034943cea3" kind="function"><name>wifi_init_softap</name></member>
+  </compound>
+  <compound refid="softap_8c" kind="file"><name>softap.c</name>
+    <member refid="softap_8c_1ac31e38637f7a5e5c8ce4d033b0955fec" kind="function"><name>wifi_event_handler</name></member>
+    <member refid="softap_8c_1a4a2bc421f17a5713e35165034943cea3" kind="function"><name>wifi_init_softap</name></member>
+  </compound>
+  <compound refid="main_8md" kind="file"><name>main.md</name>
+  </compound>
+  <compound refid="format__plot_8m" kind="file"><name>format_plot.m</name>
+    <member refid="format__plot_8m_1ad822a519318a7d2fe71f1b5edfa7f40e" kind="variable"><name>width</name></member>
+    <member refid="format__plot_8m_1a869525eb8b9f28c6f2605b8b2cd5a051" kind="function"><name>Journals:Width:width:</name></member>
+  </compound>
+  <compound refid="get__degrees_8m" kind="file"><name>get_degrees.m</name>
+    <member refid="get__degrees_8m_1a08cc9f775fbaaca956b7e43e2fa57358" kind="variable"><name>degree</name></member>
+  </compound>
+  <compound refid="import__test__variance_8m" kind="file"><name>import_test_variance.m</name>
+    <member refid="import__test__variance_8m_1a2524525e499f4ee63bb0c6dd166f745d" kind="variable"><name>file</name></member>
+    <member refid="import__test__variance_8m_1aacf4e58be14eef37272a71c004bc3f58" kind="variable"><name>delimiter</name></member>
+    <member refid="import__test__variance_8m_1a9cc4f6cb95f1815ba4cc9adf4a6055a5" kind="variable"><name>text</name></member>
+    <member refid="import__test__variance_8m_1a15ff8eb1993cfbebea8a97327013671a" kind="variable"><name>formatSpec</name></member>
+    <member refid="import__test__variance_8m_1a0535e16c4a03a88fd449c86dc20c47c4" kind="variable"><name>fileID</name></member>
+    <member refid="import__test__variance_8m_1a7ae75349ad73aa5ca5625226265cbe36" kind="variable"><name>dataArray</name></member>
+    <member refid="import__test__variance_8m_1a3be616147be4f0eef21e6ae2742b5d49" kind="variable"><name>col</name></member>
+    <member refid="import__test__variance_8m_1ade67775cd41688b627366486d516439c" kind="variable"><name>numericData</name></member>
+    <member refid="import__test__variance_8m_1a1910fb8125b0c9bdda53a64552b55e72" kind="variable"><name>row</name></member>
+    <member refid="import__test__variance_8m_1a505d4599fc8119c215bd6e0d67321f34" kind="variable"><name>result</name></member>
+    <member refid="import__test__variance_8m_1adbdde44f981e5f6df2c75332ea3f9220" kind="variable"><name>numbers</name></member>
+    <member refid="import__test__variance_8m_1a5842142eda18d3edfea76bfb214e7ee4" kind="variable"><name>invalidThousandsSeparator</name></member>
+    <member refid="import__test__variance_8m_1a9a3043eed208fc59883c3d1fcdee2df9" kind="function"><name>fclose</name></member>
+    <member refid="import__test__variance_8m_1a4ebca84049fee9616138c80bff2b08c2" kind="function"><name>length</name></member>
+    <member refid="import__test__variance_8m_1a5b71b4c01ab76ead7235d6471e0314bc" kind="function"><name>false</name></member>
+    <member refid="import__test__variance_8m_1a16c5911b9340b93ab7f95eb1dbe10d66" kind="function"><name>contains</name></member>
+    <member refid="import__test__variance_8m_1a6ad17bbda5621d39e3d6e80597df8a99" kind="function"><name>isempty</name></member>
+  </compound>
+  <compound refid="udp__server_8c" kind="file"><name>udp_server.c</name>
+    <member refid="udp__server_8c_1a614217d263be1fb1a5f76e2ff7be19a2" kind="define"><name>PORT</name></member>
+    <member refid="udp__server_8c_1a9313ab1d8c6d2f935b65e30420f54140" kind="define"><name>PORT0ADX</name></member>
+    <member refid="udp__server_8c_1a08069bbf97e87b0a463eccdcf2c81585" kind="define"><name>PORT1ADX</name></member>
+    <member refid="udp__server_8c_1a1db55153877cfdc729091d3aecdb3bd2" kind="define"><name>UDP</name></member>
+    <member refid="udp__server_8c_1a67980565790d4e17a0f5755d54bb3cdf" kind="define"><name>DISPBUFFER</name></member>
+    <member refid="udp__server_8c_1a89d1d3ac1038f24c62c9969edc0cbf59" kind="define"><name>SYNCHRONIZED</name></member>
+    <member refid="udp__server_8c_1a3d28d35138145706f89246f0be06d90a" kind="define"><name>STOPAQ</name></member>
+    <member refid="udp__server_8c_1aa4e68e60b2c258aa4d2fec6c08a8e1f4" kind="define"><name>STARTAQ</name></member>
+    <member refid="udp__server_8c_1a89568983ec51c9129955b86106edc60e" kind="define"><name>PRINTAQ</name></member>
+    <member refid="udp__server_8c_1a3041cee82a50d423bd61c5ae597cad7a" kind="define"><name>RESTARTAQ</name></member>
+    <member refid="udp__server_8c_1a7ce73858caff72783232d1ed427774f9" kind="variable"><name>xTaskUDP</name></member>
+    <member refid="udp__server_8c_1af12ee28981c5ee6d53e0b8c1096cebef" kind="variable"><name>xTaskREF</name></member>
+    <member refid="udp__server_8c_1ae04c076faf46173fb590c9897bf5e8bd" kind="variable"><name>xTaskI2C0</name></member>
+    <member refid="udp__server_8c_1a318a860059e1acad295d261a5bfd771c" kind="variable"><name>xTaskSYNCH</name></member>
+    <member refid="udp__server_8c_1acccbf881967969c971fbc9f747f60f92" kind="variable"><name>xTaskDISP</name></member>
+    <member refid="udp__server_8c_1a23235b0baa8a2582eb7db3a681345615" kind="variable"><name>xEventGroup</name></member>
+    <member refid="udp__server_8c_1a9f53546de6168e484c9b979eb60c60c6" kind="variable"><name>glove</name></member>
+    <member refid="udp__server_8c_1ab44044995ddcea4238ca3f64362ee01f" kind="variable"><name>xDelay</name></member>
+    <member refid="udp__server_8c_1a07819f2727cf6253d810ad3d80637151" kind="variable"><name>sample_time</name></member>
+    <member refid="udp__server_8c_1afe6866cbf1466648ebd712b35a04c8d6" kind="function"><name>disp_buf</name></member>
+    <member refid="udp__server_8c_1a319d1311478061090e860f234d2d067a" kind="function"><name>i2c_task0</name></member>
+    <member refid="udp__server_8c_1a9a96cf1151f8f8920cf2c88c09c6f2e0" kind="function"><name>i2c_task_reference_frame</name></member>
+    <member refid="udp__server_8c_1abd4309cfda7f67f259856ae55bfb0827" kind="function"><name>udp_server_task</name></member>
+    <member refid="udp__server_8c_1a531391cf773ca97bf42fdb07e2f238ef" kind="function"><name>sync_task</name></member>
+    <member refid="udp__server_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" kind="function"><name>app_main</name></member>
+  </compound>
+  <compound refid="medidas_8m" kind="file"><name>medidas.m</name>
+    <member refid="medidas_8m_1aad7e93838de75a97693438833e15ff7a" kind="variable"><name>function</name></member>
+    <member refid="medidas_8m_1a358f8f0e16c7f26f1aa11419023faa0b" kind="variable"><name>mean_f</name></member>
+  </compound>
+  <compound refid="offset_8m" kind="file"><name>offset.m</name>
+    <member refid="offset_8m_1a5f10c177f9636b87cdad04dc4bca2491" kind="variable"><name>xy</name></member>
+    <member refid="offset_8m_1a25ed1bcb423b0b7200f485fc5ff71c8e" kind="variable"><name>z</name></member>
+    <member refid="offset_8m_1ad0eb5bf2ad7d9722dcab0176ba1c135b" kind="variable"><name>offsetz</name></member>
+    <member refid="offset_8m_1a60938f13e02c076312844ea163a7e975" kind="variable"><name>offsety</name></member>
+    <member refid="offset_8m_1a4ce48e7367e401b69f972d5ecfdaece9" kind="variable"><name>offsetx</name></member>
+    <member refid="offset_8m_1a0a311b6fade432695da38cc3f14d5e67" kind="variable"><name>offsetgz</name></member>
+    <member refid="offset_8m_1ae61d63a30c1347dc81eab89c7c1d05bb" kind="variable"><name>offsetgy</name></member>
+    <member refid="offset_8m_1a3e94ded82dc57581accdf9a276373b53" kind="variable"><name>offsetgx</name></member>
+    <member refid="offset_8m_1a91869a3c02dd223061b69332fa70ebe8" kind="variable"><name>meanz</name></member>
+    <member refid="offset_8m_1a9ac08120218f8e964fc9be64514b4adc" kind="variable"><name>meany</name></member>
+    <member refid="offset_8m_1a7f95b5836f40c198a36afe39dd88c4d8" kind="variable"><name>meanx</name></member>
+    <member refid="offset_8m_1af98b4a74981340820b35ad822502f595" kind="variable"><name>meangz</name></member>
+    <member refid="offset_8m_1a2d116fadeb9ade8b5abe8dcc207c1ecc" kind="variable"><name>meangy</name></member>
+    <member refid="offset_8m_1a038b6a1de8cc561787b7f9bb5d65442a" kind="variable"><name>meangx</name></member>
+    <member refid="offset_8m_1a5ca8e993b32934d5f1da34161dfc673b" kind="variable"><name>stdz</name></member>
+    <member refid="offset_8m_1a02eaaf11ff021b42319ba7294a00abb6" kind="variable"><name>stdy</name></member>
+    <member refid="offset_8m_1a0d231f5f7a7c732bdb99d96170302bc6" kind="variable"><name>stdx</name></member>
+    <member refid="offset_8m_1a343d527d25cc5d9d62916bd5a8257c32" kind="variable"><name>stdgz</name></member>
+    <member refid="offset_8m_1a57d860437eca0596a028511e806aa41b" kind="variable"><name>stdgy</name></member>
+    <member refid="offset_8m_1af060ccf19769e7cd598f83b228d0e40c" kind="variable"><name>stdgx</name></member>
+    <member refid="offset_8m_1ae6c75e685c06162830e7fd65e3dde693" kind="variable"><name>xy_test</name></member>
+  </compound>
+  <compound refid="plot__test_8m" kind="file"><name>plot_test.m</name>
+    <member refid="plot__test_8m_1ad822a519318a7d2fe71f1b5edfa7f40e" kind="variable"><name>width</name></member>
+    <member refid="plot__test_8m_1a869525eb8b9f28c6f2605b8b2cd5a051" kind="function"><name>Journals:Width:width:</name></member>
+  </compound>
+  <compound refid="python__client__test_8py" kind="file"><name>python_client_test.py</name>
+  </compound>
+  <compound refid="testimu_8m" kind="file"><name>testimu.m</name>
+    <member refid="testimu_8m_1a34402adf6e0dc93b6ada6ff0560b3928" kind="variable"><name>metacarpo_phi_measured</name></member>
+    <member refid="testimu_8m_1afb7f64281823370847cf79c69c01e7c6" kind="variable"><name>metacarpo_theta_measured</name></member>
+    <member refid="testimu_8m_1aacb862a3ccba0e7f6b5ccf52d18d4524" kind="variable"><name>proximal_phi_measured</name></member>
+    <member refid="testimu_8m_1a7b753d67f9e863769be0945ac27fa307" kind="variable"><name>proximal_tehta_measured</name></member>
+    <member refid="testimu_8m_1a9336ebf25087d91c818ee6e9ec29f8c1" kind="variable"><name>x</name></member>
+    <member refid="testimu_8m_1a230414213a9710ed03b6cf8d2695ee94" kind="variable"><name>a</name></member>
+    <member refid="testimu_8m_1ac8380d1caf3f231b2f8c206265a99763" kind="variable"><name>s</name></member>
+    <member refid="testimu_8m_1ad5ea994bd82d7b962c85ae6e0be54af5" kind="variable"><name>MinorGridColor</name></member>
+    <member refid="testimu_8m_1aad531115223b764271b6a51cfe8f875f" kind="function"><name>errorbar</name></member>
+    <member refid="testimu_8m_1a7a8193ec337496c1367da81ba4b61eae" kind="function"><name>errorbar</name></member>
+    <member refid="testimu_8m_1a6dd132adc0cf5315d824816c9f53d2e2" kind="function"><name>errorbar</name></member>
+    <member refid="testimu_8m_1ab27ac0818ed65a388a22563762e8e93b" kind="function"><name>errorbar</name></member>
+  </compound>
+  <compound refid="dir_409f97388efe006bc3438b95e9edef48" kind="dir"><name>components</name>
+  </compound>
+  <compound refid="dir_5baf679cf4943df8904dce5d41d4d3dc" kind="dir"><name>Docs</name>
+  </compound>
+  <compound refid="dir_07e1426f8dd4e39dafd7689df7b682b1" kind="dir"><name>components/i2c</name>
+  </compound>
+  <compound refid="dir_4b80b842b472baa50168f7b28b910061" kind="dir"><name>components/i2c/include</name>
+  </compound>
+  <compound refid="dir_731bc6d8b8423a41d4b8ab957818511a" kind="dir"><name>components/Misc/include</name>
+  </compound>
+  <compound refid="dir_662cd9308c00f0ea86837f67bbaee15c" kind="dir"><name>components/orientation_estimate/include</name>
+  </compound>
+  <compound refid="dir_5c5514c919b92b4c1be0b6185a23d8a2" kind="dir"><name>components/softap/include</name>
+  </compound>
+  <compound refid="dir_5c982d53a68cdbcd421152b4020263a9" kind="dir"><name>main</name>
+  </compound>
+  <compound refid="dir_544e366c2991616f3159a553b643ad64" kind="dir"><name>components/Misc</name>
+  </compound>
+  <compound refid="dir_1dfe822bfc4c461b2dcf531edbedf9ce" kind="dir"><name>components/orientation_estimate</name>
+  </compound>
+  <compound refid="dir_9e4c1ff97a92fc99255583db4a76fda8" kind="dir"><name>components/softap</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

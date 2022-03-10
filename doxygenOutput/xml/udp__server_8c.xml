@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="udp__server_8c" kind="file" language="C++">
+    <compoundname>udp_server.c</compoundname>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">freertos/event_groups.h</includes>
+    <includes local="yes">freertos/task.h</includes>
+    <includes local="yes">protocol_examples_common.h</includes>
+    <includes local="yes">esp_wifi.h</includes>
+    <includes local="yes">esp_event.h</includes>
+    <includes local="yes">esp_log.h</includes>
+    <includes local="yes">nvs_flash.h</includes>
+    <includes local="yes">esp_netif.h</includes>
+    <includes local="yes">lwip/err.h</includes>
+    <includes local="yes">lwip/sockets.h</includes>
+    <includes local="yes">lwip/sys.h</includes>
+    <includes local="no">lwip/netdb.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">sys/param.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includes local="no">esp_system.h</includes>
+    <includes local="no">time.h</includes>
+    <includes local="no">sys/time.h</includes>
+    <includes local="yes">esp_timer.h</includes>
+    <includes refid="misc_8h" local="no">misc.h</includes>
+    <includes refid="position__process_8h" local="no">position_process.h</includes>
+    <includes local="yes">driver/gpio.h</includes>
+    <includes local="yes">driver/adc.h</includes>
+    <includes local="yes">esp_adc_cal.h</includes>
+    <includes refid="i2c__handler_8h" local="no">i2c_handler.h</includes>
+    <includes refid="softap_8h" local="no">softap.h</includes>
+    <incdepgraph>
+      <node id="24">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="2">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="9">
+        <label>nvs_flash.h</label>
+      </node>
+      <node id="5">
+        <label>protocol_examples_common.h</label>
+      </node>
+      <node id="29">
+        <label>stdint.h</label>
+      </node>
+      <node id="26">
+        <label>esp_adc_cal.h</label>
+      </node>
+      <node id="19">
+        <label>esp_system.h</label>
+      </node>
+      <node id="30">
+        <label>i2c_handler.h</label>
+        <link refid="i2c__handler_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>esp_timer.h</label>
+      </node>
+      <node id="10">
+        <label>esp_netif.h</label>
+      </node>
+      <node id="25">
+        <label>driver/adc.h</label>
+      </node>
+      <node id="6">
+        <label>esp_wifi.h</label>
+      </node>
+      <node id="23">
+        <label>misc.h</label>
+        <link refid="misc_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>lwip/netdb.h</label>
+      </node>
+      <node id="15">
+        <label>string.h</label>
+      </node>
+      <node id="8">
+        <label>esp_log.h</label>
+      </node>
+      <node id="1">
+        <label>main/udp_server.c</label>
+        <link refid="udp__server_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>position_process.h</label>
+        <link refid="position__process_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>unistd.h</label>
+      </node>
+      <node id="16">
+        <label>sys/param.h</label>
+      </node>
+      <node id="12">
+        <label>lwip/sockets.h</label>
+      </node>
+      <node id="13">
+        <label>lwip/sys.h</label>
+      </node>
+      <node id="20">
+        <label>time.h</label>
+      </node>
+      <node id="17">
+        <label>math.h</label>
+      </node>
+      <node id="31">
+        <label>driver/i2c.h</label>
+      </node>
+      <node id="32">
+        <label>softap.h</label>
+        <link refid="softap_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>lwip/err.h</label>
+      </node>
+      <node id="21">
+        <label>sys/time.h</label>
+      </node>
+      <node id="7">
+        <label>esp_event.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/task.h</label>
+      </node>
+      <node id="27">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>freertos/event_groups.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="udp__server_8c_1a614217d263be1fb1a5f76e2ff7be19a2" prot="public" static="no">
+        <name>PORT</name>
+        <initializer>CONFIG_EXAMPLE_PORT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="31" column="9" bodyfile="main/udp_server.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a9313ab1d8c6d2f935b65e30420f54140" prot="public" static="no">
+        <name>PORT0ADX</name>
+        <initializer>( 1UL &lt;&lt; 0UL )  /* Event bit 0, read two sensors at the port0 i2c */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="33" column="9" bodyfile="main/udp_server.c" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a08069bbf97e87b0a463eccdcf2c81585" prot="public" static="no">
+        <name>PORT1ADX</name>
+        <initializer>( 1UL &lt;&lt; 1UL ) 	/* Event bit 1, read two sensors at the port1 i2c */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="34" column="9" bodyfile="main/udp_server.c" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a1db55153877cfdc729091d3aecdb3bd2" prot="public" static="no">
+        <name>UDP</name>
+        <initializer>( 1UL &lt;&lt; 2UL )  /* Event bit 2, UDP server */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="35" column="9" bodyfile="main/udp_server.c" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a67980565790d4e17a0f5755d54bb3cdf" prot="public" static="no">
+        <name>DISPBUFFER</name>
+        <initializer>PORT0ADX|PORT1ADX  /* Display buffer for channel reading*/</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="36" column="9" bodyfile="main/udp_server.c" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a89d1d3ac1038f24c62c9969edc0cbf59" prot="public" static="no">
+        <name>SYNCHRONIZED</name>
+        <initializer>( 1UL &lt;&lt; 4UL )  /* Flag Sync, change the channel of the mux*/</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="37" column="9" bodyfile="main/udp_server.c" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a3d28d35138145706f89246f0be06d90a" prot="public" static="no">
+        <name>STOPAQ</name>
+        <initializer>( 1UL &lt;&lt; 5UL )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="38" column="9" bodyfile="main/udp_server.c" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1aa4e68e60b2c258aa4d2fec6c08a8e1f4" prot="public" static="no">
+        <name>STARTAQ</name>
+        <initializer>( 1UL &lt;&lt; 6UL )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="39" column="9" bodyfile="main/udp_server.c" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a89568983ec51c9129955b86106edc60e" prot="public" static="no">
+        <name>PRINTAQ</name>
+        <initializer>(1UL &lt;&lt; 7UL)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="40" column="9" bodyfile="main/udp_server.c" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="udp__server_8c_1a3041cee82a50d423bd61c5ae597cad7a" prot="public" static="no">
+        <name>RESTARTAQ</name>
+        <initializer>UDP</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="41" column="9" bodyfile="main/udp_server.c" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="udp__server_8c_1a7ce73858caff72783232d1ed427774f9" prot="public" static="yes" mutable="no">
+        <type>TaskHandle_t</type>
+        <definition>TaskHandle_t xTaskUDP</definition>
+        <argsstring></argsstring>
+        <name>xTaskUDP</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="43" column="21" bodyfile="main/udp_server.c" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1af12ee28981c5ee6d53e0b8c1096cebef" prot="public" static="yes" mutable="no">
+        <type>TaskHandle_t</type>
+        <definition>TaskHandle_t xTaskREF</definition>
+        <argsstring></argsstring>
+        <name>xTaskREF</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="44" column="1" bodyfile="main/udp_server.c" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1ae04c076faf46173fb590c9897bf5e8bd" prot="public" static="yes" mutable="no">
+        <type>TaskHandle_t</type>
+        <definition>TaskHandle_t xTaskI2C0</definition>
+        <argsstring></argsstring>
+        <name>xTaskI2C0</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="45" column="1" bodyfile="main/udp_server.c" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1a318a860059e1acad295d261a5bfd771c" prot="public" static="yes" mutable="no">
+        <type>TaskHandle_t</type>
+        <definition>TaskHandle_t xTaskSYNCH</definition>
+        <argsstring></argsstring>
+        <name>xTaskSYNCH</name>
+        <initializer>= NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="46" column="1" bodyfile="main/udp_server.c" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1acccbf881967969c971fbc9f747f60f92" prot="public" static="yes" mutable="no">
+        <type>TaskHandle_t</type>
+        <definition>TaskHandle_t xTaskDISP</definition>
+        <argsstring></argsstring>
+        <name>xTaskDISP</name>
+        <initializer>=NULL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="47" column="1" bodyfile="main/udp_server.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1a23235b0baa8a2582eb7db3a681345615" prot="public" static="no" mutable="no">
+        <type>EventGroupHandle_t</type>
+        <definition>EventGroupHandle_t xEventGroup</definition>
+        <argsstring></argsstring>
+        <name>xEventGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="50" column="20" bodyfile="main/udp_server.c" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1a9f53546de6168e484c9b979eb60c60c6" prot="public" static="no" mutable="no">
+        <type><ref refid="structGlove" kindref="compound">Glove</ref> *</type>
+        <definition>Glove* glove</definition>
+        <argsstring></argsstring>
+        <name>glove</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="53" column="7" bodyfile="main/udp_server.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1ab44044995ddcea4238ca3f64362ee01f" prot="public" static="no" mutable="no">
+        <type>const TickType_t</type>
+        <definition>const TickType_t xDelay</definition>
+        <argsstring></argsstring>
+        <name>xDelay</name>
+        <initializer>= 500/ portTICK_PERIOD_MS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="55" column="18" bodyfile="main/udp_server.c" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="udp__server_8c_1a07819f2727cf6253d810ad3d80637151" prot="public" static="no" mutable="no">
+        <type>const TickType_t</type>
+        <definition>const TickType_t sample_time</definition>
+        <argsstring></argsstring>
+        <name>sample_time</name>
+        <initializer>= 50/ portTICK_PERIOD_MS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="56" column="18" bodyfile="main/udp_server.c" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="udp__server_8c_1afe6866cbf1466648ebd712b35a04c8d6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void disp_buf</definition>
+        <argsstring>(void *pvParameters)</argsstring>
+        <name>disp_buf</name>
+        <param>
+          <type>void *</type>
+          <declname>pvParameters</declname>
+        </param>
+        <briefdescription>
+<para>Display the buffer of the package when the device is in debugger mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pvParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter for the task. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="64" column="13" bodyfile="main/udp_server.c" bodystart="64" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="udp__server_8c_1a319d1311478061090e860f234d2d067a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void i2c_task0</definition>
+        <argsstring>(void *pvParameters)</argsstring>
+        <name>i2c_task0</name>
+        <param>
+          <type>void *</type>
+          <declname>pvParameters</declname>
+        </param>
+        <briefdescription>
+<para>Task to read the values given by the IMUs and call the orientation estimate function to update the values of the hand posture stored in glove structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pvParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number given to the task for i2c master number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="79" column="13" bodyfile="main/udp_server.c" bodystart="79" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="udp__server_8c_1a9a96cf1151f8f8920cf2c88c09c6f2e0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void i2c_task_reference_frame</definition>
+        <argsstring>(void *pvParameters)</argsstring>
+        <name>i2c_task_reference_frame</name>
+        <param>
+          <type>void *</type>
+          <declname>pvParameters</declname>
+        </param>
+        <briefdescription>
+<para>Take raw samples from the reference frame device and call for orientation estimatr function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pvParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task parameters. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="139" column="13" bodyfile="main/udp_server.c" bodystart="139" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="udp__server_8c_1abd4309cfda7f67f259856ae55bfb0827" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void udp_server_task</definition>
+        <argsstring>(void *pvParameters)</argsstring>
+        <name>udp_server_task</name>
+        <param>
+          <type>void *</type>
+          <declname>pvParameters</declname>
+        </param>
+        <briefdescription>
+<para>UDP task, handlle the connection and send gloves information to a client connected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pvParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pv parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="179" column="13" bodyfile="main/udp_server.c" bodystart="179" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="udp__server_8c_1a531391cf773ca97bf42fdb07e2f238ef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void sync_task</definition>
+        <argsstring>(void *pvParameters)</argsstring>
+        <name>sync_task</name>
+        <param>
+          <type>void *</type>
+          <declname>pvParameters</declname>
+        </param>
+        <briefdescription>
+<para>Set up multiplexer and create a event to the task read a channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pvParameters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pv parameters </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="256" column="13" bodyfile="main/udp_server.c" bodystart="256" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="udp__server_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void app_main</definition>
+        <argsstring>(void)</argsstring>
+        <name>app_main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Task instance for udp comunication</para>
+<para>Task instance for I2C BUS read.</para>
+<para>Task instance for I2C BUS read.</para>
+<para>Task instance for I2C BUS read.</para>
+<para>&lt; Task instance for prety print I2C BUS on esp32 monitor on PC.</para>
+        </inbodydescription>
+        <location file="main/udp_server.c" line="278" column="6" bodyfile="main/udp_server.c" bodystart="278" bodyend="304"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/event_groups.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;protocol_examples_common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_wifi.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_event.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nvs_flash.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_netif.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/err.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/sockets.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/sys.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;lwip/netdb.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/param.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;esp_system.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_timer.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;misc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;position_process.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;driver/adc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_adc_cal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;i2c_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;softap.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PORT<sp/>CONFIG_EXAMPLE_PORT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Event<sp/>group<sp/>bit<sp/>set*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PORT0ADX<sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>0UL<sp/>)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Event<sp/>bit<sp/>0,<sp/>read<sp/>two<sp/>sensors<sp/>at<sp/>the<sp/>port0<sp/>i2c<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PORT1ADX<sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>1UL<sp/>)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Event<sp/>bit<sp/>1,<sp/>read<sp/>two<sp/>sensors<sp/>at<sp/>the<sp/>port1<sp/>i2c<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UDP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>2UL<sp/>)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Event<sp/>bit<sp/>2,<sp/>UDP<sp/>server<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DISPBUFFER<sp/><sp/><sp/><sp/>PORT0ADX|PORT1ADX<sp/><sp/></highlight><highlight class="comment">/*<sp/>Display<sp/>buffer<sp/>for<sp/>channel<sp/>reading*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYNCHRONIZED<sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>4UL<sp/>)<sp/><sp/></highlight><highlight class="comment">/*<sp/>Flag<sp/>Sync,<sp/>change<sp/>the<sp/>channel<sp/>of<sp/>the<sp/>mux*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STOPAQ<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>5UL<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STARTAQ<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>1UL<sp/>&lt;&lt;<sp/>6UL<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRINTAQ<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1UL<sp/>&lt;&lt;<sp/>7UL)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RESTARTAQ<sp/><sp/><sp/><sp/><sp/>UDP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>TaskHandle_t<sp/>xTaskUDP<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">xTaskREF<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">xTaskI2C0<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">xTaskSYNCH<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">xTaskDISP=NULL;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Event<sp/>group<sp/>instantiation*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">EventGroupHandle_t<sp/>xEventGroup;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">/*Glove<sp/>instance*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><ref refid="structGlove" kindref="compound">Glove</ref>*<sp/>glove;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TickType_t<sp/>xDelay<sp/>=<sp/>500/<sp/>portTICK_PERIOD_MS;</highlight><highlight class="comment">/*delay<sp/>defined<sp/>by<sp/>period<sp/>ms*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TickType_t<sp/>sample_time<sp/>=<sp/>50/<sp/>portTICK_PERIOD_MS;</highlight><highlight class="comment">/*delay<sp/>defined<sp/>by<sp/>period<sp/>ms*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="udp__server_8c_1afe6866cbf1466648ebd712b35a04c8d6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1afe6866cbf1466648ebd712b35a04c8d6" kindref="member">disp_buf</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/>pvParameters)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{<sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>tx_buffer_msg[1024]={</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(1){</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>buffer_arrange(glove,tx_buffer_msg);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//printf(&quot;%s\n&quot;,tx_buffer_msg);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="udp__server_8c_1a319d1311478061090e860f234d2d067a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1a319d1311478061090e860f234d2d067a" kindref="member">i2c_task0</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvParameters)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>IMU<sp/>CONFIG*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structfinger" kindref="compound">finger</ref>=0;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret,<sp/>ret1;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=1;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><ref refid="structraw__data" kindref="compound">raw_data</ref><sp/>metacarpo,<sp/>proximal;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sensor[14];</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sensor2[14];</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>buffer;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>i2c_port_t<sp/>master_num=(int)<sp/>pvParameters;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>memset(sensor,0,14);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>memset(sensor2,0,14);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>raw_data_zero(&amp;metacarpo);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>raw_data_zero(&amp;proximal);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>xEventGroupWaitBits(xEventGroup,STARTAQ,pdFALSE,pdTRUE,portMAX_DELAY);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupWaitBits(xEventGroup,PORT1ADX,pdTRUE,pdTRUE,xDelay);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/><sp/>=<sp/>i2c_master_read_slave(master_num,<sp/>SLAVE1_ADD,START_READ_ADD,sensor,<sp/>14);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>ret1<sp/>=<sp/>i2c_master_read_slave(master_num,<sp/>SLAVE2_ADD,START_READ_ADD,sensor2,<sp/>14);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK<sp/>||<sp/>ret1<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGW(TAG,</highlight><highlight class="stringliteral">&quot;\vProblem<sp/>at<sp/>master<sp/>nº:<sp/>%d\tSensor<sp/>%s<sp/>timed<sp/>out...skip...\v&quot;</highlight><highlight class="normal">,master_num,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/><sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x68&quot;</highlight><highlight class="normal"><sp/>:</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret1<sp/>!=<sp/>ESP_OK<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;SENSOR<sp/>0x69&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;None&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>==<sp/>ESP_OK<sp/>&amp;&amp;<sp/>ret1<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ESP_LOGW(TAG,<sp/>&quot;I2C0&quot;);<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.accelx<sp/><sp/>=<sp/>(int16_t)((sensor[0]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[1])-83;<sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>X<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.accely<sp/><sp/>=<sp/>(int16_t)((sensor[2]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[3])-33;<sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.accelz<sp/><sp/>=<sp/>(int16_t)((sensor[4]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[5])-15;<sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>z<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.gyrox<sp/><sp/><sp/>=<sp/>(int16_t)((sensor[8]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[9])/gyro_factor;<sp/><sp/></highlight><highlight class="comment">/*<sp/>GIRO<sp/>X<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.gyroy<sp/><sp/><sp/>=<sp/>(int16_t)((sensor[10]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[11])/gyro_factor;<sp/></highlight><highlight class="comment">/*<sp/>GIRO<sp/>Y<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>metacarpo.gyroz<sp/><sp/><sp/>=<sp/>(int16_t)((sensor[12]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor[13])/gyro_factor;<sp/></highlight><highlight class="comment">/*<sp/>GIRO<sp/>Z<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.accelx<sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[0]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[1])+180;<sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>X<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.accely<sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[2]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[3])+30;<sp/><sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>Y<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.accelz<sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[4]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[5])+100;<sp/></highlight><highlight class="comment">/*<sp/>ACCEL<sp/>Z<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.gyrox<sp/><sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[8]<sp/><sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[9])/gyro_factor;<sp/></highlight><highlight class="comment">/*<sp/>GIRO<sp/>X<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.gyroy<sp/><sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[10]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[11])/gyro_factor;</highlight><highlight class="comment">/*<sp/>GIRO<sp/>Y<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>proximal.gyroz<sp/><sp/><sp/><sp/>=<sp/>(int16_t)((sensor2[12]<sp/>&lt;&lt;<sp/>8)<sp/>|<sp/>sensor2[13])/gyro_factor;</highlight><highlight class="comment">/*<sp/>GIRO<sp/>Z<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pressão<sp/>através<sp/>do<sp/>potenciômetro*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>buffer<sp/>=<sp/>adc_read(<ref refid="structfinger" kindref="compound">finger</ref>,adc_chars);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>glove<sp/>-&gt;<sp/>fingers[<ref refid="structfinger" kindref="compound">finger</ref>].pressure<sp/>=<sp/>buffer;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>orientation_estimation(metacarpo,proximal,glove,<ref refid="structfinger" kindref="compound">finger</ref>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupSetBits(xEventGroup,SYNCHRONIZED);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>vTaskDelete(NULL);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="udp__server_8c_1a9a96cf1151f8f8920cf2c88c09c6f2e0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1a9a96cf1151f8f8920cf2c88c09c6f2e0" kindref="member">i2c_task_reference_frame</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvParameters)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><ref refid="structraw__data" kindref="compound">raw_data</ref><sp/>ref,r;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>uint8_t<sp/>sensor[14];</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>i2c_port_t<sp/>master_num<sp/>=<sp/>(int)<sp/>pvParameters;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>memset(sensor,0,14);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>raw_data_zero(&amp;ref);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>raw_data_zero(&amp;r);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>xEventGroupWaitBits(xEventGroup,STARTAQ,pdFALSE,pdTRUE,portMAX_DELAY);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1)<sp/>{<sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupWaitBits(xEventGroup,PORT0ADX,pdTRUE,pdTRUE,xDelay);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>ret<sp/><sp/>=<sp/>i2c_master_read_slave(master_num,<sp/>SLAVE1_ADD,START_READ_ADD,sensor,<sp/>14);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;I2C<sp/>ERROR&quot;</highlight><highlight class="normal">);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//ESP_LOGW(TAG,<sp/>&quot;I2C1&quot;);<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.master_num<sp/><sp/>=<sp/>master_num;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.finger<sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.accelx<sp/><sp/>=<sp/><sp/><sp/>(int16_t)((sensor[2]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[3])<sp/><sp/>+114;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.accely<sp/><sp/>=<sp/><sp/><sp/>(int16_t)((sensor[0]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[1])<sp/><sp/>-4;<sp/></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.accelz<sp/><sp/>=<sp/><sp/><sp/>(int16_t)((sensor[4]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[5])<sp/><sp/>+121;<sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.gyrox<sp/><sp/><sp/>=<sp/><sp/><sp/>(int16_t)((sensor[10]<sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[11]<sp/><sp/><sp/>)<sp/><sp/>/gyro_factor;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.gyroy<sp/><sp/><sp/>=<sp/>(<sp/>(int16_t)((sensor[8]<sp/><sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[9])+1<sp/>)<sp/><sp/>/gyro_factor;<sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ref.gyroz<sp/><sp/><sp/>=<sp/>(<sp/>(int16_t)((sensor[12]<sp/><sp/>&lt;&lt;<sp/>8)<sp/><sp/>|<sp/>sensor[13])+1)<sp/><sp/>/gyro_factor;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>reference_frame_orientation(ref,glove);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupSetBits(xEventGroup,SYNCHRONIZED);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="udp__server_8c_1abd4309cfda7f67f259856ae55bfb0827" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1abd4309cfda7f67f259856ae55bfb0827" kindref="member">udp_server_task</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvParameters)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rx_buffer[128];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>tx_buffer[256];</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>addr_str[128];</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr_family;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ip_protocol;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>memset(tx_buffer,</highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal">,256*</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(1){</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_in<sp/>dest_addr;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>dest_addr.sin_addr.s_addr<sp/>=<sp/>htonl(INADDR_ANY);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>dest_addr.sin_family<sp/>=<sp/>AF_INET;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>dest_addr.sin_port<sp/>=<sp/>htons(PORT);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>addr_family<sp/>=<sp/>AF_INET;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>ip_protocol<sp/>=<sp/>IPPROTO_IP;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>inet_ntoa_r(dest_addr.sin_addr,<sp/>addr_str,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(addr_str)<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sock<sp/>=<sp/>socket(addr_family,<sp/>SOCK_DGRAM,<sp/>ip_protocol);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sock<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>create<sp/>socket:<sp/>errno<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>errno);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Socket<sp/>created&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>err<sp/>=<sp/>bind(sock,<sp/>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr<sp/>*)&amp;dest_addr,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dest_addr));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Socket<sp/>unable<sp/>to<sp/>bind:<sp/>errno<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>errno);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Socket<sp/>bound,<sp/>port<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>PORT);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(1){</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Waiting<sp/>for<sp/>data&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_storage<sp/>source_addr;<sp/></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>socklen_t<sp/>socklen<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(source_addr);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>len<sp/>=<sp/>recvfrom(sock,<sp/>rx_buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(rx_buffer)<sp/>-<sp/>1,<sp/>0,<sp/>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr<sp/>*)&amp;source_addr,<sp/>&amp;socklen);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(len<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;recvfrom<sp/>failed:<sp/>errno<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>errno);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(source_addr.ss_family<sp/>==<sp/>PF_INET)<sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inet_ntoa_r(((</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>*)&amp;source_addr)-&gt;sin_addr,<sp/>addr_str,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(addr_str)<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(source_addr.ss_family<sp/>==<sp/>PF_INET6)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inet6_ntoa_r(((</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr_in6<sp/>*)&amp;source_addr)-&gt;sin6_addr,<sp/>addr_str,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(addr_str)<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rx_buffer[len]<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Received<sp/>%d<sp/>bytes<sp/>from<sp/>%s:&quot;</highlight><highlight class="normal">,<sp/>len,<sp/>addr_str);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAG,<sp/></highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>rx_buffer);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(1){</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xEventGroupSync(xEventGroup,RESTARTAQ,STOPAQ,xDelay);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>buffer_arrange(glove,tx_buffer);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>err<sp/>=<sp/>sendto(sock,<sp/>tx_buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(tx_buffer),<sp/>0,<sp/>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr<sp/>*)&amp;source_addr,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(source_addr));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(err<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Error<sp/>occurred<sp/>during<sp/>sending:<sp/>errno<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>errno);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>len<sp/>=<sp/>recvfrom(sock,<sp/>rx_buffer,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(rx_buffer)<sp/>-<sp/>1,<sp/>MSG_DONTWAIT,<sp/>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr<sp/>*)&amp;source_addr,<sp/>&amp;socklen);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sock<sp/>!=<sp/>-1)<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGE(TAG,<sp/></highlight><highlight class="stringliteral">&quot;Shutting<sp/>down<sp/>socket<sp/>and<sp/>restarting...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>shutdown(sock,<sp/>0);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>close(sock);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/>vTaskDelete(NULL);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal">}<sp/></highlight></codeline>
+<codeline lineno="256" refid="udp__server_8c_1a531391cf773ca97bf42fdb07e2f238ef" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1a531391cf773ca97bf42fdb07e2f238ef" kindref="member">sync_task</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pvParameters)</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>uint8_t<sp/>addr[3]={1,0,2};<sp/></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/>mux_selector_config();</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>vTaskDelay(pdMS_TO_TICKS(1000));</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>xEventGroupSetBits(xEventGroup,STARTAQ);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(1){</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gpio_set_level(pinA,(addr[i]&amp;2)<sp/>&gt;&gt;<sp/>1);</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gpio_set_level(pinB,<sp/>addr[i]<sp/>&amp;<sp/>1);</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>xEventGroupSync(xEventGroup,(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)1&lt;&lt;i,SYNCHRONIZED,xDelay);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>vTaskDelay(sample_time);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>xEventGroupSync(xEventGroup,<sp/>STOPAQ,RESTARTAQ<sp/>,xDelay);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/>vTaskDelete(NULL);<sp/><sp/></highlight></codeline>
+<codeline lineno="276"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="udp__server_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="udp__server_8c_1a630544a7f0a2cc40d8a7fefab7e2fe70" kindref="member">app_main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="279"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>xEventGroup<sp/>=<sp/>xEventGroupCreate();</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>glove<sp/>=<sp/>(<ref refid="structGlove" kindref="compound">Glove</ref><sp/>*)malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structGlove" kindref="compound">Glove</ref>));</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(nvs_flash_init());</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(esp_netif_init());</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(esp_event_loop_create_default());</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(example_connect());</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/>adc_chars<sp/>=<sp/>calloc(1,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(esp_adc_cal_characteristics_t));</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>i2c_master_init(MASTER_0,SDA1,SCL1);</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/>i2c_master_init(MASTER_1,SDA2,SCL2);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/>setup_sensors();</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/>initialization(glove);</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/>calibration(glove);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>adc_config();<sp/></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/>xTaskCreate(<ref refid="udp__server_8c_1abd4309cfda7f67f259856ae55bfb0827" kindref="member">udp_server_task</ref>,<sp/></highlight><highlight class="stringliteral">&quot;udp_server_task&quot;</highlight><highlight class="normal">,<sp/>16384,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)AF_INET,<sp/>5,<sp/>&amp;xTaskUDP);</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/>xTaskCreate(<ref refid="udp__server_8c_1a9a96cf1151f8f8920cf2c88c09c6f2e0" kindref="member">i2c_task_reference_frame</ref><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;i2c_task_reference_frame&quot;</highlight><highlight class="normal">,<sp/>4096,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)1,<sp/>10,<sp/>&amp;xTaskREF);<sp/></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/>xTaskCreate(<ref refid="udp__server_8c_1a319d1311478061090e860f234d2d067a" kindref="member">i2c_task0</ref><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;i2c_test_task_0&quot;</highlight><highlight class="normal">,<sp/>4096,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)0,<sp/>20,<sp/>&amp;xTaskI2C0);<sp/></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>xTaskCreate(<ref refid="udp__server_8c_1a531391cf773ca97bf42fdb07e2f238ef" kindref="member">sync_task</ref><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;sync_task&quot;</highlight><highlight class="normal">,<sp/>2048,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)0,<sp/>20,<sp/>&amp;xTaskSYNCH);<sp/></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/>xTaskCreate(<ref refid="udp__server_8c_1afe6866cbf1466648ebd712b35a04c8d6" kindref="member">disp_buf</ref><sp/><sp/>,<sp/></highlight><highlight class="stringliteral">&quot;disp_buf&quot;</highlight><highlight class="normal">,<sp/>4096,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)UDP,<sp/>20,<sp/>&amp;xTaskDISP);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="main/udp_server.c"/>
+  </compounddef>
+</doxygen>

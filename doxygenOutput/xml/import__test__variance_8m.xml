@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="import__test__variance_8m" kind="file" language="Objective-C">
+    <compoundname>import_test_variance.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="import__test__variance_8m_1a2524525e499f4ee63bb0c6dd166f745d" prot="public" static="no" mutable="no">
+        <type>Import data from text file Script for importing data from the following text</type>
+        <definition>Read columns of data according to the format This call is based on the structure of the file used to generate this code If an error occurs for a different file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="2" column="52" bodyfile="import_test_variance.m" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1aacf4e58be14eef37272a71c004bc3f58" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>delimiter</definition>
+        <argsstring></argsstring>
+        <name>delimiter</name>
+        <initializer>= &apos;,&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="13" column="1" bodyfile="import_test_variance.m" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a9cc4f6cb95f1815ba4cc9adf4a6055a5" prot="public" static="no" mutable="no">
+        <type>Read columns of data as</type>
+        <definition>Read columns of data as text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="15" column="26" bodyfile="import_test_variance.m" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a15ff8eb1993cfbebea8a97327013671a" prot="public" static="no" mutable="no">
+        <type>Read columns of data as see the TEXTSCAN documentation</type>
+        <definition>Read columns of data as see the TEXTSCAN documentation formatSpec</definition>
+        <argsstring></argsstring>
+        <name>formatSpec</name>
+        <initializer>= &apos;%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="17" column="1" bodyfile="import_test_variance.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a0535e16c4a03a88fd449c86dc20c47c4" prot="public" static="no" mutable="no">
+        <type>Open the text file</type>
+        <definition>Open the text file fileID</definition>
+        <argsstring></argsstring>
+        <name>fileID</name>
+        <initializer>= fopen(filename,&apos;r&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="20" column="1" bodyfile="import_test_variance.m" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a7ae75349ad73aa5ca5625226265cbe36" prot="public" static="no" mutable="no">
+        <type>Read columns of data according to the format This call is based on the structure of the file used to generate this code If an error occurs for a different try regenerating the code from the Import Tool</type>
+        <definition>Read columns of data according to the format This call is based on the structure of the file used to generate this code If an error occurs for a different try regenerating the code from the Import Tool dataArray</definition>
+        <argsstring></argsstring>
+        <name>dataArray</name>
+        <initializer>= textscan(fileID, formatSpec, &apos;Delimiter&apos;, delimiter, &apos;TextType&apos;, &apos;string&apos;,  &apos;ReturnOnError&apos;, false)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="26" column="1" bodyfile="import_test_variance.m" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a3be616147be4f0eef21e6ae2742b5d49" prot="public" static="no" mutable="no">
+        <type>for</type>
+        <definition>for col</definition>
+        <argsstring></argsstring>
+        <name>col</name>
+        <initializer>=1:length(dataArray)-1
+    raw(1:length(dataArray{col}),col) = mat2cell(dataArray{col}, ones(length(dataArray{col}), 1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="34" column="5" bodyfile="import_test_variance.m" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1ade67775cd41688b627366486d516439c" prot="public" static="no" mutable="no">
+        <type>end</type>
+        <definition>end numericData</definition>
+        <argsstring></argsstring>
+        <name>numericData</name>
+        <initializer>= NaN(size(dataArray{1},1),size(dataArray,2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="37" column="1" bodyfile="import_test_variance.m" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a1910fb8125b0c9bdda53a64552b55e72" prot="public" static="no" mutable="no">
+        <type>for</type>
+        <definition>for row</definition>
+        <argsstring></argsstring>
+        <name>row</name>
+        <initializer>=1:size(rawData, 1)
+        % Create a regular expression to detect and remove non-numeric prefixes and
+        % suffixes.
+        regexstr = &apos;(?&lt;prefix&gt;.*?)(?&lt;numbers&gt;([-]*(\d+[\,]*)+[\.]{0,1}\d*[eEdD]{0,1}[-+]*\d*[i]{0,1})|([-]*(\d+[\,]*)*[\.]{1,1}\d+[eEdD]{0,1}[-+]*\d*[i]{0,1}))(?&lt;suffix&gt;.*)&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="43" column="9" bodyfile="import_test_variance.m" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a505d4599fc8119c215bd6e0d67321f34" prot="public" static="no" mutable="no">
+        <type>try</type>
+        <definition>try result</definition>
+        <argsstring></argsstring>
+        <name>result</name>
+        <initializer>= regexp(rawData(row), regexstr, &apos;names&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="48" column="13" bodyfile="import_test_variance.m" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1adbdde44f981e5f6df2c75332ea3f9220" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>numbers</definition>
+        <argsstring></argsstring>
+        <name>numbers</name>
+        <initializer>= result.numbers</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="49" column="13" bodyfile="import_test_variance.m" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="import__test__variance_8m_1a5842142eda18d3edfea76bfb214e7ee4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>invalidThousandsSeparator</definition>
+        <argsstring></argsstring>
+        <name>invalidThousandsSeparator</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="57" column="21" bodyfile="import_test_variance.m" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="import__test__variance_8m_1a9a3043eed208fc59883c3d1fcdee2df9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Close the text file</type>
+        <definition>Close the text file fclose</definition>
+        <argsstring>(fileID)</argsstring>
+        <name>fclose</name>
+        <param>
+          <type>fileID</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="29" column="1" declfile="import_test_variance.m" declline="29" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="import__test__variance_8m_1a4ebca84049fee9616138c80bff2b08c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>dataArray</type>
+        <definition>dataArray length</definition>
+        <argsstring>()</argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="32" column="10" declfile="import_test_variance.m" declline="32" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="import__test__variance_8m_1a5b71b4c01ab76ead7235d6471e0314bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>id</type>
+        <definition>id false</definition>
+        <argsstring>()</argsstring>
+        <name>false</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="51" column="33" declfile="import_test_variance.m" declline="51" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="import__test__variance_8m_1a16c5911b9340b93ab7f95eb1dbe10d66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>if numbers</type>
+        <definition>if numbers contains</definition>
+        <argsstring>(&apos;,&apos;) thousandsRegExp</argsstring>
+        <name>contains</name>
+        <param>
+          <type>&apos;</type>
+        </param>
+        <param>
+          <type>&apos;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="53" column="23" declfile="import_test_variance.m" declline="53" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="import__test__variance_8m_1a6ad17bbda5621d39e3d6e80597df8a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>if</type>
+        <definition>if isempty</definition>
+        <argsstring>(regexp(numbers, thousandsRegExp, &apos;once&apos;)) numbers</argsstring>
+        <name>isempty</name>
+        <param>
+          <type>regexp(numbers, thousandsRegExp, &apos;once&apos;)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="import_test_variance.m" line="55" column="20" declfile="import_test_variance.m" declline="55" declcolumn="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%%<sp/>Import<sp/>data<sp/>from<sp/>text<sp/>file.</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%<sp/>Script<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>importing<sp/>data<sp/>from<sp/>the<sp/>following<sp/>text<sp/>file:</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/>/home/filipe/sensor-luva/udp/test_variancia.csv</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>To<sp/>extend<sp/>the<sp/>code<sp/>to<sp/>different<sp/>selected<sp/>data<sp/>or<sp/>a<sp/>different<sp/>text<sp/>file,</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%<sp/>generate<sp/>a<sp/>function<sp/>instead<sp/>of<sp/>a<sp/>script.</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/>Auto-generated<sp/>by<sp/>MATLAB<sp/>on<sp/>2021/06/11<sp/>12:28:41</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%%<sp/>Initialize<sp/>variables.</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">filename<sp/>=<sp/>&apos;/home/filipe/sensor-luva/udp/test_variancia.csv&apos;;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">delimiter<sp/>=<sp/></highlight><highlight class="charliteral">&apos;,&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">%%<sp/>Read<sp/>columns<sp/>of<sp/>data<sp/>as<sp/>text:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">%<sp/>For<sp/>more<sp/>information,<sp/>see<sp/>the<sp/>TEXTSCAN<sp/>documentation.</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">formatSpec<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%[^\n\r]&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">%%<sp/>Open<sp/>the<sp/>text<sp/>file.</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">fileID<sp/>=<sp/>fopen(filename,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">%%<sp/>Read<sp/>columns<sp/>of<sp/>data<sp/>according<sp/>to<sp/>the<sp/>format.</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">%<sp/>This<sp/>call<sp/>is<sp/>based<sp/>on<sp/>the<sp/>structure<sp/>of<sp/>the<sp/>file<sp/>used<sp/>to<sp/>generate<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">%<sp/>code.<sp/>If<sp/>an<sp/>error<sp/>occurs<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>a<sp/>different<sp/>file,<sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>regenerating<sp/>the<sp/>code</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">%<sp/>from<sp/>the<sp/>Import<sp/>Tool.</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">dataArray<sp/>=<sp/>textscan(fileID,<sp/>formatSpec,<sp/></highlight><highlight class="stringliteral">&apos;Delimiter&apos;</highlight><highlight class="normal">,<sp/>delimiter,<sp/></highlight><highlight class="stringliteral">&apos;TextType&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;string&apos;</highlight><highlight class="normal">,<sp/><sp/></highlight><highlight class="stringliteral">&apos;ReturnOnError&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">%%<sp/>Close<sp/>the<sp/>text<sp/>file.</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">fclose(fileID);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">%%<sp/>Convert<sp/>the<sp/>contents<sp/>of<sp/>columns<sp/>containing<sp/>numeric<sp/>text<sp/>to<sp/>numbers.</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">%<sp/>Replace<sp/>non-numeric<sp/>text<sp/>with<sp/>NaN.</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">raw<sp/>=<sp/>repmat({</highlight><highlight class="stringliteral">&apos;&apos;</highlight><highlight class="normal">},length(dataArray{1}),length(dataArray)-1);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>col=1:length(dataArray)-1</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>raw(1:length(dataArray{col}),col)<sp/>=<sp/>mat2cell(dataArray{col},<sp/>ones(length(dataArray{col}),<sp/>1));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">end</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">numericData<sp/>=<sp/>NaN(size(dataArray{1},1),size(dataArray,2));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>col=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>Converts<sp/>text<sp/>in<sp/>the<sp/>input<sp/>cell<sp/>array<sp/>to<sp/>numbers.<sp/>Replaced<sp/>non-numeric</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>text<sp/>with<sp/>NaN.</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>rawData<sp/>=<sp/>dataArray{col};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>row=1:size(rawData,<sp/>1)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Create<sp/>a<sp/>regular<sp/>expression<sp/>to<sp/>detect<sp/>and<sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal"><sp/>non-numeric<sp/>prefixes<sp/>and</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>suffixes.</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>regexstr<sp/>=<sp/>&apos;(?&lt;prefix&gt;.*?)(?&lt;numbers&gt;([-]*(\d+[\,]*)+[\.]{0,1}\d*[eEdD]{0,1}[-+]*\d*[i]{0,1})|([-]*(\d+[\,]*)*[\.]{1,1}\d+[eEdD]{0,1}[-+]*\d*[i]{0,1}))(?&lt;suffix&gt;.*)</highlight><highlight class="stringliteral">&apos;;</highlight></codeline>
+<codeline lineno="47"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try</highlight></codeline>
+<codeline lineno="48"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>regexp(rawData(row),<sp/>regexstr,<sp/>&apos;</highlight><highlight class="normal">names</highlight><highlight class="stringliteral">&apos;);</highlight></codeline>
+<codeline lineno="49"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>result.numbers;</highlight></codeline>
+<codeline lineno="50"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Detected<sp/>commas<sp/>in<sp/>non-thousand<sp/>locations.</highlight></codeline>
+<codeline lineno="52"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invalidThousandsSeparator<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="53"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>numbers.contains(&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;)</highlight></codeline>
+<codeline lineno="54"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thousandsRegExp<sp/>=<sp/>&apos;</highlight><highlight class="normal">^\d+?(\,\d{3})*\.{0,1}\d*$</highlight><highlight class="stringliteral">&apos;;</highlight></codeline>
+<codeline lineno="55"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>isempty(regexp(numbers,<sp/>thousandsRegExp,<sp/>&apos;</highlight><highlight class="normal">once</highlight><highlight class="stringliteral">&apos;))</highlight></codeline>
+<codeline lineno="56"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>NaN;</highlight></codeline>
+<codeline lineno="57"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invalidThousandsSeparator<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="58"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="59"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="60"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Convert<sp/>numeric<sp/>text<sp/>to<sp/>numbers.</highlight></codeline>
+<codeline lineno="61"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>~invalidThousandsSeparator</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>textscan(char(strrep(numbers,<sp/>&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;,<sp/>&apos;</highlight><highlight class="stringliteral">&apos;)),<sp/>&apos;</highlight><highlight class="normal">%f</highlight><highlight class="stringliteral">&apos;);</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numericData(row,<sp/>col)<sp/>=<sp/>numbers{1};</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raw{row,<sp/>col}<sp/>=<sp/>numbers{1};</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>catch</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raw{row,<sp/>col}<sp/>=<sp/>rawData{row};</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral">end</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral">%%<sp/>Replace<sp/>non-numeric<sp/>cells<sp/>with<sp/>NaN</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral">R<sp/>=<sp/>cellfun(@(x)<sp/>~isnumeric(x)<sp/>&amp;&amp;<sp/>~islogical(x),raw);<sp/>%<sp/>Find<sp/>non-numeric<sp/>cells</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral">raw(R)<sp/>=<sp/>{NaN};<sp/>%<sp/>Replace<sp/>non-numeric<sp/>cells</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral">%%<sp/>Create<sp/>output<sp/>variable</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral">testvariancia<sp/>=<sp/>table;</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral">testvariancia.VarName1<sp/>=<sp/>cell2mat(raw(:,<sp/>1));</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral">testvariancia.VarName2<sp/>=<sp/>cell2mat(raw(:,<sp/>2));</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral">testvariancia.VarName3<sp/>=<sp/>cell2mat(raw(:,<sp/>3));</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral">testvariancia.VarName4<sp/>=<sp/>cell2mat(raw(:,<sp/>4));</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral">testvariancia.VarName5<sp/>=<sp/>cell2mat(raw(:,<sp/>5));</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral">testvariancia.VarName6<sp/>=<sp/>cell2mat(raw(:,<sp/>6));</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral">testvariancia.VarName7<sp/>=<sp/>cell2mat(raw(:,<sp/>7));</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral">testvariancia.VarName8<sp/>=<sp/>cell2mat(raw(:,<sp/>8));</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral">testvariancia.VarName9<sp/>=<sp/>cell2mat(raw(:,<sp/>9));</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral">testvariancia.VarName10<sp/>=<sp/>cell2mat(raw(:,<sp/>10));</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral">testvariancia.VarName11<sp/>=<sp/>cell2mat(raw(:,<sp/>11));</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral">testvariancia.VarName12<sp/>=<sp/>cell2mat(raw(:,<sp/>12));</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral">testvariancia.VarName13<sp/>=<sp/>cell2mat(raw(:,<sp/>13));</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral">testvariancia.VarName14<sp/>=<sp/>cell2mat(raw(:,<sp/>14));</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral">testvariancia.VarName15<sp/>=<sp/>cell2mat(raw(:,<sp/>15));</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral">testvariancia.VarName16<sp/>=<sp/>cell2mat(raw(:,<sp/>16));</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral">testvariancia.VarName17<sp/>=<sp/>cell2mat(raw(:,<sp/>17));</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral">testvariancia.VarName18<sp/>=<sp/>cell2mat(raw(:,<sp/>18));</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral">testvariancia.VarName19<sp/>=<sp/>cell2mat(raw(:,<sp/>19));</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral">testvariancia.VarName20<sp/>=<sp/>cell2mat(raw(:,<sp/>20));</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral">testvariancia.VarName21<sp/>=<sp/>cell2mat(raw(:,<sp/>21));</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral">testvariancia.VarName22<sp/>=<sp/>cell2mat(raw(:,<sp/>22));</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral">testvariancia.VarName23<sp/>=<sp/>cell2mat(raw(:,<sp/>23));</highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral">testvariancia.VarName24<sp/>=<sp/>cell2mat(raw(:,<sp/>24));</highlight></codeline>
+<codeline lineno="103"><highlight class="stringliteral">testvariancia.VarName25<sp/>=<sp/>cell2mat(raw(:,<sp/>25));</highlight></codeline>
+<codeline lineno="104"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="105"><highlight class="stringliteral">%%<sp/>Clear<sp/>temporary<sp/>variables</highlight></codeline>
+<codeline lineno="106"><highlight class="stringliteral">clearvars<sp/>filename<sp/>delimiter<sp/>formatSpec<sp/>fileID<sp/>dataArray<sp/>ans<sp/>raw<sp/>col<sp/>numericData<sp/>rawData<sp/>row<sp/>regexstr<sp/>result<sp/>numbers<sp/>invalidThousandsSeparator<sp/>thousandsRegExp<sp/>R;</highlight></codeline>
+    </programlisting>
+    <location file="import_test_variance.m"/>
+  </compounddef>
+</doxygen>

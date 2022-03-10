@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structfinger" kind="struct" language="C++" prot="public">
+    <compoundname>finger</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structfinger_1af846836d150bc254830a3234b97e44be" prot="public" static="no" mutable="no">
+        <type><ref refid="structorientation" kindref="compound">orientation</ref></type>
+        <definition>orientation finger::proximal</definition>
+        <argsstring></argsstring>
+        <name>proximal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="46" column="13" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfinger_1ac95eb908875002e2640f754b41eeba59" prot="public" static="no" mutable="no">
+        <type><ref refid="structorientation" kindref="compound">orientation</ref></type>
+        <definition>orientation finger::distal</definition>
+        <argsstring></argsstring>
+        <name>distal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="47" column="13" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfinger_1a4107fc30b4eddf43b687c4a741fad1cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structorientation" kindref="compound">orientation</ref></type>
+        <definition>orientation finger::metacarpo</definition>
+        <argsstring></argsstring>
+        <name>metacarpo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="48" column="13" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfinger_1a682c147a7c5ea03c79ce6866e72dc2e4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float finger::pressure</definition>
+        <argsstring></argsstring>
+        <name>pressure</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="49" column="7" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>finger</label>
+        <link refid="structfinger"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>distal</edgelabel>
+          <edgelabel>metacarpo</edgelabel>
+          <edgelabel>proximal</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>orientation</label>
+        <link refid="structorientation"/>
+      </node>
+    </collaborationgraph>
+    <location file="components/orientation_estimate/include/position_process.h" line="45" column="1" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="45" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structfinger_1ac95eb908875002e2640f754b41eeba59" prot="public" virt="non-virtual"><scope>finger</scope><name>distal</name></member>
+      <member refid="structfinger_1a4107fc30b4eddf43b687c4a741fad1cd" prot="public" virt="non-virtual"><scope>finger</scope><name>metacarpo</name></member>
+      <member refid="structfinger_1a682c147a7c5ea03c79ce6866e72dc2e4" prot="public" virt="non-virtual"><scope>finger</scope><name>pressure</name></member>
+      <member refid="structfinger_1af846836d150bc254830a3234b97e44be" prot="public" virt="non-virtual"><scope>finger</scope><name>proximal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

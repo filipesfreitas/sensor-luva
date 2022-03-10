@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="softap_8c" kind="file" language="C++">
+    <compoundname>softap.c</compoundname>
+    <includes refid="softap_8h" local="no">softap.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="10">
+        <label>nvs_flash.h</label>
+      </node>
+      <node id="6">
+        <label>esp_system.h</label>
+      </node>
+      <node id="7">
+        <label>esp_wifi.h</label>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="9">
+        <label>esp_log.h</label>
+      </node>
+      <node id="12">
+        <label>lwip/sys.h</label>
+      </node>
+      <node id="2">
+        <label>softap.h</label>
+        <link refid="softap_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>lwip/err.h</label>
+      </node>
+      <node id="8">
+        <label>esp_event.h</label>
+      </node>
+      <node id="5">
+        <label>freertos/task.h</label>
+      </node>
+      <node id="1">
+        <label>components/softap/softap.c</label>
+        <link refid="softap_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="softap_8c_1ac31e38637f7a5e5c8ce4d033b0955fec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void wifi_event_handler</definition>
+        <argsstring>(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)</argsstring>
+        <name>wifi_event_handler</name>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>esp_event_base_t</type>
+          <declname>event_base</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>event_id</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>event_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/softap.c" line="4" column="13" bodyfile="components/softap/softap.c" bodystart="4" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="softap_8c_1a4a2bc421f17a5713e35165034943cea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void wifi_init_softap</definition>
+        <argsstring>(void)</argsstring>
+        <name>wifi_init_softap</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/softap.c" line="18" column="6" bodyfile="components/softap/softap.c" bodystart="18" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;softap.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wifi_event_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg,<sp/>esp_event_base_t<sp/>event_base,</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>event_id,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>event_data)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event_id<sp/>==<sp/>WIFI_EVENT_AP_STACONNECTED)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wifi_event_ap_staconnected_t*<sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>=<sp/>(wifi_event_ap_staconnected_t*)<sp/>event_data;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAGSOFTAP,<sp/></highlight><highlight class="stringliteral">&quot;station<sp/>&quot;</highlight><highlight class="normal">MACSTR</highlight><highlight class="stringliteral">&quot;<sp/>join,<sp/>AID=%d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAC2STR(event-&gt;mac),<sp/>event-&gt;aid);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(event_id<sp/>==<sp/>WIFI_EVENT_AP_STADISCONNECTED)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wifi_event_ap_stadisconnected_t*<sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>=<sp/>(wifi_event_ap_stadisconnected_t*)<sp/>event_data;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ESP_LOGI(TAGSOFTAP,<sp/></highlight><highlight class="stringliteral">&quot;station<sp/>&quot;</highlight><highlight class="normal">MACSTR</highlight><highlight class="stringliteral">&quot;<sp/>leave,<sp/>AID=%d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MAC2STR(event-&gt;mac),<sp/>event-&gt;aid);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wifi_init_softap(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_err_t<sp/>check_code_error;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_netif_init());</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_event_loop_create_default());</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>esp_netif_create_default_wifi_ap();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>wifi_init_config_t<sp/>cfg<sp/>=<sp/>WIFI_INIT_CONFIG_DEFAULT();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_wifi_init(&amp;cfg));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT,<sp/>ESP_EVENT_ANY_ID,<sp/>&amp;wifi_event_handler,<sp/>NULL));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>wifi_config_t<sp/>wifi_config<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ap<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ssid<sp/>=<sp/>EXAMPLE_ESP_WIFI_SSID,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.ssid_len<sp/>=<sp/>strlen(EXAMPLE_ESP_WIFI_SSID),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.channel<sp/>=<sp/>EXAMPLE_ESP_WIFI_CHANNEL,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.password<sp/>=<sp/>EXAMPLE_ESP_WIFI_PASS,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.max_connection<sp/>=<sp/>EXAMPLE_MAX_STA_CONN,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.authmode<sp/>=<sp/>WIFI_AUTH_WPA_WPA2_PSK</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strlen(EXAMPLE_ESP_WIFI_PASS)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>wifi_config.ap.authmode<sp/>=<sp/>WIFI_AUTH_OPEN;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_AP));<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_AP,<sp/>&amp;wifi_config));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_ERROR_CHECK(esp_wifi_start());</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>ESP_LOGI(TAGSOFTAP,<sp/></highlight><highlight class="stringliteral">&quot;wifi_init_softap<sp/>finished.<sp/>SSID:%s<sp/>password:%s<sp/>channel:%d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>EXAMPLE_ESP_WIFI_SSID,<sp/>EXAMPLE_ESP_WIFI_PASS,<sp/>EXAMPLE_ESP_WIFI_CHANNEL);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="components/softap/softap.c"/>
+  </compounddef>
+</doxygen>

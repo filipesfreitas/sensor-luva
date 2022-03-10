@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="i2c__handler_8c" kind="file" language="C++">
+    <compoundname>i2c_handler.c</compoundname>
+    <includes refid="i2c__handler_8h" local="no">i2c_handler.h</includes>
+    <includes refid="misc_8h" local="no">misc.h</includes>
+    <includes local="yes">esp_log.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="1">
+        <label>components/i2c/i2c_handler.c</label>
+        <link refid="i2c__handler_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>esp_adc_cal.h</label>
+      </node>
+      <node id="2">
+        <label>i2c_handler.h</label>
+        <link refid="i2c__handler_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>driver/adc.h</label>
+      </node>
+      <node id="4">
+        <label>misc.h</label>
+        <link refid="misc_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>esp_log.h</label>
+      </node>
+      <node id="9">
+        <label>math.h</label>
+      </node>
+      <node id="3">
+        <label>driver/i2c.h</label>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="i2c__handler_8c_1a5a85b9c772bbeb480b209a3e6ea92b4c" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* TAG</definition>
+        <argsstring></argsstring>
+        <name>TAG</name>
+        <initializer>= &quot;I2C_HANDLER&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="5" column="19" bodyfile="components/i2c/i2c_handler.c" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="i2c__handler_8c_1af2551f23e9fd29ff14d37c134f88511b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_read_slave</definition>
+        <argsstring>(i2c_port_t i2c_num, uint8_t device, uint8_t reg_address, uint8_t *data, size_t data_len)</argsstring>
+        <name>i2c_master_read_slave</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>i2c_num</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="8" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="8" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8c_1af20b0f940194b109f4f14d68e7907e66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_write_slave</definition>
+        <argsstring>(i2c_port_t i2c_num, uint8_t device, uint8_t reg_address, uint8_t *data, size_t data_len)</argsstring>
+        <name>i2c_master_write_slave</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>i2c_num</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg_address</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>data_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="40" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="40" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8c_1ac92dc97abfda2d0e81ad38b4874c2846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_imu_setup</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, uint8_t device)</argsstring>
+        <name>i2c_imu_setup</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="56" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="56" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8c_1a5f86e178334e98a8907bf2afb68bcf97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_imu_setup_reference</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, uint8_t device)</argsstring>
+        <name>i2c_imu_setup_reference</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="78" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="78" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="i2c__handler_8c_1a0ae3c2f87e4f2fce9dc9170890971240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>esp_err_t</type>
+        <definition>esp_err_t i2c_master_init</definition>
+        <argsstring>(i2c_port_t MASTER_NUMBER, int sda, int scl)</argsstring>
+        <name>i2c_master_init</name>
+        <param>
+          <type>i2c_port_t</type>
+          <declname>MASTER_NUMBER</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sda</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>scl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/i2c/i2c_handler.c" line="101" column="11" bodyfile="components/i2c/i2c_handler.c" bodystart="101" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;i2c_handler.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;misc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*TAG<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;I2C_HANDLER&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Master<sp/>rad<sp/>on<sp/>I2C<sp/>bus*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">esp_err_t<sp/>i2c_master_read_slave(i2c_port_t<sp/>i2c_num,uint8_t<sp/>device<sp/>,uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_len)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Master<sp/>read<sp/>from<sp/>slave<sp/>on<sp/>I2C<sp/>BUS.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/>@param</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>i2c_cmd_handle_t<sp/>cmd<sp/>=<sp/>i2c_cmd_link_create();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>i2c_master_start(cmd);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>i2c_master_write_byte(cmd,<sp/>device<sp/>&lt;&lt;<sp/>1<sp/>|<sp/>WRITE_BIT,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>i2c_master_write_byte(cmd,<sp/>reg_address,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>i2c_master_stop(cmd);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>i2c_master_cmd_begin(i2c_num,<sp/>cmd,<sp/>10<sp/>/<sp/>portTICK_RATE_MS);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>i2c_cmd_link_delete(cmd);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>cmd<sp/>=<sp/>i2c_cmd_link_create();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>i2c_master_start(cmd);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>i2c_master_write_byte(cmd,<sp/>device<sp/>&lt;&lt;<sp/>1<sp/>|<sp/>READ_BIT,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>i2c_master_read(cmd,<sp/>data,<sp/>data_len,<sp/>LAST_NACK_VAL);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>i2c_master_stop(cmd);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>i2c_master_cmd_begin(i2c_num,<sp/>cmd,<sp/>10<sp/>/<sp/>portTICK_RATE_MS);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>i2c_cmd_link_delete(cmd);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*Master<sp/>write<sp/>on<sp/>I2C<sp/>bus*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">esp_err_t<sp/>i2c_master_write_slave(i2c_port_t<sp/>i2c_num<sp/>,uint8_t<sp/>device<sp/>,uint8_t<sp/>reg_address,<sp/>uint8_t<sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_len)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>i2c_cmd_handle_t<sp/>cmd<sp/>=<sp/>i2c_cmd_link_create();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>i2c_master_start(cmd);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>i2c_master_write_byte(cmd,<sp/>device<sp/>&lt;&lt;<sp/>1<sp/>|<sp/>WRITE_BIT,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>i2c_master_write_byte(cmd,<sp/>reg_address,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>i2c_master_write(cmd,<sp/>data,<sp/>data_len,<sp/>ACK_CHECK_EN);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>i2c_master_stop(cmd);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>i2c_master_cmd_begin(i2c_num,<sp/>cmd,<sp/>1000<sp/>/<sp/>portTICK_RATE_MS);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>i2c_cmd_link_delete(cmd);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Set<sp/>of<sp/>registers<sp/>to<sp/>set<sp/>after<sp/>IMU<sp/>has<sp/>started<sp/>up*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">esp_err_t<sp/>i2c_imu_setup(i2c_port_t<sp/>MASTER_NUMBER,uint8_t<sp/>device)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>uint8_t<sp/>cmd_data;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>vTaskDelay(100<sp/>/<sp/>portTICK_RATE_MS);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>ESP_LOGI(TAG,</highlight><highlight class="stringliteral">&quot;\vSetting<sp/>up<sp/>sensor<sp/>%d<sp/>on<sp/>master<sp/>%d&quot;</highlight><highlight class="normal">,device,MASTER_NUMBER);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>ODR<sp/>config<sp/>and<sp/>DLPF*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0X00;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>DEVICE<sp/>CONFIG:<sp/><sp/>accel<sp/>bw<sp/>=<sp/><sp/>260<sp/>Hz<sp/>delay<sp/>=0;<sp/>gyro<sp/>bw=256<sp/>delay<sp/>0.98ms<sp/>-&gt;<sp/>Fs<sp/>=<sp/>8kHz.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,CONFIG_device,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x18;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ACCEL<sp/>CONFIG:<sp/><sp/>g/s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,ACCEL_CONFIG,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x00;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>GYRO<sp/>CONFIG:<sp/><sp/>º/s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,GYRO_CONFIG,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SMPLRT_DIV<sp/>:<sp/>Sample<sp/>Rate<sp/>=<sp/>Gyroscope<sp/>Output<sp/>Rate<sp/>/<sp/>(1<sp/>+<sp/>SMPLRT_DIV)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,SMPLRT_DIV,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Power<sp/>Mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x02;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>POWER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,PWR_MGMT_1,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">esp_err_t<sp/>i2c_imu_setup_reference(i2c_port_t<sp/>MASTER_NUMBER,uint8_t<sp/>device){</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>uint8_t<sp/>cmd_data;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>vTaskDelay(100<sp/>/<sp/>portTICK_RATE_MS);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>ESP_LOGI(TAG,</highlight><highlight class="stringliteral">&quot;\vSetting<sp/>up<sp/>sensor<sp/>%d<sp/>on<sp/>master<sp/>%d&quot;</highlight><highlight class="normal">,device,MASTER_NUMBER);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>ODR<sp/>config<sp/>and<sp/>DLPF*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0X00;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>DEVICE<sp/>CONFIG:<sp/><sp/>accel<sp/>bw<sp/>=<sp/><sp/>260<sp/>Hz<sp/>delay<sp/>=0;<sp/>gyro<sp/>bw=256<sp/>delay<sp/>0.98ms<sp/>-&gt;<sp/>Fs<sp/>=<sp/>8kHz.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,CONFIG_device,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x18;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ACCEL<sp/>CONFIG:<sp/>16<sp/>g</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,ACCEL_CONFIG,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x18;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>GYRO<sp/>CONFIG:<sp/>2000<sp/>º/S</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,GYRO_CONFIG,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SMPLRT_DIV<sp/>:<sp/>Sample<sp/>Rate<sp/>=<sp/>Gyroscope<sp/>Output<sp/>Rate<sp/>/<sp/>(1<sp/>+<sp/>SMPLRT_DIV)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,SMPLRT_DIV,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Power<sp/>Mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>cmd_data<sp/>=<sp/>0x00;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>POWER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>ESP_ERROR_CHECK(i2c_master_write_slave(MASTER_NUMBER,<sp/>device,PWR_MGMT_1,<sp/>&amp;cmd_data,<sp/>1));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ESP_OK;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Initialize<sp/>master<sp/>hardware<sp/>and<sp/>config.<sp/>for<sp/>comunnication*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal">esp_err_t<sp/>i2c_master_init(i2c_port_t<sp/>MASTER_NUMBER,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sda,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>scl)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>i2c_config_t<sp/>conf;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>conf.mode<sp/>=<sp/>I2C_MODE_MASTER;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>conf.sda_io_num<sp/>=<sp/>sda;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>conf.sda_pullup_en<sp/>=<sp/>GPIO_PULLUP_DISABLE;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>conf.scl_io_num<sp/>=<sp/>scl;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>conf.scl_pullup_en<sp/>=<sp/>GPIO_PULLUP_DISABLE;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>conf.master.clk_speed<sp/>=<sp/>I2C_MASTER_FREQ_HZ;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>i2c_param_config(MASTER_NUMBER,<sp/>&amp;conf);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i2c_driver_install(MASTER_NUMBER,<sp/>conf.mode,<sp/>I2C_MASTER_RX_BUF_DISABLE,<sp/>I2C_MASTER_TX_BUF_DISABLE,<sp/>0);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="components/i2c/i2c_handler.c"/>
+  </compounddef>
+</doxygen>

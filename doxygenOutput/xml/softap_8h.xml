@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="softap_8h" kind="file" language="C++">
+    <compoundname>softap.h</compoundname>
+    <includes local="no">string.h</includes>
+    <includes local="yes">freertos/FreeRTOS.h</includes>
+    <includes local="yes">freertos/task.h</includes>
+    <includes local="yes">esp_system.h</includes>
+    <includes local="yes">esp_wifi.h</includes>
+    <includes local="yes">esp_event.h</includes>
+    <includes local="yes">esp_log.h</includes>
+    <includes local="yes">nvs_flash.h</includes>
+    <includes local="yes">lwip/err.h</includes>
+    <includes local="yes">lwip/sys.h</includes>
+    <includedby refid="softap_8c" local="no">components/softap/softap.c</includedby>
+    <includedby refid="udp__server_8c" local="no">main/udp_server.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>freertos/FreeRTOS.h</label>
+      </node>
+      <node id="9">
+        <label>nvs_flash.h</label>
+      </node>
+      <node id="5">
+        <label>esp_system.h</label>
+      </node>
+      <node id="6">
+        <label>esp_wifi.h</label>
+      </node>
+      <node id="2">
+        <label>string.h</label>
+      </node>
+      <node id="8">
+        <label>esp_log.h</label>
+      </node>
+      <node id="11">
+        <label>lwip/sys.h</label>
+      </node>
+      <node id="1">
+        <label>components/softap/include/softap.h</label>
+        <link refid="softap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>lwip/err.h</label>
+      </node>
+      <node id="7">
+        <label>esp_event.h</label>
+      </node>
+      <node id="4">
+        <label>freertos/task.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>main/udp_server.c</label>
+        <link refid="udp__server_8c"/>
+      </node>
+      <node id="1">
+        <label>components/softap/include/softap.h</label>
+        <link refid="softap_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>components/softap/softap.c</label>
+        <link refid="softap_8c_source"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="softap_8h_1a4fb60228f865afd7f59ecff4a658a9a6" prot="public" static="no">
+        <name>EXAMPLE_ESP_WIFI_SSID</name>
+        <initializer>CONFIG_ESP_WIFI_SSID</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="30" column="9" bodyfile="components/softap/include/softap.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="softap_8h_1ad6d09dc1b370b2971ca6849a248c0a2d" prot="public" static="no">
+        <name>EXAMPLE_ESP_WIFI_PASS</name>
+        <initializer>CONFIG_ESP_WIFI_PASSWORD</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="31" column="9" bodyfile="components/softap/include/softap.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="softap_8h_1ac9a241fecd2104c056764fb425a9466c" prot="public" static="no">
+        <name>EXAMPLE_ESP_WIFI_CHANNEL</name>
+        <initializer>CONFIG_ESP_WIFI_CHANNEL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="32" column="9" bodyfile="components/softap/include/softap.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="softap_8h_1a531a5f52342686f7bf976f8c3db1acea" prot="public" static="no">
+        <name>EXAMPLE_MAX_STA_CONN</name>
+        <initializer>CONFIG_ESP_MAX_STA_CONN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="33" column="9" bodyfile="components/softap/include/softap.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="softap_8h_1a5d25eb60ada999fe3022b7a8b1721c27" prot="public" static="yes" mutable="no">
+        <type>const char *</type>
+        <definition>const char* TAGSOFTAP</definition>
+        <argsstring></argsstring>
+        <name>TAGSOFTAP</name>
+        <initializer>= &quot;wifi softAP&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="35" column="19" bodyfile="components/softap/include/softap.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="softap_8h_1ac31e38637f7a5e5c8ce4d033b0955fec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void wifi_event_handler</definition>
+        <argsstring>(void *arg, esp_event_base_t event_base, int32_t event_id, void *event_data)</argsstring>
+        <name>wifi_event_handler</name>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>esp_event_base_t</type>
+          <declname>event_base</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>event_id</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>event_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="37" column="13" declfile="components/softap/include/softap.h" declline="37" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="softap_8h_1a4a2bc421f17a5713e35165034943cea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void wifi_init_softap</definition>
+        <argsstring>(void)</argsstring>
+        <name>wifi_init_softap</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/softap/include/softap.h" line="39" column="6" bodyfile="components/softap/softap.c" bodystart="18" bodyend="50" declfile="components/softap/include/softap.h" declline="39" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SOFTAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOFTAP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>WiFi<sp/>softAP<sp/>Example</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/>This<sp/>example<sp/>code<sp/>is<sp/>in<sp/>the<sp/>Public<sp/>Domain<sp/>(or<sp/>CC0<sp/>licensed,<sp/>at<sp/>your<sp/>option.)</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>this</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/>software<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/FreeRTOS.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;freertos/task.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_system.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_wifi.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_event.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;esp_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nvs_flash.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/err.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lwip/sys.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>examples<sp/>use<sp/>WiFi<sp/>configuration<sp/>that<sp/>you<sp/>can<sp/>set<sp/>via<sp/>project<sp/>configuration<sp/>menu.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"></highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/>If<sp/>you&apos;d<sp/>rather<sp/>not,<sp/>just<sp/>change<sp/>the<sp/>below<sp/>entries<sp/>to<sp/>strings<sp/>with</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/>the<sp/>config<sp/>you<sp/>want<sp/>-<sp/>ie<sp/>#define<sp/>EXAMPLE_WIFI_SSID<sp/>&quot;mywifissid&quot;</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_ESP_WIFI_SSID<sp/><sp/><sp/><sp/><sp/><sp/>CONFIG_ESP_WIFI_SSID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_ESP_WIFI_PASS<sp/><sp/><sp/><sp/><sp/><sp/>CONFIG_ESP_WIFI_PASSWORD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_ESP_WIFI_CHANNEL<sp/><sp/><sp/>CONFIG_ESP_WIFI_CHANNEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EXAMPLE_MAX_STA_CONN<sp/><sp/><sp/><sp/><sp/><sp/><sp/>CONFIG_ESP_MAX_STA_CONN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*TAGSOFTAP<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;wifi<sp/>softAP&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wifi_event_handler(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg,<sp/>esp_event_base_t<sp/>event_base,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/>event_id,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>event_data);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>wifi_init_softap(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="components/softap/include/softap.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1510 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="bootloader_2config_2sdkconfig_8h" kind="file" language="C++">
+    <compoundname>sdkconfig.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ab18502c21bab5606dbb7b4a903eeda54" prot="public" static="no">
+        <name>CONFIG_IDF_CMAKE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="6" column="10" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a72afb54fc71274e23282847ec28eb359" prot="public" static="no">
+        <name>CONFIG_IDF_TARGET</name>
+        <initializer>&quot;esp32&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="7" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a7993ddc44eb51ef5644538b2af5b70a8" prot="public" static="no">
+        <name>CONFIG_IDF_TARGET_ESP32</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="8" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3fa255c9f726ef74f246d7f160fd99a9" prot="public" static="no">
+        <name>CONFIG_IDF_FIRMWARE_CHIP_ID</name>
+        <initializer>0x0000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="9" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a7e29709df9495b812c568fa5993335dc" prot="public" static="no">
+        <name>CONFIG_SDK_TOOLPREFIX</name>
+        <initializer>&quot;xtensa-esp32-elf-&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="10" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ace9201971213c9a1904fdf61c062392d" prot="public" static="no">
+        <name>CONFIG_APP_BUILD_TYPE_APP_2NDBOOT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="11" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1acf3342c483a878edf3216e51b1c9cb2b" prot="public" static="no">
+        <name>CONFIG_APP_BUILD_GENERATE_BINARIES</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="12" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a91ef412962556b63349b9385f99d3167" prot="public" static="no">
+        <name>CONFIG_APP_BUILD_BOOTLOADER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="13" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a124b65b2de2dc997090fe83628a39076" prot="public" static="no">
+        <name>CONFIG_APP_BUILD_USE_FLASH_SECTIONS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="14" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa70feb2bef7e3a29c700df422168ba9f" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_COMPILER_OPTIMIZATION_SIZE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="15" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a6ec854c4d2c88a01be06eab9d1189ad9" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_LOG_LEVEL_INFO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="16" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a6efc9c28e736850fbdd1cfedef6639b9" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_LOG_LEVEL</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="17" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1af40d789900151f976679adbb8a7095a4" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_VDDSDIO_BOOST_1_9V</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="18" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1a7be1db0e498850b7eab0280a4f512e" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_WDT_ENABLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="19" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ae87f57ebc4e87ca34663acdbe39921c8" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_WDT_TIME_MS</name>
+        <initializer>9000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="20" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a94169388d970ba586e33886709cc9bb6" prot="public" static="no">
+        <name>CONFIG_BOOTLOADER_RESERVE_RTC_SIZE</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="21" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1fd7b2480da52751d301f67d4454707e" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_BAUD_OTHER_VAL</name>
+        <initializer>115200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="22" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a39706d5a775f0a8b3cb95d359f4765d3" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHMODE_DIO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="23" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2a51fb3305ccc056cbd4764f960f3808" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHMODE</name>
+        <initializer>&quot;dio&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="24" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a314351c5cef7b3d07bdce3062bc9eba4" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHFREQ_40M</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="25" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3bb17beabd44875557553b279eb49a34" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHFREQ</name>
+        <initializer>&quot;40m&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="26" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1b2b88471e81ffd84f83dd65b1cd6f37" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHSIZE_2MB</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="27" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1af69d58ecc5ed54e7338a76ac99ee4a6a" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHSIZE</name>
+        <initializer>&quot;2MB&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="28" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2b19849f58346dec3c3dd1e1517acf23" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_FLASHSIZE_DETECT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="29" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac93dd1b072a36653dd544b42aa495ff0" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_BEFORE_RESET</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="30" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa58478273b2543a98787784b66244599" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_BEFORE</name>
+        <initializer>&quot;default_reset&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="31" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac5d393fd8a717f58bea0c0976ab7fa9d" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_AFTER_RESET</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="32" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ae9f4b134cac99ff28dfe0196eb018a9a" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_AFTER</name>
+        <initializer>&quot;hard_reset&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="33" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a351043b26f38b1011cfa6caf1e38a81d" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_MONITOR_BAUD_115200B</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="34" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1acb2c4baec619dbc847c46cdb5d6bd77d" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_MONITOR_BAUD_OTHER_VAL</name>
+        <initializer>115200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="35" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a0e71084dca48cc6909fb54050d9463a3" prot="public" static="no">
+        <name>CONFIG_ESPTOOLPY_MONITOR_BAUD</name>
+        <initializer>115200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="36" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5e124a5ceeea80db951b7a67334ecab7" prot="public" static="no">
+        <name>CONFIG_PARTITION_TABLE_SINGLE_APP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="37" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a08d8b415b2af6823aad9935e0a29327d" prot="public" static="no">
+        <name>CONFIG_PARTITION_TABLE_CUSTOM_FILENAME</name>
+        <initializer>&quot;partitions.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="38" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a9e345f2f57453fa9c6d660b1898a26ed" prot="public" static="no">
+        <name>CONFIG_PARTITION_TABLE_FILENAME</name>
+        <initializer>&quot;partitions_singleapp.csv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="39" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1adab508a4de5463711f7a5d770e35f7ec" prot="public" static="no">
+        <name>CONFIG_PARTITION_TABLE_OFFSET</name>
+        <initializer>0x8000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="40" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2e2549ac43fed9f2dea11389259e4908" prot="public" static="no">
+        <name>CONFIG_PARTITION_TABLE_MD5</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="41" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a52e7df725dadc850348af60a6ffde4b8" prot="public" static="no">
+        <name>CONFIG_COMPILER_OPTIMIZATION_SIZE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="42" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3b16201ce4de6e4103cc4e2b1e8dbab8" prot="public" static="no">
+        <name>CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_ENABLE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="43" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a760651d31477be544bcb09abd349f829" prot="public" static="no">
+        <name>CONFIG_COMPILER_STACK_CHECK_MODE_NONE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="44" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a6be7da205edd76fb417a293b686525bc" prot="public" static="no">
+        <name>CONFIG_COMPILER_DISABLE_GCC8_WARNINGS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="45" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a308d0aa506b934ba6142ac28d865469f" prot="public" static="no">
+        <name>CONFIG_EFUSE_CODE_SCHEME_COMPAT_3_4</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="46" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a800a8a6cda17329004b17b15ed32ac67" prot="public" static="no">
+        <name>CONFIG_EFUSE_MAX_BLK_LEN</name>
+        <initializer>192</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="47" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a455f555af8f3959556d43357cd1e6e4f" prot="public" static="no">
+        <name>CONFIG_ESP32_REV_MIN_0</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="48" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a32f0380d2cbf4fd3884e31c4c975f263" prot="public" static="no">
+        <name>CONFIG_ESP32_REV_MIN</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="49" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1af8861262113efbf585e7e24697cb2886" prot="public" static="no">
+        <name>CONFIG_ESP32_DPORT_WORKAROUND</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="50" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a43b3b9e42929f1571120a3cdd56ff4bd" prot="public" static="no">
+        <name>CONFIG_ESP32_DEFAULT_CPU_FREQ_240</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="51" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a934435a8e559dd352bb3d8309e8e011d" prot="public" static="no">
+        <name>CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ</name>
+        <initializer>240</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="52" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2622cab05d3b423fbfadf74b068b94e5" prot="public" static="no">
+        <name>CONFIG_ESP32_TRACEMEM_RESERVE_DRAM</name>
+        <initializer>0x0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="53" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a6b18e8732684b2a409947e087b2a28e2" prot="public" static="no">
+        <name>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES_FOUR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="54" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a0af03d4547fdc6c6c5c30cc5f8848099" prot="public" static="no">
+        <name>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="55" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5dc48adc7eed99274b107677c10087c7" prot="public" static="no">
+        <name>CONFIG_ESP32_ULP_COPROC_RESERVE_MEM</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="56" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a50dfe71308ab9ba1e16271782a041d94" prot="public" static="no">
+        <name>CONFIG_ESP32_PANIC_PRINT_REBOOT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="57" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a6a5bf193acca4860adb2c8ede2c03118" prot="public" static="no">
+        <name>CONFIG_ESP32_DEBUG_OCDAWARE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="58" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a7e0a1b5f374ef37737b8770daf84effa" prot="public" static="no">
+        <name>CONFIG_ESP32_BROWNOUT_DET</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="59" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac70137c16fdf0212d78a17fd56b639b4" prot="public" static="no">
+        <name>CONFIG_ESP32_BROWNOUT_DET_LVL_SEL_0</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="60" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3a3f584d65d48d7e42902743ee6775ab" prot="public" static="no">
+        <name>CONFIG_ESP32_BROWNOUT_DET_LVL</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="61" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aed81d9209393196bb74a4df5a4555da2" prot="public" static="no">
+        <name>CONFIG_ESP32_REDUCE_PHY_TX_POWER</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="62" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aacf6fdd34127c6b3179dfe7f7316b5d8" prot="public" static="no">
+        <name>CONFIG_ESP32_TIME_SYSCALL_USE_RTC_FRC1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="63" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ab032ad1cd1c0e64f1ceb9989f757feab" prot="public" static="no">
+        <name>CONFIG_ESP32_RTC_CLK_SRC_INT_RC</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="64" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa0068f0689dd603f85783e5a832f2a7d" prot="public" static="no">
+        <name>CONFIG_ESP32_RTC_CLK_CAL_CYCLES</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="65" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5749343252f4ecdc51c8606475a71792" prot="public" static="no">
+        <name>CONFIG_ESP32_DEEP_SLEEP_WAKEUP_DELAY</name>
+        <initializer>2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="66" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a0646a9827065ede119e9045e0e012189" prot="public" static="no">
+        <name>CONFIG_ESP32_XTAL_FREQ_40</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="67" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa35b2ee1d7108a8d2b3ff3c3d8209de3" prot="public" static="no">
+        <name>CONFIG_ESP32_XTAL_FREQ</name>
+        <initializer>40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="68" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ae25a380cc3dae82f8a45b62274961912" prot="public" static="no">
+        <name>CONFIG_ESP32_DPORT_DIS_INTERRUPT_LVL</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="69" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1abaeb8c025346642305f4c1b25d00187b" prot="public" static="no">
+        <name>CONFIG_ESP_TIMER_PROFILING</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="70" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5043d26057c02f7838ccc3be0af2ed71" prot="public" static="no">
+        <name>CONFIG_ESP_ERR_TO_NAME_LOOKUP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="71" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa9473bce1510c5e4e7ea1873b3ba1086" prot="public" static="no">
+        <name>CONFIG_ESP_SYSTEM_EVENT_QUEUE_SIZE</name>
+        <initializer>32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="72" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa0ed762161ff8a267a2cc216ebedd3a6" prot="public" static="no">
+        <name>CONFIG_ESP_SYSTEM_EVENT_TASK_STACK_SIZE</name>
+        <initializer>2304</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="73" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1de41d8562b6efff2c01967314d6f065" prot="public" static="no">
+        <name>CONFIG_ESP_MAIN_TASK_STACK_SIZE</name>
+        <initializer>3584</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="74" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a71c8668a57b8053ff3822665e4a7ab6a" prot="public" static="no">
+        <name>CONFIG_ESP_IPC_TASK_STACK_SIZE</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="75" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3a6fe8f14f769a479a1186f9b0d2db77" prot="public" static="no">
+        <name>CONFIG_ESP_IPC_USES_CALLERS_PRIORITY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="76" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ad17c6a2fa29f3768273ca2b36f556057" prot="public" static="no">
+        <name>CONFIG_ESP_TIMER_TASK_STACK_SIZE</name>
+        <initializer>3584</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="77" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3de85a3e2e6e766a79aab80242724921" prot="public" static="no">
+        <name>CONFIG_ESP_MINIMAL_SHARED_STACK_SIZE</name>
+        <initializer>2048</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="78" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa2d9ef035297377f3b544b044fd71b25" prot="public" static="no">
+        <name>CONFIG_ESP_CONSOLE_UART_DEFAULT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="79" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1afe5b26fb70eb9e9b5fdc294cbe9eb5f6" prot="public" static="no">
+        <name>CONFIG_ESP_CONSOLE_UART_NUM</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="80" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ad889a7700fdce8952abe89487e313f99" prot="public" static="no">
+        <name>CONFIG_ESP_CONSOLE_UART_BAUDRATE</name>
+        <initializer>115200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="81" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ad88c627206200afa3ffb21e6ec4e326e" prot="public" static="no">
+        <name>CONFIG_ESP_INT_WDT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="82" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a00475a8924019120a17d181cab6c67ed" prot="public" static="no">
+        <name>CONFIG_ESP_INT_WDT_TIMEOUT_MS</name>
+        <initializer>600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="83" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa0266124e405c117315e685f0c45381b" prot="public" static="no">
+        <name>CONFIG_ESP_INT_WDT_CHECK_CPU1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="84" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1bce2342b423fde75d346d70b307ede8" prot="public" static="no">
+        <name>CONFIG_ESP_TASK_WDT</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="85" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1adf6c7beb1a2144ebdebb4bca302e1962" prot="public" static="no">
+        <name>CONFIG_ESP_TASK_WDT_TIMEOUT_S</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="86" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a78011067ae0a5dd4ad6bb3a19c28588c" prot="public" static="no">
+        <name>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU0</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="87" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a20a5049b99bc2075bb40cbee3f2a6cbc" prot="public" static="no">
+        <name>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU1</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="88" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a104a75c383f8d0bf29f73ff2880d8c6e" prot="public" static="no">
+        <name>CONFIG_LOG_DEFAULT_LEVEL_INFO</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="89" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac618493585bc226f18f36b6a2ad7e8d5" prot="public" static="no">
+        <name>CONFIG_LOG_DEFAULT_LEVEL</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="90" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1afc0f00b064bf9242f99465e602e5d752" prot="public" static="no">
+        <name>CONFIG_LOG_COLORS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="91" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ab12b667c710d4b2600cf10c86865b914" prot="public" static="no">
+        <name>CONFIG_LOG_TIMESTAMP_SOURCE_RTOS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="92" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a229fd71b8220907873bdb092666d350f" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_ROM_DRIVER_PATCH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="93" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a8917471b82553c5fb0d008c965f71ac8" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_DANGEROUS_WRITE_ABORTS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="94" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5acdff7fb8fb659a1d1dc653c58a69d8" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_YIELD_DURING_ERASE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="95" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa392996ba7cde1144073bc258b53845f" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_ERASE_YIELD_DURATION_MS</name>
+        <initializer>20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="96" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a28687e74f70719c4ae0b9486d83f0ac4" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_ERASE_YIELD_TICKS</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="97" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a44b9759c316277026b518d27400e745d" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_SUPPORT_ISSI_CHIP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="98" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a28bc398efdd6e2e96b150a43073d5728" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_SUPPORT_GD_CHIP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="99" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aca5ab966c87c9775ea0a63108c990987" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_ENABLE_ENCRYPTED_READ_WRITE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="100" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a140665b733e30e0492b450d649c679db" prot="public" static="no">
+        <name>CONFIG_BROWNOUT_DET</name>
+        <initializer>CONFIG_ESP32_BROWNOUT_DET</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="103" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5c2f3490b358cd59982fca9f764285d6" prot="public" static="no">
+        <name>CONFIG_BROWNOUT_DET_LVL_SEL_0</name>
+        <initializer>CONFIG_ESP32_BROWNOUT_DET_LVL_SEL_0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="104" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a93b89f1e696b22cd3ab04ae424f71839" prot="public" static="no">
+        <name>CONFIG_COMPILER_OPTIMIZATION_LEVEL_RELEASE</name>
+        <initializer>CONFIG_COMPILER_OPTIMIZATION_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="105" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ad67a775ddc024f5702fbcec8467b9381" prot="public" static="no">
+        <name>CONFIG_CONSOLE_UART_BAUDRATE</name>
+        <initializer>CONFIG_ESP_CONSOLE_UART_BAUDRATE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="106" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ad118a35ade9f874b57ace2471ab7e0eb" prot="public" static="no">
+        <name>CONFIG_CONSOLE_UART_DEFAULT</name>
+        <initializer>CONFIG_ESP_CONSOLE_UART_DEFAULT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="107" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a00d27858bbf85573cfeb1ca7afd8dec9" prot="public" static="no">
+        <name>CONFIG_DISABLE_GCC8_WARNINGS</name>
+        <initializer>CONFIG_COMPILER_DISABLE_GCC8_WARNINGS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="108" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a4873ca2c2d59d7d93dc077566ca5cfc3" prot="public" static="no">
+        <name>CONFIG_ESP32_RTC_CLOCK_SOURCE_INTERNAL_RC</name>
+        <initializer>CONFIG_ESP32_RTC_CLK_SRC_INT_RC</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="109" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a60b0ac48276319065a0bac36980c1d59" prot="public" static="no">
+        <name>CONFIG_FLASHMODE_DIO</name>
+        <initializer>CONFIG_ESPTOOLPY_FLASHMODE_DIO</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="110" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a40882c57ba1914d9cb8193f1423d6013" prot="public" static="no">
+        <name>CONFIG_FOUR_UNIVERSAL_MAC_ADDRESS</name>
+        <initializer>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES_FOUR</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="111" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2d38a5dbf32641f9b64b4afc4abf6ecf" prot="public" static="no">
+        <name>CONFIG_INT_WDT</name>
+        <initializer>CONFIG_ESP_INT_WDT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="112" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a4497a9a700d666865ee89500ba7072cc" prot="public" static="no">
+        <name>CONFIG_INT_WDT_CHECK_CPU1</name>
+        <initializer>CONFIG_ESP_INT_WDT_CHECK_CPU1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="113" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a35e9abd2a8e79f6f3fc515e3deeb9804" prot="public" static="no">
+        <name>CONFIG_INT_WDT_TIMEOUT_MS</name>
+        <initializer>CONFIG_ESP_INT_WDT_TIMEOUT_MS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="114" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ab1317e68c28769cafe3426468418d5fc" prot="public" static="no">
+        <name>CONFIG_IPC_TASK_STACK_SIZE</name>
+        <initializer>CONFIG_ESP_IPC_TASK_STACK_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="115" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3173e4e7266c829a50d40463c25d3406" prot="public" static="no">
+        <name>CONFIG_LOG_BOOTLOADER_LEVEL_INFO</name>
+        <initializer>CONFIG_BOOTLOADER_LOG_LEVEL_INFO</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="116" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a47f43808b32e5261541ce07da60bf39c" prot="public" static="no">
+        <name>CONFIG_MAIN_TASK_STACK_SIZE</name>
+        <initializer>CONFIG_ESP_MAIN_TASK_STACK_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="117" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1affa0f2a227e5636b5c6186576543f91c" prot="public" static="no">
+        <name>CONFIG_MONITOR_BAUD_115200B</name>
+        <initializer>CONFIG_ESPTOOLPY_MONITOR_BAUD_115200B</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="118" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1aa741b5122624ab44828c4f5dd5cf890c" prot="public" static="no">
+        <name>CONFIG_OPTIMIZATION_ASSERTIONS_ENABLED</name>
+        <initializer>CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_ENABLE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="119" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a1b85c323b26c6cd0d7826563af689515" prot="public" static="no">
+        <name>CONFIG_OPTIMIZATION_LEVEL_RELEASE</name>
+        <initializer>CONFIG_COMPILER_OPTIMIZATION_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="120" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a339f85f83ec752ae0287c4487db7c50a" prot="public" static="no">
+        <name>CONFIG_REDUCE_PHY_TX_POWER</name>
+        <initializer>CONFIG_ESP32_REDUCE_PHY_TX_POWER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="121" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a44163e1da90f51cabde764f12348f1a5" prot="public" static="no">
+        <name>CONFIG_SPI_FLASH_WRITING_DANGEROUS_REGIONS_ABORTS</name>
+        <initializer>CONFIG_SPI_FLASH_DANGEROUS_WRITE_ABORTS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="122" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2fa2d5d9e379a5adff4475805111f7d3" prot="public" static="no">
+        <name>CONFIG_STACK_CHECK_NONE</name>
+        <initializer>CONFIG_COMPILER_STACK_CHECK_MODE_NONE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="123" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a2716de4e173c63569c83dd2e5f064b27" prot="public" static="no">
+        <name>CONFIG_SYSTEM_EVENT_QUEUE_SIZE</name>
+        <initializer>CONFIG_ESP_SYSTEM_EVENT_QUEUE_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="124" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a5e4c8f0f9fa83596f70767a24e791d27" prot="public" static="no">
+        <name>CONFIG_SYSTEM_EVENT_TASK_STACK_SIZE</name>
+        <initializer>CONFIG_ESP_SYSTEM_EVENT_TASK_STACK_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="125" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a559abcfbc49efed557b4470f1db03957" prot="public" static="no">
+        <name>CONFIG_TASK_WDT</name>
+        <initializer>CONFIG_ESP_TASK_WDT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="126" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1adbac0dfa554fba736a1e6cfd13abf6e4" prot="public" static="no">
+        <name>CONFIG_TASK_WDT_CHECK_IDLE_TASK_CPU0</name>
+        <initializer>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="127" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ac8022f5568424063d8a780e31c62b089" prot="public" static="no">
+        <name>CONFIG_TASK_WDT_CHECK_IDLE_TASK_CPU1</name>
+        <initializer>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="128" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1ae0a8e237391026e4f952fac1d559fc38" prot="public" static="no">
+        <name>CONFIG_TASK_WDT_TIMEOUT_S</name>
+        <initializer>CONFIG_ESP_TASK_WDT_TIMEOUT_S</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="129" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1af18690202460b138ba9ec6ea72daeae2" prot="public" static="no">
+        <name>CONFIG_TIMER_TASK_STACK_SIZE</name>
+        <initializer>CONFIG_ESP_TIMER_TASK_STACK_SIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="130" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bootloader_2config_2sdkconfig_8h_1a3fafb01278d61c77894f9d3f747497b0" prot="public" static="no">
+        <name>CONFIG_TOOLPREFIX</name>
+        <initializer>CONFIG_SDK_TOOLPREFIX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="build/bootloader/config/sdkconfig.h" line="131" column="9" bodyfile="build/bootloader/config/sdkconfig.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Automatically<sp/>generated<sp/>file.<sp/>DO<sp/>NOT<sp/>EDIT.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Espressif<sp/>IoT<sp/>Development<sp/>Framework<sp/>(ESP-IDF)<sp/>Configuration<sp/>Header</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_IDF_CMAKE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_IDF_TARGET<sp/>&quot;esp32&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_IDF_TARGET_ESP32<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_IDF_FIRMWARE_CHIP_ID<sp/>0x0000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SDK_TOOLPREFIX<sp/>&quot;xtensa-esp32-elf-&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_APP_BUILD_TYPE_APP_2NDBOOT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_APP_BUILD_GENERATE_BINARIES<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_APP_BUILD_BOOTLOADER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_APP_BUILD_USE_FLASH_SECTIONS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_COMPILER_OPTIMIZATION_SIZE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_LOG_LEVEL_INFO<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_LOG_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_VDDSDIO_BOOST_1_9V<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_WDT_ENABLE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_WDT_TIME_MS<sp/>9000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BOOTLOADER_RESERVE_RTC_SIZE<sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_BAUD_OTHER_VAL<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHMODE_DIO<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHMODE<sp/>&quot;dio&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHFREQ_40M<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHFREQ<sp/>&quot;40m&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHSIZE_2MB<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHSIZE<sp/>&quot;2MB&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_FLASHSIZE_DETECT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_BEFORE_RESET<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_BEFORE<sp/>&quot;default_reset&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_AFTER_RESET<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_AFTER<sp/>&quot;hard_reset&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_MONITOR_BAUD_115200B<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_MONITOR_BAUD_OTHER_VAL<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESPTOOLPY_MONITOR_BAUD<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_PARTITION_TABLE_SINGLE_APP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_PARTITION_TABLE_CUSTOM_FILENAME<sp/>&quot;partitions.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_PARTITION_TABLE_FILENAME<sp/>&quot;partitions_singleapp.csv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_PARTITION_TABLE_OFFSET<sp/>0x8000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_PARTITION_TABLE_MD5<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_COMPILER_OPTIMIZATION_SIZE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_ENABLE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_COMPILER_STACK_CHECK_MODE_NONE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_COMPILER_DISABLE_GCC8_WARNINGS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_EFUSE_CODE_SCHEME_COMPAT_3_4<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_EFUSE_MAX_BLK_LEN<sp/>192</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_REV_MIN_0<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_REV_MIN<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DPORT_WORKAROUND<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DEFAULT_CPU_FREQ_240<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ<sp/>240</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_TRACEMEM_RESERVE_DRAM<sp/>0x0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES_FOUR<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_ULP_COPROC_RESERVE_MEM<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_PANIC_PRINT_REBOOT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DEBUG_OCDAWARE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_BROWNOUT_DET<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_BROWNOUT_DET_LVL_SEL_0<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_BROWNOUT_DET_LVL<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_REDUCE_PHY_TX_POWER<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_TIME_SYSCALL_USE_RTC_FRC1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_RTC_CLK_SRC_INT_RC<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_RTC_CLK_CAL_CYCLES<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DEEP_SLEEP_WAKEUP_DELAY<sp/>2000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_XTAL_FREQ_40<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_XTAL_FREQ<sp/>40</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_DPORT_DIS_INTERRUPT_LVL<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TIMER_PROFILING<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_ERR_TO_NAME_LOOKUP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_SYSTEM_EVENT_QUEUE_SIZE<sp/>32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_SYSTEM_EVENT_TASK_STACK_SIZE<sp/>2304</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_MAIN_TASK_STACK_SIZE<sp/>3584</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_IPC_TASK_STACK_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_IPC_USES_CALLERS_PRIORITY<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TIMER_TASK_STACK_SIZE<sp/>3584</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_MINIMAL_SHARED_STACK_SIZE<sp/>2048</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_CONSOLE_UART_DEFAULT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_CONSOLE_UART_NUM<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_CONSOLE_UART_BAUDRATE<sp/>115200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_INT_WDT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_INT_WDT_TIMEOUT_MS<sp/>600</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_INT_WDT_CHECK_CPU1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TASK_WDT<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TASK_WDT_TIMEOUT_S<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU0<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU1<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL_INFO<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_DEFAULT_LEVEL<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_COLORS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_TIMESTAMP_SOURCE_RTOS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_ROM_DRIVER_PATCH<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_DANGEROUS_WRITE_ABORTS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_YIELD_DURING_ERASE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_ERASE_YIELD_DURATION_MS<sp/>20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_ERASE_YIELD_TICKS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_SUPPORT_ISSI_CHIP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_SUPPORT_GD_CHIP<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_ENABLE_ENCRYPTED_READ_WRITE<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>List<sp/>of<sp/>deprecated<sp/>options<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BROWNOUT_DET<sp/>CONFIG_ESP32_BROWNOUT_DET</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_BROWNOUT_DET_LVL_SEL_0<sp/>CONFIG_ESP32_BROWNOUT_DET_LVL_SEL_0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_COMPILER_OPTIMIZATION_LEVEL_RELEASE<sp/>CONFIG_COMPILER_OPTIMIZATION_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_CONSOLE_UART_BAUDRATE<sp/>CONFIG_ESP_CONSOLE_UART_BAUDRATE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_CONSOLE_UART_DEFAULT<sp/>CONFIG_ESP_CONSOLE_UART_DEFAULT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_DISABLE_GCC8_WARNINGS<sp/>CONFIG_COMPILER_DISABLE_GCC8_WARNINGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_ESP32_RTC_CLOCK_SOURCE_INTERNAL_RC<sp/>CONFIG_ESP32_RTC_CLK_SRC_INT_RC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_FLASHMODE_DIO<sp/>CONFIG_ESPTOOLPY_FLASHMODE_DIO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_FOUR_UNIVERSAL_MAC_ADDRESS<sp/>CONFIG_ESP32_UNIVERSAL_MAC_ADDRESSES_FOUR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_INT_WDT<sp/>CONFIG_ESP_INT_WDT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_INT_WDT_CHECK_CPU1<sp/>CONFIG_ESP_INT_WDT_CHECK_CPU1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_INT_WDT_TIMEOUT_MS<sp/>CONFIG_ESP_INT_WDT_TIMEOUT_MS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_IPC_TASK_STACK_SIZE<sp/>CONFIG_ESP_IPC_TASK_STACK_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_LOG_BOOTLOADER_LEVEL_INFO<sp/>CONFIG_BOOTLOADER_LOG_LEVEL_INFO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_MAIN_TASK_STACK_SIZE<sp/>CONFIG_ESP_MAIN_TASK_STACK_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_MONITOR_BAUD_115200B<sp/>CONFIG_ESPTOOLPY_MONITOR_BAUD_115200B</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_OPTIMIZATION_ASSERTIONS_ENABLED<sp/>CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_ENABLE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_OPTIMIZATION_LEVEL_RELEASE<sp/>CONFIG_COMPILER_OPTIMIZATION_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_REDUCE_PHY_TX_POWER<sp/>CONFIG_ESP32_REDUCE_PHY_TX_POWER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SPI_FLASH_WRITING_DANGEROUS_REGIONS_ABORTS<sp/>CONFIG_SPI_FLASH_DANGEROUS_WRITE_ABORTS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_STACK_CHECK_NONE<sp/>CONFIG_COMPILER_STACK_CHECK_MODE_NONE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SYSTEM_EVENT_QUEUE_SIZE<sp/>CONFIG_ESP_SYSTEM_EVENT_QUEUE_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_SYSTEM_EVENT_TASK_STACK_SIZE<sp/>CONFIG_ESP_SYSTEM_EVENT_TASK_STACK_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TASK_WDT<sp/>CONFIG_ESP_TASK_WDT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TASK_WDT_CHECK_IDLE_TASK_CPU0<sp/>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TASK_WDT_CHECK_IDLE_TASK_CPU1<sp/>CONFIG_ESP_TASK_WDT_CHECK_IDLE_TASK_CPU1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TASK_WDT_TIMEOUT_S<sp/>CONFIG_ESP_TASK_WDT_TIMEOUT_S</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TIMER_TASK_STACK_SIZE<sp/>CONFIG_ESP_TIMER_TASK_STACK_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_TOOLPREFIX<sp/>CONFIG_SDK_TOOLPREFIX</highlight></codeline>
+    </programlisting>
+    <location file="build/bootloader/config/sdkconfig.h"/>
+  </compounddef>
+</doxygen>

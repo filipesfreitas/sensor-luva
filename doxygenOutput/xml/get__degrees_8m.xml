@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="get__degrees_8m" kind="file" language="Objective-C">
+    <compoundname>get_degrees.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="get__degrees_8m_1a08cc9f775fbaaca956b7e43e2fa57358" prot="public" static="no" mutable="no">
+        <type>function</type>
+        <definition>function degree</definition>
+        <argsstring></argsstring>
+        <name>degree</name>
+        <initializer>= get_degrees(filename, startRow, endRow)
+%IMPORTFILE Import numeric data from a text file as a matrix.
+%   GRAUS = IMPORTFILE(FILENAME) Reads data from text file FILENAME for the
+%   default selection.
+%
+%   GRAUS = IMPORTFILE(FILENAME, STARTROW, ENDROW) Reads data from rows
+%   STARTROW through ENDROW of text file FILENAME.
+%
+% Example:
+%   graus = importfile(&apos;0graus.csv&apos;, 1, 200)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="get_degrees.m" line="1" column="10" bodyfile="get_degrees.m" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">function</highlight><highlight class="normal"><sp/>degree<sp/>=<sp/>get_degrees(filename,<sp/>startRow,<sp/>endRow)</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%IMPORTFILE<sp/>Import<sp/>numeric<sp/>data<sp/>from<sp/>a<sp/>text<sp/>file<sp/>as<sp/>a<sp/>matrix.</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%<sp/><sp/><sp/>GRAUS<sp/>=<sp/>IMPORTFILE(FILENAME)<sp/>Reads<sp/>data<sp/>from<sp/>text<sp/>file<sp/>FILENAME<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>the</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>selection.</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/><sp/><sp/>GRAUS<sp/>=<sp/>IMPORTFILE(FILENAME,<sp/>STARTROW,<sp/>ENDROW)<sp/>Reads<sp/>data<sp/>from<sp/>rows</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%<sp/><sp/><sp/>STARTROW<sp/>through<sp/>ENDROW<sp/>of<sp/>text<sp/>file<sp/>FILENAME.</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/>Example:</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/><sp/><sp/>graus<sp/>=<sp/>importfile(</highlight><highlight class="stringliteral">&apos;0graus.csv&apos;</highlight><highlight class="normal">,<sp/>1,<sp/>200);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">%<sp/><sp/><sp/><sp/>See<sp/>also<sp/>TEXTSCAN.</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">%<sp/>Auto-generated<sp/>by<sp/>MATLAB<sp/>on<sp/>2021/11/16<sp/>19:32:55</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">%%<sp/>Initialize<sp/>variables.</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">delimiter<sp/>=<sp/>&apos;,&apos;;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>nargin&lt;=2</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>startRow<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>endRow<sp/>=<sp/>inf;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">end</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">%%<sp/>Read<sp/>columns<sp/>of<sp/>data<sp/>as<sp/>text:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">%<sp/>For<sp/>more<sp/>information,<sp/>see<sp/>the<sp/>TEXTSCAN<sp/>documentation.</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">formatSpec<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;%s%s%s%s%[^\n\r]&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">%%<sp/>Open<sp/>the<sp/>text<sp/>file.</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">fileID<sp/>=<sp/>fopen(filename,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">%%<sp/>Read<sp/>columns<sp/>of<sp/>data<sp/>according<sp/>to<sp/>the<sp/>format.</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">%<sp/>This<sp/>call<sp/>is<sp/>based<sp/>on<sp/>the<sp/>structure<sp/>of<sp/>the<sp/>file<sp/>used<sp/>to<sp/>generate<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">%<sp/>code.<sp/>If<sp/>an<sp/>error<sp/>occurs<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>a<sp/>different<sp/>file,<sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>regenerating<sp/>the<sp/>code</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">%<sp/>from<sp/>the<sp/>Import<sp/>Tool.</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">dataArray<sp/>=<sp/>textscan(fileID,<sp/>formatSpec,<sp/>endRow(1)-startRow(1)+1,<sp/></highlight><highlight class="stringliteral">&apos;Delimiter&apos;</highlight><highlight class="normal">,<sp/>delimiter,<sp/></highlight><highlight class="stringliteral">&apos;TextType&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;string&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;HeaderLines&apos;</highlight><highlight class="normal">,<sp/>startRow(1)-1,<sp/></highlight><highlight class="stringliteral">&apos;ReturnOnError&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;EndOfLine&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;\r\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>block=2:length(startRow)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>frewind(fileID);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>dataArrayBlock<sp/>=<sp/>textscan(fileID,<sp/>formatSpec,<sp/>endRow(block)-startRow(block)+1,<sp/></highlight><highlight class="stringliteral">&apos;Delimiter&apos;</highlight><highlight class="normal">,<sp/>delimiter,<sp/></highlight><highlight class="stringliteral">&apos;TextType&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;string&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;HeaderLines&apos;</highlight><highlight class="normal">,<sp/>startRow(block)-1,<sp/></highlight><highlight class="stringliteral">&apos;ReturnOnError&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;EndOfLine&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&apos;\r\n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>col=1:length(dataArray)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataArray{col}<sp/>=<sp/>[dataArray{col};dataArrayBlock{col}];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">end</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">%%<sp/>Close<sp/>the<sp/>text<sp/>file.</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">fclose(fileID);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">%%<sp/>Convert<sp/>the<sp/>contents<sp/>of<sp/>columns<sp/>containing<sp/>numeric<sp/>text<sp/>to<sp/>numbers.</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">%<sp/>Replace<sp/>non-numeric<sp/>text<sp/>with<sp/>NaN.</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">raw<sp/>=<sp/>repmat({</highlight><highlight class="stringliteral">&apos;&apos;</highlight><highlight class="normal">},length(dataArray{1}),length(dataArray)-1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>col=1:length(dataArray)-1</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>raw(1:length(dataArray{col}),col)<sp/>=<sp/>mat2cell(dataArray{col},<sp/>ones(length(dataArray{col}),<sp/>1));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">end</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">numericData<sp/>=<sp/>NaN(size(dataArray{1},1),size(dataArray,2));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>col=[1,2,3,4]</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>Converts<sp/>text<sp/>in<sp/>the<sp/>input<sp/>cell<sp/>array<sp/>to<sp/>numbers.<sp/>Replaced<sp/>non-numeric</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>text<sp/>with<sp/>NaN.</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>rawData<sp/>=<sp/>dataArray{col};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>row=1:size(rawData,<sp/>1)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Create<sp/>a<sp/>regular<sp/>expression<sp/>to<sp/>detect<sp/>and<sp/></highlight><highlight class="keyword">remove</highlight><highlight class="normal"><sp/>non-numeric<sp/>prefixes<sp/>and</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>suffixes.</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>regexstr<sp/>=<sp/>&apos;(?&lt;prefix&gt;.*?)(?&lt;numbers&gt;([-]*(\d+[\,]*)+[\.]{0,1}\d*[eEdD]{0,1}[-+]*\d*[i]{0,1})|([-]*(\d+[\,]*)*[\.]{1,1}\d+[eEdD]{0,1}[-+]*\d*[i]{0,1}))(?&lt;suffix&gt;.*)</highlight><highlight class="stringliteral">&apos;;</highlight></codeline>
+<codeline lineno="62"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>try</highlight></codeline>
+<codeline lineno="63"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>regexp(rawData(row),<sp/>regexstr,<sp/>&apos;</highlight><highlight class="normal">names</highlight><highlight class="stringliteral">&apos;);</highlight></codeline>
+<codeline lineno="64"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>result.numbers;</highlight></codeline>
+<codeline lineno="65"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Detected<sp/>commas<sp/>in<sp/>non-thousand<sp/>locations.</highlight></codeline>
+<codeline lineno="67"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invalidThousandsSeparator<sp/>=<sp/>false;</highlight></codeline>
+<codeline lineno="68"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>numbers.contains(&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;)</highlight></codeline>
+<codeline lineno="69"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>thousandsRegExp<sp/>=<sp/>&apos;</highlight><highlight class="normal">^\d+?(\,\d{3})*\.{0,1}\d*$</highlight><highlight class="stringliteral">&apos;;</highlight></codeline>
+<codeline lineno="70"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>isempty(regexp(numbers,<sp/>thousandsRegExp,<sp/>&apos;</highlight><highlight class="normal">once</highlight><highlight class="stringliteral">&apos;))</highlight></codeline>
+<codeline lineno="71"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>NaN;</highlight></codeline>
+<codeline lineno="72"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>invalidThousandsSeparator<sp/>=<sp/>true;</highlight></codeline>
+<codeline lineno="73"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="74"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="75"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>Convert<sp/>numeric<sp/>text<sp/>to<sp/>numbers.</highlight></codeline>
+<codeline lineno="76"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>~invalidThousandsSeparator</highlight></codeline>
+<codeline lineno="77"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numbers<sp/>=<sp/>textscan(char(strrep(numbers,<sp/>&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;,<sp/>&apos;</highlight><highlight class="stringliteral">&apos;)),<sp/>&apos;</highlight><highlight class="normal">%f</highlight><highlight class="stringliteral">&apos;);</highlight></codeline>
+<codeline lineno="78"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numericData(row,<sp/>col)<sp/>=<sp/>numbers{1};</highlight></codeline>
+<codeline lineno="79"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raw{row,<sp/>col}<sp/>=<sp/>numbers{1};</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="81"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>catch</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>raw{row,<sp/>col}<sp/>=<sp/>rawData{row};</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral">end</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral">%%<sp/>Replace<sp/>non-numeric<sp/>cells<sp/>with<sp/>NaN</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral">R<sp/>=<sp/>cellfun(@(x)<sp/>~isnumeric(x)<sp/>&amp;&amp;<sp/>~islogical(x),raw);<sp/>%<sp/>Find<sp/>non-numeric<sp/>cells</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral">raw(R)<sp/>=<sp/>{0};<sp/>%<sp/>Replace<sp/>non-numeric<sp/>cells</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"></highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral">%%<sp/>Create<sp/>output<sp/>variable</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral">degree<sp/>=<sp/>table;</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral">degree.thetametacarpo<sp/>=<sp/>cell2mat(raw(:,<sp/>1));</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral">degree.phimetacarpo<sp/>=<sp/>cell2mat(raw(:,<sp/>2));</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral">degree.thetaproximal<sp/>=<sp/>cell2mat(raw(:,<sp/>3));</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral">degree.phiproximal<sp/>=<sp/>cell2mat(raw(:,<sp/>4));</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"></highlight></codeline>
+    </programlisting>
+    <location file="get_degrees.m"/>
+  </compounddef>
+</doxygen>

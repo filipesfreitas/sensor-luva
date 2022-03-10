@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="misc_8c" kind="file" language="C++">
+    <compoundname>misc.c</compoundname>
+    <includes refid="misc_8h" local="no">misc.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>driver/gpio.h</label>
+      </node>
+      <node id="1">
+        <label>components/Misc/misc.c</label>
+        <link refid="misc_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>esp_adc_cal.h</label>
+      </node>
+      <node id="4">
+        <label>driver/adc.h</label>
+      </node>
+      <node id="2">
+        <label>misc.h</label>
+        <link refid="misc_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>math.h</label>
+      </node>
+      <node id="6">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="misc_8c_1ae6538c5b8119c06031c516b44009e82b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void check_efuse</definition>
+        <argsstring>(void)</argsstring>
+        <name>check_efuse</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/misc.c" line="4" column="6" bodyfile="components/Misc/misc.c" bodystart="4" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8c_1af85584ec8c514506b08c28ab4626fe06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print_char_val_type</definition>
+        <argsstring>(esp_adc_cal_value_t val_type)</argsstring>
+        <name>print_char_val_type</name>
+        <param>
+          <type>esp_adc_cal_value_t</type>
+          <declname>val_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/misc.c" line="22" column="6" bodyfile="components/Misc/misc.c" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8c_1a72e978258f999c12c65075da36a63175" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void adc_config</definition>
+        <argsstring>()</argsstring>
+        <name>adc_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/misc.c" line="33" column="6" bodyfile="components/Misc/misc.c" bodystart="33" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8c_1a71bdfdd60cb9fbf04c94d4526e70ab14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double adc_read</definition>
+        <argsstring>(int addr, esp_adc_cal_characteristics_t *adc_chars)</argsstring>
+        <name>adc_read</name>
+        <param>
+          <type>int</type>
+          <declname>addr</declname>
+        </param>
+        <param>
+          <type>esp_adc_cal_characteristics_t *</type>
+          <declname>adc_chars</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/misc.c" line="50" column="8" bodyfile="components/Misc/misc.c" bodystart="50" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="misc_8c_1adeb89b28e03300d1bb4c0e62ce4889ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mux_selector_config</definition>
+        <argsstring>()</argsstring>
+        <name>mux_selector_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/Misc/misc.c" line="77" column="6" bodyfile="components/Misc/misc.c" bodystart="77" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;misc.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Check<sp/>calibration<sp/>data<sp/>table<sp/>on<sp/>ESP32*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>check_efuse(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Check<sp/>TP<sp/>is<sp/>burned<sp/>into<sp/>eFuse</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_TP)<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;eFuse<sp/>Two<sp/>Point:<sp/>Supported\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;eFuse<sp/>Two<sp/>Point:<sp/>NOT<sp/>supported\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Check<sp/>Vref<sp/>is<sp/>burned<sp/>into<sp/>eFuse</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(esp_adc_cal_check_efuse(ESP_ADC_CAL_VAL_EFUSE_VREF)<sp/>==<sp/>ESP_OK)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;eFuse<sp/>Vref:<sp/>Supported\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;eFuse<sp/>Vref:<sp/>NOT<sp/>supported\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*Print<sp/>Vref<sp/>by<sp/>efuse<sp/>or<sp/>default*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print_char_val_type(esp_adc_cal_value_t<sp/>val_type)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val_type<sp/>==<sp/>ESP_ADC_CAL_VAL_EFUSE_TP)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Characterized<sp/>using<sp/>Two<sp/>Point<sp/>Value\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(val_type<sp/>==<sp/>ESP_ADC_CAL_VAL_EFUSE_VREF)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Characterized<sp/>using<sp/>eFuse<sp/>Vref\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Characterized<sp/>using<sp/>Default<sp/>Vref\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>adc_config(){</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Check<sp/>if<sp/>Two<sp/>Point<sp/>or<sp/>Vref<sp/>are<sp/>burned<sp/>into<sp/>eFuse</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>check_efuse();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Configure<sp/>ADC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>adc1_config_width(ADC_WIDTH_BIT_12);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>adc1_config_channel_atten(ADC_CHANNEL_0,<sp/>atten);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>adc1_config_channel_atten(ADC_CHANNEL_3,<sp/>atten);<sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>adc1_config_channel_atten(ADC_CHANNEL_4,<sp/>atten);<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>adc1_config_channel_atten(ADC_CHANNEL_6,<sp/>atten);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>adc1_config_channel_atten(ADC_CHANNEL_7,<sp/>atten);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>esp_adc_cal_value_t<sp/>val_type<sp/>=<sp/>esp_adc_cal_characterize(unit,<sp/>atten,<sp/>ADC_WIDTH_BIT_12,<sp/>DEFAULT_VREF,<sp/>adc_chars);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>print_char_val_type(val_type);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>adc_read(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>addr,esp_adc_cal_characteristics_t<sp/>*adc_chars){</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>uint32_t<sp/>adc_reading<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>force=0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(addr){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>channel<sp/>=<sp/>ADC_CHANNEL_0;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>channel<sp/>=<sp/>ADC_CHANNEL_3;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>channel<sp/>=<sp/>ADC_CHANNEL_4;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>channel<sp/>=<sp/>ADC_CHANNEL_6;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>channel<sp/>=<sp/>ADC_CHANNEL_7;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>adc_reading<sp/>=<sp/>adc1_get_raw((adc1_channel_t)channel);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Convert<sp/>adc_reading<sp/>to<sp/>voltage<sp/>in<sp/>mV</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>voltage<sp/>=<sp/>((int16_t)<sp/>esp_adc_cal_raw_to_voltage(adc_reading,<sp/>adc_chars)-142);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>force<sp/>=<sp/>0.00006*voltage*voltage+0.2555*voltage+17.04;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>voltage;<sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mux_selector_config(){</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>gpio_config_t<sp/>io_conf;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//disable<sp/>interrupt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>io_conf.intr_type<sp/>=<sp/>GPIO_PIN_INTR_DISABLE;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//set<sp/>as<sp/>output<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>io_conf.mode<sp/>=<sp/>GPIO_MODE_OUTPUT;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//bit<sp/>mask<sp/>of<sp/>the<sp/>pins<sp/>that<sp/>you<sp/>want<sp/>to<sp/>set,e.g.GPIO18/19</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>io_conf.pin_bit_mask<sp/>=<sp/>GPIO_OUTPUT_PIN_SEL;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//disable<sp/>pull-down<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>io_conf.pull_down_en<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//disable<sp/>pull-up<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>io_conf.pull_up_en<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//configure<sp/>GPIO<sp/>with<sp/>the<sp/>given<sp/>settings</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>gpio_config(&amp;io_conf);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="components/Misc/misc.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="plot__test_8m" kind="file" language="Objective-C">
+    <compoundname>plot_test.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="plot__test_8m_1ad822a519318a7d2fe71f1b5edfa7f40e" prot="public" static="no" mutable="no">
+        <type>page</type>
+        <definition>page width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="plot_test.m" line="13" column="16" bodyfile="plot_test.m" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="plot__test_8m_1a869525eb8b9f28c6f2605b8b2cd5a051" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>id</type>
+        <definition>id Journals:Width:width:</definition>
+        <argsstring>(id points,[Width] id column,[width] id cm)</argsstring>
+        <name>Journals:Width:width:</name>
+        <param>
+          <type>id</type>
+          <declname>points</declname>
+        </param>
+        <param>
+          <attributes>[Width]</attributes>
+          <type>id</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <attributes>[width]</attributes>
+          <type>id</type>
+          <declname>cm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="plot_test.m" line="1" column="23" declfile="plot_test.m" declline="1" declcolumn="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%%<sp/>IEEE<sp/>Standard<sp/>Figure<sp/>Configuration<sp/>-<sp/>Version<sp/>1.0</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%<sp/>run<sp/>this<sp/>code<sp/>before<sp/>the<sp/>plot<sp/>command</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>According<sp/>to<sp/>the<sp/>standard<sp/>of<sp/>IEEE<sp/>Transactions<sp/>and<sp/>Journals:<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>Times<sp/>New<sp/>Roman<sp/>is<sp/>the<sp/>suggested<sp/>font<sp/>in<sp/>labels.<sp/></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/>For<sp/>a<sp/>singlepart<sp/>figure,<sp/>labels<sp/>should<sp/>be<sp/>in<sp/>8<sp/>to<sp/>10<sp/>points,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%<sp/>whereas<sp/>for<sp/>a<sp/>multipart<sp/>figure,<sp/>labels<sp/>should<sp/>be<sp/>in<sp/>8<sp/>points.</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">%<sp/>Width:<sp/>column<sp/>width:<sp/>8.8<sp/>cm;<sp/>page<sp/>width:<sp/>18.1<sp/>cm.</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">%%<sp/>width<sp/>&amp;<sp/>hight<sp/>of<sp/>the<sp/>figure</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">k_scaling<sp/>=<sp/>4;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>scaling<sp/>factor<sp/>of<sp/>the<sp/>figure</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">%<sp/>(You<sp/>need<sp/>to<sp/>plot<sp/>a<sp/>figure<sp/>which<sp/>has<sp/>a<sp/>width<sp/>of<sp/>(8.8<sp/>*<sp/>k_scaling)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">%<sp/>in<sp/>MATLAB,<sp/>so<sp/>that<sp/>when<sp/>you<sp/>paste<sp/>it<sp/>into<sp/>your<sp/>paper,<sp/>the<sp/>width<sp/>will<sp/>be</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">%<sp/>scalled<sp/>down<sp/>to<sp/>8.8<sp/>cm<sp/><sp/>which<sp/>can<sp/>guarantee<sp/>a<sp/>preferred<sp/>clearness.</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">k_width_hight<sp/>=<sp/>2;<sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>width:hight<sp/>ratio<sp/>of<sp/>the<sp/>figure</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">width<sp/>=<sp/>8.8<sp/>*<sp/>k_scaling;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">hight<sp/>=<sp/>width<sp/>/<sp/>k_width_hight;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">%%<sp/>figure<sp/>margins</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">top<sp/>=<sp/>0.5;<sp/><sp/>%<sp/>normalized<sp/>top<sp/>margin</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">bottom<sp/>=<sp/>3;<sp/>%<sp/>normalized<sp/>bottom<sp/>margin</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">left<sp/>=<sp/>3.5;<sp/>%<sp/>normalized<sp/>left<sp/>margin</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">right<sp/>=<sp/>1;<sp/><sp/>%<sp/>normalized<sp/>right<sp/>margin</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">%%<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal"><sp/>figure<sp/>configurations</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultFigureUnits&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;centimeters&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultFigurePosition&apos;</highlight><highlight class="normal">,[0<sp/>0<sp/>width<sp/>hight]);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLineLineWidth&apos;</highlight><highlight class="normal">,1*k_scaling);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesLineWidth&apos;</highlight><highlight class="normal">,0.25*k_scaling);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesGridLineStyle&apos;</highlight><highlight class="normal">,</highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesYGrid&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;on&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesXGrid&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;on&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesFontName&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Times<sp/>New<sp/>Roman&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesFontSize&apos;</highlight><highlight class="normal">,8*k_scaling);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultTextFontName&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Times<sp/>New<sp/>Roman&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultTextFontSize&apos;</highlight><highlight class="normal">,8*k_scaling);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLegendFontName&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;Times<sp/>New<sp/>Roman&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLegendFontSize&apos;</highlight><highlight class="normal">,8*k_scaling);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesUnits&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;normalized&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesPosition&apos;</highlight><highlight class="normal">,[left/width<sp/>bottom/hight<sp/>(width-left-right)/width<sp/><sp/>(hight-bottom-top)/hight]);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesColorOrder&apos;</highlight><highlight class="normal">,[0<sp/>0<sp/>0]);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultAxesTickDir&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;out&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultFigurePaperPositionMode&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;auto&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">%<sp/>you<sp/>can<sp/>change<sp/>the<sp/>Legend<sp/>Location<sp/>to<sp/>whatever<sp/>as<sp/>you<sp/>wish</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLegendLocation&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;bestoutside&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLegendBox&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;on&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">set</highlight><highlight class="normal">(0,</highlight><highlight class="stringliteral">&apos;defaultLegendOrientation&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;vertical&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">test<sp/>=<sp/>csvread(</highlight><highlight class="stringliteral">&apos;imucaracterizacao&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">test<sp/>=<sp/>test(1:end-1,:);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">window<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">hold<sp/>on<sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">grid<sp/>on<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">%plot(test(:,1)/2048,</highlight><highlight class="charliteral">&apos;r&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">plot(test(:,2)/2048,</highlight><highlight class="charliteral">&apos;g&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">%plot(test(:,3),</highlight><highlight class="charliteral">&apos;b&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">%plot(test(:,4),</highlight><highlight class="charliteral">&apos;m&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">%plot(test(:,5),</highlight><highlight class="charliteral">&apos;m&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">%plot(test(:,6),</highlight><highlight class="charliteral">&apos;y&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">xlabel(</highlight><highlight class="stringliteral">&apos;amostra<sp/>n&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">ylabel(</highlight><highlight class="stringliteral">&apos;raw<sp/>&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">legend(</highlight><highlight class="stringliteral">&apos;acx&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;acy&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;acz&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;gx&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;gy&apos;</highlight><highlight class="normal">,</highlight><highlight class="stringliteral">&apos;gz&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">figure()</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">hold<sp/>on<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">grid<sp/>on<sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">%plot((test(:,1)-79)/2048,&apos;r&apos;);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">plot((test(:,2)-57)/2048,&apos;g&apos;);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">%plot(test(:,3),&apos;b&apos;);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">%plot(test(:,4),&apos;m&apos;);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">%plot(test(:,5)+1,&apos;m&apos;);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">%plot(test(:,6)+1,&apos;y&apos;);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">xlabel(&apos;amostra<sp/>n&apos;);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">ylabel(&apos;raw<sp/>&apos;);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">legend(&apos;acx&apos;,&apos;acy&apos;,&apos;acz&apos;,&apos;gx&apos;,&apos;gy&apos;,&apos;gz&apos;);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">offsetx<sp/>=<sp/>csvread(&apos;offsetxy&apos;);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="plot_test.m"/>
+  </compounddef>
+</doxygen>

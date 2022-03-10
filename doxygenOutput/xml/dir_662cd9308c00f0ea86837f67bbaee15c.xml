@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_662cd9308c00f0ea86837f67bbaee15c" kind="dir">
+    <compoundname>components/orientation_estimate/include</compoundname>
+    <innerfile refid="position__process_8h">position_process.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="components/orientation_estimate/include/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structraw__data" kind="struct" language="C++" prot="public">
+    <compoundname>raw_data</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structraw__data_1a3ae132fc69f47e5e39d96daa414387f8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::accelx</definition>
+        <argsstring></argsstring>
+        <name>accelx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="28" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1ac3c238f763ff15cd76fa2a39f4ba4abc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::accely</definition>
+        <argsstring></argsstring>
+        <name>accely</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="29" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1a6ab8dbd8121711f29d03fd036193cec4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::accelz</definition>
+        <argsstring></argsstring>
+        <name>accelz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="30" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1a78d6a87f40e49b554de2a5c1944a49c4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::gyrox</definition>
+        <argsstring></argsstring>
+        <name>gyrox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="32" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1acb53a8d0e01a24ff5dffa09d7484cc34" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::gyroy</definition>
+        <argsstring></argsstring>
+        <name>gyroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="33" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1ab43e6f74cc85df3987b576d6ac20ffb0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::gyroz</definition>
+        <argsstring></argsstring>
+        <name>gyroz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="34" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1a380bd78bdeccf709050492f509f412c5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::master_num</definition>
+        <argsstring></argsstring>
+        <name>master_num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="36" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structraw__data_1ab4b2bb7619ed30e8cb22c58ad7f0d8f7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int raw_data::finger</definition>
+        <argsstring></argsstring>
+        <name>finger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="37" column="5" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="components/orientation_estimate/include/position_process.h" line="26" column="1" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="27" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structraw__data_1a3ae132fc69f47e5e39d96daa414387f8" prot="public" virt="non-virtual"><scope>raw_data</scope><name>accelx</name></member>
+      <member refid="structraw__data_1ac3c238f763ff15cd76fa2a39f4ba4abc" prot="public" virt="non-virtual"><scope>raw_data</scope><name>accely</name></member>
+      <member refid="structraw__data_1a6ab8dbd8121711f29d03fd036193cec4" prot="public" virt="non-virtual"><scope>raw_data</scope><name>accelz</name></member>
+      <member refid="structraw__data_1ab4b2bb7619ed30e8cb22c58ad7f0d8f7" prot="public" virt="non-virtual"><scope>raw_data</scope><name>finger</name></member>
+      <member refid="structraw__data_1a78d6a87f40e49b554de2a5c1944a49c4" prot="public" virt="non-virtual"><scope>raw_data</scope><name>gyrox</name></member>
+      <member refid="structraw__data_1acb53a8d0e01a24ff5dffa09d7484cc34" prot="public" virt="non-virtual"><scope>raw_data</scope><name>gyroy</name></member>
+      <member refid="structraw__data_1ab43e6f74cc85df3987b576d6ac20ffb0" prot="public" virt="non-virtual"><scope>raw_data</scope><name>gyroz</name></member>
+      <member refid="structraw__data_1a380bd78bdeccf709050492f509f412c5" prot="public" virt="non-virtual"><scope>raw_data</scope><name>master_num</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

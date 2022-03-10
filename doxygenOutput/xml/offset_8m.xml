@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="offset_8m" kind="file" language="Objective-C">
+    <compoundname>offset.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="offset_8m_1a5f10c177f9636b87cdad04dc4bca2491" prot="public" static="no" mutable="no">
+        <type>clear all clc</type>
+        <definition>clear all clc xy</definition>
+        <argsstring></argsstring>
+        <name>xy</name>
+        <initializer>= csvread(&apos;offsetxy&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="4" column="1" bodyfile="offset.m" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a25ed1bcb423b0b7200f485fc5ff71c8e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <initializer>= csvread(&apos;offsetz&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="5" column="1" bodyfile="offset.m" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1ad0eb5bf2ad7d9722dcab0176ba1c135b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsetz</definition>
+        <argsstring></argsstring>
+        <name>offsetz</name>
+        <initializer>= median(z(:,3))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="7" column="1" bodyfile="offset.m" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a60938f13e02c076312844ea163a7e975" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsety</definition>
+        <argsstring></argsstring>
+        <name>offsety</name>
+        <initializer>= median(xy(:,2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="8" column="1" bodyfile="offset.m" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a4ce48e7367e401b69f972d5ecfdaece9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsetx</definition>
+        <argsstring></argsstring>
+        <name>offsetx</name>
+        <initializer>= median(xy(:,1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="9" column="1" bodyfile="offset.m" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a0a311b6fade432695da38cc3f14d5e67" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsetgz</definition>
+        <argsstring></argsstring>
+        <name>offsetgz</name>
+        <initializer>= median(z(:,6))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="11" column="1" bodyfile="offset.m" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1ae61d63a30c1347dc81eab89c7c1d05bb" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsetgy</definition>
+        <argsstring></argsstring>
+        <name>offsetgy</name>
+        <initializer>= median(xy(:,5))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="12" column="1" bodyfile="offset.m" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a3e94ded82dc57581accdf9a276373b53" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>offsetgx</definition>
+        <argsstring></argsstring>
+        <name>offsetgx</name>
+        <initializer>= median(xy(:,4))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="13" column="1" bodyfile="offset.m" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a91869a3c02dd223061b69332fa70ebe8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meanz</definition>
+        <argsstring></argsstring>
+        <name>meanz</name>
+        <initializer>= mean(z(:,3))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="16" column="1" bodyfile="offset.m" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a9ac08120218f8e964fc9be64514b4adc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meany</definition>
+        <argsstring></argsstring>
+        <name>meany</name>
+        <initializer>= mean(xy(:,2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="17" column="1" bodyfile="offset.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a7f95b5836f40c198a36afe39dd88c4d8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meanx</definition>
+        <argsstring></argsstring>
+        <name>meanx</name>
+        <initializer>= mean(xy(:,1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="18" column="1" bodyfile="offset.m" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1af98b4a74981340820b35ad822502f595" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meangz</definition>
+        <argsstring></argsstring>
+        <name>meangz</name>
+        <initializer>= mean(z(:,6))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="20" column="1" bodyfile="offset.m" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a2d116fadeb9ade8b5abe8dcc207c1ecc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meangy</definition>
+        <argsstring></argsstring>
+        <name>meangy</name>
+        <initializer>= mean(xy(:,5))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="21" column="1" bodyfile="offset.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a038b6a1de8cc561787b7f9bb5d65442a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>meangx</definition>
+        <argsstring></argsstring>
+        <name>meangx</name>
+        <initializer>= mean(xy(:,4))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="22" column="1" bodyfile="offset.m" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a5ca8e993b32934d5f1da34161dfc673b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdz</definition>
+        <argsstring></argsstring>
+        <name>stdz</name>
+        <initializer>= std(z(:,3))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="24" column="1" bodyfile="offset.m" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a02eaaf11ff021b42319ba7294a00abb6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdy</definition>
+        <argsstring></argsstring>
+        <name>stdy</name>
+        <initializer>= std(xy(:,2))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="25" column="1" bodyfile="offset.m" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a0d231f5f7a7c732bdb99d96170302bc6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdx</definition>
+        <argsstring></argsstring>
+        <name>stdx</name>
+        <initializer>= std(xy(:,1))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="26" column="1" bodyfile="offset.m" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a343d527d25cc5d9d62916bd5a8257c32" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdgz</definition>
+        <argsstring></argsstring>
+        <name>stdgz</name>
+        <initializer>= std(z(:,6))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="28" column="1" bodyfile="offset.m" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1a57d860437eca0596a028511e806aa41b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdgy</definition>
+        <argsstring></argsstring>
+        <name>stdgy</name>
+        <initializer>= std(xy(:,5))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="29" column="1" bodyfile="offset.m" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1af060ccf19769e7cd598f83b228d0e40c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>stdgx</definition>
+        <argsstring></argsstring>
+        <name>stdgx</name>
+        <initializer>= std(xy(:,4))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="30" column="1" bodyfile="offset.m" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="offset_8m_1ae6c75e685c06162830e7fd65e3dde693" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>xy_test</definition>
+        <argsstring></argsstring>
+        <name>xy_test</name>
+        <initializer>= csvread(&apos;offsetxy1&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="offset.m" line="32" column="1" bodyfile="offset.m" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">clear<sp/>all</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">clc</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">xy<sp/>=<sp/>csvread(</highlight><highlight class="stringliteral">&apos;offsetxy&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">z<sp/>=<sp/>csvread(</highlight><highlight class="stringliteral">&apos;offsetz&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">offsetz<sp/>=<sp/>median(z(:,3));</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">offsety<sp/>=<sp/>median(xy(:,2));</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">offsetx<sp/>=<sp/>median(xy(:,1));</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">offsetgz<sp/>=<sp/>median(z(:,6));</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">offsetgy<sp/>=<sp/>median(xy(:,5));</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">offsetgx<sp/>=<sp/>median(xy(:,4));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">meanz<sp/>=<sp/>mean(z(:,3));</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">meany<sp/>=<sp/>mean(xy(:,2));</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">meanx<sp/>=<sp/>mean(xy(:,1));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">meangz<sp/>=<sp/>mean(z(:,6));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">meangy<sp/>=<sp/>mean(xy(:,5));</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">meangx<sp/>=<sp/>mean(xy(:,4));</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">stdz<sp/>=<sp/>std(z(:,3));</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">stdy<sp/>=<sp/>std(xy(:,2));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">stdx<sp/>=<sp/>std(xy(:,1));</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">stdgz<sp/>=<sp/>std(z(:,6));</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">stdgy<sp/>=<sp/>std(xy(:,5));</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">stdgx<sp/>=<sp/>std(xy(:,4));</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">xy_test<sp/>=<sp/>csvread(</highlight><highlight class="stringliteral">&apos;offsetxy1&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">median(xy_test(:,1))</highlight></codeline>
+    </programlisting>
+    <location file="offset.m"/>
+  </compounddef>
+</doxygen>

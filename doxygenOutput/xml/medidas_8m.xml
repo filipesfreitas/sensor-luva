@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="medidas_8m" kind="file" language="Objective-C">
+    <compoundname>medidas.m</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="medidas_8m_1aad7e93838de75a97693438833e15ff7a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>function[mean_f,std_f]</definition>
+        <argsstring>[mean_f, std_f]</argsstring>
+        <name>function</name>
+        <initializer>= medidas(variable)
+%UNTITLED3 Summary of this function goes here
+%   Detailed explanation goes here
+std_f = std(variable)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="medidas.m" line="1" column="1" bodyfile="medidas.m" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="medidas_8m_1a358f8f0e16c7f26f1aa11419023faa0b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>mean_f</definition>
+        <argsstring></argsstring>
+        <name>mean_f</name>
+        <initializer>= mean(variable)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="medidas.m" line="5" column="1" bodyfile="medidas.m" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">function</highlight><highlight class="normal"><sp/>[<sp/>mean_f<sp/>,std_f<sp/>]<sp/>=<sp/>medidas(variable)</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%UNTITLED3<sp/>Summary<sp/>of<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>goes<sp/>here</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%<sp/><sp/><sp/>Detailed<sp/>explanation<sp/>goes<sp/>here</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">std_f<sp/>=<sp/>std(variable);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">mean_f<sp/>=<sp/>mean(variable);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">end</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="medidas.m"/>
+  </compounddef>
+</doxygen>

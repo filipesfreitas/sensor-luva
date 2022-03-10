@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_4b80b842b472baa50168f7b28b910061" kind="dir">
+    <compoundname>components/i2c/include</compoundname>
+    <innerfile refid="i2c__handler_8h">i2c_handler.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="components/i2c/include/"/>
+  </compounddef>
+</doxygen>

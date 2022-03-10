@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="namespacepython__client__test" kind="namespace" language="Python">
+    <compoundname>python_client_test</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="python__client__test_8py_1afc84593348d0abab95807cbae373c56e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <initializer>=  logging.getLogger(__name__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="11" column="1" bodyfile="python_client_test.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1a2ae25106c3bbb0b7f0e587f59e50c11c" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string python_client_test.msgFromClient</definition>
+        <argsstring></argsstring>
+        <name>msgFromClient</name>
+        <initializer>=  &quot;Send&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="29" column="1" bodyfile="python_client_test.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1a5e7774aa8a8831634af5c673ab343617" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.bytesToSend</definition>
+        <argsstring></argsstring>
+        <name>bytesToSend</name>
+        <initializer>=  str.encode(msgFromClient)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="30" column="1" bodyfile="python_client_test.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1a726839e22a6418da82d8d33ab46902a1" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple python_client_test.serverAddressPort</definition>
+        <argsstring></argsstring>
+        <name>serverAddressPort</name>
+        <initializer>=  (&quot;192.168.0.100&quot;, 3333)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="31" column="1" bodyfile="python_client_test.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1a66d93e43c7a18902687e7f409c057e04" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int python_client_test.bufferSize</definition>
+        <argsstring></argsstring>
+        <name>bufferSize</name>
+        <initializer>=  1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="32" column="1" bodyfile="python_client_test.py" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1aae2689e78ea909239c2e088ceb97190e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.today</definition>
+        <argsstring></argsstring>
+        <name>today</name>
+        <initializer>=  date.today()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="35" column="1" bodyfile="python_client_test.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1afdeba8681732870ee10fba8c837de285" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.d1</definition>
+        <argsstring></argsstring>
+        <name>d1</name>
+        <initializer>=  today.strftime(&quot;%d_%m_%Y&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="37" column="1" bodyfile="python_client_test.py" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1adb0c3ced7cf351f830d975fff15d36ae" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.UDPClientSocket</definition>
+        <argsstring></argsstring>
+        <name>UDPClientSocket</name>
+        <initializer>=  socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="40" column="1" bodyfile="python_client_test.py" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="python__client__test_8py_1af99d87ad9c6e10827c8b51b36cd52eba" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_client_test.msgFromServer</definition>
+        <argsstring></argsstring>
+        <name>msgFromServer</name>
+        <initializer>=  UDPClientSocket.recvfrom(bufferSize)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="48" column="1" bodyfile="python_client_test.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="python__client__test_8py_1ac97180e97449d3932f8588d482ac5c50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition> bool python_client_test.is_socket_closed</definition>
+        <argsstring>(socket.socket sock)</argsstring>
+        <name>is_socket_closed</name>
+        <param>
+          <type>socket.socket</type>
+          <declname>sock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="python_client_test.py" line="14" column="1" bodyfile="python_client_test.py" bodystart="14" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="python_client_test.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

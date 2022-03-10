@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="structorientation" kind="struct" language="C++" prot="public">
+    <compoundname>orientation</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structorientation_1a270ab7fcce8bb6ba0d605b879fca7542" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float orientation::phi</definition>
+        <argsstring></argsstring>
+        <name>phi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="41" column="7" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structorientation_1a4083bdbc55ed899e2d0d2ba758f88203" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float orientation::theta</definition>
+        <argsstring></argsstring>
+        <name>theta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="components/orientation_estimate/include/position_process.h" line="42" column="7" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="components/orientation_estimate/include/position_process.h" line="40" column="1" bodyfile="components/orientation_estimate/include/position_process.h" bodystart="40" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structorientation_1a270ab7fcce8bb6ba0d605b879fca7542" prot="public" virt="non-virtual"><scope>orientation</scope><name>phi</name></member>
+      <member refid="structorientation_1a4083bdbc55ed899e2d0d2ba758f88203" prot="public" virt="non-virtual"><scope>orientation</scope><name>theta</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

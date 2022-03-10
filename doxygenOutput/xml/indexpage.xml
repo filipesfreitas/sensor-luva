@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Luva eletrônica</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_Docs_main"/> </para>
+<sect2 id="index_1autotoc_md1">
+<title>Sistema</title>
+<para>Esta divisão do trabalho vem da forma como foi concebido o projeto, dividindo o problema em tarefas. Cada tarefa representa um aspecto do projeto: comunicação entre microcontrolador e plataforma externa, controle da multiplexação dos canais e leitura dos registradores de cada canal.A sincronização destas tarefas é feita através de eventos em grupo ou EventGroup, no FREE RTOS bits de eventos são utilizados para indicar a ocorrência de um evento,é possível bloquear uma tarefa pela espera de um evento ou conjunto de eventos por um tempo pré determinado. Foram definidos 5 eventos que determinam as tarefas executadas no momento pelo dispositivo:</para>
+<para><itemizedlist>
+<listitem><para>Item1<itemizedlist>
+<listitem></listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Item 2 </para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+    </detaileddescription>
+    <location file="Docs/main.md"/>
+  </compounddef>
+</doxygen>
