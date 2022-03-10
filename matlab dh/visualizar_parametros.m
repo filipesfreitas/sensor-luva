@@ -1,12 +1,12 @@
 clear all;
 clc;
-import_500ms;
+calibrateread;
 
 window_mean = 100;
 %falange proximal
-theta_01_filt = movmean(raw_data.VarName6,100);
+theta_01_filt = movmean(test.metaphi1,100)*pi/180;
 % falange medial
-theta_02_filt = movmean(raw_data.VarName8,100);
+theta_02_filt = movmean(test.proxphi1,100)*pi/180;
 
 
 %% Parâmetros fixos
@@ -21,7 +21,7 @@ mth_base = [rot_axis(-pi/2,2), [0;a0;L0];0,0,0,1];
 
 start=1;
 figure('units','normalized','outerposition',[0 0 1 1])
-for i=start:10:length(theta_01_filt)
+for i=start:5:length(theta_01_filt)
 %% Matrizes de transformação homogênea
 
 A0 = mth_base;
@@ -31,17 +31,22 @@ A23 = A12 * D_H_par( theta_02_filt(i),alpha(3),d(3),a(3)); % matriz de transform
 A34 = A23 * D_H_par( theta_02_filt(i)/2,alpha(4),d(4),a(4)); % matriz de transformação homogênea do frame A4 ao frame A5; Matriz A45
 
 %% Sinal dos ângulos medidos
- clf
+ clf 
  fig.OuterPosition=[0 0 1 1];
- subplot(121),hold on
- plot(theta_01_filt(start:i));
- plot(theta_02_filt(start:i));
+ subplot(2,2,1)
+ plot(test.p1(start:i));
+ legend('Leitura sensor FSR(g)')
+   xlabel('Amostra '),ylabel('Força (g)')
+
+ subplot(2,2,3),hold on
+ plot(theta_01_filt(start:i)*180/pi);
+ plot(theta_02_filt(start:i)*180/pi);
   legend('Ângulo phi referência','Ângulo phi articulação MCF','Ângulo phi articulação IFP','Ângulo theta articulação IFP', 'Ângulo theta articulação IFD','Orientation','vertical')
   xlabel('Amostra '),ylabel('Ângulo (°)')
-axis([0 inf,-270 500])
+axis([0 inf,-180 180])
 grid on
 %% Desenhar as linhas que representam os links  entre juntas
-subplot(122),hold on, grid on
+subplot(2,2,[2,4]),hold on, grid on
 view(0,0)
 pbase = [0,0,0];
 p0=A0(1:3,4);
@@ -73,7 +78,7 @@ cord_system(A34,p4,'A4');
  plot3(x,y,z ,'Color', [0 0 0],'LineWidth',3);
 
 xlabel('x (mm)'),ylabel('y'),zlabel('z (mm)')
-axis([-40 80, -25 25 0 140])
+axis([-sum(L) sum(L), -150 150])
 pause(.001);
 end
 

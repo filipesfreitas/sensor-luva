@@ -27,8 +27,7 @@ grid on
 grid minor
 
 errorbar(x,x_plot(:,1),x_plot(:,2),'vertical','*')
-xlabel('Peso teste (g)')
-ylabel('Tensão Medida (mV)')
+
 
 y = fit(x',x_plot(:,1),'exp1')
 
@@ -37,4 +36,5 @@ xfit = y.a*exp(y.b*x);
 
 rmse = sqrt(sum((xfit'-x_plot(:,1)).^2)/17);
 
-
+xlabel('Peso teste (g)')
+ylabel('Tensão Medida (mV)')
