@@ -18,7 +18,7 @@ static const char *TAG = "TAG_ESP";
 #define degre_conv 180/M_PI
 #define radconv M_PI/180
 #define time_constant .1
-#define period 70E-3
+#define period 25E-3
 #define R 4700 	/* Resistance of voltage divider on ohms */
 #define Vinput 3300 /* Input voltage in mV */
 #define channels 2
